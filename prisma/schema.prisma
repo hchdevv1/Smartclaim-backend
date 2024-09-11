@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generate-client-db"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model claimants {
+  claimantid       Int       @id @default(autoincrement())
+  pid              String?   @unique(map: "Claimant_Unique_PID") @db.VarChar(13)
+  passportnumber   String?   @db.VarChar(15)
+  hn               String?   @db.VarChar(10)
+  title_th         String?   @db.VarChar(50)
+  givenname_th     String?   @db.VarChar(50)
+  surname_th       String?   @db.VarChar(50)
+  title_en         String?   @db.VarChar(50)
+  givenname_en     String?   @db.VarChar(50)
+  surname_en       String?   @db.VarChar(50)
+  mobilephone      String?   @db.VarChar(15)
+  insurerid        Int?
+  statusactive     Boolean?
+  registrationdate DateTime? @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Bangkok'::text)")) @db.Timestamp(6)
+  dateofbirth      String?   @db.VarChar(10)
+  gender           String?   @db.VarChar(10)
+  patientid        Int?
+  insurers         insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model insurers {
+  insurerid        Int              @id
+  insurercode      Int?
+  insurername      String?          @db.VarChar(100)
+  registrationdate DateTime?        @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Bangkok'::text)")) @db.Timestamp(6)
+  ClaimStatus      ClaimStatus[]
+  IllnessSurgery   IllnessSurgery[]
+  IllnessType      IllnessType[]
+  PolicyType       PolicyType[]
+  ServiceSetting   ServiceSetting[]
+  claimants        claimants[]
+}
+
+model ClaimStatus {
+  id           Int       @id @default(autoincrement())
+  StatusCode   String
+  StatusDescTH String?
+  StatusDescEN String?
+  insurerid    Int?
+  insurers     insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction, map: "claimStatus_insurerid_fkey")
+
+  @@index([insurerid], map: "fki_claimStatus_insurerid_fkey")
+}
+
+model IllnessSurgery {
+  id            Int       @id @default(autoincrement())
+  ISCode        String
+  ISDescription String?
+  insurerid     Int?
+  insurers      insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model IllnessType {
+  id              Int       @id @default(autoincrement())
+  IllnessTypeCode String
+  IllnessTypeDesc String?
+  insurerid       Int?
+  insurers        insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model PolicyType {
+  id             Int       @id @default(autoincrement())
+  PolicyTypeCode String
+  PolicyTypeDesc String?
+  insurerid      Int?
+  insurers       insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model ServiceSetting {
+  id                 Int       @id @default(autoincrement())
+  ServiceSettingCode String
+  ServiceSettingDesc String
+  insurerid          Int?
+  insurers           insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+}
