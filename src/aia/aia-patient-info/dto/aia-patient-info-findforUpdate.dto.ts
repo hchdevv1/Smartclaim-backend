@@ -7,7 +7,6 @@ export class FindforUpdateDto {
     TransactionQuery :TransactionQueryPatientCreateDto;
     Result?: ComparePatientInfo;
 }
-
 export class FindforUpdateBodyDto {
     PatientInfo?: FindforUpdatePatientBodyDto
   }
@@ -59,13 +58,8 @@ export class FindforUpdateBodyDto {
     VisitDateto?: string;
 
   }
-
-
-
 export class ComparePatientInfo{
-
     PatientInfo?:ComparePatientData
-
   }
   class ComparePatientData{
     PatientDatabase?:FindforUpdatePatientDatabase

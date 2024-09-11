@@ -1,14 +1,10 @@
-import { Controller, Post  ,Body } from '@nestjs/common';
+import { Controller, Post, Patch, Body } from '@nestjs/common';
 import { AiaPatientInfoService } from './aia-patient-info.service';
-
-//import { PostPatientBodyUpdateDto } from './dto/aia-patient-info-update.dto';
-
-
 
 import { FindBodyDto } from './dto/aia-patient-info-find.dto';
 import { CreateBodyDto } from './dto/aia-patient-info-create.dto';
 import { SearchBodyDto } from './dto/aia-patient-info-search.dto';
-//import { UpdateBodyDto } from './dto/aia-patient-info-update.dto';
+import { UpdateBodyDto } from './dto/aia-patient-info-update.dto';
 import { FindforUpdateBodyDto } from './dto/aia-patient-info-findforUpdate.dto';
 
 @Controller('aia-patient-info')
@@ -37,8 +33,6 @@ export class AiaPatientInfoController {
         const result = this.aiaPatientInfoService.create(createBodyDto);
         return  result
   }
-
-
   @Post('/PatientSearch')
   async PatientSearch(@Body() searchBodyDto:SearchBodyDto){
         const result = this.aiaPatientInfoService.PatientSearchByPID(searchBodyDto);
@@ -50,13 +44,13 @@ export class AiaPatientInfoController {
         const result = this.aiaPatientInfoService.FindforUpdate(findforUpdateBodyDto);
         return result
   }
-//   @Patch('/PatientUpdate')
-//   async updatePatientInfo(
-//   @Body() updateBodyDto: UpdateBodyDto,
-// ) {
-//   // const result = await this.aiaPatientInfoService.updatePatientInfoByPID(updateBodyDto);
-//     return ''//result
-//   }
+  @Patch('/PatientUpdate')
+  async updatePatientInfo(
+  @Body() updateBodyDto: UpdateBodyDto,
+) {
+    const result = await this.aiaPatientInfoService.updatePatientInfoByPID(updateBodyDto);
+    return result
+  }
 
 
 }

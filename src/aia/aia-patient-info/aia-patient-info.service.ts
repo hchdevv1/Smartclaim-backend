@@ -15,9 +15,8 @@ import { HttpStatusMessageService } from '../../utils/http-status-message.servic
 import { PatientFindDto, FindBodyDto ,FindPatientResultDto} from './dto/aia-patient-info-find.dto';
 import { PatientCreateDto, CreateBodyDto  } from './dto/aia-patient-info-create.dto';
 import { PatientSearchDto, SearchBodyDto } from './dto/aia-patient-info-search.dto';
-import { FindforUpdateDto, FindforUpdateBodyDto, FindforUpdatePatientTrakcare } from './dto/aia-patient-info-findforUpdate.dto';
-
-import { UpdateBodyDto } from './dto/aia-patient-info-update.dto';
+import { FindforUpdateDto, FindforUpdateBodyDto, FindforUpdatePatientTrakcare, FindforUpdatePatientDatabase } from './dto/aia-patient-info-findforUpdate.dto';
+import { PatientUpdateDto, UpdateBodyDto } from './dto/aia-patient-info-update.dto';
 
 // let xRefID: string, xTransactionNo: string, xPID: string, xPassport: string,xIdType:string, xHN: string, xVN: string;
 // let xStatusClaimCode :string ,xInsurerCode:number ,xVisitDatefrom:Date,xVisitDateto:Date;
@@ -466,8 +465,48 @@ async FindforUpdate(findforUpdateBodyDto:FindforUpdateBodyDto){
   MobilePhone: TrakcarepatientInfo.PatientInfo.MobilePhone
 
 }
+  const DatabasePatientInfo = await prismaProgest.claimants.findUnique({
+    where: {
+      pid: findforUpdateBodyDto.PatientInfo.PID,
+    },select:{
+      insurerid:true,
+      pid:true,
+      passportnumber:true,
+      hn:true,
+      title_th:true,
+      givenname_th:true,
+      surname_th:true,
+      title_en:true,
+      givenname_en:true,
+      surname_en:true,
+      mobilephone:true,
+      dateofbirth:true,
+      gender:true,
+      patientid:true,
+      statusactive:true
+    }
+  })
+  console.log(DatabasePatientInfo)
+  let newFindforUpdatePatientDatabase = new FindforUpdatePatientDatabase();
+  if (DatabasePatientInfo){
+  newFindforUpdatePatientDatabase = {
 
-
+    PatientID: DatabasePatientInfo.patientid,
+    PID: DatabasePatientInfo.pid,
+    PassportNumber: DatabasePatientInfo.passportnumber,
+    HN:DatabasePatientInfo.hn,
+    TitleTH:DatabasePatientInfo.title_th,
+    GivenNameTH: DatabasePatientInfo.givenname_th,
+    SurnameTH: DatabasePatientInfo.surname_th,
+    TitleEN:DatabasePatientInfo.title_en,
+    GivenNameEN:DatabasePatientInfo.givenname_en,
+    SurnameEN:DatabasePatientInfo.surname_en,
+    DateOfBirth: DatabasePatientInfo.dateofbirth,
+    Gender:  DatabasePatientInfo.gender,
+    MobilePhone: DatabasePatientInfo.mobilephone
+  
+  }
+}
     const newHttpMessageDto =new HttpMessageDto();
     this.addFormatHTTPStatus(newHttpMessageDto,ResponeTrakcareHTTPStatus.xstatusCode,ResponeTrakcareHTTPStatus.xmessage,ResponeTrakcareHTTPStatus.xerror)
     const newTransactionQueryDto =new TransactionQueryDto();
@@ -483,15 +522,13 @@ async FindforUpdate(findforUpdateBodyDto:FindforUpdateBodyDto){
   Result:{
 
    PatientInfo:{
-    PatientDatabase:newFindforUpdatePatientTrakcare,
+    PatientDatabase:newFindforUpdatePatientDatabase,
     PatientTrakcare:newFindforUpdatePatientTrakcare
    }
   }
 
 }
-
-  // FindforUpdateDto
-      return newFindforUpdateDto
+    return newFindforUpdateDto
   }catch(error)
   {
     if (error instanceof Prisma.PrismaClientInitializationError) {
@@ -563,8 +600,96 @@ async FindforUpdate(findforUpdateBodyDto:FindforUpdateBodyDto){
 
 async updatePatientInfoByPID(updateBodyDto:UpdateBodyDto){
 try {
+  const xPID= updateBodyDto.PatientInfo.PID
+  if (xPID){
+  const PostUpdatePatient ={
+    pid: updateBodyDto.PatientInfo.PID|| undefined,
+    hn: updateBodyDto.PatientInfo.HN|| undefined,
+    passportnumber: updateBodyDto.PatientInfo.PassportNumber|| undefined,
+    title_th: updateBodyDto.PatientInfo.TitleTH|| undefined,
+    givenname_th: updateBodyDto.PatientInfo.GivenNameTH|| undefined,
+    surname_th: updateBodyDto.PatientInfo.SurnameTH|| undefined,
+    title_en: updateBodyDto.PatientInfo.TitleEN|| undefined,
+    givenname_en: updateBodyDto.PatientInfo.GivenNameEN|| undefined,
+    surname_en: updateBodyDto.PatientInfo.SurnameEN|| undefined,
+    mobilephone: updateBodyDto.PatientInfo.MobilePhone|| undefined,
+    dateofbirth: updateBodyDto.PatientInfo.DateOfBirth|| undefined,
+    gender: updateBodyDto.PatientInfo.Gender|| undefined,
+    statusactive:true //updateBodyDto.PatientInfo.StatusActive|| undefined,
+  }
+  const result = await prismaProgest.claimants.update({
+    where: {
+      pid: xPID,
+    },data: PostUpdatePatient
+  })
 
-    return updateBodyDto
+let httpcode
+    if(result) {
+      httpcode =HttpStatus.OK
+    }
+    ResponeTrakcareHTTPStatus={
+      xstatusCode :httpcode,
+      xmessage :'User update successfully',
+      xerror :''
+    }
+    const newHttpMessageDto =new HttpMessageDto();
+    this.addFormatHTTPStatus(newHttpMessageDto,ResponeTrakcareHTTPStatus.xstatusCode,ResponeTrakcareHTTPStatus.xmessage,ResponeTrakcareHTTPStatus.xerror)
+    const resultupdate = await prismaProgest.claimants.findUnique({
+      where: {
+        pid: xPID,
+      },select:{
+        insurerid:true,
+        pid:true,
+        passportnumber:true,
+        hn:true,
+        title_th:true,
+        givenname_th:true,
+        surname_th:true,
+        title_en:true,
+        givenname_en:true,
+        surname_en:true,
+        mobilephone:true,
+        dateofbirth:true,
+        gender:true,
+        patientid:true,
+        statusactive:true
+      }
+    })
+    const RequesetBody ={
+      PID :resultupdate.pid,
+      PassportNumber: resultupdate.passportnumber,
+      HN: resultupdate.hn,
+      TitleTH: resultupdate.title_th,
+      GivenNameTH: resultupdate.givenname_th,
+      SurnameTH: resultupdate.surname_th,
+      title_en: resultupdate.title_en,
+      GivenNameEN: resultupdate.givenname_en,
+      SurnameEN: resultupdate.surname_en,
+      MobilePhone: resultupdate.mobilephone,
+      InsurerCode: +resultupdate.insurerid,
+      //statusactive: resultupdate.statusactive,
+      DateOfBirth: resultupdate.dateofbirth,
+      Gender: resultupdate.gender,
+      PatientID: resultupdate.patientid,
+    }
+    const newTransactionQueryPatientCreateDto =new TransactionQueryPatientCreateDto();
+    this.addFormatTransactionPatientCreateDto(newTransactionQueryPatientCreateDto, 
+      resultupdate.insurerid,resultupdate.patientid,resultupdate.pid,
+      resultupdate.passportnumber,resultupdate.hn,
+      resultupdate.title_th,resultupdate.givenname_th,resultupdate.surname_th,
+      resultupdate.title_en,resultupdate.givenname_en,resultupdate.surname_en,
+      resultupdate.dateofbirth,resultupdate.gender,resultupdate.mobilephone
+    )
+    let newPatientUpdateDto= new PatientUpdateDto();
+    newPatientUpdateDto={
+      HTTPStatus:newHttpMessageDto,
+       TransactionQuery:newTransactionQueryPatientCreateDto,
+       Result:{
+         PatientInfo:RequesetBody
+         }
+      }
+    return newPatientUpdateDto
+  }
 }catch(error)
 {
   if (error instanceof Prisma.PrismaClientInitializationError) {
