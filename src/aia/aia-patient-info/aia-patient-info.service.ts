@@ -2,24 +2,18 @@ import { Injectable , HttpException, HttpStatus} from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { prismaProgest } from '../../database/database';
 import { Prisma } from '../../../prisma/generate-client-db'
-
-
-////////
+/* ////// utils //////  */
 import { TrakcarePatientInfoService } from '../../trakcare/trakcare-patient-info/trakcare-patient-info.service';
 import { TransactionQueryDto, TransactionQueryPatientCreateDto } from '../../utils/dto/transaction-query.dto'
 import { HttpMessageDto } from '../../utils/dto/http-status-message.dto'
 import { HttpStatusMessageService } from '../../utils/http-status-message.service'
-
 /* ////// DTO //////  */
-
 import { PatientFindDto, FindBodyDto ,FindPatientResultDto} from './dto/aia-patient-info-find.dto';
 import { PatientCreateDto, CreateBodyDto  } from './dto/aia-patient-info-create.dto';
 import { PatientSearchDto, SearchBodyDto } from './dto/aia-patient-info-search.dto';
 import { FindforUpdateDto, FindforUpdateBodyDto, FindforUpdatePatientTrakcare, FindforUpdatePatientDatabase } from './dto/aia-patient-info-findforUpdate.dto';
 import { PatientUpdateDto, UpdateBodyDto } from './dto/aia-patient-info-update.dto';
 
-// let xRefID: string, xTransactionNo: string, xPID: string, xPassport: string,xIdType:string, xHN: string, xVN: string;
-// let xStatusClaimCode :string ,xInsurerCode:number ,xVisitDatefrom:Date,xVisitDateto:Date;
 const httpStatusMessageService = new HttpStatusMessageService();
 let TrakcarepatientInfo;
 let RequesetBody,ResponeTrakcareHTTPStatus;
@@ -29,8 +23,6 @@ export class AiaPatientInfoService {
     private readonly httpService: HttpService,
     private readonly trakcarePatientInfoService: TrakcarePatientInfoService // Inject here
   ) {}
-
-
 async FindPatient(findBodyDto : FindBodyDto){
   
   try{
@@ -168,7 +160,6 @@ return newPatientfindDto
 }
 async create(createBodyDto:CreateBodyDto){
   try{
-
     const RequesetBody ={
       pid :createBodyDto.PatientInfo.PID,
       passportnumber: createBodyDto.PatientInfo.PassportNumber,
@@ -186,8 +177,11 @@ async create(createBodyDto:CreateBodyDto){
       gender: createBodyDto.PatientInfo.Gender,
       patientid: +createBodyDto.PatientInfo.PatientID,
     }
+    if(RequesetBody.pid ='ต่างชาติ'){RequesetBody.pid = RequesetBody.hn}
 
     const result =await prismaProgest.claimants.create({  data: RequesetBody })
+    console.log(result.pid)
+   
     let httpcode
     if(result) {
       httpcode =HttpStatus.CREATED
@@ -302,17 +296,50 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
       xVisitDatefrom:searchBodyDto.PatientInfo.VisitDatefrom||'',
       xVisitDateto:searchBodyDto.PatientInfo.VisitDateto||'',
     }
-
-
-  const  results = await prismaProgest.claimants.findMany({
+    let  results
+    if( searchBodyDto.PatientInfo.IdType === "NATIONAL_ID"){
+    
+      results = await prismaProgest.claimants.findMany({
     where: {
-      OR:[
-        {hn: searchBodyDto.PatientInfo.HN},
-        {pid: searchBodyDto.PatientInfo.PID},
-        {passportnumber: searchBodyDto.PatientInfo.PassportNumber}
-      ]
+      
+        pid: searchBodyDto.PatientInfo.PID
+      
     },
   })
+  
+   }else if( searchBodyDto.PatientInfo.IdType ==="HOSPITAL_ID"){
+    results = await prismaProgest.claimants.findMany({
+      where: {
+        
+          hn: searchBodyDto.PatientInfo.HN
+        
+      },
+    })
+  }else if( searchBodyDto.PatientInfo.IdType ==="PASSPORT_NO"){
+    results = await prismaProgest.claimants.findMany({
+      where: {
+        
+          passportnumber: searchBodyDto.PatientInfo.PassportNumber
+        
+      },
+    })
+  }else{
+    results = await prismaProgest.claimants.findMany({
+      where: {
+        
+          pid: searchBodyDto.PatientInfo.PID
+        
+      },})
+  }
+
+// console.log('HN')
+// console.log(searchBodyDto.PatientInfo.HN)
+// console.log('passport')
+// console.log(searchBodyDto.PatientInfo.PassportNumber)
+// console.log('PId')
+// console.log(searchBodyDto.PatientInfo.PID)
+
+  // console.log(results)
   const patientInfoArray = results.map((result) => ({
       PID: result.pid,
       HN: result.hn,
@@ -423,7 +450,6 @@ return newPatientSearchDto;
     }
   }
 }
-
 async FindforUpdate(findforUpdateBodyDto:FindforUpdateBodyDto){
   try {
     RequesetBody ={
@@ -439,8 +465,8 @@ async FindforUpdate(findforUpdateBodyDto:FindforUpdateBodyDto){
       xVisitDatefrom:findforUpdateBodyDto.PatientInfo.VisitDatefrom||'',
       xVisitDateto:findforUpdateBodyDto.PatientInfo.VisitDateto||'',
     }
-    if (RequesetBody.xPID){
-      TrakcarepatientInfo = await this.trakcarePatientInfoService.getPatientInfoByPID(RequesetBody.xPID);
+    if (RequesetBody.xHN){
+      TrakcarepatientInfo = await this.trakcarePatientInfoService.getPatientInfoByHN(RequesetBody.xHN);
     }
     ResponeTrakcareHTTPStatus={
       xstatusCode :TrakcarepatientInfo.statusCode,
@@ -597,7 +623,6 @@ async FindforUpdate(findforUpdateBodyDto:FindforUpdateBodyDto){
   }
   
   }
-
 async updatePatientInfoByPID(updateBodyDto:UpdateBodyDto){
 try {
   const xPID= updateBodyDto.PatientInfo.PID
@@ -758,8 +783,6 @@ let httpcode
 }
 
 }
-
-
 
 
  addFormatTransactionQuery(data: TransactionQueryDto,
