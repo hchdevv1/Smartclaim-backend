@@ -502,7 +502,13 @@ async FindforUpdate(findforUpdateBodyDto:FindforUpdateBodyDto){
 }
   const DatabasePatientInfo = await prismaProgest.claimants.findUnique({
     where: {
-      pid: findforUpdateBodyDto.PatientInfo.PID,
+      hn_insurerid :{
+        hn : findforUpdateBodyDto.PatientInfo.HN,
+        insurerid:findforUpdateBodyDto.PatientInfo.InsurerCode
+      }
+      
+      
+      //pid: findforUpdateBodyDto.PatientInfo.PID,
     },select:{
       insurerid:true,
       pid:true,
@@ -653,7 +659,12 @@ try {
   }
   const result = await prismaProgest.claimants.update({
     where: {
-      pid: xPID,
+     // pid: xPID,
+      hn_insurerid :{
+        hn : updateBodyDto.PatientInfo.HN,
+        insurerid:updateBodyDto.PatientInfo.InsurerCode
+      }
+      
     },data: PostUpdatePatient
   })
 
@@ -670,7 +681,11 @@ let httpcode
     this.addFormatHTTPStatus(newHttpMessageDto,ResponeTrakcareHTTPStatus.xstatusCode,ResponeTrakcareHTTPStatus.xmessage,ResponeTrakcareHTTPStatus.xerror)
     const resultupdate = await prismaProgest.claimants.findUnique({
       where: {
-        pid: xPID,
+       // pid: xPID,
+        hn_insurerid :{
+          hn : updateBodyDto.PatientInfo.HN,
+          insurerid:updateBodyDto.PatientInfo.InsurerCode
+        }
       },select:{
         insurerid:true,
         pid:true,

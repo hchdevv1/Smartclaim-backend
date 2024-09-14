@@ -8782,10 +8782,11 @@ export namespace Prisma {
 
   export type claimantsWhereUniqueInput = Prisma.AtLeast<{
     claimantid?: number
-    pid?: string
+    hn_insurerid?: claimantsHnInsureridCompoundUniqueInput
     AND?: claimantsWhereInput | claimantsWhereInput[]
     OR?: claimantsWhereInput[]
     NOT?: claimantsWhereInput | claimantsWhereInput[]
+    pid?: StringNullableFilter<"claimants"> | string | null
     passportnumber?: StringNullableFilter<"claimants"> | string | null
     hn?: StringNullableFilter<"claimants"> | string | null
     title_th?: StringNullableFilter<"claimants"> | string | null
@@ -8802,7 +8803,7 @@ export namespace Prisma {
     gender?: StringNullableFilter<"claimants"> | string | null
     patientid?: IntNullableFilter<"claimants"> | number | null
     insurers?: XOR<InsurersNullableRelationFilter, insurersWhereInput> | null
-  }, "claimantid" | "pid">
+  }, "claimantid" | "hn_insurerid">
 
   export type claimantsOrderByWithAggregationInput = {
     claimantid?: SortOrder
@@ -9686,6 +9687,11 @@ export namespace Prisma {
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type claimantsHnInsureridCompoundUniqueInput = {
+    hn: string
+    insurerid: number
   }
 
   export type claimantsCountOrderByAggregateInput = {

@@ -10,7 +10,7 @@ datasource db {
 
 model claimants {
   claimantid       Int       @id @default(autoincrement())
-  pid              String?   @unique(map: "Claimant_Unique_PID") @db.VarChar(13)
+  pid              String?   @db.VarChar(13)
   passportnumber   String?   @db.VarChar(15)
   hn               String?   @db.VarChar(10)
   title_th         String?   @db.VarChar(50)
@@ -27,6 +27,8 @@ model claimants {
   gender           String?   @db.VarChar(10)
   patientid        Int?
   insurers         insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction, map: "fk_insurer")
+
+  @@unique([hn, insurerid], map: "unique_hn_insurerid")
 }
 
 model insurers {
