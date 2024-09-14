@@ -47,6 +47,53 @@ export class TransactionQueryDto {
     VisitDateto:string;
    
   }
+  export class TransactionQueryEpisodeDto {
+    @IsString()
+    @IsOptional()
+    PID?: string;
+
+    @IsString()
+    @IsOptional()
+    PassportNumber?: string;
+
+    @IsString()
+    @IsOptional()
+    IdType?: string;
+
+    @IsString()
+    @IsOptional()
+    RefID: string;
+
+    @IsString()
+    @IsOptional()
+    TransactionNo: string;
+
+    @IsString()
+    @IsOptional()
+    ServiceSettingCode: string;
+
+    @IsString()
+    @IsOptional()
+    InsurerCode: number;
+
+    @IsString()
+    @IsOptional()
+    HN: string;
+
+    @IsString()
+    @IsOptional()
+    VN: string;
+
+    @IsString()
+    @IsOptional()
+    VisitDatefrom:string;
+
+
+    @IsString()
+    @IsOptional()
+    VisitDateto:string;
+   
+  }
 export class TransactionQueryPatientCreateDto{
 
     @IsInt()
@@ -106,3 +153,76 @@ export class TransactionQueryPatientCreateDto{
     @IsOptional()
     MobilePhone?: string;
 }
+
+export class TransactionQuerycheckeligibleDto {
+
+    @IsString()
+    @IsOptional()
+    InsurerCode: number;
+
+    @IsString()
+    @IsOptional()
+    RefID: string;
+
+    @IsString()
+    @IsOptional()
+    TransactionNo: string;
+
+    @IsString()
+    @IsOptional()
+    PID?: string;
+
+    @IsString()
+    @IsOptional()
+    HN: string;
+
+    @IsString()
+    @IsOptional()
+    GivenNameTH:string;
+
+    @IsString()
+    @IsOptional()
+    SurnameTH:string;
+
+    @IsString()
+    @IsOptional()
+    DateOfBirth:string;
+
+    @IsString()
+    @IsOptional()
+    PassportNumber?: string;
+
+    @IsString()
+    @IsOptional()
+    IdType?: string;
+
+    @IsString()
+    @IsOptional()
+    VN?: string;
+
+    @IsString()
+    @IsOptional()
+    VisitDateTime?: string;
+
+    @IsString()
+    @IsOptional()
+    AccidentDate: string;
+
+    @IsString()
+    @IsOptional()
+    PolicyTypeCode: string;
+
+    @IsString()
+    @IsOptional()
+    ServiceSettingCode: string;
+
+    @IsString()
+    @IsOptional()
+    IllnessTypeCode: string;
+
+    @IsString()
+    @IsOptional()
+    SurgeryTypeCode: string;
+   
+   
+  }

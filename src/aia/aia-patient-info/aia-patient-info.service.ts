@@ -180,7 +180,8 @@ async create(createBodyDto:CreateBodyDto){
     if(RequesetBody.pid ='ต่างชาติ'){RequesetBody.pid = RequesetBody.hn}
 
     const result =await prismaProgest.claimants.create({  data: RequesetBody })
-    console.log(result.pid)
+
+    console.log(result)
    
     let httpcode
     if(result) {
@@ -296,6 +297,7 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
       xVisitDatefrom:searchBodyDto.PatientInfo.VisitDatefrom||'',
       xVisitDateto:searchBodyDto.PatientInfo.VisitDateto||'',
     }
+    
     let  results
     if( searchBodyDto.PatientInfo.IdType === "NATIONAL_ID"){
     
@@ -332,6 +334,7 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
       },})
   }
 
+  //console.log(searchBodyDto.PatientInfo.IdType)
 // console.log('HN')
 // console.log(searchBodyDto.PatientInfo.HN)
 // console.log('passport')
@@ -343,6 +346,7 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
   const patientInfoArray = results.map((result) => ({
       PID: result.pid,
       HN: result.hn,
+      PassportNumber:result.passportnumber,
       TitleTH: result.title_th,
       GivenNameTH: result.givenname_th,
       SurnameTH: result.surname_th,
@@ -353,15 +357,19 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
       DateOfBirth: result.dateofbirth,
       Gender: result.gender,
     }));
-    let httpcode
-    if(results) {
+    let httpcode,xmessageReturn
+    if((results)&&(results.length>0)) {
       httpcode =HttpStatus.OK
-
+      xmessageReturn = 'User search completed successfully'
+    }else{
+      httpcode =HttpStatus.BAD_REQUEST
+      xmessageReturn = 'Not Found.'
     }
+    //console.log(httpcode)
+    //console.log(xmessageReturn)
     ResponeTrakcareHTTPStatus={
-      
       xstatusCode :httpcode,
-      xmessage :'User search completed successfully',
+      xmessage :xmessageReturn,
       xerror :''
     }
     const newHttpMessageDto =new HttpMessageDto();
@@ -371,6 +379,7 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
   RequesetBody.xRefID,RequesetBody.xTransactionNo,RequesetBody.xPID,RequesetBody.xPassportnumber,
   RequesetBody.xIdType,RequesetBody.xStatusClaimCode,RequesetBody.xInsurerCode,
     RequesetBody.xHN,RequesetBody.xVN ,RequesetBody.xVisitDatefrom,RequesetBody.xVisitDateto)
+    //console.log(patientInfoArray)
     let newPatientSearchDto= new PatientSearchDto();
     newPatientSearchDto={
   HTTPStatus:newHttpMessageDto,
@@ -378,7 +387,7 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
    Result:{
     PatientInfo:patientInfoArray
    }
-
+  
 }
 
 return newPatientSearchDto;

@@ -1,0 +1,50 @@
+
+
+
+
+{
+    "HTTPStatus": {
+        "statusCode": 404,
+        "message": "Patient not found",
+        "error": ""
+    },
+    "TransactionQuery": {
+        "RefID": "O61-028993-ppp-ooo-o1",
+        "TransactionNo": "XXXXX",
+        "PID": "1160100078831",
+        "PassportNumber": "ABC12345",
+        "IdType": "PASSPORT_NO",
+        "StatusClaimCode": "01",
+        "InsurerCode": null,
+        "HN": "61-024057",
+        "VN": "O61-028993",
+        "VisitDatefrom": "2024-08-15",
+        "VisitDateto": "2024-08-06"
+    },
+    "Result": {
+      "Visit": {
+            "FurtherClaimId": "",
+            "AccidentCauseOver45Days": "",
+            "AdditionalNote": "",
+            "AlcoholRelated": true,
+            "ChiefComplaint": "fall",
+            "ComaScore": "15",
+            "DxFreeText": "fall with contusion",
+            "ExpectedDayOfRecovery": "45",
+            "Height": "180",
+            "PhysicalExam": "contusion",
+            "PlanOfTreatment": "",
+            "Pregnant": false,
+            "PresentIllness": "fall with contusion",
+            "PreviousTreatmentDate": "",
+            "PreviousTreatmentDetail": "",
+            "PrivateCase": true,
+            "ProcedureFreeText": "",
+            "SignSymptomsDate": "2024-08-01",
+            "UnderlyingCondition": "DM",
+            "VisitDateTime": "2024-08-01 00:00",
+            "Vn": "1+a6om4ORKZPwVBlU50sSg==",
+            "Weight": "60"
+        }
+    }
+}

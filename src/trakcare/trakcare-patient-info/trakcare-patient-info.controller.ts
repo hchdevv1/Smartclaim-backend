@@ -17,4 +17,10 @@ export class TrakcarePatientInfoController {
   getPatientInfoByPassportNumber(@Param('xHN') xHN: string) {
      return this.trakcarePatientInfoService.getPatientInfoByPassportNumber(xHN);
   }
+  @Get('/getEpisodeByHN/:xHN/:xEpiDate/:xEpiType')
+  getEpisodeByHN(@Param('xHN') xHN: string,@Param('xEpiDate') xEpiDate: string,@Param('xEpiType') xEpiType: string) {
+     return this.trakcarePatientInfoService.getEpisodeByHN(xHN,xEpiDate,xEpiType);
+  }
+
+  
 }

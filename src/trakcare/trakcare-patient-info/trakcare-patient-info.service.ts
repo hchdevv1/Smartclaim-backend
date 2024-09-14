@@ -31,7 +31,6 @@ export class TrakcarePatientInfoService {
       }
    return PatientInfo
   }
-  
   async getPatientInfoByHN( xHN: string ) {
     let response:any ;
     let PatientInfo ;
@@ -72,4 +71,49 @@ export class TrakcarePatientInfoService {
       }
    return PatientInfo
   }
+
+
+//   async getEpisodeByHN( xHN: string , xEpiDate: string , xEpiType: string) {
+//     let response:any ;
+//     let PatientInfo ;
+//     try{
+//        response = await firstValueFrom(
+//         this.httpService.get(`${TRAKCARE_APIURL}/getEpisodeByHN/${xHN}/${xEpiDate}/${xEpiType}`)
+//       );
+//       PatientInfo = response.data
+//     } catch(error)
+//       {
+//           if (error instanceof HttpException) {
+//             throw error;
+//          }  throw new HttpException(
+//            {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+//               message: httpStatusMessageService.getHttpStatusMessageTrakcare(HttpStatus.INTERNAL_SERVER_ERROR)
+//            },HttpStatus.INTERNAL_SERVER_ERROR );
+          
+//       }
+// }
+
+async getEpisodeByHN( xHN: string , xEpiDate: string , xEpiType: string) {
+  let response:any ;
+  let PatientInfo ;
+  try{
+     response = await firstValueFrom(
+      this.httpService.get(`${TRAKCARE_APIURL}/getEpisodeByHN/${xHN}/${xEpiDate}/${xEpiType}`)
+    );
+    PatientInfo = response.data
+  } catch(error)
+    {
+        if (error instanceof HttpException) {
+          throw error;
+       }  throw new HttpException(
+         {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+            message: httpStatusMessageService.getHttpStatusMessageTrakcare(HttpStatus.INTERNAL_SERVER_ERROR)
+         },HttpStatus.INTERNAL_SERVER_ERROR );
+        
+    }
+ return PatientInfo
+}
+
+
+
 }
