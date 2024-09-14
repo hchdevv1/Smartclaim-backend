@@ -35,7 +35,9 @@ export class AiaPatientInfoController {
   }
   @Post('/PatientSearch')
   async PatientSearch(@Body() searchBodyDto:SearchBodyDto){
-        const result = this.aiaPatientInfoService.PatientSearchByPID(searchBodyDto);
+     // console.log(searchBodyDto)
+       const result = this.aiaPatientInfoService.PatientSearch(searchBodyDto);
+       
         return result
   }
 
@@ -48,7 +50,7 @@ export class AiaPatientInfoController {
   async updatePatientInfo(
   @Body() updateBodyDto: UpdateBodyDto,
 ) {
-    const result = await this.aiaPatientInfoService.updatePatientInfoByPID(updateBodyDto);
+    const result = await this.aiaPatientInfoService.updatePatientInfoByHN(updateBodyDto);
     return result
   }
 

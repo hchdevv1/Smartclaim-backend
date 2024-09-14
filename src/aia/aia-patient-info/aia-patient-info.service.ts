@@ -282,7 +282,8 @@ async create(createBodyDto:CreateBodyDto){
     }
   }
 }
-async PatientSearchByPID(searchBodyDto:SearchBodyDto){
+async PatientSearch(searchBodyDto:SearchBodyDto){
+  console.log(searchBodyDto)
   try{
     RequesetBody ={
       xRefID:searchBodyDto.PatientInfo.RefID||'',
@@ -297,7 +298,7 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
       xVisitDatefrom:searchBodyDto.PatientInfo.VisitDatefrom||'',
       xVisitDateto:searchBodyDto.PatientInfo.VisitDateto||'',
     }
-    
+    console.log('----')
     let  results
     if( searchBodyDto.PatientInfo.IdType === "NATIONAL_ID"){
     
@@ -329,11 +330,14 @@ async PatientSearchByPID(searchBodyDto:SearchBodyDto){
     results = await prismaProgest.claimants.findMany({
       where: {
         
-          pid: searchBodyDto.PatientInfo.PID
+          hn: RequesetBody.xHN,
+          insurerid:13
+         //insurerid : RequesetBody.xInsurerCode
         
       },})
   }
-
+  console.log('00000')
+console.log(results)
   //console.log(searchBodyDto.PatientInfo.IdType)
 // console.log('HN')
 // console.log(searchBodyDto.PatientInfo.HN)
@@ -638,10 +642,11 @@ async FindforUpdate(findforUpdateBodyDto:FindforUpdateBodyDto){
   }
   
   }
-async updatePatientInfoByPID(updateBodyDto:UpdateBodyDto){
+async updatePatientInfoByHN(updateBodyDto:UpdateBodyDto){
 try {
-  const xPID= updateBodyDto.PatientInfo.PID
-  if (xPID){
+  const xHN= updateBodyDto.PatientInfo.HN
+  const xInsurerCode = updateBodyDto.PatientInfo.InsurerCode
+  if ((xHN)&&(xInsurerCode)){
   const PostUpdatePatient ={
     pid: updateBodyDto.PatientInfo.PID|| undefined,
     hn: updateBodyDto.PatientInfo.HN|| undefined,
@@ -659,7 +664,6 @@ try {
   }
   const result = await prismaProgest.claimants.update({
     where: {
-     // pid: xPID,
       hn_insurerid :{
         hn : updateBodyDto.PatientInfo.HN,
         insurerid:updateBodyDto.PatientInfo.InsurerCode
