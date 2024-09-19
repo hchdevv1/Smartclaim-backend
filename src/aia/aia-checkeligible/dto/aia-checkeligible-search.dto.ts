@@ -154,7 +154,7 @@ class SearchPatientBodyDto{
 
     @IsString()
     @IsOptional()
-    RefID?: string;
+    RefId?: string;
 
     @IsString()
     @IsOptional()

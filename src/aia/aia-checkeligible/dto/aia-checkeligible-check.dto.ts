@@ -106,7 +106,7 @@ class SearchPatientBodyDto{
 
     @IsString()
     @IsOptional()
-    RefID?: string;
+    RefId?: string;
 
     @IsString()
     @IsOptional()
@@ -285,4 +285,36 @@ export class InsuranceCustomerDetail{
     @IsOptional()
     NationalId?: string;
     
+  }
+
+  export class CreateTransectionDto{
+
+    @IsString()
+    @IsOptional()
+    refid?: string;
+
+    @IsString()
+    @IsOptional()
+    transactionid?: string;
+
+    @IsString()
+    @IsOptional()
+    statusid?: number;
+
+    @IsString()
+    @IsOptional()
+    hn?: string;
+
+    @IsString()
+    @IsOptional()
+    vn?: string;
+
+    @IsString()
+    @IsOptional()
+    insurerid?: number;
+
+    @IsString()
+    @IsOptional()
+    accidentdate?: string;
+
   }

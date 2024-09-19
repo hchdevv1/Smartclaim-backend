@@ -46,6 +46,25 @@ requestAccessToken() {
   return  this.utilsService.requestAccessToken_AIA();
 }
 
+@Get('/accidentPlace/:InsuranceCode')
+getAccidentPlace(@Param('InsuranceCode') InsuranceCode: string ) {
+  return  this.utilsService.getAccidentPlace(InsuranceCode)
+}
+
+@Get('/InjuryWoundtype/:InsuranceCode')
+getCauseofInjurywoundtype(@Param('InsuranceCode') InsuranceCode: string ) {
+  return  this.utilsService.getCauseofInjurywoundtype(InsuranceCode)
+}
+@Get('/InjurySide/:InsuranceCode')
+getCauseofInjurySide(@Param('InsuranceCode') InsuranceCode: string ) {
+  return  this.utilsService.getCauseofInjurySide(InsuranceCode)
+}
+@Get('/DxtypecodeTrakcareMapping/:InsuranceCode/:DxtypecodeTrakcare')
+getDiagnosisTypeMapping(@Param('InsuranceCode') InsuranceCode: string ,@Param('DxtypecodeTrakcare') DxtypecodeTrakcare: string  ) {
+  return  this.utilsService.getDiagnosisTypeMapping(InsuranceCode,DxtypecodeTrakcare)
+}
+
+
 // @Get('/test')
 // setDTOHTS(){
 //   return this.utilsService.setDTOHTS();

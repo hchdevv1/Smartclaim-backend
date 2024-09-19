@@ -119,33 +119,6 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.ClaimantsScalarFieldEnum = {
-  claimantid: 'claimantid',
-  pid: 'pid',
-  passportnumber: 'passportnumber',
-  hn: 'hn',
-  title_th: 'title_th',
-  givenname_th: 'givenname_th',
-  surname_th: 'surname_th',
-  title_en: 'title_en',
-  givenname_en: 'givenname_en',
-  surname_en: 'surname_en',
-  mobilephone: 'mobilephone',
-  insurerid: 'insurerid',
-  statusactive: 'statusactive',
-  registrationdate: 'registrationdate',
-  dateofbirth: 'dateofbirth',
-  gender: 'gender',
-  patientid: 'patientid'
-};
-
-exports.Prisma.InsurersScalarFieldEnum = {
-  insurerid: 'insurerid',
-  insurercode: 'insurercode',
-  insurername: 'insurername',
-  registrationdate: 'registrationdate'
-};
-
 exports.Prisma.ClaimStatusScalarFieldEnum = {
   id: 'id',
   StatusCode: 'StatusCode',
@@ -182,6 +155,73 @@ exports.Prisma.ServiceSettingScalarFieldEnum = {
   insurerid: 'insurerid'
 };
 
+exports.Prisma.ClaimantsScalarFieldEnum = {
+  claimantid: 'claimantid',
+  pid: 'pid',
+  passportnumber: 'passportnumber',
+  hn: 'hn',
+  title_th: 'title_th',
+  givenname_th: 'givenname_th',
+  surname_th: 'surname_th',
+  title_en: 'title_en',
+  givenname_en: 'givenname_en',
+  surname_en: 'surname_en',
+  mobilephone: 'mobilephone',
+  insurerid: 'insurerid',
+  statusactive: 'statusactive',
+  registrationdate: 'registrationdate',
+  dateofbirth: 'dateofbirth',
+  gender: 'gender',
+  patientid: 'patientid'
+};
+
+exports.Prisma.InsurersScalarFieldEnum = {
+  insurerid: 'insurerid',
+  insurercode: 'insurercode',
+  insurername: 'insurername',
+  registrationdate: 'registrationdate'
+};
+
+exports.Prisma.TransactionsScalarFieldEnum = {
+  id: 'id',
+  refid: 'refid',
+  transactionid: 'transactionid',
+  statusid: 'statusid',
+  updatedate: 'updatedate',
+  hn: 'hn',
+  vn: 'vn',
+  insurerid: 'insurerid',
+  accidentdate: 'accidentdate'
+};
+
+exports.Prisma.DiagnosisTypeMappingScalarFieldEnum = {
+  insurerid: 'insurerid',
+  dxtypecodetrakcare: 'dxtypecodetrakcare',
+  dxtypenametrakcare: 'dxtypenametrakcare',
+  dxtypecodeinsurance: 'dxtypecodeinsurance',
+  dxtypenameinsurance: 'dxtypenameinsurance'
+};
+
+exports.Prisma.AccidentplaceScalarFieldEnum = {
+  insurerid: 'insurerid',
+  accidentplacecode: 'accidentplacecode',
+  accidentplacename: 'accidentplacename'
+};
+
+exports.Prisma.CauseofinjurywoundtypeScalarFieldEnum = {
+  insurerid: 'insurerid',
+  woundtypename: 'woundtypename',
+  id: 'id',
+  woundtypecode: 'woundtypecode'
+};
+
+exports.Prisma.CauseofinjurysideScalarFieldEnum = {
+  insurerid: 'insurerid',
+  injurysidename: 'injurysidename',
+  injurysidecode: 'injurysidecode',
+  id: 'id'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -199,13 +239,18 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  claimants: 'claimants',
-  insurers: 'insurers',
   ClaimStatus: 'ClaimStatus',
   IllnessSurgery: 'IllnessSurgery',
   IllnessType: 'IllnessType',
   PolicyType: 'PolicyType',
-  ServiceSetting: 'ServiceSetting'
+  ServiceSetting: 'ServiceSetting',
+  Claimants: 'Claimants',
+  Insurers: 'Insurers',
+  Transactions: 'Transactions',
+  DiagnosisTypeMapping: 'DiagnosisTypeMapping',
+  accidentplace: 'accidentplace',
+  causeofinjurywoundtype: 'causeofinjurywoundtype',
+  causeofinjuryside: 'causeofinjuryside'
 };
 
 /**

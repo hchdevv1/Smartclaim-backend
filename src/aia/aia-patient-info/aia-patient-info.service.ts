@@ -177,7 +177,7 @@ async create(createBodyDto:CreateBodyDto){
       gender: createBodyDto.PatientInfo.Gender,
       patientid: +createBodyDto.PatientInfo.PatientID,
     }
-    if(RequesetBody.pid ='ต่างชาติ'){RequesetBody.pid = RequesetBody.hn}
+    if(RequesetBody.pid ==='ต่างชาติ'){RequesetBody.pid = RequesetBody.hn}
 
     const result =await prismaProgest.claimants.create({  data: RequesetBody })
 

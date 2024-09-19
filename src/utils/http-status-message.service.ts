@@ -102,7 +102,7 @@ export  class HttpStatusMessageService {
             };
         }
     
-        return messages[statusCode] || 'An unexpected error occurred.';
+        return messages[statusCode] || 'An unexpected error occurred...';
     }
       getHttpStatusMessageTrakcare(statusCode: number): string {
 
@@ -115,6 +115,6 @@ export  class HttpStatusMessageService {
             [HttpStatus.INTERNAL_SERVER_ERROR]: 'Cannot connect to the trakcare / path not found. Please ensure the database server is running.', // 500
            
         };
-        return messages[statusCode] || 'An unexpected error occurred.';
+        return messages[statusCode] || 'An unexpected error occurred..';
       }
 }

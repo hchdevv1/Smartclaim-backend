@@ -296,6 +296,159 @@ export class UtilsService {
       }
    return policyType  
   }
+
+  async getAccidentPlace( xInsurercode: string ) {
+    let accidentPlace:any ;
+    try{
+      accidentPlace = await prismaProgest.accidentplace.findMany({ 
+       
+      where:{
+        insurerid: +xInsurercode 
+       },  
+      select:{
+        accidentplacecode :true,
+        accidentplacename:true
+      
+
+      },
+       })   
+        if (!accidentPlace || accidentPlace.length === 0) {
+          throw new HttpException('AccidentPlace not found', HttpStatus.NOT_FOUND);
+        }
+    } catch(error)
+      {
+         if (error instanceof Prisma.PrismaClientInitializationError) {
+            throw new HttpException(
+             {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+                message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR))
+              },HttpStatus.INTERNAL_SERVER_ERROR );
+          }else { 
+             if (error instanceof HttpException) {
+          // กรณีที่ error เป็น HttpException จะถูกโยนขึ้นไปยัง controller
+            throw error;
+         }  throw new HttpException(
+           {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+              message: httpStatusMessageService.getHttpStatusMessage((HttpStatus.INTERNAL_SERVER_ERROR))
+           },HttpStatus.INTERNAL_SERVER_ERROR );
+          }
+      }
+   return accidentPlace  
+  }
+  async getCauseofInjurywoundtype( xInsurercode: string ) {
+    let causeofInjuryWoundtype:any ;
+    try{
+      causeofInjuryWoundtype = await prismaProgest.causeofinjurywoundtype.findMany({ 
+       
+      where:{
+        insurerid: +xInsurercode 
+       },  
+      select:{
+        woundtypecode :true,
+        woundtypename:true
+      
+
+      },
+       })   
+        if (!causeofInjuryWoundtype || causeofInjuryWoundtype.length === 0) {
+          throw new HttpException('InjuryWoundtype not found', HttpStatus.NOT_FOUND);
+        }
+    } catch(error)
+      {
+         if (error instanceof Prisma.PrismaClientInitializationError) {
+            throw new HttpException(
+             {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+                message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR))
+              },HttpStatus.INTERNAL_SERVER_ERROR );
+          }else { 
+             if (error instanceof HttpException) {
+          // กรณีที่ error เป็น HttpException จะถูกโยนขึ้นไปยัง controller
+            throw error;
+         }  throw new HttpException(
+           {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+              message: httpStatusMessageService.getHttpStatusMessage((HttpStatus.INTERNAL_SERVER_ERROR))
+           },HttpStatus.INTERNAL_SERVER_ERROR );
+          }
+      }
+   return causeofInjuryWoundtype  
+  }
+  async getCauseofInjurySide( xInsurercode: string ) {
+    let causeofInjurySide:any ;
+    try{
+      causeofInjurySide = await prismaProgest.causeofinjuryside.findMany({ 
+       
+      where:{
+        insurerid: +xInsurercode 
+       },  
+      select:{
+        injurysidecode :true,
+        injurysidename:true
+      
+
+      },
+       })   
+        if (!causeofInjurySide || causeofInjurySide.length === 0) {
+          throw new HttpException('InjurySide not found', HttpStatus.NOT_FOUND);
+        }
+    } catch(error)
+      {
+         if (error instanceof Prisma.PrismaClientInitializationError) {
+            throw new HttpException(
+             {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+                message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR))
+              },HttpStatus.INTERNAL_SERVER_ERROR );
+          }else { 
+             if (error instanceof HttpException) {
+          // กรณีที่ error เป็น HttpException จะถูกโยนขึ้นไปยัง controller
+            throw error;
+         }  throw new HttpException(
+           {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+              message: httpStatusMessageService.getHttpStatusMessage((HttpStatus.INTERNAL_SERVER_ERROR))
+           },HttpStatus.INTERNAL_SERVER_ERROR );
+          }
+      }
+   return causeofInjurySide  
+  }
+
+  async getDiagnosisTypeMapping( xInsurercode: string,xDxtypecodeTrakcare: string ) {
+    let diagnosisTypeMapping:any ;
+    try{
+      diagnosisTypeMapping = await prismaProgest.diagnosisTypeMapping.findMany({ 
+       
+      where:{
+        insurerid: +xInsurercode ,
+        dxtypecodetrakcare:xDxtypecodeTrakcare
+       },  
+      select:{
+        dxtypecodetrakcare :true,
+        dxtypenametrakcare:true,
+        dxtypecodeinsurance :true,
+        dxtypenameinsurance:true
+
+      },
+       })   
+        if (!diagnosisTypeMapping || diagnosisTypeMapping.length === 0) {
+          throw new HttpException('DiagnosisType not found', HttpStatus.NOT_FOUND);
+        }
+    } catch(error)
+      {
+         if (error instanceof Prisma.PrismaClientInitializationError) {
+            throw new HttpException(
+             {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+                message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR))
+              },HttpStatus.INTERNAL_SERVER_ERROR );
+          }else { 
+             if (error instanceof HttpException) {
+          // กรณีที่ error เป็น HttpException จะถูกโยนขึ้นไปยัง controller
+            throw error;
+         }  throw new HttpException(
+           {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+              message: httpStatusMessageService.getHttpStatusMessage((HttpStatus.INTERNAL_SERVER_ERROR))
+           },HttpStatus.INTERNAL_SERVER_ERROR );
+          }
+      }
+   return diagnosisTypeMapping  
+  }
+  
 // setDTOHTS(){
 
 //   let newaiaaccessTokenDTO = new aia_accessTokenDTO();

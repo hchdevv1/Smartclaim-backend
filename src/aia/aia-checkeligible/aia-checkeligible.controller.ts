@@ -1,4 +1,4 @@
-import { Controller ,Post, Body  } from '@nestjs/common';
+import { Controller ,Post, Body ,Get ,Param  } from '@nestjs/common';
 import { AiaCheckeligibleService } from './aia-checkeligible.service';
 
 
@@ -21,9 +21,18 @@ export class AiaCheckeligibleController {
 
   @Post('/checkeligible')
   async checkeligible(@Body() checkEligibleBodyDto:CheckEligibleBodyDto){
-  
         const result = this.aiaCheckeligibleService.checkeligible(checkEligibleBodyDto);
+        //console.log(checkEligibleBodyDto)
         return result
+  }
+
+
+  @Get('/genRefId/:xVN/:xInsurerCode/:xServiceSettingCode')
+  genRefId(@Param('xVN') xVN: string 
+,@Param('xInsurerCode') xInsurerCode: number 
+,@Param('xServiceSettingCode') xServiceSettingCode: string ) {
+     const result = this.aiaCheckeligibleService.generateRefId(xVN,xInsurerCode,xServiceSettingCode);
+    return result
   }
 
 }

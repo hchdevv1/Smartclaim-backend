@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 import { AiaRetrieveFurtherClaimService } from './aia-retrieve-further-claim.service';
 
 @Controller('aia-retrieve-further-claim')

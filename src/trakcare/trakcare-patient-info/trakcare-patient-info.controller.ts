@@ -22,5 +22,30 @@ export class TrakcarePatientInfoController {
      return this.trakcarePatientInfoService.getEpisodeByHN(xHN,xEpiDate,xEpiType);
   }
 
+  @Get('/getOPDDischargeDiagnosis/:xVN')
+  getOPDDischargeDiagnosis(@Param('xVN') xVN: string) {
+     return this.trakcarePatientInfoService.getOPDDischargeDiagnosis(xVN);
+  }
+  @Get('/getOPDDischargeDoctor/:xVN')
+  getOPDDischargeDoctor(@Param('xVN') xVN: string) {
+     return this.trakcarePatientInfoService.getOPDDischargeDoctor(xVN);
+  }
+  
+  @Get('/getOPDDischargeProcedure/:xVN')
+  getOPDDischargeProcedure(@Param('xVN') xVN: string) {
+     return this.trakcarePatientInfoService.getOPDDischargeProcedure(xVN);
+  }
+  
+  @Get('/getOPDDischargeInvestigation/:xVN')
+  getOPDDischargeInvestigation(@Param('xVN') xVN: string) {
+     return this.trakcarePatientInfoService.getOPDDischargeInvestigation(xVN);
+  }
+
+  @Get('/getOPDDischargeVitalSign/:xVN')
+  getOPDDischargeVitalSign(@Param('xVN') xVN: string) {
+     return this.trakcarePatientInfoService.getOPDDischargeVitalSign(xVN);
+  }
+  
+  
   
 }

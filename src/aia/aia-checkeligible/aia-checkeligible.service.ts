@@ -12,8 +12,9 @@ import { HttpStatusMessageService } from '../../utils/http-status-message.servic
 import { UtilsService } from '../../utils/utils.service';
 /* ////// DTO //////  */
 import { SearchBodyDto,EligibleEpisodeDto ,FindPatientInfoResultInfo,FindEpisodeInfoResultInfo } from './dto/aia-checkeligible-search.dto';
-import { CheckEligibleDto ,CheckEligibleBodyDto }from './dto/aia-checkeligible-check.dto';
+import { CheckEligibleDto ,CheckEligibleBodyDto ,CreateTransectionDto }from './dto/aia-checkeligible-check.dto';
 import { InsuranceCustomerDetail  ,InsuranceResult ,InsuranceData , ResultInfo ,CoverageList} from './dto/aia-checkeligible-check.dto';
+import { prismaProgest } from 'src/database/database';
 const httpStatusMessageService = new HttpStatusMessageService();
 const AIA_APIURL= process.env.AIA_APIURL;
 const AIA_APISecretkey = process.env.AIA_APISecretkey;
@@ -34,7 +35,7 @@ export class AiaCheckeligibleService {
   async getEpisodeByHN(searchBodyDto : SearchBodyDto){
     try{
    RequesetBody ={
-    xRefID:searchBodyDto.PatientInfo.RefID||'',
+    xRefID:searchBodyDto.PatientInfo.RefId||'',
     xTransactionNo:searchBodyDto.PatientInfo.TransactionNo||'',
     xPID : searchBodyDto.PatientInfo.PID||'',
     xPassportnumber : searchBodyDto.PatientInfo.PassportNumber||'',
@@ -46,12 +47,12 @@ export class AiaCheckeligibleService {
     xVisitDatefrom:searchBodyDto.PatientInfo.VisitDatefrom||'',
     xVisitDateto:searchBodyDto.PatientInfo.VisitDateto||'',
   }
- if (RequesetBody.xServiceSettingCode="IPD"){RequesetBody.xServiceSettingCode ="I"}
+ 
+ if (RequesetBody.xServiceSettingCode==="IPD"){RequesetBody.xServiceSettingCode ="I"}
  else{RequesetBody.xServiceSettingCode ="O"}
 
-      TrakcarepatientInfo = await this.trakcarePatientInfoService.getEpisodeByHN(RequesetBody.xHN,RequesetBody.xVisitDatefrom,RequesetBody.xServiceSettingCode);
-      console.log(TrakcarepatientInfo.message)
-  ResponeTrakcareHTTPStatus={
+    TrakcarepatientInfo = await this.trakcarePatientInfoService.getEpisodeByHN(RequesetBody.xHN,RequesetBody.xVisitDatefrom,RequesetBody.xServiceSettingCode);
+    ResponeTrakcareHTTPStatus={
     xstatusCode :TrakcarepatientInfo.statusCode,
     xmessage :TrakcarepatientInfo.message,
     xerror :TrakcarepatientInfo.error
@@ -190,11 +191,15 @@ export class AiaCheckeligibleService {
   }
 
   async checkeligible(checkEligibleBodyDto:CheckEligibleBodyDto){
-    console.log(checkEligibleBodyDto)
+   //let xResultInfo;
+   
+   let xResultInfo = new ResultInfo();
+   let newHttpMessageDto =new HttpMessageDto();
+   const newTransactionQuerycheckeligibleDto =new TransactionQuerycheckeligibleDto();
     try{
-
+      //checkEligibleBodyDto.PatientInfo.VN ='VN123456'
       RequesetBody ={
-        xRefID:checkEligibleBodyDto.PatientInfo.RefID||'',
+        xRefID:checkEligibleBodyDto.PatientInfo.RefId||'',
         xTransactionNo:checkEligibleBodyDto.PatientInfo.TransactionNo||'',
         xPID : checkEligibleBodyDto.PatientInfo.PID||'',
         xPassportnumber : checkEligibleBodyDto.PatientInfo.PassportNumber||'',
@@ -212,14 +217,15 @@ export class AiaCheckeligibleService {
         xVisitDateTime:checkEligibleBodyDto.PatientInfo.VisitDateTime||'',
         xAccidentDate:checkEligibleBodyDto.PatientInfo.AccidentDate||'',
       }
-console.log(RequesetBody)
       
+
       const ObjAccessToken = await this.utilsService.requestAccessToken_AIA();
       const ObjAccessTokenKey = ObjAccessToken.accessTokenKey
       const apiURL= `${AIA_APIURL}/SmartClaim/checkEligible`;
 
-
-      const xRefId='oljhnklefhbilubsEFJKLb651';
+      
+      const xRefId= await this.generateRefId(RequesetBody.xVN,RequesetBody.xInsurerCode,RequesetBody.xServiceSettingCode)
+     
       const xUsername=AIA_APIHopitalUsername;
       const xHospitalCode =await this.utilsService.EncryptAESECB(AIA_APIHospitalCode,AIA_APISecretkey);
       const xInsurerCode=RequesetBody.xInsurerCode;
@@ -245,8 +251,12 @@ console.log(RequesetBody)
       if (xLastName){ xLastName =await this.utilsService.EncryptAESECB(xLastName,AIA_APISecretkey);}
       let xDob =RequesetBody.xDob;
       if (xDob){ xDob =await this.utilsService.EncryptAESECB(xDob,AIA_APISecretkey);}
-      const xVisitDateTime ='2024-09-01 00:00'
-      const xAccidentDate=RequesetBody.xAccidentDate;
+      const xVisitDateTime =RequesetBody.xVisitDateTime||''; //'2024-09-01 00:00'
+      const xAccidentDate=RequesetBody.xAccidentDate||'';
+      // console.log('oooo')
+      // console.log(xAccidentDate)
+      // console.log(xAccidentDate.length)
+      // console.log('-----')
 /*
   console.log(apiURL)
   console.log(ObjAccessTokenKey)
@@ -268,6 +278,7 @@ console.log(RequesetBody)
   console.log('DataJson->Visit->VisitDateTime: '+xVisitDateTime)
   console.log('DataJson->Visit->AccidentDate: '+xAccidentDate)
 */
+//console.log('DataJson->Visit->VisitDateTime: '+xVisitDateTime)
   const body_DataJson = {
     IdType: xDataJson_IdType, //IdType,
     Id:  xDataJson_Id, //Utils.EncryptAESECB(PID),
@@ -282,10 +293,10 @@ console.log(RequesetBody)
       },
       Visit: {
         VisitDateTime: xVisitDateTime ,
-        AccidentDate: xAccidentDate
+        AccidentDate:xAccidentDate||''
       }
     }
-  
+  console.log(body_DataJson)
 
   const body = {
     RefId: xRefId,
@@ -296,7 +307,7 @@ console.log(RequesetBody)
     DataJsonType: xDataJsonType,
     DataJson: body_DataJson
   };
-
+//console.log(body)
   const headers = {
     'Content-Type': 'application/json',
     'Ocp-Apim-Subscription-Key': AIA_APISubscription,
@@ -307,71 +318,77 @@ console.log(RequesetBody)
   const responsefromAIA = await lastValueFrom(
     this.httpService.post(apiURL, body, { headers })
   );
-
- let xInsuranceResult= new InsuranceResult();
- xInsuranceResult ={
-  Code:responsefromAIA.data.Result.Code ||'',
-  Message:responsefromAIA.data.Result.Message ||'',
-  MessageTh:responsefromAIA.data.Result.MessageTh ||'',
- }
- let xCoverageList= new CoverageList();
- xCoverageList = responsefromAIA.data.Data.CoverageList.map((item) => {
-   return {
-     Type: item.Type,  
-     Status:item.Status,
-     MessageList:item.MessageList
-   };
- });
- let xInsuranceData = new InsuranceData();
- xInsuranceData={
-  RefId:responsefromAIA.data.Data.RefId ||'',
-  TransactionNo:responsefromAIA.data.Data.TransactionNo ||'',
-  InsurerCode:responsefromAIA.data.Data.InsurerCode ||'',
-  CoverageClaimStatus:responsefromAIA.data.Data.CoverageClaimStatus ||'',
-  RemarkList:[],
-  PolicyCoverageDesc:[],
-  CoverageList:xCoverageList,
-  PolicyInfoList:responsefromAIA.data.Data.PolicyInfoList ||'',
- }
-// console.log('************')
-// console.log(responsefromAIA)
-//  console.log('------------------')
-//  console.log(xInsuranceData)
-//  console.log('------------------')
-
-  let xinsuranceCustomerDetail = new InsuranceCustomerDetail();
-  xinsuranceCustomerDetail={
-    PolicyNo:responsefromAIA.data.CustomerDetail.PolicyNo ||'',
-    MemberShipId:responsefromAIA.data.CustomerDetail.MemberShipId ||'',
-    FirstName:responsefromAIA.data.CustomerDetail.FirstName ||'',
-    LastName:responsefromAIA.data.CustomerDetail.LastName ||'',
-    NationalId:responsefromAIA.data.CustomerDetail.NationalId ||''
-
-  }
-  let xResultInfo = new ResultInfo();
-  xResultInfo ={
-    InsuranceResult: xInsuranceResult,
-    InsuranceData: xInsuranceData,
-    InsuranceCustomerDetail :  xinsuranceCustomerDetail
-  }
-
-
-
-  const newTransactionQuerycheckeligibleDto =new TransactionQuerycheckeligibleDto();
+  console.log(responsefromAIA.data.Result)
+  const responeInputcode =responsefromAIA.data.Result.Code
+  if (responeInputcode !=='S'){
+  
+    this.addFormatHTTPStatus(newHttpMessageDto,400,responsefromAIA.data.Result.MessageTh,responsefromAIA.data.Result.MessageTh)
+    this.addFormatTransactionQuerycheckeligibleDto(newTransactionQuerycheckeligibleDto,RequesetBody.xInsurerCod,RequesetBody.xRefID,RequesetBody.xTransactionNo,RequesetBody.xPID,RequesetBody.xHN,
+      RequesetBody.xFirstName,RequesetBody.xLastName,RequesetBody.xDob,RequesetBody.xPassportnumber,RequesetBody.xIdType,RequesetBody.xVN,RequesetBody.xVisitDateTime,RequesetBody.xAccidentDate,RequesetBody.xPolicyTypeCode,RequesetBody.xServiceSettingCode,
+      RequesetBody.xIllnessTypeCode,RequesetBody.xSurgeryTypeCode
+    )
+  
+  }else{
+    let xInsuranceResult= new InsuranceResult();
+    xInsuranceResult ={
+     Code:responsefromAIA.data.Result.Code ||'',
+     Message:responsefromAIA.data.Result.Message ||'',
+     MessageTh:responsefromAIA.data.Result.MessageTh ||'',
+    }
+    let xCoverageList= new CoverageList();
+    xCoverageList = responsefromAIA.data.Data.CoverageList.map((item) => {
+      return {
+        Type: item.Type,  
+        Status:item.Status,
+        MessageList:item.MessageList
+      };
+    });
+    let xInsuranceData = new InsuranceData();
+    xInsuranceData={
+     RefId:responsefromAIA.data.Data.RefId ||'',
+     TransactionNo:responsefromAIA.data.Data.TransactionNo ||'',
+     InsurerCode:responsefromAIA.data.Data.InsurerCode ||'',
+     CoverageClaimStatus:responsefromAIA.data.Data.CoverageClaimStatus ||'',
+     RemarkList:[],
+     PolicyCoverageDesc:[],
+     CoverageList:xCoverageList,
+     PolicyInfoList:responsefromAIA.data.Data.PolicyInfoList ||'',
+    }
+    console.log('xCoverageList')
+    console.log(xCoverageList)
+    console.log(xInsuranceData)
+    console.log(responsefromAIA.data.Data.TransactionNo)
+    const newCreateTransectionDto =new CreateTransectionDto();
+     const resultcreateTransection = await this.createTransection(newCreateTransectionDto,xRefId,xInsuranceData.TransactionNo,null,RequesetBody.xHN,RequesetBody.xVN,RequesetBody.xInsurerCode,RequesetBody.xAccidentDate)
+     console.log(resultcreateTransection)
+     let xinsuranceCustomerDetail = new InsuranceCustomerDetail();
+     xinsuranceCustomerDetail={
+       PolicyNo:responsefromAIA.data.CustomerDetail.PolicyNo ||'',
+       MemberShipId:responsefromAIA.data.CustomerDetail.MemberShipId ||'',
+       FirstName:responsefromAIA.data.CustomerDetail.FirstName ||'',
+       LastName:responsefromAIA.data.CustomerDetail.LastName ||'',
+       NationalId:responsefromAIA.data.CustomerDetail.NationalId ||''
+   
+     }
+     xResultInfo ={
+       InsuranceResult: xInsuranceResult,
+       InsuranceData: xInsuranceData,
+       InsuranceCustomerDetail :  xinsuranceCustomerDetail
+     }
+  this.addFormatHTTPStatus(newHttpMessageDto,200,'','')
   this.addFormatTransactionQuerycheckeligibleDto(newTransactionQuerycheckeligibleDto,RequesetBody.xInsurerCod,RequesetBody.xRefID,RequesetBody.xTransactionNo,RequesetBody.xPID,RequesetBody.xHN,
     RequesetBody.xFirstName,RequesetBody.xLastName,RequesetBody.xDob,RequesetBody.xPassportnumber,RequesetBody.xIdType,RequesetBody.xVN,RequesetBody.xVisitDateTime,RequesetBody.xAccidentDate,RequesetBody.xPolicyTypeCode,RequesetBody.xServiceSettingCode,
     RequesetBody.xIllnessTypeCode,RequesetBody.xSurgeryTypeCode
   )
-   const newHttpMessageDto =new HttpMessageDto();
-  //this.addFormatHTTPStatus(newHttpMessageDto,ResponeTrakcareHTTPStatus.xstatusCode,ResponeTrakcareHTTPStatus.xmessage,ResponeTrakcareHTTPStatus.xerror)
+  } 
+
   let newCheckEligibleDto= new CheckEligibleDto();
   newCheckEligibleDto={
     HTTPStatus:newHttpMessageDto,
     TransactionQuery:newTransactionQuerycheckeligibleDto,
     Result:xResultInfo
   }
-  console.log(newCheckEligibleDto)
-      return newCheckEligibleDto
+  return newCheckEligibleDto
     }catch(error)
     {
      // console.log(error)
@@ -471,7 +488,7 @@ console.log(RequesetBody)
   if(data){
 
       data.InsurerCode = inputInsurerCode||null
-      data.RefID = inputRefID||''
+      data.RefId = inputRefID||''
       data.TransactionNo = inputTransactionNo||''
       data.PID = inputPID||''
       data.HN= inputHN||''
@@ -489,8 +506,8 @@ console.log(RequesetBody)
       data.SurgeryTypeCode = inputSurgeryTypeCodestring||''
   }
  }
-addFormatHTTPStatus(data: HttpMessageDto,inputstatusCode:number,inputmessage:string,inputerror:string):void{
-    if(inputstatusCode !==200){
+addFormatHTTPStatus(data: HttpMessageDto,inputstatusCode:number,inputmessage:string,inputerror:string):void{  
+  if(inputstatusCode !==200){
       if(data){
         data.statusCode=inputstatusCode
         data.message=inputmessage||''
@@ -506,4 +523,81 @@ addFormatHTTPStatus(data: HttpMessageDto,inputstatusCode:number,inputmessage:str
     }
     
   }
+async generateRefId(inputVN:string,inputInsurerCode:number,inputServiceSettingCode:string){
+  console.log(inputVN+'---'+inputInsurerCode+'---'+inputServiceSettingCode)
+  let count , xRefId
+if ((inputVN)&&(inputInsurerCode)&&(inputServiceSettingCode)){
+  count = await prismaProgest.transactions.count({
+    where: {
+      vn: inputVN ,
+      insurerid: +inputInsurerCode
+    }
+  });
+  if (count===0){ 
+      count =1
+      xRefId =inputVN+'-'+inputInsurerCode+'-'+inputServiceSettingCode+'-'+count.toString().padStart(3, '0');
+  }else{
+    const xxRefId = await prismaProgest.transactions.findFirst({
+      where: {
+        vn: inputVN ,
+        insurerid: +inputInsurerCode
+      },
+      select:{
+        refid :true
+      }
+    });
+     xRefId =xxRefId.refid
+  }
+}else{  xRefId='' }
+return xRefId
+}
+async createTransection(data:CreateTransectionDto,inputrefid:string,inputtransactionid:string,inputstatusid:number,
+  inputhn:string,inputvn:string,inputinsurerid:number,inputaccidentdate:string){
+let statusCreate,countVN
+ let newCreateTransectionDto =new CreateTransectionDto();
+ newCreateTransectionDto ={
+    
+    refid:inputrefid,
+    transactionid:inputtransactionid||'',
+    statusid:inputstatusid||null,
+    hn:inputhn,
+    vn:inputvn,
+    insurerid:inputinsurerid,
+    accidentdate:inputaccidentdate||''
+  }
+  console.log('newCreateTransectionDto')
+  console.log(newCreateTransectionDto)
+if (inputvn) {
+  countVN = await prismaProgest.transactions.count({
+    where: {
+      vn: inputvn ,
+      insurerid: +inputinsurerid
+    }
+  });
+  if(countVN ===0){
+    console.log('VN = 0')
+    if(newCreateTransectionDto){
+      await prismaProgest.transactions.create({  data: newCreateTransectionDto })
+      statusCreate='done'
+    }
+  }else{
+    console.log('VN > 0')
+    await prismaProgest.transactions.updateMany({
+      where: {
+        vn: inputvn ,
+        insurerid: +inputinsurerid
+      },
+      data: {
+        transactionid: inputtransactionid // ข้อมูลที่ต้องการอัปเดต
+                        
+      }
+    });
+statusCreate='done'
+  }
+}
+
+
+  //console.log(result)
+return statusCreate
+}
 }

@@ -8,49 +8,14 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model claimants {
-  claimantid       Int       @id @default(autoincrement())
-  pid              String?   @db.VarChar(13)
-  passportnumber   String?   @db.VarChar(15)
-  hn               String?   @db.VarChar(10)
-  title_th         String?   @db.VarChar(50)
-  givenname_th     String?   @db.VarChar(50)
-  surname_th       String?   @db.VarChar(50)
-  title_en         String?   @db.VarChar(50)
-  givenname_en     String?   @db.VarChar(50)
-  surname_en       String?   @db.VarChar(50)
-  mobilephone      String?   @db.VarChar(15)
-  insurerid        Int?
-  statusactive     Boolean?
-  registrationdate DateTime? @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Bangkok'::text)")) @db.Timestamp(6)
-  dateofbirth      String?   @db.VarChar(10)
-  gender           String?   @db.VarChar(10)
-  patientid        Int?
-  insurers         insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction, map: "fk_insurer")
-
-  @@unique([hn, insurerid], map: "unique_hn_insurerid")
-}
-
-model insurers {
-  insurerid        Int              @id
-  insurercode      Int?
-  insurername      String?          @db.VarChar(100)
-  registrationdate DateTime?        @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Bangkok'::text)")) @db.Timestamp(6)
-  ClaimStatus      ClaimStatus[]
-  IllnessSurgery   IllnessSurgery[]
-  IllnessType      IllnessType[]
-  PolicyType       PolicyType[]
-  ServiceSetting   ServiceSetting[]
-  claimants        claimants[]
-}
-
 model ClaimStatus {
-  id           Int       @id @default(autoincrement())
+  id           Int            @id @default(autoincrement())
   StatusCode   String
   StatusDescTH String?
   StatusDescEN String?
   insurerid    Int?
-  insurers     insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction, map: "claimStatus_insurerid_fkey")
+  insurers     Insurers?      @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction, map: "claimStatus_insurerid_fkey")
+  Transactions Transactions[]
 
   @@index([insurerid], map: "fki_claimStatus_insurerid_fkey")
 }
@@ -60,7 +25,7 @@ model IllnessSurgery {
   ISCode        String
   ISDescription String?
   insurerid     Int?
-  insurers      insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+  insurers      Insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model IllnessType {
@@ -68,7 +33,7 @@ model IllnessType {
   IllnessTypeCode String
   IllnessTypeDesc String?
   insurerid       Int?
-  insurers        insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+  insurers        Insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model PolicyType {
@@ -76,7 +41,7 @@ model PolicyType {
   PolicyTypeCode String
   PolicyTypeDesc String?
   insurerid      Int?
-  insurers       insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+  insurers       Insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model ServiceSetting {
@@ -84,5 +49,90 @@ model ServiceSetting {
   ServiceSettingCode String
   ServiceSettingDesc String
   insurerid          Int?
-  insurers           insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+  insurers           Insurers? @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Claimants {
+  claimantid       Int            @id(map: "claimants_pkey") @default(autoincrement())
+  pid              String?        @db.VarChar(13)
+  passportnumber   String?        @db.VarChar(15)
+  hn               String?        @db.VarChar(10)
+  title_th         String?        @db.VarChar(50)
+  givenname_th     String?        @db.VarChar(50)
+  surname_th       String?        @db.VarChar(50)
+  title_en         String?        @db.VarChar(50)
+  givenname_en     String?        @db.VarChar(50)
+  surname_en       String?        @db.VarChar(50)
+  mobilephone      String?        @db.VarChar(15)
+  insurerid        Int?
+  statusactive     Boolean?
+  registrationdate DateTime?      @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Bangkok'::text)")) @db.Timestamp(6)
+  dateofbirth      String?        @db.VarChar(10)
+  gender           String?        @db.VarChar(10)
+  patientid        Int?
+  Insurers         Insurers?      @relation(fields: [insurerid], references: [insurerid], onDelete: NoAction, onUpdate: NoAction, map: "claimants_insurerid_fkey")
+  Transactions     Transactions[]
+
+  @@unique([hn, insurerid], map: "unique_hn_insurerid")
+}
+
+model Insurers {
+  insurerid        Int              @id(map: "insurers_pkey")
+  insurercode      Int?
+  insurername      String?          @db.VarChar(100)
+  registrationdate DateTime?        @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Bangkok'::text)")) @db.Timestamp(6)
+  ClaimStatus      ClaimStatus[]
+  Claimants        Claimants[]
+  IllnessSurgery   IllnessSurgery[]
+  IllnessType      IllnessType[]
+  PolicyType       PolicyType[]
+  ServiceSetting   ServiceSetting[]
+  Transactions     Transactions[]
+}
+
+model Transactions {
+  id            Int          @id(map: "transactions_pkey") @default(autoincrement())
+  refid         String?      @db.VarChar(255)
+  transactionid String?      @db.VarChar(255)
+  statusid      Int?
+  updatedate    DateTime?    @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'Asia/Bangkok'::text)")) @db.Timestamp(6)
+  hn            String?      @db.VarChar(10)
+  vn            String?      @db.VarChar(10)
+  insurerid     Int?
+  accidentdate  String?      @db.VarChar
+  Claimants     Claimants?   @relation(fields: [hn, insurerid], references: [hn, insurerid], onDelete: Cascade, onUpdate: NoAction, map: "fk_claimant")
+  Insurers      Insurers?    @relation(fields: [insurerid], references: [insurerid], onDelete: Cascade, onUpdate: NoAction, map: "fk_insurer")
+  ClaimStatus   ClaimStatus? @relation(fields: [statusid], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "fk_status")
+}
+
+model DiagnosisTypeMapping {
+  insurerid           Int
+  dxtypecodetrakcare  String  @db.VarChar(255)
+  dxtypenametrakcare  String? @db.VarChar(255)
+  dxtypecodeinsurance String? @db.VarChar(255)
+  dxtypenameinsurance String? @db.VarChar(255)
+
+  @@id([insurerid, dxtypecodetrakcare], map: "diagnosistypemapping_pkey")
+}
+
+model accidentplace {
+  insurerid         Int
+  accidentplacecode Int
+  accidentplacename String @db.VarChar(255)
+
+  @@id([insurerid, accidentplacecode])
+}
+
+model causeofinjurywoundtype {
+  insurerid     Int
+  woundtypename String? @db.VarChar(255)
+  id            Int     @id @default(autoincrement())
+  woundtypecode String  @db.VarChar(255)
+}
+
+model causeofinjuryside {
+  insurerid      Int
+  injurysidename String  @db.VarChar(255)
+  injurysidecode String? @db.VarChar(255)
+  id             Int     @id(map: "causeofinjuryinjuryside_pkey") @default(autoincrement())
 }
