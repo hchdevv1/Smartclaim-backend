@@ -14,6 +14,11 @@ export class UtilsController {
       return  this.utilsService.EncryptAESECB(text ,Secretkey)
   }
 
+  @Get('/DecryptAESECB/:Secretkey/:text')
+  DecryptAESECB(@Param('Secretkey') Secretkey :string,@Param('text') text: string ) {
+      return  this.utilsService.DecryptAESECB(text ,Secretkey)
+  }
+
   @Get('IllnessType/:Insurercode')
   getIllnessType(@Param('Insurercode') Insurercode :string){
     return this.utilsService.IllnessType(Insurercode)
@@ -50,6 +55,10 @@ requestAccessToken() {
 getAccidentPlace(@Param('InsuranceCode') InsuranceCode: string ) {
   return  this.utilsService.getAccidentPlace(InsuranceCode)
 }
+
+
+
+
 
 @Get('/InjuryWoundtype/:InsuranceCode')
 getCauseofInjurywoundtype(@Param('InsuranceCode') InsuranceCode: string ) {

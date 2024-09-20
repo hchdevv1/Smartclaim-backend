@@ -1,18 +1,18 @@
 
-import { IsInt, IsOptional, IsString } from 'class-validator';
+import { IsArray, IsInt, IsOptional, IsString } from 'class-validator';
 import { HttpMessageDto } from '../../../utils/dto/http-status-message.dto';
-import { TransactionQuerycheckeligibleDto }  from '../../../utils/dto/transaction-query.dto';
+import { TransactionQueryOPDDischargeDto }  from '../../../utils/dto/transaction-query.dto';
 
-export class CheckEligibleDto {
+export class DiagnosisInfoDto {
 
-   HTTPStatus: HttpMessageDto;
-    TransactionQuery :TransactionQuerycheckeligibleDto;
- // Result?: ResultInfo;
+    HTTPStatus: HttpMessageDto;
+    TransactionQuery :TransactionQueryOPDDischargeDto;
+    Result?: QueryDiagnosisInfoDto;
 }
 
 
 
-  export class QueryBodyDto {
+  export class QueryDiagnosisBodyDto {
     PatientInfo?: QueryPatientBodyDto
   }
 class QueryPatientBodyDto{
@@ -100,15 +100,22 @@ class QueryPatientBodyDto{
     @IsString()
     @IsOptional()
     WoundDetails?: string;
+
+    @IsString()
+    @IsOptional()
+    PresentIllness?: string;
     
-    
+    @IsString()
+    @IsOptional()
+    ChiefComplaint?: string;
   }
 
 
-  export class DiagnosisInfoDto {
-    DiagnosisInfo?: QueryDiagnosisInfoDto
+  export class QueryDiagnosisInfoDto {
+    
+    DiagnosisInfo?: QueryDiagnosis
   }
-  export class QueryDiagnosisInfoDto{
+  export class QueryDiagnosis{
 
     @IsString()
     @IsOptional()
@@ -121,4 +128,15 @@ class QueryPatientBodyDto{
     @IsString()
     @IsOptional()
     DxName?: string;
+
+    @IsString()
+    @IsOptional()
+    Dxtypenametrakcare?: string;
+
+    @IsString()
+    @IsOptional()
+    Dxtypecodeinsurance?: string;
+    @IsString()
+    @IsOptional()
+    Dxtypenameinsurance?: string;
   }

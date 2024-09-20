@@ -74,6 +74,12 @@ export class UtilsService {
    return  encryptText;
   }
 
+  // var decrypt = aesEcb.decrypt(keyString, input);
+
+  DecryptAESECB(text:string , APISecretkey:string){
+   const decryptText = aesEcb.decrypt(APISecretkey,text)
+   return  decryptText;
+  }
 
   async IllnessType(xInsurercode: string ) {
     let illnessType:any ;
@@ -412,7 +418,7 @@ export class UtilsService {
   async getDiagnosisTypeMapping( xInsurercode: string,xDxtypecodeTrakcare: string ) {
     let diagnosisTypeMapping:any ;
     try{
-      diagnosisTypeMapping = await prismaProgest.diagnosisTypeMapping.findMany({ 
+      diagnosisTypeMapping = await prismaProgest.diagnosisTypeMapping.findFirst({ 
        
       where:{
         insurerid: +xInsurercode ,

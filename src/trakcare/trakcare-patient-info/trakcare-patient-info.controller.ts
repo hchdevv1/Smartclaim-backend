@@ -46,6 +46,11 @@ export class TrakcarePatientInfoController {
      return this.trakcarePatientInfoService.getOPDDischargeVitalSign(xVN);
   }
   
+  @Get('/getOPDDischargeAccident/:xVN')
+  getOPDDischargeAccident(@Param('xVN') xVN: string) {
+     return this.trakcarePatientInfoService.getOPDDischargeAccident(xVN);
+  }
   
+ 
   
 }
