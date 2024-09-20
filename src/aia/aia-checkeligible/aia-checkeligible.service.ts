@@ -16,6 +16,7 @@ import { CheckEligibleDto ,CheckEligibleBodyDto ,CreateTransectionDto }from './d
 import { InsuranceCustomerDetail  ,InsuranceResult ,InsuranceData , ResultInfo ,CoverageList} from './dto/aia-checkeligible-check.dto';
 import { prismaProgest } from 'src/database/database';
 const httpStatusMessageService = new HttpStatusMessageService();
+const newHttpMessageDto =new HttpMessageDto();
 const AIA_APIURL= process.env.AIA_APIURL;
 const AIA_APISecretkey = process.env.AIA_APISecretkey;
 const AIA_APIHospitalCode =process.env.AIA_APIHospitalCode;
@@ -24,6 +25,7 @@ const AIA_APISubscription =process.env.AIA_APISubscription;
 
 
 let TrakcarepatientInfo,RequesetBody,ResponeTrakcareHTTPStatus;
+
 @Injectable()
 export class AiaCheckeligibleService {
   constructor(
@@ -194,7 +196,7 @@ export class AiaCheckeligibleService {
    //let xResultInfo;
    
    let xResultInfo = new ResultInfo();
-   let newHttpMessageDto =new HttpMessageDto();
+   //let newHttpMessageDto =new HttpMessageDto();
    const newTransactionQuerycheckeligibleDto =new TransactionQuerycheckeligibleDto();
     try{
       //checkEligibleBodyDto.PatientInfo.VN ='VN123456'

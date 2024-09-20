@@ -1,5 +1,5 @@
 
-import { IsArray, IsInt, IsOptional, IsString } from 'class-validator';
+import {  IsInt, IsOptional, IsString } from 'class-validator';
 import { HttpMessageDto } from '../../../utils/dto/http-status-message.dto';
 import { TransactionQueryOPDDischargeDto }  from '../../../utils/dto/transaction-query.dto';
 

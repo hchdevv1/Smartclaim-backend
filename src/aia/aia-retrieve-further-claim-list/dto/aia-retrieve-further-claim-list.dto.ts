@@ -1,6 +1,6 @@
 
 import { IsInt, IsOptional, IsString } from 'class-validator';
-import { HttpMessageDto } from '../../../utils/dto/http-status-message.dto';
+//import { HttpMessageDto } from '../../../utils/dto/http-status-message.dto';
 //import { TransactionQuerycheckeligibleDto }  from '../../../utils/dto/transaction-query.dto';
 
 

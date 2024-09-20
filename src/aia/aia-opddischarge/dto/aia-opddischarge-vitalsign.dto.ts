@@ -112,6 +112,11 @@ class QueryPatientBodyDto{
     @IsString()
     @IsOptional()
     FurtherClaimId?: string;
+
+    @IsString()
+    @IsOptional()
+    ClaimNo?: string;
+    
   }
 
   export class QueryVitalSignInfoDto {

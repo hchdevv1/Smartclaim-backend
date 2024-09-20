@@ -1,25 +1,24 @@
-import { Injectable , HttpException, HttpStatus} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 //import { prismaProgest } from '../../database/database';
-import { Prisma } from '../../../prisma/generate-client-db';
-import { lastValueFrom } from 'rxjs'
+//import { Prisma } from '../../../prisma/generate-client-db';
+//import { lastValueFrom } from 'rxjs'
 /* ////// utils //////  */
-import { TrakcarePatientInfoService } from '../../trakcare/trakcare-patient-info/trakcare-patient-info.service';
-import { TransactionQueryEpisodeDto , TransactionQuerycheckeligibleDto} from '../../utils/dto/transaction-query.dto';
+//import { TrakcarePatientInfoService } from '../../trakcare/trakcare-patient-info/trakcare-patient-info.service';
+//import { TransactionQueryEpisodeDto , TransactionQuerycheckeligibleDto} from '../../utils/dto/transaction-query.dto';
 import { HttpMessageDto } from '../../utils/dto/http-status-message.dto';
-import { HttpStatusMessageService } from '../../utils/http-status-message.service';
+//import { HttpStatusMessageService } from '../../utils/http-status-message.service';
 import { UtilsService } from '../../utils/utils.service';
 /* ////// DTO //////  */
 import { QueryRetrieveFurtherClaimdtoBodyDto } from  './dto/aia-retrieve-further-claim-list.dto';
 
 
-const httpStatusMessageService = new HttpStatusMessageService();
+//const httpStatusMessageService = new HttpStatusMessageService();
 /*const AIA_APIURL= process.env.AIA_APIURL;
 const AIA_APISecretkey = process.env.AIA_APISecretkey;
 const AIA_APIHospitalCode =process.env.AIA_APIHospitalCode;
 const AIA_APIHopitalUsername=process.env.AIA_APIHopitalUsername;
 const AIA_APISubscription =process.env.AIA_APISubscription;*/
-let RequesetBody;
 @Injectable()
 export class AiaRetrieveFurtherClaimListService {
   constructor(
@@ -31,7 +30,7 @@ export class AiaRetrieveFurtherClaimListService {
   async RetrieveFurtherClaim(queryRetrieveFurtherClaimdtoBodyDto:QueryRetrieveFurtherClaimdtoBodyDto){
 
     try{
-     RequesetBody ={
+    const  RequesetBody ={
          xRefId:queryRetrieveFurtherClaimdtoBodyDto.PatientInfo.RefId||'',
          xTransactionNo:queryRetrieveFurtherClaimdtoBodyDto.PatientInfo.TransactionNo||'',
          xPID : queryRetrieveFurtherClaimdtoBodyDto.PatientInfo.PID||'',
@@ -131,7 +130,7 @@ export class AiaRetrieveFurtherClaimListService {
 
 
 
-       console.log(data)
+       console.log(RequesetBody)
        return data
       }catch(error)
       {

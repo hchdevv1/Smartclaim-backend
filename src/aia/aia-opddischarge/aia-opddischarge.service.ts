@@ -16,8 +16,8 @@ import { QueryDiagnosisBodyDto, QueryDiagnosis ,DiagnosisInfoDto } from  './dto/
 import { QueryDoctorBodyDto ,QueryDoctor ,DoctorInfoDto } from './dto/aia-opddischarge-doctor.dto';
 import { QueryVitalSignBodyDto ,QueryVitalSign ,VitalSignInfoDto} from './dto/aia-opddischarge-vitalsign.dto';
 import { QueryProcedureBodyDto ,QueryProcedure ,ProcedureInfoDto}from './dto/aia-opddischarge-procedure.dto';
-import { QueryInvestigationBodyDto ,QueryInvestigation ,InvestigationInfoDto} from './dto/aia-opddischarge-Investigation.dto';
-import { QueryAccidentBodyDto ,QueryAccident ,AccidentInfoDto} from  './dto/aia-opddischarge-Accident.dto';
+import { QueryInvestigationBodyDto ,QueryInvestigation ,InvestigationInfoDto} from './dto/aia-opddischarge-investigation.dto';
+import { QueryAccidentBodyDto ,QueryAccident ,AccidentInfoDto} from  './dto/aia-opddischarge-accident.dto';
 
 
 const httpStatusMessageService = new HttpStatusMessageService();

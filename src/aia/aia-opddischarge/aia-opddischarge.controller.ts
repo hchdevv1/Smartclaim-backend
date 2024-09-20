@@ -5,8 +5,8 @@ import { QueryDiagnosisBodyDto } from './dto/aia-opddischarge-diagnosis.dto';
 import { QueryDoctorBodyDto } from './dto/aia-opddischarge-doctor.dto';
 import { QueryVitalSignBodyDto } from './dto/aia-opddischarge-vitalsign.dto';
 import { QueryProcedureBodyDto } from './dto/aia-opddischarge-procedure.dto';
-import { QueryInvestigationBodyDto } from './dto/aia-opddischarge-Investigation.dto';
-import { QueryAccidentBodyDto } from './dto/aia-opddischarge-Accident.dto';
+import { QueryInvestigationBodyDto } from './dto/aia-opddischarge-investigation.dto';
+import { QueryAccidentBodyDto } from './dto/aia-opddischarge-accident.dto';
 @Controller('aia-opddischarge')
 export class AiaOpddischargeController {
   constructor(private readonly aiaOpddischargeService: AiaOpddischargeService) {}
