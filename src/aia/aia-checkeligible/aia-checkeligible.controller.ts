@@ -26,6 +26,12 @@ export class AiaCheckeligibleController {
         return result
   }
 
+  @Post('/Testcheckeligible')
+  async Testcheckeligible(@Body() checkEligibleBodyDto:CheckEligibleBodyDto){
+        const result = this.aiaCheckeligibleService.Testcheckeligible(checkEligibleBodyDto);
+        //console.log(checkEligibleBodyDto)
+        return result
+  }
 
   @Get('/genRefId/:xVN/:xInsurerCode/:xServiceSettingCode')
   genRefId(@Param('xVN') xVN: string 

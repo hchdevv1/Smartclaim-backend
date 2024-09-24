@@ -12,7 +12,7 @@ import { HttpStatusMessageService } from '../../utils/http-status-message.servic
 import { UtilsService } from '../../utils/utils.service';
 /* ////// DTO //////  */
 import { SearchBodyDto,EligibleEpisodeDto ,FindPatientInfoResultInfo,FindEpisodeInfoResultInfo } from './dto/aia-checkeligible-search.dto';
-import { CheckEligibleDto ,CheckEligibleBodyDto ,CreateTransectionDto }from './dto/aia-checkeligible-check.dto';
+import { CheckEligibleDto ,CheckEligibleBodyDto ,CreateTransectionDto,CreateTransactionclaimDto}from './dto/aia-checkeligible-check.dto';
 import { InsuranceCustomerDetail  ,InsuranceResult ,InsuranceData , ResultInfo ,CoverageList} from './dto/aia-checkeligible-check.dto';
 import { prismaProgest } from 'src/database/database';
 const httpStatusMessageService = new HttpStatusMessageService();
@@ -460,7 +460,296 @@ export class AiaCheckeligibleService {
     }
   }
 
-
+  async Testcheckeligible(checkEligibleBodyDto:CheckEligibleBodyDto){
+    //let xResultInfo;
+    
+    let xResultInfo = new ResultInfo();
+    //let newHttpMessageDto =new HttpMessageDto();
+    const newTransactionQuerycheckeligibleDto =new TransactionQuerycheckeligibleDto();
+     try{
+       //checkEligibleBodyDto.PatientInfo.VN ='VN123456'
+       RequesetBody ={
+         xRefID:checkEligibleBodyDto.PatientInfo.RefId||'',
+         xTransactionNo:checkEligibleBodyDto.PatientInfo.TransactionNo||'',
+         xPID : checkEligibleBodyDto.PatientInfo.PID||'',
+         xPassportnumber : checkEligibleBodyDto.PatientInfo.PassportNumber||'',
+         xIdType:checkEligibleBodyDto.PatientInfo.IdType||'',
+         xServiceSettingCode:checkEligibleBodyDto.PatientInfo.ServiceSettingCode||'',
+         xInsurerCode:checkEligibleBodyDto.PatientInfo.InsurerCode||null,
+         xHN :checkEligibleBodyDto.PatientInfo.HN||'',
+         xFirstName :checkEligibleBodyDto.PatientInfo.GivenNameTH||'',
+         xLastName :checkEligibleBodyDto.PatientInfo.SurnameTH||'',
+         xDob :checkEligibleBodyDto.PatientInfo.DateOfBirth||'',
+         xVN: checkEligibleBodyDto.PatientInfo.VN||'',
+         xPolicyTypeCode:checkEligibleBodyDto.PatientInfo.PolicyTypeCode||'',
+         xIllnessTypeCode:checkEligibleBodyDto.PatientInfo.IllnessTypeCode||'',
+         xSurgeryTypeCode:checkEligibleBodyDto.PatientInfo.SurgeryTypeCode||'',
+         xVisitDateTime:checkEligibleBodyDto.PatientInfo.VisitDateTime||'',
+         xAccidentDate:checkEligibleBodyDto.PatientInfo.AccidentDate||'',
+       }
+       
+ 
+       const ObjAccessToken = await this.utilsService.requestAccessToken_AIA();
+       const ObjAccessTokenKey = ObjAccessToken.accessTokenKey
+       const apiURL= `${AIA_APIURL}/SmartClaim/checkEligible`;
+ 
+       
+       const xRefId= await this.generateRefId(RequesetBody.xVN,RequesetBody.xInsurerCode,RequesetBody.xServiceSettingCode)
+      
+       const xUsername=AIA_APIHopitalUsername;
+       const xHospitalCode =await this.utilsService.EncryptAESECB(AIA_APIHospitalCode,AIA_APISecretkey);
+       const xInsurerCode=RequesetBody.xInsurerCode;
+       const xElectronicSignature='';
+       const xDataJsonType =3;
+       let xDataJson_IdType,DataJson_Id;
+       if (RequesetBody.xPID===RequesetBody.xHN){
+         DataJson_Id=RequesetBody.xPassportnumber;
+         xDataJson_IdType ='PASSPORT';
+       }else{
+         DataJson_Id=RequesetBody.xPID;
+         xDataJson_IdType ='NATIONAL_ID';
+       }
+       DataJson_Id ='0480000004185'
+       const xDataJson_Id =await this.utilsService.EncryptAESECB(DataJson_Id,AIA_APISecretkey);
+       const xPolicyType =RequesetBody.xPolicyTypeCode;
+       const xServiceSetting =RequesetBody.xServiceSettingCode;
+       const xIllnessType =RequesetBody.xIllnessTypeCode;
+       const xSurgeryType =RequesetBody.xSurgeryTypeCode;
+       let xFirstName =RequesetBody.xFirstName;
+       if (xFirstName){ xFirstName =await this.utilsService.EncryptAESECB(xFirstName,AIA_APISecretkey);}
+       let xLastName =RequesetBody.xLastName;
+       if (xLastName){ xLastName =await this.utilsService.EncryptAESECB(xLastName,AIA_APISecretkey);}
+       let xDob =RequesetBody.xDob;
+       if (xDob){ xDob =await this.utilsService.EncryptAESECB(xDob,AIA_APISecretkey);}
+       const xVisitDateTime =RequesetBody.xVisitDateTime||''; //'2024-09-01 00:00'
+       const xAccidentDate=RequesetBody.xAccidentDate||'';
+       // console.log('oooo')
+       // console.log(xAccidentDate)
+       // console.log(xAccidentDate.length)
+       // console.log('-----')
+ /*
+   console.log(apiURL)
+   console.log(ObjAccessTokenKey)
+   console.log('RefId: '+xRefId)
+   console.log('Username: '+xUsername)
+   console.log('HospitalCode: '+xHospitalCode)
+   console.log('InsurerCode: '+xInsurerCode)
+   console.log('ElectronicSignature: '+xElectronicSignature)
+   console.log('DataJsonType: '+xDataJsonType)
+   console.log('DataJson->IdType: '+xDataJson_IdType)
+   console.log('DataJson->Id: '+xDataJson_Id)
+   console.log('DataJson->PolicyType: '+xPolicyType)
+   console.log('DataJson->ServiceSetting: '+xServiceSetting)
+   console.log('DataJson->IllnessType: '+xIllnessType)
+   console.log('DataJson->SurgeryType: '+xSurgeryType)
+   console.log('DataJson->Patient->FirstName: '+xFirstName)
+   console.log('DataJson->Patient->LastName: '+xLastName)
+   console.log('DataJson->Patient->Dob: '+xDob)
+   console.log('DataJson->Visit->VisitDateTime: '+xVisitDateTime)
+   console.log('DataJson->Visit->AccidentDate: '+xAccidentDate)
+ */
+ //console.log('DataJson->Visit->VisitDateTime: '+xVisitDateTime)
+   const body_DataJson = {
+     IdType: xDataJson_IdType, //IdType,
+     Id:  xDataJson_Id, //Utils.EncryptAESECB(PID),
+     PolicyType: xPolicyType,
+     ServiceSetting: xServiceSetting,
+     IllnessType: xIllnessType,
+     SurgeryType: xSurgeryType,
+     Patient: {
+       FirstName:xFirstName,  
+       LastName: xLastName, 
+       Dob: xDob,
+       },
+       Visit: {
+         VisitDateTime: xVisitDateTime ,
+         AccidentDate:xAccidentDate||''
+       }
+     }
+   console.log(body_DataJson)
+ 
+   const body = {
+     RefId: xRefId,
+     Username: xUsername,
+     HospitalCode: xHospitalCode,
+     InsurerCode: xInsurerCode,
+     ElectronicSignature: xElectronicSignature,
+     DataJsonType: xDataJsonType,
+     DataJson: body_DataJson
+   };
+ //console.log(body)
+   const headers = {
+     'Content-Type': 'application/json',
+     'Ocp-Apim-Subscription-Key': AIA_APISubscription,
+     'Apim-Auth-Secure-Token': ObjAccessTokenKey
+   };
+ 
+   // call api aia foe check eligible
+   const responsefromAIA = await lastValueFrom(
+     this.httpService.post(apiURL, body, { headers })
+   );
+   console.log(responsefromAIA.data.Result)
+   const responeInputcode =responsefromAIA.data.Result.Code
+   if (responeInputcode !=='S'){
+   
+     this.addFormatHTTPStatus(newHttpMessageDto,400,responsefromAIA.data.Result.MessageTh,responsefromAIA.data.Result.MessageTh)
+     this.addFormatTransactionQuerycheckeligibleDto(newTransactionQuerycheckeligibleDto,RequesetBody.xInsurerCod,RequesetBody.xRefID,RequesetBody.xTransactionNo,RequesetBody.xPID,RequesetBody.xHN,
+       RequesetBody.xFirstName,RequesetBody.xLastName,RequesetBody.xDob,RequesetBody.xPassportnumber,RequesetBody.xIdType,RequesetBody.xVN,RequesetBody.xVisitDateTime,RequesetBody.xAccidentDate,RequesetBody.xPolicyTypeCode,RequesetBody.xServiceSettingCode,
+       RequesetBody.xIllnessTypeCode,RequesetBody.xSurgeryTypeCode
+     )
+   
+   }else{
+     let xInsuranceResult= new InsuranceResult();
+     xInsuranceResult ={
+      Code:responsefromAIA.data.Result.Code ||'',
+      Message:responsefromAIA.data.Result.Message ||'',
+      MessageTh:responsefromAIA.data.Result.MessageTh ||'',
+     }
+     let xCoverageList= new CoverageList();
+     xCoverageList = responsefromAIA.data.Data.CoverageList.map((item) => {
+       return {
+         Type: item.Type,  
+         Status:item.Status,
+         MessageList:item.MessageList
+       };
+     });
+     let xInsuranceData = new InsuranceData();
+     xInsuranceData={
+      RefId:responsefromAIA.data.Data.RefId ||'',
+      TransactionNo:responsefromAIA.data.Data.TransactionNo ||'',
+      InsurerCode:responsefromAIA.data.Data.InsurerCode ||'',
+      CoverageClaimStatus:responsefromAIA.data.Data.CoverageClaimStatus ||'',
+      RemarkList:[],
+      PolicyCoverageDesc:[],
+      CoverageList:xCoverageList,
+      PolicyInfoList:responsefromAIA.data.Data.PolicyInfoList ||'',
+     }
+     console.log('xCoverageList')
+     console.log(xCoverageList)
+     console.log(xInsuranceData)
+     console.log(responsefromAIA.data.Data.TransactionNo)
+     const newCreateTransactionclaimDto =new CreateTransactionclaimDto();
+    const resultcreateTransection = await this.TestcreateTransection(newCreateTransactionclaimDto,
+      xRefId,RequesetBody.xInsurerCode,xInsuranceData.TransactionNo,
+      null,null,RequesetBody.xHN,
+      RequesetBody.xVN,null,null,
+      null,null,null,
+      null,null,null,
+      null,RequesetBody.xAccidentDate,null,
+      null,null,null,
+      null,null,null,
+      null,null)
+    
+      /*
+       inputrefid:string,inputinsurerid:number,inputtransactionno:string,
+  inputfurtherclaimid:string,inputpresentillness:string,inputhn:string,
+  inputvn:string,inputchiefcomplaint:string,inputaccidentplacecode:string,
+  inputcauseofinjury:string,inputcommentofinjury:string,inputwoundtypecode:string,
+  inputinjurysidecode:string,inputinjuryarea:string,inputmessageclaim:string,
+  inputmessageth:string,inputaccidentdate:string,inputclaimno:string,
+  inputstatuscode:string,inputoccurrenceno:string,inputtotalapprovedamount:number,
+  inputtotalexcessamount:number,inputbatchnumber:string,inputinvoicenumber:string,
+  inputvisitdate:string,inputisreimbursement:boolean
+      
+      */
+      
+      console.log(resultcreateTransection)
+      let xinsuranceCustomerDetail = new InsuranceCustomerDetail();
+      xinsuranceCustomerDetail={
+        PolicyNo:responsefromAIA.data.CustomerDetail.PolicyNo ||'',
+        MemberShipId:responsefromAIA.data.CustomerDetail.MemberShipId ||'',
+        FirstName:responsefromAIA.data.CustomerDetail.FirstName ||'',
+        LastName:responsefromAIA.data.CustomerDetail.LastName ||'',
+        NationalId:responsefromAIA.data.CustomerDetail.NationalId ||''
+    
+      }
+      xResultInfo ={
+        InsuranceResult: xInsuranceResult,
+        InsuranceData: xInsuranceData,
+        InsuranceCustomerDetail :  xinsuranceCustomerDetail
+      }
+   this.addFormatHTTPStatus(newHttpMessageDto,200,'','')
+   this.addFormatTransactionQuerycheckeligibleDto(newTransactionQuerycheckeligibleDto,RequesetBody.xInsurerCod,RequesetBody.xRefID,RequesetBody.xTransactionNo,RequesetBody.xPID,RequesetBody.xHN,
+     RequesetBody.xFirstName,RequesetBody.xLastName,RequesetBody.xDob,RequesetBody.xPassportnumber,RequesetBody.xIdType,RequesetBody.xVN,RequesetBody.xVisitDateTime,RequesetBody.xAccidentDate,RequesetBody.xPolicyTypeCode,RequesetBody.xServiceSettingCode,
+     RequesetBody.xIllnessTypeCode,RequesetBody.xSurgeryTypeCode
+   )
+   } 
+ 
+   let newCheckEligibleDto= new CheckEligibleDto();
+   newCheckEligibleDto={
+     HTTPStatus:newHttpMessageDto,
+     TransactionQuery:newTransactionQuerycheckeligibleDto,
+     Result:xResultInfo
+   }
+   return newCheckEligibleDto
+     }catch(error)
+     {
+      // console.log(error)
+       if (error instanceof Prisma.PrismaClientInitializationError) {
+         throw new HttpException(
+          { 
+           HTTPStatus: {
+             statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+             message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR)),
+             error: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR)),
+           },
+           },HttpStatus.INTERNAL_SERVER_ERROR );
+       }else if (error instanceof Prisma.PrismaClientKnownRequestError) {
+           throw new HttpException(
+             {  
+               HTTPStatus: {
+                 statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+                 message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR),error.code),
+                 error: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR),error.code),
+              },
+             },HttpStatus.INTERNAL_SERVER_ERROR ); 
+       }else{    // กรณีเกิดข้อผิดพลาดอื่น ๆ
+         if (error.message.includes('Connection') || error.message.includes('ECONNREFUSED')) {
+           throw new HttpException({
+             HTTPStatus: {
+             statusCode: HttpStatus.SERVICE_UNAVAILABLE,
+             message: 'Cannot connect to the database server. Please ensure it is running.',
+             error: 'Cannot connect to the database server. Please ensure it is running.',
+           },
+           }, HttpStatus.SERVICE_UNAVAILABLE);
+         }else if (error.message.includes('Conversion') || error.message.includes('Invalid input syntax')) {
+           throw new HttpException({
+             HTTPStatus: {
+             statusCode: HttpStatus.BAD_REQUEST,
+             message: 'Invalid data format or conversion error.',
+             error: 'Invalid data format or conversion error.',
+           },
+           }, HttpStatus.BAD_REQUEST);
+         }else if (error.message.includes('Permission') || error.message.includes('Access denied')) {
+           throw new HttpException({
+             HTTPStatus: {
+             statusCode: HttpStatus.FORBIDDEN,
+             message: 'You do not have permission to perform this action.',
+             error: 'You do not have permission to perform this action.',
+           },
+           }, HttpStatus.FORBIDDEN);
+         }else if (error.message.includes('Unable to fit integer value')) {
+           // Handle integer overflow or similar errors
+           throw new HttpException({
+             HTTPStatus: {
+             statusCode: HttpStatus.BAD_REQUEST,
+             message: 'The integer value is too large for the database field.',
+             error: 'The integer value is too large for the database field.',
+           },
+           }, HttpStatus.BAD_REQUEST);
+         }
+         else{
+           throw new HttpException({  
+             HTTPStatus: {
+                statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+                message: 'An unexpected error occurred.',
+                error: 'An unexpected error occurred.',
+               },
+             },HttpStatus.INTERNAL_SERVER_ERROR,);
+         }
+       }
+     }
+   }
 
  addFormatTransactionQuery(data: TransactionQueryEpisodeDto,
   inputRefID:string,inputTransactionNo:string,inputPID:string,inputPassport:string
@@ -602,4 +891,69 @@ statusCreate='done'
   //console.log(result)
 return statusCreate
 }
+async TestcreateTransection(data:CreateTransactionclaimDto,
+  inputrefid:string,inputinsurerid:number,inputtransactionno:string,
+  inputfurtherclaimid:string,inputpresentillness:string,inputhn:string,
+  inputvn:string,inputchiefcomplaint:string,inputaccidentplacecode:string,
+  inputcauseofinjury:string,inputcommentofinjury:string,inputwoundtypecode:string,
+  inputinjurysidecode:string,inputinjuryarea:string,inputmessageclaim:string,
+  inputmessageth:string,inputaccidentdate:string,inputclaimno:string,
+  inputstatuscode:string,inputoccurrenceno:string,inputtotalapprovedamount:number,
+  inputtotalexcessamount:number,inputbatchnumber:string,inputinvoicenumber:string,
+  inputvisitdate:string,inputisreimbursement:boolean
+){
+
+let statusCreate,countVN
+ let newCreateTransactionclaimDto =new CreateTransactionclaimDto();
+ newCreateTransactionclaimDto ={
+    
+  refid:inputrefid,insurerid: inputinsurerid,transactionno: inputtransactionno,
+  furtherclaimid: inputfurtherclaimid,presentillness: inputpresentillness,hn: inputhn,
+  vn: inputvn, chiefcomplaint: inputchiefcomplaint,accidentplacecode: inputaccidentplacecode,
+  causeofinjury: inputcauseofinjury, commentofinjury: inputcommentofinjury,woundtypecode: inputwoundtypecode,
+  injurysidecode: inputinjurysidecode,  injuryarea:inputinjuryarea, messageclaim: inputmessageclaim,
+  messageth:inputmessageth,accidentdate: inputaccidentdate,claimno: inputclaimno,
+  statuscode: inputstatuscode,occurrenceno: inputoccurrenceno, totalapprovedamount: inputtotalapprovedamount,
+  totalexcessamount: inputtotalexcessamount, batchnumber: inputbatchnumber,invoicenumber: inputinvoicenumber,
+  visitdate: inputvisitdate, isreimbursement: inputisreimbursement,
+
+  }
+  //console.log('newCreateTransactionclaimDto')
+  //console.log(newCreateTransactionclaimDto)
+  const filteredData = Object.fromEntries(
+    Object.entries(newCreateTransactionclaimDto).filter(([, value]) => value !== null && value !== undefined)
+  );
+if (inputvn) {
+  countVN = await prismaProgest.transactionclaim.count({
+    where: {
+      vn: inputvn ,
+      insurerid: +inputinsurerid
+    }
+  });
+  if(countVN ===0){
+    console.log('VN = 0')
+    if(newCreateTransactionclaimDto){
+     await prismaProgest.transactionclaim.create({  data: newCreateTransactionclaimDto })
+      statusCreate='done'
+    }
+  }else{
+    console.log('VN > 0')
+    await prismaProgest.transactionclaim.updateMany({
+      where: {
+        vn: inputvn ,
+        insurerid: +inputinsurerid,
+      },
+      data: {
+      ...filteredData 
+      }
+    });
+  statusCreate='done'
+  }
+}
+
+
+  //console.log(result)
+return statusCreate
+}
+
 }

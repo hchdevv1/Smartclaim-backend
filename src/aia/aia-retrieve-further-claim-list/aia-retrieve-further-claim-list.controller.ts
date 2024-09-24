@@ -11,7 +11,7 @@ export class AiaRetrieveFurtherClaimListController {
 
 
 
-  @Post('/getRetrieveFurtherClaim')
+  @Post('/getRetrieveFurther-claim')
   async getEpisodeByHN(@Body() queryRetrieveFurtherClaimdtoBodyDto:QueryRetrieveFurtherClaimdtoBodyDto){
         const result = this.aiaRetrieveFurtherClaimListService.RetrieveFurtherClaim(queryRetrieveFurtherClaimdtoBodyDto);
         return result

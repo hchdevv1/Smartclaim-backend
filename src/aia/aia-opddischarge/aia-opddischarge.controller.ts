@@ -50,4 +50,10 @@ export class AiaOpddischargeController {
         return result
   }
 
+  @Post('/sentOPDDischarge')
+  async sentOPDDischarge(@Body() queryAccidentBodyDto:QueryAccidentBodyDto){
+
+        const result = this.aiaOpddischargeService.sentOPDDischarge(queryAccidentBodyDto);
+        return result
+  }
 }

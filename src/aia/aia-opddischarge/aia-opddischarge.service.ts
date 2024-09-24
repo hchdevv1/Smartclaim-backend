@@ -1,8 +1,8 @@
 import { Injectable , HttpException, HttpStatus} from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
-//import { prismaProgest } from '../../database/database';
+import { prismaProgest } from '../../database/database';
 import { Prisma } from '../../../prisma/generate-client-db';
-//import { lastValueFrom } from 'rxjs'
+import { lastValueFrom } from 'rxjs'
 
 /* ////// utils //////  */
 import { TrakcarePatientInfoService } from '../../trakcare/trakcare-patient-info/trakcare-patient-info.service';
@@ -18,9 +18,14 @@ import { QueryVitalSignBodyDto ,QueryVitalSign ,VitalSignInfoDto} from './dto/ai
 import { QueryProcedureBodyDto ,QueryProcedure ,ProcedureInfoDto}from './dto/aia-opddischarge-procedure.dto';
 import { QueryInvestigationBodyDto ,QueryInvestigation ,InvestigationInfoDto} from './dto/aia-opddischarge-investigation.dto';
 import { QueryAccidentBodyDto ,QueryAccident ,AccidentInfoDto} from  './dto/aia-opddischarge-accident.dto';
-
+import { CreateTransactionclaimDto } from './dto/aia-opddischarge-sentdata.dto';
 
 const httpStatusMessageService = new HttpStatusMessageService();
+const AIA_APIURL= process.env.AIA_APIURL;
+const AIA_APISecretkey = process.env.AIA_APISecretkey;
+const AIA_APIHospitalCode =process.env.AIA_APIHospitalCode;
+const AIA_APIHopitalUsername=process.env.AIA_APIHopitalUsername;
+const AIA_APISubscription =process.env.AIA_APISubscription;
 let TrakcarepatientInfo,RequesetBody,ResponeTrakcareHTTPStatus;
 @Injectable()
 export class AiaOpddischargeService {
@@ -948,6 +953,211 @@ return newAccidentInfoDto
   }
   }
 
+async sentOPDDischarge(queryAccidentBodyDto:QueryAccidentBodyDto){
+  const ObjAccessToken = await this.utilsService.requestAccessToken_AIA();
+  const ObjAccessTokenKey = ObjAccessToken.accessTokenKey
+  const apiURL= `${AIA_APIURL}/SmartClaim/opdDischarge`;
+
+try{
+RequesetBody ={
+    
+  xInsurerCode:queryAccidentBodyDto.PatientInfo.InsurerCode||null, 
+  xTransactionNo:queryAccidentBodyDto.PatientInfo.TransactionNo||'',
+  xRefId:queryAccidentBodyDto.PatientInfo.RefId||'', 
+  xPID:queryAccidentBodyDto.PatientInfo.PID||'', 
+  xPassportNumber:queryAccidentBodyDto.PatientInfo.PassportNumber||'', 
+  xIdType:queryAccidentBodyDto.PatientInfo.IdType||'', 
+  xHN:queryAccidentBodyDto.PatientInfo.HN||'', 
+  xGivenNameTH:queryAccidentBodyDto.PatientInfo.GivenNameTH||'', 
+  xSurnameTH:queryAccidentBodyDto.PatientInfo.SurnameTH||'', 
+  xDateOfBirth:queryAccidentBodyDto.PatientInfo.DateOfBirth||'', 
+  xVN:queryAccidentBodyDto.PatientInfo.VN||'', 
+  xPolicyTypeCode:queryAccidentBodyDto.PatientInfo.PolicyTypeCode||'', 
+  xServiceSettingCode:queryAccidentBodyDto.PatientInfo.ServiceSettingCode||'', 
+  xIllnessTypeCode:queryAccidentBodyDto.PatientInfo.IllnessTypeCode||'', 
+  xSurgeryTypeCode:queryAccidentBodyDto.PatientInfo.SurgeryTypeCode||'', 
+  xVisitDateTime:queryAccidentBodyDto.PatientInfo.VisitDateTime||'', 
+  xAccidentDate:queryAccidentBodyDto.PatientInfo.AccidentDate||'', 
+  xAccidentPlaceCode:queryAccidentBodyDto.PatientInfo.AccidentPlaceCode||null, 
+  xAccidentInjuryWoundtypeCode:queryAccidentBodyDto.PatientInfo.AccidentInjuryWoundtypeCode||'', 
+  xAccidentInjurySideCode:queryAccidentBodyDto.PatientInfo.AccidentInjurySideCode||'', 
+  xWoundDetails:queryAccidentBodyDto.PatientInfo.WoundDetails||'', 
+  xChiefComplaint:queryAccidentBodyDto.PatientInfo.ChiefComplaint||'',
+  xPresentIllness:queryAccidentBodyDto.PatientInfo.PresentIllness||'',  
+}
+ 
+
+// const headers = {
+//   'Content-Type': 'application/json',
+//   'Ocp-Apim-Subscription-Key': AIA_APISubscription,
+//   'Apim-Auth-Secure-Token': ObjAccessTokenKey
+// };
+// const body={} ;
+// //res.json(safeData);
+// // call api aia foe check eligible
+// const responsefromAIA = await lastValueFrom(
+//   this.httpService.post(apiURL, body, { headers })
+// );
+const datareturnOPDDischarge ={
+  "Result": {
+      "Code": "S",
+      "Message": "success",
+      "MessageTh": "ทำรายการสำเร็จ"
+  },
+  "Data": {
+      "RefId": "O422113-67-13-OPD-001",
+      "TransactionNo": "4fa81b2d-6201-4f13-9831-f945a66aabd4",
+      "InsurerCode": "13",
+      "Message": null,
+      "MessageTh": null,
+      "ClaimNo": "C500060911",
+      "OccurrenceNo": "1",
+      "TotalApprovedAmount": "60.00",
+      "TotalExcessAmount": null,
+      "IsReimbursement": false,
+      "CoverageList": [
+          {
+              "type": "HS",
+              "status": true
+          },
+          {
+              "type": "HSBypass",
+              "status": false
+          },
+          {
+              "type": "Reimbursement",
+              "status": false
+          }
+      ],
+      "MessageList": [
+          {
+              "policyNo": "wkK0kRzLS9wIVk+QwStjVA==",
+              "planName": "ME",
+              "messageTh": "สัญญาเพิ่มเติมมีสิทธิ์ใช้บริการเรียกร้องสินไหม",
+              "messageEn": "PASS"
+          },
+          {
+              "policyNo": "b26mXjcLaC37HC0tUUGM3g==",
+              "planName": "H&S Plus gold",
+              "messageTh": "สัญญาเพิ่มเติมมีสิทธิ์ใช้บริการเรียกร้องสินไหม",
+              "messageEn": "PASS"
+          }
+      ]
+  }
+} 
+
+console.log(datareturnOPDDischarge.Data.RefId)
+
+let updateOPDDischarge =new CreateTransactionclaimDto();
+
+updateOPDDischarge ={
+   
+ refid:datareturnOPDDischarge.Data.RefId,
+ insurerid: +datareturnOPDDischarge.Data.InsurerCode,transactionno: datareturnOPDDischarge.Data.TransactionNo,
+ furtherclaimid:null,presentillness: null,hn: RequesetBody.xHN,
+ vn: RequesetBody.xVN, chiefcomplaint: null,accidentplacecode: null,
+ causeofinjury: null, commentofinjury: null,woundtypecode: null,
+ injurysidecode: null,  injuryarea:null, messageclaim: datareturnOPDDischarge.Data.Message,
+ messageth:datareturnOPDDischarge.Data.MessageTh,accidentdate: null,claimno: datareturnOPDDischarge.Data.ClaimNo,
+ statuscode: null,occurrenceno: datareturnOPDDischarge.Data.OccurrenceNo, totalapprovedamount: +datareturnOPDDischarge.Data.TotalApprovedAmount,
+ totalexcessamount: +datareturnOPDDischarge.Data.TotalExcessAmount, batchnumber: null,invoicenumber: null,
+ visitdate: null, isreimbursement: datareturnOPDDischarge.Data.IsReimbursement,
+
+ }
+const resultcreateTransection = await this.createTransection(updateOPDDischarge,
+  updateOPDDischarge.refid,updateOPDDischarge.insurerid,updateOPDDischarge.transactionno,
+  updateOPDDischarge.furtherclaimid,updateOPDDischarge.presentillness,updateOPDDischarge.hn,
+  updateOPDDischarge.vn,updateOPDDischarge.chiefcomplaint,updateOPDDischarge.accidentplacecode,
+  updateOPDDischarge.causeofinjury,updateOPDDischarge.commentofinjury,updateOPDDischarge.woundtypecode,
+  updateOPDDischarge.injurysidecode,updateOPDDischarge.injuryarea,updateOPDDischarge.messageclaim,
+  updateOPDDischarge.messageth,updateOPDDischarge.accidentdate,updateOPDDischarge.claimno,
+  updateOPDDischarge.statuscode,updateOPDDischarge.occurrenceno,updateOPDDischarge.totalapprovedamount,
+  updateOPDDischarge.totalexcessamount,updateOPDDischarge.batchnumber,updateOPDDischarge.invoicenumber,
+  updateOPDDischarge.visitdate,updateOPDDischarge.isreimbursement)
+  /*
+       inputrefid:string,inputinsurerid:number,inputtransactionno:string,
+  inputfurtherclaimid:string,inputpresentillness:string,inputhn:string,
+  inputvn:string,inputchiefcomplaint:string,inputaccidentplacecode:string,
+  inputcauseofinjury:string,inputcommentofinjury:string,inputwoundtypecode:string,
+  inputinjurysidecode:string,inputinjuryarea:string,inputmessageclaim:string,
+  inputmessageth:string,inputaccidentdate:string,inputclaimno:string,
+  inputstatuscode:string,inputoccurrenceno:string,inputtotalapprovedamount:number,
+  inputtotalexcessamount:number,inputbatchnumber:string,inputinvoicenumber:string,
+  inputvisitdate:string,inputisreimbursement:boolean
+      
+      */
+
+
+
+return resultcreateTransection
+}catch(error)
+{
+  if (error instanceof Prisma.PrismaClientInitializationError) {
+    throw new HttpException(
+     { 
+      HTTPStatus: {
+        statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+        message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR)),
+        error: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR)),
+      },
+      },HttpStatus.INTERNAL_SERVER_ERROR );
+  }else if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      throw new HttpException(
+        {  
+          HTTPStatus: {
+            statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+            message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR),error.code),
+            error: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR),error.code),
+         },
+        },HttpStatus.INTERNAL_SERVER_ERROR ); 
+  }else{    // กรณีเกิดข้อผิดพลาดอื่น ๆ
+    if (error.message.includes('Connection') || error.message.includes('ECONNREFUSED')) {
+      throw new HttpException({
+        HTTPStatus: {
+        statusCode: HttpStatus.SERVICE_UNAVAILABLE,
+        message: 'Cannot connect to the database server. Please ensure it is running.',
+        error: 'Cannot connect to the database server. Please ensure it is running.',
+      },
+      }, HttpStatus.SERVICE_UNAVAILABLE);
+    }else if (error.message.includes('Conversion') || error.message.includes('Invalid input syntax')) {
+      throw new HttpException({
+        HTTPStatus: {
+        statusCode: HttpStatus.BAD_REQUEST,
+        message: 'Invalid data format or conversion error.',
+        error: 'Invalid data format or conversion error.',
+      },
+      }, HttpStatus.BAD_REQUEST);
+    }else if (error.message.includes('Permission') || error.message.includes('Access denied')) {
+      throw new HttpException({
+        HTTPStatus: {
+        statusCode: HttpStatus.FORBIDDEN,
+        message: 'You do not have permission to perform this action.',
+        error: 'You do not have permission to perform this action.',
+      },
+      }, HttpStatus.FORBIDDEN);
+    }else if (error.message.includes('Unable to fit integer value')) {
+      // Handle integer overflow or similar errors
+      throw new HttpException({
+        HTTPStatus: {
+        statusCode: HttpStatus.BAD_REQUEST,
+        message: 'The integer value is too large for the database field.',
+        error: 'The integer value is too large for the database field.',
+      },
+      }, HttpStatus.BAD_REQUEST);
+    }
+    else{
+      throw new HttpException({  
+        HTTPStatus: {
+           statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+           message: 'An unexpected error occurred.',
+           error: 'An unexpected error occurred.',
+          },
+        },HttpStatus.INTERNAL_SERVER_ERROR,);
+    }
+  }
+}
+}
+
 async convertDxTypeCode(inputInsurerCode:string,inputdxTypeCodeTrakcare:string) {
    const convertDxtypename = await this.utilsService.getDiagnosisTypeMapping(inputInsurerCode,inputdxTypeCodeTrakcare);
   return convertDxtypename
@@ -1017,4 +1227,69 @@ addDxtype(data:any,inputconvert:string):void{
     
   }
 
+  async createTransection(data:CreateTransactionclaimDto,
+    inputrefid:string,inputinsurerid:number,inputtransactionno:string,
+    inputfurtherclaimid:string,inputpresentillness:string,inputhn:string,
+    inputvn:string,inputchiefcomplaint:string,inputaccidentplacecode:string,
+    inputcauseofinjury:string,inputcommentofinjury:string,inputwoundtypecode:string,
+    inputinjurysidecode:string,inputinjuryarea:string,inputmessageclaim:string,
+    inputmessageth:string,inputaccidentdate:string,inputclaimno:string,
+    inputstatuscode:string,inputoccurrenceno:string,inputtotalapprovedamount:number,
+    inputtotalexcessamount:number,inputbatchnumber:string,inputinvoicenumber:string,
+    inputvisitdate:string,inputisreimbursement:boolean
+  ){
+  
+  let statusCreate,countVN
+   let newCreateTransactionclaimDto =new CreateTransactionclaimDto();
+   newCreateTransactionclaimDto ={
+      
+    refid:inputrefid,insurerid: inputinsurerid,transactionno: inputtransactionno,
+    furtherclaimid: inputfurtherclaimid,presentillness: inputpresentillness,hn: inputhn,
+    vn: inputvn, chiefcomplaint: inputchiefcomplaint,accidentplacecode: inputaccidentplacecode,
+    causeofinjury: inputcauseofinjury, commentofinjury: inputcommentofinjury,woundtypecode: inputwoundtypecode,
+    injurysidecode: inputinjurysidecode,  injuryarea:inputinjuryarea, messageclaim: inputmessageclaim,
+    messageth:inputmessageth,accidentdate: inputaccidentdate,claimno: inputclaimno,
+    statuscode: inputstatuscode,occurrenceno: inputoccurrenceno, totalapprovedamount: inputtotalapprovedamount,
+    totalexcessamount: inputtotalexcessamount, batchnumber: inputbatchnumber,invoicenumber: inputinvoicenumber,
+    visitdate: inputvisitdate, isreimbursement: inputisreimbursement,
+  
+    }
+    //console.log('newCreateTransactionclaimDto')
+    //console.log(newCreateTransactionclaimDto)
+    const filteredData = Object.fromEntries(
+      Object.entries(newCreateTransactionclaimDto).filter(([, value]) => value !== null && value !== undefined)
+    );
+  if (inputvn) {
+    countVN = await prismaProgest.transactionclaim.count({
+      where: {
+        vn: inputvn ,
+        insurerid: +inputinsurerid
+      }
+    });
+    if(countVN ===0){
+      console.log('VN = 0')
+      if(newCreateTransactionclaimDto){
+       await prismaProgest.transactionclaim.create({  data: newCreateTransactionclaimDto })
+        statusCreate='done'
+      }
+    }else{
+      console.log('VN > 0')
+      await prismaProgest.transactionclaim.updateMany({
+        where: {
+          vn: inputvn ,
+          insurerid: +inputinsurerid,
+        },
+        data: {
+        ...filteredData 
+        }
+      });
+    statusCreate='done'
+    }
+  }
+  
+  
+    //console.log(result)
+  return statusCreate
+  }
+  
 }

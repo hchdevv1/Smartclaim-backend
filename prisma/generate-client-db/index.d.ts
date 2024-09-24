@@ -73,6 +73,21 @@ export type causeofinjurywoundtype = $Result.DefaultSelection<Prisma.$causeofinj
  * 
  */
 export type causeofinjuryside = $Result.DefaultSelection<Prisma.$causeofinjurysidePayload>
+/**
+ * Model Transactionclaimstatus
+ * 
+ */
+export type Transactionclaimstatus = $Result.DefaultSelection<Prisma.$TransactionclaimstatusPayload>
+/**
+ * Model Transactionclaim
+ * 
+ */
+export type Transactionclaim = $Result.DefaultSelection<Prisma.$TransactionclaimPayload>
+/**
+ * Model transactionclaim2
+ * 
+ */
+export type transactionclaim2 = $Result.DefaultSelection<Prisma.$transactionclaim2Payload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -316,6 +331,36 @@ export class PrismaClient<
     * ```
     */
   get causeofinjuryside(): Prisma.causeofinjurysideDelegate<ExtArgs>;
+
+  /**
+   * `prisma.transactionclaimstatus`: Exposes CRUD operations for the **Transactionclaimstatus** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Transactionclaimstatuses
+    * const transactionclaimstatuses = await prisma.transactionclaimstatus.findMany()
+    * ```
+    */
+  get transactionclaimstatus(): Prisma.TransactionclaimstatusDelegate<ExtArgs>;
+
+  /**
+   * `prisma.transactionclaim`: Exposes CRUD operations for the **Transactionclaim** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Transactionclaims
+    * const transactionclaims = await prisma.transactionclaim.findMany()
+    * ```
+    */
+  get transactionclaim(): Prisma.TransactionclaimDelegate<ExtArgs>;
+
+  /**
+   * `prisma.transactionclaim2`: Exposes CRUD operations for the **transactionclaim2** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Transactionclaim2s
+    * const transactionclaim2s = await prisma.transactionclaim2.findMany()
+    * ```
+    */
+  get transactionclaim2(): Prisma.transactionclaim2Delegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -766,7 +811,10 @@ export namespace Prisma {
     DiagnosisTypeMapping: 'DiagnosisTypeMapping',
     accidentplace: 'accidentplace',
     causeofinjurywoundtype: 'causeofinjurywoundtype',
-    causeofinjuryside: 'causeofinjuryside'
+    causeofinjuryside: 'causeofinjuryside',
+    Transactionclaimstatus: 'Transactionclaimstatus',
+    Transactionclaim: 'Transactionclaim',
+    transactionclaim2: 'transactionclaim2'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -782,7 +830,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "claimStatus" | "illnessSurgery" | "illnessType" | "policyType" | "serviceSetting" | "claimants" | "insurers" | "transactions" | "diagnosisTypeMapping" | "accidentplace" | "causeofinjurywoundtype" | "causeofinjuryside"
+      modelProps: "claimStatus" | "illnessSurgery" | "illnessType" | "policyType" | "serviceSetting" | "claimants" | "insurers" | "transactions" | "diagnosisTypeMapping" | "accidentplace" | "causeofinjurywoundtype" | "causeofinjuryside" | "transactionclaimstatus" | "transactionclaim" | "transactionclaim2"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1626,6 +1674,216 @@ export namespace Prisma {
           }
         }
       }
+      Transactionclaimstatus: {
+        payload: Prisma.$TransactionclaimstatusPayload<ExtArgs>
+        fields: Prisma.TransactionclaimstatusFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TransactionclaimstatusFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TransactionclaimstatusFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload>
+          }
+          findFirst: {
+            args: Prisma.TransactionclaimstatusFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TransactionclaimstatusFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload>
+          }
+          findMany: {
+            args: Prisma.TransactionclaimstatusFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload>[]
+          }
+          create: {
+            args: Prisma.TransactionclaimstatusCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload>
+          }
+          createMany: {
+            args: Prisma.TransactionclaimstatusCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TransactionclaimstatusCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload>[]
+          }
+          delete: {
+            args: Prisma.TransactionclaimstatusDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload>
+          }
+          update: {
+            args: Prisma.TransactionclaimstatusUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload>
+          }
+          deleteMany: {
+            args: Prisma.TransactionclaimstatusDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TransactionclaimstatusUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TransactionclaimstatusUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimstatusPayload>
+          }
+          aggregate: {
+            args: Prisma.TransactionclaimstatusAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTransactionclaimstatus>
+          }
+          groupBy: {
+            args: Prisma.TransactionclaimstatusGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TransactionclaimstatusGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TransactionclaimstatusCountArgs<ExtArgs>
+            result: $Utils.Optional<TransactionclaimstatusCountAggregateOutputType> | number
+          }
+        }
+      }
+      Transactionclaim: {
+        payload: Prisma.$TransactionclaimPayload<ExtArgs>
+        fields: Prisma.TransactionclaimFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.TransactionclaimFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.TransactionclaimFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload>
+          }
+          findFirst: {
+            args: Prisma.TransactionclaimFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.TransactionclaimFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload>
+          }
+          findMany: {
+            args: Prisma.TransactionclaimFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload>[]
+          }
+          create: {
+            args: Prisma.TransactionclaimCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload>
+          }
+          createMany: {
+            args: Prisma.TransactionclaimCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.TransactionclaimCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload>[]
+          }
+          delete: {
+            args: Prisma.TransactionclaimDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload>
+          }
+          update: {
+            args: Prisma.TransactionclaimUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload>
+          }
+          deleteMany: {
+            args: Prisma.TransactionclaimDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.TransactionclaimUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.TransactionclaimUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TransactionclaimPayload>
+          }
+          aggregate: {
+            args: Prisma.TransactionclaimAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTransactionclaim>
+          }
+          groupBy: {
+            args: Prisma.TransactionclaimGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TransactionclaimGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.TransactionclaimCountArgs<ExtArgs>
+            result: $Utils.Optional<TransactionclaimCountAggregateOutputType> | number
+          }
+        }
+      }
+      transactionclaim2: {
+        payload: Prisma.$transactionclaim2Payload<ExtArgs>
+        fields: Prisma.transactionclaim2FieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.transactionclaim2FindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.transactionclaim2FindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload>
+          }
+          findFirst: {
+            args: Prisma.transactionclaim2FindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.transactionclaim2FindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload>
+          }
+          findMany: {
+            args: Prisma.transactionclaim2FindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload>[]
+          }
+          create: {
+            args: Prisma.transactionclaim2CreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload>
+          }
+          createMany: {
+            args: Prisma.transactionclaim2CreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.transactionclaim2CreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload>[]
+          }
+          delete: {
+            args: Prisma.transactionclaim2DeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload>
+          }
+          update: {
+            args: Prisma.transactionclaim2UpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload>
+          }
+          deleteMany: {
+            args: Prisma.transactionclaim2DeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.transactionclaim2UpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.transactionclaim2UpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$transactionclaim2Payload>
+          }
+          aggregate: {
+            args: Prisma.Transactionclaim2AggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTransactionclaim2>
+          }
+          groupBy: {
+            args: Prisma.transactionclaim2GroupByArgs<ExtArgs>
+            result: $Utils.Optional<Transactionclaim2GroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.transactionclaim2CountArgs<ExtArgs>
+            result: $Utils.Optional<Transactionclaim2CountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1787,11 +2045,17 @@ export namespace Prisma {
    */
 
   export type ClaimStatusCountOutputType = {
+    Transactionclaim: number
+    Transactionclaimstatus: number
     Transactions: number
+    transactionclaim2: number
   }
 
   export type ClaimStatusCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Transactionclaim?: boolean | ClaimStatusCountOutputTypeCountTransactionclaimArgs
+    Transactionclaimstatus?: boolean | ClaimStatusCountOutputTypeCountTransactionclaimstatusArgs
     Transactions?: boolean | ClaimStatusCountOutputTypeCountTransactionsArgs
+    transactionclaim2?: boolean | ClaimStatusCountOutputTypeCountTransactionclaim2Args
   }
 
   // Custom InputTypes
@@ -1808,8 +2072,29 @@ export namespace Prisma {
   /**
    * ClaimStatusCountOutputType without action
    */
+  export type ClaimStatusCountOutputTypeCountTransactionclaimArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransactionclaimWhereInput
+  }
+
+  /**
+   * ClaimStatusCountOutputType without action
+   */
+  export type ClaimStatusCountOutputTypeCountTransactionclaimstatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransactionclaimstatusWhereInput
+  }
+
+  /**
+   * ClaimStatusCountOutputType without action
+   */
   export type ClaimStatusCountOutputTypeCountTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TransactionsWhereInput
+  }
+
+  /**
+   * ClaimStatusCountOutputType without action
+   */
+  export type ClaimStatusCountOutputTypeCountTransactionclaim2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: transactionclaim2WhereInput
   }
 
 
@@ -1818,11 +2103,17 @@ export namespace Prisma {
    */
 
   export type ClaimantsCountOutputType = {
+    Transactionclaim: number
+    Transactionclaimstatus: number
     Transactions: number
+    transactionclaim2: number
   }
 
   export type ClaimantsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Transactionclaim?: boolean | ClaimantsCountOutputTypeCountTransactionclaimArgs
+    Transactionclaimstatus?: boolean | ClaimantsCountOutputTypeCountTransactionclaimstatusArgs
     Transactions?: boolean | ClaimantsCountOutputTypeCountTransactionsArgs
+    transactionclaim2?: boolean | ClaimantsCountOutputTypeCountTransactionclaim2Args
   }
 
   // Custom InputTypes
@@ -1839,8 +2130,29 @@ export namespace Prisma {
   /**
    * ClaimantsCountOutputType without action
    */
+  export type ClaimantsCountOutputTypeCountTransactionclaimArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransactionclaimWhereInput
+  }
+
+  /**
+   * ClaimantsCountOutputType without action
+   */
+  export type ClaimantsCountOutputTypeCountTransactionclaimstatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransactionclaimstatusWhereInput
+  }
+
+  /**
+   * ClaimantsCountOutputType without action
+   */
   export type ClaimantsCountOutputTypeCountTransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: TransactionsWhereInput
+  }
+
+  /**
+   * ClaimantsCountOutputType without action
+   */
+  export type ClaimantsCountOutputTypeCountTransactionclaim2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: transactionclaim2WhereInput
   }
 
 
@@ -2136,7 +2448,10 @@ export namespace Prisma {
     StatusDescEN?: boolean
     insurerid?: boolean
     insurers?: boolean | ClaimStatus$insurersArgs<ExtArgs>
+    Transactionclaim?: boolean | ClaimStatus$TransactionclaimArgs<ExtArgs>
+    Transactionclaimstatus?: boolean | ClaimStatus$TransactionclaimstatusArgs<ExtArgs>
     Transactions?: boolean | ClaimStatus$TransactionsArgs<ExtArgs>
+    transactionclaim2?: boolean | ClaimStatus$transactionclaim2Args<ExtArgs>
     _count?: boolean | ClaimStatusCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["claimStatus"]>
 
@@ -2159,7 +2474,10 @@ export namespace Prisma {
 
   export type ClaimStatusInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     insurers?: boolean | ClaimStatus$insurersArgs<ExtArgs>
+    Transactionclaim?: boolean | ClaimStatus$TransactionclaimArgs<ExtArgs>
+    Transactionclaimstatus?: boolean | ClaimStatus$TransactionclaimstatusArgs<ExtArgs>
     Transactions?: boolean | ClaimStatus$TransactionsArgs<ExtArgs>
+    transactionclaim2?: boolean | ClaimStatus$transactionclaim2Args<ExtArgs>
     _count?: boolean | ClaimStatusCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ClaimStatusIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2170,7 +2488,10 @@ export namespace Prisma {
     name: "ClaimStatus"
     objects: {
       insurers: Prisma.$InsurersPayload<ExtArgs> | null
+      Transactionclaim: Prisma.$TransactionclaimPayload<ExtArgs>[]
+      Transactionclaimstatus: Prisma.$TransactionclaimstatusPayload<ExtArgs>[]
       Transactions: Prisma.$TransactionsPayload<ExtArgs>[]
+      transactionclaim2: Prisma.$transactionclaim2Payload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2543,7 +2864,10 @@ export namespace Prisma {
   export interface Prisma__ClaimStatusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     insurers<T extends ClaimStatus$insurersArgs<ExtArgs> = {}>(args?: Subset<T, ClaimStatus$insurersArgs<ExtArgs>>): Prisma__InsurersClient<$Result.GetResult<Prisma.$InsurersPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    Transactionclaim<T extends ClaimStatus$TransactionclaimArgs<ExtArgs> = {}>(args?: Subset<T, ClaimStatus$TransactionclaimArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "findMany"> | Null>
+    Transactionclaimstatus<T extends ClaimStatus$TransactionclaimstatusArgs<ExtArgs> = {}>(args?: Subset<T, ClaimStatus$TransactionclaimstatusArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "findMany"> | Null>
     Transactions<T extends ClaimStatus$TransactionsArgs<ExtArgs> = {}>(args?: Subset<T, ClaimStatus$TransactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionsPayload<ExtArgs>, T, "findMany"> | Null>
+    transactionclaim2<T extends ClaimStatus$transactionclaim2Args<ExtArgs> = {}>(args?: Subset<T, ClaimStatus$transactionclaim2Args<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2911,6 +3235,46 @@ export namespace Prisma {
   }
 
   /**
+   * ClaimStatus.Transactionclaim
+   */
+  export type ClaimStatus$TransactionclaimArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    where?: TransactionclaimWhereInput
+    orderBy?: TransactionclaimOrderByWithRelationInput | TransactionclaimOrderByWithRelationInput[]
+    cursor?: TransactionclaimWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TransactionclaimScalarFieldEnum | TransactionclaimScalarFieldEnum[]
+  }
+
+  /**
+   * ClaimStatus.Transactionclaimstatus
+   */
+  export type ClaimStatus$TransactionclaimstatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    where?: TransactionclaimstatusWhereInput
+    orderBy?: TransactionclaimstatusOrderByWithRelationInput | TransactionclaimstatusOrderByWithRelationInput[]
+    cursor?: TransactionclaimstatusWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TransactionclaimstatusScalarFieldEnum | TransactionclaimstatusScalarFieldEnum[]
+  }
+
+  /**
    * ClaimStatus.Transactions
    */
   export type ClaimStatus$TransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2928,6 +3292,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TransactionsScalarFieldEnum | TransactionsScalarFieldEnum[]
+  }
+
+  /**
+   * ClaimStatus.transactionclaim2
+   */
+  export type ClaimStatus$transactionclaim2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    where?: transactionclaim2WhereInput
+    orderBy?: transactionclaim2OrderByWithRelationInput | transactionclaim2OrderByWithRelationInput[]
+    cursor?: transactionclaim2WhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Transactionclaim2ScalarFieldEnum | Transactionclaim2ScalarFieldEnum[]
   }
 
   /**
@@ -7144,7 +7528,10 @@ export namespace Prisma {
     gender?: boolean
     patientid?: boolean
     Insurers?: boolean | Claimants$InsurersArgs<ExtArgs>
+    Transactionclaim?: boolean | Claimants$TransactionclaimArgs<ExtArgs>
+    Transactionclaimstatus?: boolean | Claimants$TransactionclaimstatusArgs<ExtArgs>
     Transactions?: boolean | Claimants$TransactionsArgs<ExtArgs>
+    transactionclaim2?: boolean | Claimants$transactionclaim2Args<ExtArgs>
     _count?: boolean | ClaimantsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["claimants"]>
 
@@ -7191,7 +7578,10 @@ export namespace Prisma {
 
   export type ClaimantsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Insurers?: boolean | Claimants$InsurersArgs<ExtArgs>
+    Transactionclaim?: boolean | Claimants$TransactionclaimArgs<ExtArgs>
+    Transactionclaimstatus?: boolean | Claimants$TransactionclaimstatusArgs<ExtArgs>
     Transactions?: boolean | Claimants$TransactionsArgs<ExtArgs>
+    transactionclaim2?: boolean | Claimants$transactionclaim2Args<ExtArgs>
     _count?: boolean | ClaimantsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ClaimantsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7202,7 +7592,10 @@ export namespace Prisma {
     name: "Claimants"
     objects: {
       Insurers: Prisma.$InsurersPayload<ExtArgs> | null
+      Transactionclaim: Prisma.$TransactionclaimPayload<ExtArgs>[]
+      Transactionclaimstatus: Prisma.$TransactionclaimstatusPayload<ExtArgs>[]
       Transactions: Prisma.$TransactionsPayload<ExtArgs>[]
+      transactionclaim2: Prisma.$transactionclaim2Payload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       claimantid: number
@@ -7587,7 +7980,10 @@ export namespace Prisma {
   export interface Prisma__ClaimantsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Insurers<T extends Claimants$InsurersArgs<ExtArgs> = {}>(args?: Subset<T, Claimants$InsurersArgs<ExtArgs>>): Prisma__InsurersClient<$Result.GetResult<Prisma.$InsurersPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    Transactionclaim<T extends Claimants$TransactionclaimArgs<ExtArgs> = {}>(args?: Subset<T, Claimants$TransactionclaimArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "findMany"> | Null>
+    Transactionclaimstatus<T extends Claimants$TransactionclaimstatusArgs<ExtArgs> = {}>(args?: Subset<T, Claimants$TransactionclaimstatusArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "findMany"> | Null>
     Transactions<T extends Claimants$TransactionsArgs<ExtArgs> = {}>(args?: Subset<T, Claimants$TransactionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionsPayload<ExtArgs>, T, "findMany"> | Null>
+    transactionclaim2<T extends Claimants$transactionclaim2Args<ExtArgs> = {}>(args?: Subset<T, Claimants$transactionclaim2Args<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7967,6 +8363,46 @@ export namespace Prisma {
   }
 
   /**
+   * Claimants.Transactionclaim
+   */
+  export type Claimants$TransactionclaimArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    where?: TransactionclaimWhereInput
+    orderBy?: TransactionclaimOrderByWithRelationInput | TransactionclaimOrderByWithRelationInput[]
+    cursor?: TransactionclaimWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TransactionclaimScalarFieldEnum | TransactionclaimScalarFieldEnum[]
+  }
+
+  /**
+   * Claimants.Transactionclaimstatus
+   */
+  export type Claimants$TransactionclaimstatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    where?: TransactionclaimstatusWhereInput
+    orderBy?: TransactionclaimstatusOrderByWithRelationInput | TransactionclaimstatusOrderByWithRelationInput[]
+    cursor?: TransactionclaimstatusWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: TransactionclaimstatusScalarFieldEnum | TransactionclaimstatusScalarFieldEnum[]
+  }
+
+  /**
    * Claimants.Transactions
    */
   export type Claimants$TransactionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7984,6 +8420,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: TransactionsScalarFieldEnum | TransactionsScalarFieldEnum[]
+  }
+
+  /**
+   * Claimants.transactionclaim2
+   */
+  export type Claimants$transactionclaim2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    where?: transactionclaim2WhereInput
+    orderBy?: transactionclaim2OrderByWithRelationInput | transactionclaim2OrderByWithRelationInput[]
+    cursor?: transactionclaim2WhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Transactionclaim2ScalarFieldEnum | Transactionclaim2ScalarFieldEnum[]
   }
 
   /**
@@ -13812,6 +14268,3688 @@ export namespace Prisma {
 
 
   /**
+   * Model Transactionclaimstatus
+   */
+
+  export type AggregateTransactionclaimstatus = {
+    _count: TransactionclaimstatusCountAggregateOutputType | null
+    _avg: TransactionclaimstatusAvgAggregateOutputType | null
+    _sum: TransactionclaimstatusSumAggregateOutputType | null
+    _min: TransactionclaimstatusMinAggregateOutputType | null
+    _max: TransactionclaimstatusMaxAggregateOutputType | null
+  }
+
+  export type TransactionclaimstatusAvgAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+  }
+
+  export type TransactionclaimstatusSumAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+  }
+
+  export type TransactionclaimstatusMinAggregateOutputType = {
+    id: number | null
+    refid: string | null
+    insurerid: number | null
+    hn: string | null
+    vn: string | null
+    statuscode: string | null
+    batchnumber: string | null
+    claimno: string | null
+    invoicenumber: string | null
+    status_changed_at: Date | null
+    note: string | null
+    totalApproveAmount: string | null
+    paymentDate: string | null
+    transactionNo: string | null
+  }
+
+  export type TransactionclaimstatusMaxAggregateOutputType = {
+    id: number | null
+    refid: string | null
+    insurerid: number | null
+    hn: string | null
+    vn: string | null
+    statuscode: string | null
+    batchnumber: string | null
+    claimno: string | null
+    invoicenumber: string | null
+    status_changed_at: Date | null
+    note: string | null
+    totalApproveAmount: string | null
+    paymentDate: string | null
+    transactionNo: string | null
+  }
+
+  export type TransactionclaimstatusCountAggregateOutputType = {
+    id: number
+    refid: number
+    insurerid: number
+    hn: number
+    vn: number
+    statuscode: number
+    batchnumber: number
+    claimno: number
+    invoicenumber: number
+    status_changed_at: number
+    note: number
+    totalApproveAmount: number
+    paymentDate: number
+    transactionNo: number
+    _all: number
+  }
+
+
+  export type TransactionclaimstatusAvgAggregateInputType = {
+    id?: true
+    insurerid?: true
+  }
+
+  export type TransactionclaimstatusSumAggregateInputType = {
+    id?: true
+    insurerid?: true
+  }
+
+  export type TransactionclaimstatusMinAggregateInputType = {
+    id?: true
+    refid?: true
+    insurerid?: true
+    hn?: true
+    vn?: true
+    statuscode?: true
+    batchnumber?: true
+    claimno?: true
+    invoicenumber?: true
+    status_changed_at?: true
+    note?: true
+    totalApproveAmount?: true
+    paymentDate?: true
+    transactionNo?: true
+  }
+
+  export type TransactionclaimstatusMaxAggregateInputType = {
+    id?: true
+    refid?: true
+    insurerid?: true
+    hn?: true
+    vn?: true
+    statuscode?: true
+    batchnumber?: true
+    claimno?: true
+    invoicenumber?: true
+    status_changed_at?: true
+    note?: true
+    totalApproveAmount?: true
+    paymentDate?: true
+    transactionNo?: true
+  }
+
+  export type TransactionclaimstatusCountAggregateInputType = {
+    id?: true
+    refid?: true
+    insurerid?: true
+    hn?: true
+    vn?: true
+    statuscode?: true
+    batchnumber?: true
+    claimno?: true
+    invoicenumber?: true
+    status_changed_at?: true
+    note?: true
+    totalApproveAmount?: true
+    paymentDate?: true
+    transactionNo?: true
+    _all?: true
+  }
+
+  export type TransactionclaimstatusAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Transactionclaimstatus to aggregate.
+     */
+    where?: TransactionclaimstatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transactionclaimstatuses to fetch.
+     */
+    orderBy?: TransactionclaimstatusOrderByWithRelationInput | TransactionclaimstatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TransactionclaimstatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transactionclaimstatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transactionclaimstatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Transactionclaimstatuses
+    **/
+    _count?: true | TransactionclaimstatusCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TransactionclaimstatusAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TransactionclaimstatusSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TransactionclaimstatusMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TransactionclaimstatusMaxAggregateInputType
+  }
+
+  export type GetTransactionclaimstatusAggregateType<T extends TransactionclaimstatusAggregateArgs> = {
+        [P in keyof T & keyof AggregateTransactionclaimstatus]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTransactionclaimstatus[P]>
+      : GetScalarType<T[P], AggregateTransactionclaimstatus[P]>
+  }
+
+
+
+
+  export type TransactionclaimstatusGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransactionclaimstatusWhereInput
+    orderBy?: TransactionclaimstatusOrderByWithAggregationInput | TransactionclaimstatusOrderByWithAggregationInput[]
+    by: TransactionclaimstatusScalarFieldEnum[] | TransactionclaimstatusScalarFieldEnum
+    having?: TransactionclaimstatusScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TransactionclaimstatusCountAggregateInputType | true
+    _avg?: TransactionclaimstatusAvgAggregateInputType
+    _sum?: TransactionclaimstatusSumAggregateInputType
+    _min?: TransactionclaimstatusMinAggregateInputType
+    _max?: TransactionclaimstatusMaxAggregateInputType
+  }
+
+  export type TransactionclaimstatusGroupByOutputType = {
+    id: number
+    refid: string
+    insurerid: number
+    hn: string | null
+    vn: string | null
+    statuscode: string
+    batchnumber: string | null
+    claimno: string | null
+    invoicenumber: string | null
+    status_changed_at: Date | null
+    note: string | null
+    totalApproveAmount: string | null
+    paymentDate: string | null
+    transactionNo: string | null
+    _count: TransactionclaimstatusCountAggregateOutputType | null
+    _avg: TransactionclaimstatusAvgAggregateOutputType | null
+    _sum: TransactionclaimstatusSumAggregateOutputType | null
+    _min: TransactionclaimstatusMinAggregateOutputType | null
+    _max: TransactionclaimstatusMaxAggregateOutputType | null
+  }
+
+  type GetTransactionclaimstatusGroupByPayload<T extends TransactionclaimstatusGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TransactionclaimstatusGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TransactionclaimstatusGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TransactionclaimstatusGroupByOutputType[P]>
+            : GetScalarType<T[P], TransactionclaimstatusGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TransactionclaimstatusSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    refid?: boolean
+    insurerid?: boolean
+    hn?: boolean
+    vn?: boolean
+    statuscode?: boolean
+    batchnumber?: boolean
+    claimno?: boolean
+    invoicenumber?: boolean
+    status_changed_at?: boolean
+    note?: boolean
+    totalApproveAmount?: boolean
+    paymentDate?: boolean
+    transactionNo?: boolean
+    Claimants?: boolean | Transactionclaimstatus$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | ClaimStatusDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["transactionclaimstatus"]>
+
+  export type TransactionclaimstatusSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    refid?: boolean
+    insurerid?: boolean
+    hn?: boolean
+    vn?: boolean
+    statuscode?: boolean
+    batchnumber?: boolean
+    claimno?: boolean
+    invoicenumber?: boolean
+    status_changed_at?: boolean
+    note?: boolean
+    totalApproveAmount?: boolean
+    paymentDate?: boolean
+    transactionNo?: boolean
+    Claimants?: boolean | Transactionclaimstatus$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | ClaimStatusDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["transactionclaimstatus"]>
+
+  export type TransactionclaimstatusSelectScalar = {
+    id?: boolean
+    refid?: boolean
+    insurerid?: boolean
+    hn?: boolean
+    vn?: boolean
+    statuscode?: boolean
+    batchnumber?: boolean
+    claimno?: boolean
+    invoicenumber?: boolean
+    status_changed_at?: boolean
+    note?: boolean
+    totalApproveAmount?: boolean
+    paymentDate?: boolean
+    transactionNo?: boolean
+  }
+
+  export type TransactionclaimstatusInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Claimants?: boolean | Transactionclaimstatus$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | ClaimStatusDefaultArgs<ExtArgs>
+  }
+  export type TransactionclaimstatusIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Claimants?: boolean | Transactionclaimstatus$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | ClaimStatusDefaultArgs<ExtArgs>
+  }
+
+  export type $TransactionclaimstatusPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Transactionclaimstatus"
+    objects: {
+      Claimants: Prisma.$ClaimantsPayload<ExtArgs> | null
+      ClaimStatus: Prisma.$ClaimStatusPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      refid: string
+      insurerid: number
+      hn: string | null
+      vn: string | null
+      statuscode: string
+      batchnumber: string | null
+      claimno: string | null
+      invoicenumber: string | null
+      status_changed_at: Date | null
+      note: string | null
+      totalApproveAmount: string | null
+      paymentDate: string | null
+      transactionNo: string | null
+    }, ExtArgs["result"]["transactionclaimstatus"]>
+    composites: {}
+  }
+
+  type TransactionclaimstatusGetPayload<S extends boolean | null | undefined | TransactionclaimstatusDefaultArgs> = $Result.GetResult<Prisma.$TransactionclaimstatusPayload, S>
+
+  type TransactionclaimstatusCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TransactionclaimstatusFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TransactionclaimstatusCountAggregateInputType | true
+    }
+
+  export interface TransactionclaimstatusDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Transactionclaimstatus'], meta: { name: 'Transactionclaimstatus' } }
+    /**
+     * Find zero or one Transactionclaimstatus that matches the filter.
+     * @param {TransactionclaimstatusFindUniqueArgs} args - Arguments to find a Transactionclaimstatus
+     * @example
+     * // Get one Transactionclaimstatus
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TransactionclaimstatusFindUniqueArgs>(args: SelectSubset<T, TransactionclaimstatusFindUniqueArgs<ExtArgs>>): Prisma__TransactionclaimstatusClient<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Transactionclaimstatus that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {TransactionclaimstatusFindUniqueOrThrowArgs} args - Arguments to find a Transactionclaimstatus
+     * @example
+     * // Get one Transactionclaimstatus
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TransactionclaimstatusFindUniqueOrThrowArgs>(args: SelectSubset<T, TransactionclaimstatusFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TransactionclaimstatusClient<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Transactionclaimstatus that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimstatusFindFirstArgs} args - Arguments to find a Transactionclaimstatus
+     * @example
+     * // Get one Transactionclaimstatus
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TransactionclaimstatusFindFirstArgs>(args?: SelectSubset<T, TransactionclaimstatusFindFirstArgs<ExtArgs>>): Prisma__TransactionclaimstatusClient<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Transactionclaimstatus that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimstatusFindFirstOrThrowArgs} args - Arguments to find a Transactionclaimstatus
+     * @example
+     * // Get one Transactionclaimstatus
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TransactionclaimstatusFindFirstOrThrowArgs>(args?: SelectSubset<T, TransactionclaimstatusFindFirstOrThrowArgs<ExtArgs>>): Prisma__TransactionclaimstatusClient<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Transactionclaimstatuses that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimstatusFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Transactionclaimstatuses
+     * const transactionclaimstatuses = await prisma.transactionclaimstatus.findMany()
+     * 
+     * // Get first 10 Transactionclaimstatuses
+     * const transactionclaimstatuses = await prisma.transactionclaimstatus.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const transactionclaimstatusWithIdOnly = await prisma.transactionclaimstatus.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TransactionclaimstatusFindManyArgs>(args?: SelectSubset<T, TransactionclaimstatusFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Transactionclaimstatus.
+     * @param {TransactionclaimstatusCreateArgs} args - Arguments to create a Transactionclaimstatus.
+     * @example
+     * // Create one Transactionclaimstatus
+     * const Transactionclaimstatus = await prisma.transactionclaimstatus.create({
+     *   data: {
+     *     // ... data to create a Transactionclaimstatus
+     *   }
+     * })
+     * 
+     */
+    create<T extends TransactionclaimstatusCreateArgs>(args: SelectSubset<T, TransactionclaimstatusCreateArgs<ExtArgs>>): Prisma__TransactionclaimstatusClient<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Transactionclaimstatuses.
+     * @param {TransactionclaimstatusCreateManyArgs} args - Arguments to create many Transactionclaimstatuses.
+     * @example
+     * // Create many Transactionclaimstatuses
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TransactionclaimstatusCreateManyArgs>(args?: SelectSubset<T, TransactionclaimstatusCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Transactionclaimstatuses and returns the data saved in the database.
+     * @param {TransactionclaimstatusCreateManyAndReturnArgs} args - Arguments to create many Transactionclaimstatuses.
+     * @example
+     * // Create many Transactionclaimstatuses
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Transactionclaimstatuses and only return the `id`
+     * const transactionclaimstatusWithIdOnly = await prisma.transactionclaimstatus.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TransactionclaimstatusCreateManyAndReturnArgs>(args?: SelectSubset<T, TransactionclaimstatusCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Transactionclaimstatus.
+     * @param {TransactionclaimstatusDeleteArgs} args - Arguments to delete one Transactionclaimstatus.
+     * @example
+     * // Delete one Transactionclaimstatus
+     * const Transactionclaimstatus = await prisma.transactionclaimstatus.delete({
+     *   where: {
+     *     // ... filter to delete one Transactionclaimstatus
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TransactionclaimstatusDeleteArgs>(args: SelectSubset<T, TransactionclaimstatusDeleteArgs<ExtArgs>>): Prisma__TransactionclaimstatusClient<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Transactionclaimstatus.
+     * @param {TransactionclaimstatusUpdateArgs} args - Arguments to update one Transactionclaimstatus.
+     * @example
+     * // Update one Transactionclaimstatus
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TransactionclaimstatusUpdateArgs>(args: SelectSubset<T, TransactionclaimstatusUpdateArgs<ExtArgs>>): Prisma__TransactionclaimstatusClient<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Transactionclaimstatuses.
+     * @param {TransactionclaimstatusDeleteManyArgs} args - Arguments to filter Transactionclaimstatuses to delete.
+     * @example
+     * // Delete a few Transactionclaimstatuses
+     * const { count } = await prisma.transactionclaimstatus.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TransactionclaimstatusDeleteManyArgs>(args?: SelectSubset<T, TransactionclaimstatusDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Transactionclaimstatuses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimstatusUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Transactionclaimstatuses
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TransactionclaimstatusUpdateManyArgs>(args: SelectSubset<T, TransactionclaimstatusUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Transactionclaimstatus.
+     * @param {TransactionclaimstatusUpsertArgs} args - Arguments to update or create a Transactionclaimstatus.
+     * @example
+     * // Update or create a Transactionclaimstatus
+     * const transactionclaimstatus = await prisma.transactionclaimstatus.upsert({
+     *   create: {
+     *     // ... data to create a Transactionclaimstatus
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Transactionclaimstatus we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TransactionclaimstatusUpsertArgs>(args: SelectSubset<T, TransactionclaimstatusUpsertArgs<ExtArgs>>): Prisma__TransactionclaimstatusClient<$Result.GetResult<Prisma.$TransactionclaimstatusPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Transactionclaimstatuses.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimstatusCountArgs} args - Arguments to filter Transactionclaimstatuses to count.
+     * @example
+     * // Count the number of Transactionclaimstatuses
+     * const count = await prisma.transactionclaimstatus.count({
+     *   where: {
+     *     // ... the filter for the Transactionclaimstatuses we want to count
+     *   }
+     * })
+    **/
+    count<T extends TransactionclaimstatusCountArgs>(
+      args?: Subset<T, TransactionclaimstatusCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TransactionclaimstatusCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Transactionclaimstatus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimstatusAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TransactionclaimstatusAggregateArgs>(args: Subset<T, TransactionclaimstatusAggregateArgs>): Prisma.PrismaPromise<GetTransactionclaimstatusAggregateType<T>>
+
+    /**
+     * Group by Transactionclaimstatus.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimstatusGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TransactionclaimstatusGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TransactionclaimstatusGroupByArgs['orderBy'] }
+        : { orderBy?: TransactionclaimstatusGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TransactionclaimstatusGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTransactionclaimstatusGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Transactionclaimstatus model
+   */
+  readonly fields: TransactionclaimstatusFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Transactionclaimstatus.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TransactionclaimstatusClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Claimants<T extends Transactionclaimstatus$ClaimantsArgs<ExtArgs> = {}>(args?: Subset<T, Transactionclaimstatus$ClaimantsArgs<ExtArgs>>): Prisma__ClaimantsClient<$Result.GetResult<Prisma.$ClaimantsPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    ClaimStatus<T extends ClaimStatusDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClaimStatusDefaultArgs<ExtArgs>>): Prisma__ClaimStatusClient<$Result.GetResult<Prisma.$ClaimStatusPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Transactionclaimstatus model
+   */ 
+  interface TransactionclaimstatusFieldRefs {
+    readonly id: FieldRef<"Transactionclaimstatus", 'Int'>
+    readonly refid: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly insurerid: FieldRef<"Transactionclaimstatus", 'Int'>
+    readonly hn: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly vn: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly statuscode: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly batchnumber: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly claimno: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly invoicenumber: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly status_changed_at: FieldRef<"Transactionclaimstatus", 'DateTime'>
+    readonly note: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly totalApproveAmount: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly paymentDate: FieldRef<"Transactionclaimstatus", 'String'>
+    readonly transactionNo: FieldRef<"Transactionclaimstatus", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Transactionclaimstatus findUnique
+   */
+  export type TransactionclaimstatusFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaimstatus to fetch.
+     */
+    where: TransactionclaimstatusWhereUniqueInput
+  }
+
+  /**
+   * Transactionclaimstatus findUniqueOrThrow
+   */
+  export type TransactionclaimstatusFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaimstatus to fetch.
+     */
+    where: TransactionclaimstatusWhereUniqueInput
+  }
+
+  /**
+   * Transactionclaimstatus findFirst
+   */
+  export type TransactionclaimstatusFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaimstatus to fetch.
+     */
+    where?: TransactionclaimstatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transactionclaimstatuses to fetch.
+     */
+    orderBy?: TransactionclaimstatusOrderByWithRelationInput | TransactionclaimstatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Transactionclaimstatuses.
+     */
+    cursor?: TransactionclaimstatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transactionclaimstatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transactionclaimstatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Transactionclaimstatuses.
+     */
+    distinct?: TransactionclaimstatusScalarFieldEnum | TransactionclaimstatusScalarFieldEnum[]
+  }
+
+  /**
+   * Transactionclaimstatus findFirstOrThrow
+   */
+  export type TransactionclaimstatusFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaimstatus to fetch.
+     */
+    where?: TransactionclaimstatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transactionclaimstatuses to fetch.
+     */
+    orderBy?: TransactionclaimstatusOrderByWithRelationInput | TransactionclaimstatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Transactionclaimstatuses.
+     */
+    cursor?: TransactionclaimstatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transactionclaimstatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transactionclaimstatuses.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Transactionclaimstatuses.
+     */
+    distinct?: TransactionclaimstatusScalarFieldEnum | TransactionclaimstatusScalarFieldEnum[]
+  }
+
+  /**
+   * Transactionclaimstatus findMany
+   */
+  export type TransactionclaimstatusFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaimstatuses to fetch.
+     */
+    where?: TransactionclaimstatusWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transactionclaimstatuses to fetch.
+     */
+    orderBy?: TransactionclaimstatusOrderByWithRelationInput | TransactionclaimstatusOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Transactionclaimstatuses.
+     */
+    cursor?: TransactionclaimstatusWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transactionclaimstatuses from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transactionclaimstatuses.
+     */
+    skip?: number
+    distinct?: TransactionclaimstatusScalarFieldEnum | TransactionclaimstatusScalarFieldEnum[]
+  }
+
+  /**
+   * Transactionclaimstatus create
+   */
+  export type TransactionclaimstatusCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Transactionclaimstatus.
+     */
+    data: XOR<TransactionclaimstatusCreateInput, TransactionclaimstatusUncheckedCreateInput>
+  }
+
+  /**
+   * Transactionclaimstatus createMany
+   */
+  export type TransactionclaimstatusCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Transactionclaimstatuses.
+     */
+    data: TransactionclaimstatusCreateManyInput | TransactionclaimstatusCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Transactionclaimstatus createManyAndReturn
+   */
+  export type TransactionclaimstatusCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Transactionclaimstatuses.
+     */
+    data: TransactionclaimstatusCreateManyInput | TransactionclaimstatusCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Transactionclaimstatus update
+   */
+  export type TransactionclaimstatusUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Transactionclaimstatus.
+     */
+    data: XOR<TransactionclaimstatusUpdateInput, TransactionclaimstatusUncheckedUpdateInput>
+    /**
+     * Choose, which Transactionclaimstatus to update.
+     */
+    where: TransactionclaimstatusWhereUniqueInput
+  }
+
+  /**
+   * Transactionclaimstatus updateMany
+   */
+  export type TransactionclaimstatusUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Transactionclaimstatuses.
+     */
+    data: XOR<TransactionclaimstatusUpdateManyMutationInput, TransactionclaimstatusUncheckedUpdateManyInput>
+    /**
+     * Filter which Transactionclaimstatuses to update
+     */
+    where?: TransactionclaimstatusWhereInput
+  }
+
+  /**
+   * Transactionclaimstatus upsert
+   */
+  export type TransactionclaimstatusUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Transactionclaimstatus to update in case it exists.
+     */
+    where: TransactionclaimstatusWhereUniqueInput
+    /**
+     * In case the Transactionclaimstatus found by the `where` argument doesn't exist, create a new Transactionclaimstatus with this data.
+     */
+    create: XOR<TransactionclaimstatusCreateInput, TransactionclaimstatusUncheckedCreateInput>
+    /**
+     * In case the Transactionclaimstatus was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TransactionclaimstatusUpdateInput, TransactionclaimstatusUncheckedUpdateInput>
+  }
+
+  /**
+   * Transactionclaimstatus delete
+   */
+  export type TransactionclaimstatusDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+    /**
+     * Filter which Transactionclaimstatus to delete.
+     */
+    where: TransactionclaimstatusWhereUniqueInput
+  }
+
+  /**
+   * Transactionclaimstatus deleteMany
+   */
+  export type TransactionclaimstatusDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Transactionclaimstatuses to delete
+     */
+    where?: TransactionclaimstatusWhereInput
+  }
+
+  /**
+   * Transactionclaimstatus.Claimants
+   */
+  export type Transactionclaimstatus$ClaimantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Claimants
+     */
+    select?: ClaimantsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClaimantsInclude<ExtArgs> | null
+    where?: ClaimantsWhereInput
+  }
+
+  /**
+   * Transactionclaimstatus without action
+   */
+  export type TransactionclaimstatusDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaimstatus
+     */
+    select?: TransactionclaimstatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimstatusInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Transactionclaim
+   */
+
+  export type AggregateTransactionclaim = {
+    _count: TransactionclaimCountAggregateOutputType | null
+    _avg: TransactionclaimAvgAggregateOutputType | null
+    _sum: TransactionclaimSumAggregateOutputType | null
+    _min: TransactionclaimMinAggregateOutputType | null
+    _max: TransactionclaimMaxAggregateOutputType | null
+  }
+
+  export type TransactionclaimAvgAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+  }
+
+  export type TransactionclaimSumAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+  }
+
+  export type TransactionclaimMinAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+    refid: string | null
+    transactionno: string | null
+    furtherclaimid: string | null
+    hn: string | null
+    vn: string | null
+    presentillness: string | null
+    chiefcomplaint: string | null
+    accidentplacecode: string | null
+    causeofinjury: string | null
+    commentofinjury: string | null
+    woundtypecode: string | null
+    injurysidecode: string | null
+    injuryarea: string | null
+    status_changed_at: Date | null
+    messageclaim: string | null
+    messageth: string | null
+    claimno: string | null
+    statuscode: string | null
+    occurrenceno: string | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+    isreimbursement: boolean | null
+    batchnumber: string | null
+    invoicenumber: string | null
+    accidentdate: string | null
+    visitdate: string | null
+  }
+
+  export type TransactionclaimMaxAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+    refid: string | null
+    transactionno: string | null
+    furtherclaimid: string | null
+    hn: string | null
+    vn: string | null
+    presentillness: string | null
+    chiefcomplaint: string | null
+    accidentplacecode: string | null
+    causeofinjury: string | null
+    commentofinjury: string | null
+    woundtypecode: string | null
+    injurysidecode: string | null
+    injuryarea: string | null
+    status_changed_at: Date | null
+    messageclaim: string | null
+    messageth: string | null
+    claimno: string | null
+    statuscode: string | null
+    occurrenceno: string | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+    isreimbursement: boolean | null
+    batchnumber: string | null
+    invoicenumber: string | null
+    accidentdate: string | null
+    visitdate: string | null
+  }
+
+  export type TransactionclaimCountAggregateOutputType = {
+    id: number
+    insurerid: number
+    refid: number
+    transactionno: number
+    furtherclaimid: number
+    hn: number
+    vn: number
+    presentillness: number
+    chiefcomplaint: number
+    accidentplacecode: number
+    causeofinjury: number
+    commentofinjury: number
+    woundtypecode: number
+    injurysidecode: number
+    injuryarea: number
+    status_changed_at: number
+    messageclaim: number
+    messageth: number
+    claimno: number
+    statuscode: number
+    occurrenceno: number
+    totalapprovedamount: number
+    totalexcessamount: number
+    isreimbursement: number
+    batchnumber: number
+    invoicenumber: number
+    accidentdate: number
+    visitdate: number
+    _all: number
+  }
+
+
+  export type TransactionclaimAvgAggregateInputType = {
+    id?: true
+    insurerid?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+  }
+
+  export type TransactionclaimSumAggregateInputType = {
+    id?: true
+    insurerid?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+  }
+
+  export type TransactionclaimMinAggregateInputType = {
+    id?: true
+    insurerid?: true
+    refid?: true
+    transactionno?: true
+    furtherclaimid?: true
+    hn?: true
+    vn?: true
+    presentillness?: true
+    chiefcomplaint?: true
+    accidentplacecode?: true
+    causeofinjury?: true
+    commentofinjury?: true
+    woundtypecode?: true
+    injurysidecode?: true
+    injuryarea?: true
+    status_changed_at?: true
+    messageclaim?: true
+    messageth?: true
+    claimno?: true
+    statuscode?: true
+    occurrenceno?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+    isreimbursement?: true
+    batchnumber?: true
+    invoicenumber?: true
+    accidentdate?: true
+    visitdate?: true
+  }
+
+  export type TransactionclaimMaxAggregateInputType = {
+    id?: true
+    insurerid?: true
+    refid?: true
+    transactionno?: true
+    furtherclaimid?: true
+    hn?: true
+    vn?: true
+    presentillness?: true
+    chiefcomplaint?: true
+    accidentplacecode?: true
+    causeofinjury?: true
+    commentofinjury?: true
+    woundtypecode?: true
+    injurysidecode?: true
+    injuryarea?: true
+    status_changed_at?: true
+    messageclaim?: true
+    messageth?: true
+    claimno?: true
+    statuscode?: true
+    occurrenceno?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+    isreimbursement?: true
+    batchnumber?: true
+    invoicenumber?: true
+    accidentdate?: true
+    visitdate?: true
+  }
+
+  export type TransactionclaimCountAggregateInputType = {
+    id?: true
+    insurerid?: true
+    refid?: true
+    transactionno?: true
+    furtherclaimid?: true
+    hn?: true
+    vn?: true
+    presentillness?: true
+    chiefcomplaint?: true
+    accidentplacecode?: true
+    causeofinjury?: true
+    commentofinjury?: true
+    woundtypecode?: true
+    injurysidecode?: true
+    injuryarea?: true
+    status_changed_at?: true
+    messageclaim?: true
+    messageth?: true
+    claimno?: true
+    statuscode?: true
+    occurrenceno?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+    isreimbursement?: true
+    batchnumber?: true
+    invoicenumber?: true
+    accidentdate?: true
+    visitdate?: true
+    _all?: true
+  }
+
+  export type TransactionclaimAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Transactionclaim to aggregate.
+     */
+    where?: TransactionclaimWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transactionclaims to fetch.
+     */
+    orderBy?: TransactionclaimOrderByWithRelationInput | TransactionclaimOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: TransactionclaimWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transactionclaims from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transactionclaims.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Transactionclaims
+    **/
+    _count?: true | TransactionclaimCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: TransactionclaimAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: TransactionclaimSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: TransactionclaimMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: TransactionclaimMaxAggregateInputType
+  }
+
+  export type GetTransactionclaimAggregateType<T extends TransactionclaimAggregateArgs> = {
+        [P in keyof T & keyof AggregateTransactionclaim]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTransactionclaim[P]>
+      : GetScalarType<T[P], AggregateTransactionclaim[P]>
+  }
+
+
+
+
+  export type TransactionclaimGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TransactionclaimWhereInput
+    orderBy?: TransactionclaimOrderByWithAggregationInput | TransactionclaimOrderByWithAggregationInput[]
+    by: TransactionclaimScalarFieldEnum[] | TransactionclaimScalarFieldEnum
+    having?: TransactionclaimScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: TransactionclaimCountAggregateInputType | true
+    _avg?: TransactionclaimAvgAggregateInputType
+    _sum?: TransactionclaimSumAggregateInputType
+    _min?: TransactionclaimMinAggregateInputType
+    _max?: TransactionclaimMaxAggregateInputType
+  }
+
+  export type TransactionclaimGroupByOutputType = {
+    id: number
+    insurerid: number | null
+    refid: string | null
+    transactionno: string | null
+    furtherclaimid: string | null
+    hn: string | null
+    vn: string | null
+    presentillness: string | null
+    chiefcomplaint: string | null
+    accidentplacecode: string | null
+    causeofinjury: string | null
+    commentofinjury: string | null
+    woundtypecode: string | null
+    injurysidecode: string | null
+    injuryarea: string | null
+    status_changed_at: Date | null
+    messageclaim: string | null
+    messageth: string | null
+    claimno: string | null
+    statuscode: string | null
+    occurrenceno: string | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+    isreimbursement: boolean | null
+    batchnumber: string | null
+    invoicenumber: string | null
+    accidentdate: string | null
+    visitdate: string | null
+    _count: TransactionclaimCountAggregateOutputType | null
+    _avg: TransactionclaimAvgAggregateOutputType | null
+    _sum: TransactionclaimSumAggregateOutputType | null
+    _min: TransactionclaimMinAggregateOutputType | null
+    _max: TransactionclaimMaxAggregateOutputType | null
+  }
+
+  type GetTransactionclaimGroupByPayload<T extends TransactionclaimGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<TransactionclaimGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof TransactionclaimGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], TransactionclaimGroupByOutputType[P]>
+            : GetScalarType<T[P], TransactionclaimGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type TransactionclaimSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    insurerid?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    furtherclaimid?: boolean
+    hn?: boolean
+    vn?: boolean
+    presentillness?: boolean
+    chiefcomplaint?: boolean
+    accidentplacecode?: boolean
+    causeofinjury?: boolean
+    commentofinjury?: boolean
+    woundtypecode?: boolean
+    injurysidecode?: boolean
+    injuryarea?: boolean
+    status_changed_at?: boolean
+    messageclaim?: boolean
+    messageth?: boolean
+    claimno?: boolean
+    statuscode?: boolean
+    occurrenceno?: boolean
+    totalapprovedamount?: boolean
+    totalexcessamount?: boolean
+    isreimbursement?: boolean
+    batchnumber?: boolean
+    invoicenumber?: boolean
+    accidentdate?: boolean
+    visitdate?: boolean
+    Claimants?: boolean | Transactionclaim$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | Transactionclaim$ClaimStatusArgs<ExtArgs>
+  }, ExtArgs["result"]["transactionclaim"]>
+
+  export type TransactionclaimSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    insurerid?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    furtherclaimid?: boolean
+    hn?: boolean
+    vn?: boolean
+    presentillness?: boolean
+    chiefcomplaint?: boolean
+    accidentplacecode?: boolean
+    causeofinjury?: boolean
+    commentofinjury?: boolean
+    woundtypecode?: boolean
+    injurysidecode?: boolean
+    injuryarea?: boolean
+    status_changed_at?: boolean
+    messageclaim?: boolean
+    messageth?: boolean
+    claimno?: boolean
+    statuscode?: boolean
+    occurrenceno?: boolean
+    totalapprovedamount?: boolean
+    totalexcessamount?: boolean
+    isreimbursement?: boolean
+    batchnumber?: boolean
+    invoicenumber?: boolean
+    accidentdate?: boolean
+    visitdate?: boolean
+    Claimants?: boolean | Transactionclaim$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | Transactionclaim$ClaimStatusArgs<ExtArgs>
+  }, ExtArgs["result"]["transactionclaim"]>
+
+  export type TransactionclaimSelectScalar = {
+    id?: boolean
+    insurerid?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    furtherclaimid?: boolean
+    hn?: boolean
+    vn?: boolean
+    presentillness?: boolean
+    chiefcomplaint?: boolean
+    accidentplacecode?: boolean
+    causeofinjury?: boolean
+    commentofinjury?: boolean
+    woundtypecode?: boolean
+    injurysidecode?: boolean
+    injuryarea?: boolean
+    status_changed_at?: boolean
+    messageclaim?: boolean
+    messageth?: boolean
+    claimno?: boolean
+    statuscode?: boolean
+    occurrenceno?: boolean
+    totalapprovedamount?: boolean
+    totalexcessamount?: boolean
+    isreimbursement?: boolean
+    batchnumber?: boolean
+    invoicenumber?: boolean
+    accidentdate?: boolean
+    visitdate?: boolean
+  }
+
+  export type TransactionclaimInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Claimants?: boolean | Transactionclaim$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | Transactionclaim$ClaimStatusArgs<ExtArgs>
+  }
+  export type TransactionclaimIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Claimants?: boolean | Transactionclaim$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | Transactionclaim$ClaimStatusArgs<ExtArgs>
+  }
+
+  export type $TransactionclaimPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Transactionclaim"
+    objects: {
+      Claimants: Prisma.$ClaimantsPayload<ExtArgs> | null
+      ClaimStatus: Prisma.$ClaimStatusPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      insurerid: number | null
+      refid: string | null
+      transactionno: string | null
+      furtherclaimid: string | null
+      hn: string | null
+      vn: string | null
+      presentillness: string | null
+      chiefcomplaint: string | null
+      accidentplacecode: string | null
+      causeofinjury: string | null
+      commentofinjury: string | null
+      woundtypecode: string | null
+      injurysidecode: string | null
+      injuryarea: string | null
+      status_changed_at: Date | null
+      messageclaim: string | null
+      messageth: string | null
+      claimno: string | null
+      statuscode: string | null
+      occurrenceno: string | null
+      totalapprovedamount: Prisma.Decimal | null
+      totalexcessamount: Prisma.Decimal | null
+      isreimbursement: boolean | null
+      batchnumber: string | null
+      invoicenumber: string | null
+      accidentdate: string | null
+      visitdate: string | null
+    }, ExtArgs["result"]["transactionclaim"]>
+    composites: {}
+  }
+
+  type TransactionclaimGetPayload<S extends boolean | null | undefined | TransactionclaimDefaultArgs> = $Result.GetResult<Prisma.$TransactionclaimPayload, S>
+
+  type TransactionclaimCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<TransactionclaimFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: TransactionclaimCountAggregateInputType | true
+    }
+
+  export interface TransactionclaimDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Transactionclaim'], meta: { name: 'Transactionclaim' } }
+    /**
+     * Find zero or one Transactionclaim that matches the filter.
+     * @param {TransactionclaimFindUniqueArgs} args - Arguments to find a Transactionclaim
+     * @example
+     * // Get one Transactionclaim
+     * const transactionclaim = await prisma.transactionclaim.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends TransactionclaimFindUniqueArgs>(args: SelectSubset<T, TransactionclaimFindUniqueArgs<ExtArgs>>): Prisma__TransactionclaimClient<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Transactionclaim that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {TransactionclaimFindUniqueOrThrowArgs} args - Arguments to find a Transactionclaim
+     * @example
+     * // Get one Transactionclaim
+     * const transactionclaim = await prisma.transactionclaim.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends TransactionclaimFindUniqueOrThrowArgs>(args: SelectSubset<T, TransactionclaimFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TransactionclaimClient<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Transactionclaim that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimFindFirstArgs} args - Arguments to find a Transactionclaim
+     * @example
+     * // Get one Transactionclaim
+     * const transactionclaim = await prisma.transactionclaim.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends TransactionclaimFindFirstArgs>(args?: SelectSubset<T, TransactionclaimFindFirstArgs<ExtArgs>>): Prisma__TransactionclaimClient<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Transactionclaim that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimFindFirstOrThrowArgs} args - Arguments to find a Transactionclaim
+     * @example
+     * // Get one Transactionclaim
+     * const transactionclaim = await prisma.transactionclaim.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends TransactionclaimFindFirstOrThrowArgs>(args?: SelectSubset<T, TransactionclaimFindFirstOrThrowArgs<ExtArgs>>): Prisma__TransactionclaimClient<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Transactionclaims that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Transactionclaims
+     * const transactionclaims = await prisma.transactionclaim.findMany()
+     * 
+     * // Get first 10 Transactionclaims
+     * const transactionclaims = await prisma.transactionclaim.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const transactionclaimWithIdOnly = await prisma.transactionclaim.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends TransactionclaimFindManyArgs>(args?: SelectSubset<T, TransactionclaimFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Transactionclaim.
+     * @param {TransactionclaimCreateArgs} args - Arguments to create a Transactionclaim.
+     * @example
+     * // Create one Transactionclaim
+     * const Transactionclaim = await prisma.transactionclaim.create({
+     *   data: {
+     *     // ... data to create a Transactionclaim
+     *   }
+     * })
+     * 
+     */
+    create<T extends TransactionclaimCreateArgs>(args: SelectSubset<T, TransactionclaimCreateArgs<ExtArgs>>): Prisma__TransactionclaimClient<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Transactionclaims.
+     * @param {TransactionclaimCreateManyArgs} args - Arguments to create many Transactionclaims.
+     * @example
+     * // Create many Transactionclaims
+     * const transactionclaim = await prisma.transactionclaim.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends TransactionclaimCreateManyArgs>(args?: SelectSubset<T, TransactionclaimCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Transactionclaims and returns the data saved in the database.
+     * @param {TransactionclaimCreateManyAndReturnArgs} args - Arguments to create many Transactionclaims.
+     * @example
+     * // Create many Transactionclaims
+     * const transactionclaim = await prisma.transactionclaim.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Transactionclaims and only return the `id`
+     * const transactionclaimWithIdOnly = await prisma.transactionclaim.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends TransactionclaimCreateManyAndReturnArgs>(args?: SelectSubset<T, TransactionclaimCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Transactionclaim.
+     * @param {TransactionclaimDeleteArgs} args - Arguments to delete one Transactionclaim.
+     * @example
+     * // Delete one Transactionclaim
+     * const Transactionclaim = await prisma.transactionclaim.delete({
+     *   where: {
+     *     // ... filter to delete one Transactionclaim
+     *   }
+     * })
+     * 
+     */
+    delete<T extends TransactionclaimDeleteArgs>(args: SelectSubset<T, TransactionclaimDeleteArgs<ExtArgs>>): Prisma__TransactionclaimClient<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Transactionclaim.
+     * @param {TransactionclaimUpdateArgs} args - Arguments to update one Transactionclaim.
+     * @example
+     * // Update one Transactionclaim
+     * const transactionclaim = await prisma.transactionclaim.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends TransactionclaimUpdateArgs>(args: SelectSubset<T, TransactionclaimUpdateArgs<ExtArgs>>): Prisma__TransactionclaimClient<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Transactionclaims.
+     * @param {TransactionclaimDeleteManyArgs} args - Arguments to filter Transactionclaims to delete.
+     * @example
+     * // Delete a few Transactionclaims
+     * const { count } = await prisma.transactionclaim.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends TransactionclaimDeleteManyArgs>(args?: SelectSubset<T, TransactionclaimDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Transactionclaims.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Transactionclaims
+     * const transactionclaim = await prisma.transactionclaim.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends TransactionclaimUpdateManyArgs>(args: SelectSubset<T, TransactionclaimUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Transactionclaim.
+     * @param {TransactionclaimUpsertArgs} args - Arguments to update or create a Transactionclaim.
+     * @example
+     * // Update or create a Transactionclaim
+     * const transactionclaim = await prisma.transactionclaim.upsert({
+     *   create: {
+     *     // ... data to create a Transactionclaim
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Transactionclaim we want to update
+     *   }
+     * })
+     */
+    upsert<T extends TransactionclaimUpsertArgs>(args: SelectSubset<T, TransactionclaimUpsertArgs<ExtArgs>>): Prisma__TransactionclaimClient<$Result.GetResult<Prisma.$TransactionclaimPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Transactionclaims.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimCountArgs} args - Arguments to filter Transactionclaims to count.
+     * @example
+     * // Count the number of Transactionclaims
+     * const count = await prisma.transactionclaim.count({
+     *   where: {
+     *     // ... the filter for the Transactionclaims we want to count
+     *   }
+     * })
+    **/
+    count<T extends TransactionclaimCountArgs>(
+      args?: Subset<T, TransactionclaimCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], TransactionclaimCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Transactionclaim.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends TransactionclaimAggregateArgs>(args: Subset<T, TransactionclaimAggregateArgs>): Prisma.PrismaPromise<GetTransactionclaimAggregateType<T>>
+
+    /**
+     * Group by Transactionclaim.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {TransactionclaimGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends TransactionclaimGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: TransactionclaimGroupByArgs['orderBy'] }
+        : { orderBy?: TransactionclaimGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, TransactionclaimGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTransactionclaimGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Transactionclaim model
+   */
+  readonly fields: TransactionclaimFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Transactionclaim.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__TransactionclaimClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Claimants<T extends Transactionclaim$ClaimantsArgs<ExtArgs> = {}>(args?: Subset<T, Transactionclaim$ClaimantsArgs<ExtArgs>>): Prisma__ClaimantsClient<$Result.GetResult<Prisma.$ClaimantsPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    ClaimStatus<T extends Transactionclaim$ClaimStatusArgs<ExtArgs> = {}>(args?: Subset<T, Transactionclaim$ClaimStatusArgs<ExtArgs>>): Prisma__ClaimStatusClient<$Result.GetResult<Prisma.$ClaimStatusPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Transactionclaim model
+   */ 
+  interface TransactionclaimFieldRefs {
+    readonly id: FieldRef<"Transactionclaim", 'Int'>
+    readonly insurerid: FieldRef<"Transactionclaim", 'Int'>
+    readonly refid: FieldRef<"Transactionclaim", 'String'>
+    readonly transactionno: FieldRef<"Transactionclaim", 'String'>
+    readonly furtherclaimid: FieldRef<"Transactionclaim", 'String'>
+    readonly hn: FieldRef<"Transactionclaim", 'String'>
+    readonly vn: FieldRef<"Transactionclaim", 'String'>
+    readonly presentillness: FieldRef<"Transactionclaim", 'String'>
+    readonly chiefcomplaint: FieldRef<"Transactionclaim", 'String'>
+    readonly accidentplacecode: FieldRef<"Transactionclaim", 'String'>
+    readonly causeofinjury: FieldRef<"Transactionclaim", 'String'>
+    readonly commentofinjury: FieldRef<"Transactionclaim", 'String'>
+    readonly woundtypecode: FieldRef<"Transactionclaim", 'String'>
+    readonly injurysidecode: FieldRef<"Transactionclaim", 'String'>
+    readonly injuryarea: FieldRef<"Transactionclaim", 'String'>
+    readonly status_changed_at: FieldRef<"Transactionclaim", 'DateTime'>
+    readonly messageclaim: FieldRef<"Transactionclaim", 'String'>
+    readonly messageth: FieldRef<"Transactionclaim", 'String'>
+    readonly claimno: FieldRef<"Transactionclaim", 'String'>
+    readonly statuscode: FieldRef<"Transactionclaim", 'String'>
+    readonly occurrenceno: FieldRef<"Transactionclaim", 'String'>
+    readonly totalapprovedamount: FieldRef<"Transactionclaim", 'Decimal'>
+    readonly totalexcessamount: FieldRef<"Transactionclaim", 'Decimal'>
+    readonly isreimbursement: FieldRef<"Transactionclaim", 'Boolean'>
+    readonly batchnumber: FieldRef<"Transactionclaim", 'String'>
+    readonly invoicenumber: FieldRef<"Transactionclaim", 'String'>
+    readonly accidentdate: FieldRef<"Transactionclaim", 'String'>
+    readonly visitdate: FieldRef<"Transactionclaim", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Transactionclaim findUnique
+   */
+  export type TransactionclaimFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaim to fetch.
+     */
+    where: TransactionclaimWhereUniqueInput
+  }
+
+  /**
+   * Transactionclaim findUniqueOrThrow
+   */
+  export type TransactionclaimFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaim to fetch.
+     */
+    where: TransactionclaimWhereUniqueInput
+  }
+
+  /**
+   * Transactionclaim findFirst
+   */
+  export type TransactionclaimFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaim to fetch.
+     */
+    where?: TransactionclaimWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transactionclaims to fetch.
+     */
+    orderBy?: TransactionclaimOrderByWithRelationInput | TransactionclaimOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Transactionclaims.
+     */
+    cursor?: TransactionclaimWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transactionclaims from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transactionclaims.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Transactionclaims.
+     */
+    distinct?: TransactionclaimScalarFieldEnum | TransactionclaimScalarFieldEnum[]
+  }
+
+  /**
+   * Transactionclaim findFirstOrThrow
+   */
+  export type TransactionclaimFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaim to fetch.
+     */
+    where?: TransactionclaimWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transactionclaims to fetch.
+     */
+    orderBy?: TransactionclaimOrderByWithRelationInput | TransactionclaimOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Transactionclaims.
+     */
+    cursor?: TransactionclaimWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transactionclaims from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transactionclaims.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Transactionclaims.
+     */
+    distinct?: TransactionclaimScalarFieldEnum | TransactionclaimScalarFieldEnum[]
+  }
+
+  /**
+   * Transactionclaim findMany
+   */
+  export type TransactionclaimFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * Filter, which Transactionclaims to fetch.
+     */
+    where?: TransactionclaimWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Transactionclaims to fetch.
+     */
+    orderBy?: TransactionclaimOrderByWithRelationInput | TransactionclaimOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Transactionclaims.
+     */
+    cursor?: TransactionclaimWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Transactionclaims from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Transactionclaims.
+     */
+    skip?: number
+    distinct?: TransactionclaimScalarFieldEnum | TransactionclaimScalarFieldEnum[]
+  }
+
+  /**
+   * Transactionclaim create
+   */
+  export type TransactionclaimCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Transactionclaim.
+     */
+    data?: XOR<TransactionclaimCreateInput, TransactionclaimUncheckedCreateInput>
+  }
+
+  /**
+   * Transactionclaim createMany
+   */
+  export type TransactionclaimCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Transactionclaims.
+     */
+    data: TransactionclaimCreateManyInput | TransactionclaimCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Transactionclaim createManyAndReturn
+   */
+  export type TransactionclaimCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Transactionclaims.
+     */
+    data: TransactionclaimCreateManyInput | TransactionclaimCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Transactionclaim update
+   */
+  export type TransactionclaimUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Transactionclaim.
+     */
+    data: XOR<TransactionclaimUpdateInput, TransactionclaimUncheckedUpdateInput>
+    /**
+     * Choose, which Transactionclaim to update.
+     */
+    where: TransactionclaimWhereUniqueInput
+  }
+
+  /**
+   * Transactionclaim updateMany
+   */
+  export type TransactionclaimUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Transactionclaims.
+     */
+    data: XOR<TransactionclaimUpdateManyMutationInput, TransactionclaimUncheckedUpdateManyInput>
+    /**
+     * Filter which Transactionclaims to update
+     */
+    where?: TransactionclaimWhereInput
+  }
+
+  /**
+   * Transactionclaim upsert
+   */
+  export type TransactionclaimUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Transactionclaim to update in case it exists.
+     */
+    where: TransactionclaimWhereUniqueInput
+    /**
+     * In case the Transactionclaim found by the `where` argument doesn't exist, create a new Transactionclaim with this data.
+     */
+    create: XOR<TransactionclaimCreateInput, TransactionclaimUncheckedCreateInput>
+    /**
+     * In case the Transactionclaim was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<TransactionclaimUpdateInput, TransactionclaimUncheckedUpdateInput>
+  }
+
+  /**
+   * Transactionclaim delete
+   */
+  export type TransactionclaimDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+    /**
+     * Filter which Transactionclaim to delete.
+     */
+    where: TransactionclaimWhereUniqueInput
+  }
+
+  /**
+   * Transactionclaim deleteMany
+   */
+  export type TransactionclaimDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Transactionclaims to delete
+     */
+    where?: TransactionclaimWhereInput
+  }
+
+  /**
+   * Transactionclaim.Claimants
+   */
+  export type Transactionclaim$ClaimantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Claimants
+     */
+    select?: ClaimantsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClaimantsInclude<ExtArgs> | null
+    where?: ClaimantsWhereInput
+  }
+
+  /**
+   * Transactionclaim.ClaimStatus
+   */
+  export type Transactionclaim$ClaimStatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimStatus
+     */
+    select?: ClaimStatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClaimStatusInclude<ExtArgs> | null
+    where?: ClaimStatusWhereInput
+  }
+
+  /**
+   * Transactionclaim without action
+   */
+  export type TransactionclaimDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Transactionclaim
+     */
+    select?: TransactionclaimSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: TransactionclaimInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model transactionclaim2
+   */
+
+  export type AggregateTransactionclaim2 = {
+    _count: Transactionclaim2CountAggregateOutputType | null
+    _avg: Transactionclaim2AvgAggregateOutputType | null
+    _sum: Transactionclaim2SumAggregateOutputType | null
+    _min: Transactionclaim2MinAggregateOutputType | null
+    _max: Transactionclaim2MaxAggregateOutputType | null
+  }
+
+  export type Transactionclaim2AvgAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+  }
+
+  export type Transactionclaim2SumAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+  }
+
+  export type Transactionclaim2MinAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+    refid: string | null
+    transactionno: string | null
+    furtherclaimid: string | null
+    hn: string | null
+    vn: string | null
+    presentillness: string | null
+    chiefcomplaint: string | null
+    accidentplacecode: string | null
+    causeofinjury: string | null
+    commentofinjury: string | null
+    woundtypecode: string | null
+    injurysidecode: string | null
+    injuryarea: string | null
+    status_changed_at: Date | null
+    messageclaim: string | null
+    messageth: string | null
+    claimno: string | null
+    statuscode: string | null
+    occurrenceno: string | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+    isreimbursement: boolean | null
+    batchnumber: string | null
+    invoicenumber: string | null
+    accidentdate: string | null
+    visitdate: string | null
+  }
+
+  export type Transactionclaim2MaxAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+    refid: string | null
+    transactionno: string | null
+    furtherclaimid: string | null
+    hn: string | null
+    vn: string | null
+    presentillness: string | null
+    chiefcomplaint: string | null
+    accidentplacecode: string | null
+    causeofinjury: string | null
+    commentofinjury: string | null
+    woundtypecode: string | null
+    injurysidecode: string | null
+    injuryarea: string | null
+    status_changed_at: Date | null
+    messageclaim: string | null
+    messageth: string | null
+    claimno: string | null
+    statuscode: string | null
+    occurrenceno: string | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+    isreimbursement: boolean | null
+    batchnumber: string | null
+    invoicenumber: string | null
+    accidentdate: string | null
+    visitdate: string | null
+  }
+
+  export type Transactionclaim2CountAggregateOutputType = {
+    id: number
+    insurerid: number
+    refid: number
+    transactionno: number
+    furtherclaimid: number
+    hn: number
+    vn: number
+    presentillness: number
+    chiefcomplaint: number
+    accidentplacecode: number
+    causeofinjury: number
+    commentofinjury: number
+    woundtypecode: number
+    injurysidecode: number
+    injuryarea: number
+    status_changed_at: number
+    messageclaim: number
+    messageth: number
+    claimno: number
+    statuscode: number
+    occurrenceno: number
+    totalapprovedamount: number
+    totalexcessamount: number
+    isreimbursement: number
+    batchnumber: number
+    invoicenumber: number
+    accidentdate: number
+    visitdate: number
+    _all: number
+  }
+
+
+  export type Transactionclaim2AvgAggregateInputType = {
+    id?: true
+    insurerid?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+  }
+
+  export type Transactionclaim2SumAggregateInputType = {
+    id?: true
+    insurerid?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+  }
+
+  export type Transactionclaim2MinAggregateInputType = {
+    id?: true
+    insurerid?: true
+    refid?: true
+    transactionno?: true
+    furtherclaimid?: true
+    hn?: true
+    vn?: true
+    presentillness?: true
+    chiefcomplaint?: true
+    accidentplacecode?: true
+    causeofinjury?: true
+    commentofinjury?: true
+    woundtypecode?: true
+    injurysidecode?: true
+    injuryarea?: true
+    status_changed_at?: true
+    messageclaim?: true
+    messageth?: true
+    claimno?: true
+    statuscode?: true
+    occurrenceno?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+    isreimbursement?: true
+    batchnumber?: true
+    invoicenumber?: true
+    accidentdate?: true
+    visitdate?: true
+  }
+
+  export type Transactionclaim2MaxAggregateInputType = {
+    id?: true
+    insurerid?: true
+    refid?: true
+    transactionno?: true
+    furtherclaimid?: true
+    hn?: true
+    vn?: true
+    presentillness?: true
+    chiefcomplaint?: true
+    accidentplacecode?: true
+    causeofinjury?: true
+    commentofinjury?: true
+    woundtypecode?: true
+    injurysidecode?: true
+    injuryarea?: true
+    status_changed_at?: true
+    messageclaim?: true
+    messageth?: true
+    claimno?: true
+    statuscode?: true
+    occurrenceno?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+    isreimbursement?: true
+    batchnumber?: true
+    invoicenumber?: true
+    accidentdate?: true
+    visitdate?: true
+  }
+
+  export type Transactionclaim2CountAggregateInputType = {
+    id?: true
+    insurerid?: true
+    refid?: true
+    transactionno?: true
+    furtherclaimid?: true
+    hn?: true
+    vn?: true
+    presentillness?: true
+    chiefcomplaint?: true
+    accidentplacecode?: true
+    causeofinjury?: true
+    commentofinjury?: true
+    woundtypecode?: true
+    injurysidecode?: true
+    injuryarea?: true
+    status_changed_at?: true
+    messageclaim?: true
+    messageth?: true
+    claimno?: true
+    statuscode?: true
+    occurrenceno?: true
+    totalapprovedamount?: true
+    totalexcessamount?: true
+    isreimbursement?: true
+    batchnumber?: true
+    invoicenumber?: true
+    accidentdate?: true
+    visitdate?: true
+    _all?: true
+  }
+
+  export type Transactionclaim2AggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which transactionclaim2 to aggregate.
+     */
+    where?: transactionclaim2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of transactionclaim2s to fetch.
+     */
+    orderBy?: transactionclaim2OrderByWithRelationInput | transactionclaim2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: transactionclaim2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` transactionclaim2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` transactionclaim2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned transactionclaim2s
+    **/
+    _count?: true | Transactionclaim2CountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Transactionclaim2AvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Transactionclaim2SumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Transactionclaim2MinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Transactionclaim2MaxAggregateInputType
+  }
+
+  export type GetTransactionclaim2AggregateType<T extends Transactionclaim2AggregateArgs> = {
+        [P in keyof T & keyof AggregateTransactionclaim2]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateTransactionclaim2[P]>
+      : GetScalarType<T[P], AggregateTransactionclaim2[P]>
+  }
+
+
+
+
+  export type transactionclaim2GroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: transactionclaim2WhereInput
+    orderBy?: transactionclaim2OrderByWithAggregationInput | transactionclaim2OrderByWithAggregationInput[]
+    by: Transactionclaim2ScalarFieldEnum[] | Transactionclaim2ScalarFieldEnum
+    having?: transactionclaim2ScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Transactionclaim2CountAggregateInputType | true
+    _avg?: Transactionclaim2AvgAggregateInputType
+    _sum?: Transactionclaim2SumAggregateInputType
+    _min?: Transactionclaim2MinAggregateInputType
+    _max?: Transactionclaim2MaxAggregateInputType
+  }
+
+  export type Transactionclaim2GroupByOutputType = {
+    id: number
+    insurerid: number | null
+    refid: string | null
+    transactionno: string | null
+    furtherclaimid: string | null
+    hn: string | null
+    vn: string | null
+    presentillness: string | null
+    chiefcomplaint: string | null
+    accidentplacecode: string | null
+    causeofinjury: string | null
+    commentofinjury: string | null
+    woundtypecode: string | null
+    injurysidecode: string | null
+    injuryarea: string | null
+    status_changed_at: Date | null
+    messageclaim: string | null
+    messageth: string | null
+    claimno: string | null
+    statuscode: string | null
+    occurrenceno: string | null
+    totalapprovedamount: Decimal | null
+    totalexcessamount: Decimal | null
+    isreimbursement: boolean | null
+    batchnumber: string | null
+    invoicenumber: string | null
+    accidentdate: string | null
+    visitdate: string | null
+    _count: Transactionclaim2CountAggregateOutputType | null
+    _avg: Transactionclaim2AvgAggregateOutputType | null
+    _sum: Transactionclaim2SumAggregateOutputType | null
+    _min: Transactionclaim2MinAggregateOutputType | null
+    _max: Transactionclaim2MaxAggregateOutputType | null
+  }
+
+  type GetTransactionclaim2GroupByPayload<T extends transactionclaim2GroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Transactionclaim2GroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Transactionclaim2GroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Transactionclaim2GroupByOutputType[P]>
+            : GetScalarType<T[P], Transactionclaim2GroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type transactionclaim2Select<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    insurerid?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    furtherclaimid?: boolean
+    hn?: boolean
+    vn?: boolean
+    presentillness?: boolean
+    chiefcomplaint?: boolean
+    accidentplacecode?: boolean
+    causeofinjury?: boolean
+    commentofinjury?: boolean
+    woundtypecode?: boolean
+    injurysidecode?: boolean
+    injuryarea?: boolean
+    status_changed_at?: boolean
+    messageclaim?: boolean
+    messageth?: boolean
+    claimno?: boolean
+    statuscode?: boolean
+    occurrenceno?: boolean
+    totalapprovedamount?: boolean
+    totalexcessamount?: boolean
+    isreimbursement?: boolean
+    batchnumber?: boolean
+    invoicenumber?: boolean
+    accidentdate?: boolean
+    visitdate?: boolean
+    Claimants?: boolean | transactionclaim2$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | transactionclaim2$ClaimStatusArgs<ExtArgs>
+  }, ExtArgs["result"]["transactionclaim2"]>
+
+  export type transactionclaim2SelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    insurerid?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    furtherclaimid?: boolean
+    hn?: boolean
+    vn?: boolean
+    presentillness?: boolean
+    chiefcomplaint?: boolean
+    accidentplacecode?: boolean
+    causeofinjury?: boolean
+    commentofinjury?: boolean
+    woundtypecode?: boolean
+    injurysidecode?: boolean
+    injuryarea?: boolean
+    status_changed_at?: boolean
+    messageclaim?: boolean
+    messageth?: boolean
+    claimno?: boolean
+    statuscode?: boolean
+    occurrenceno?: boolean
+    totalapprovedamount?: boolean
+    totalexcessamount?: boolean
+    isreimbursement?: boolean
+    batchnumber?: boolean
+    invoicenumber?: boolean
+    accidentdate?: boolean
+    visitdate?: boolean
+    Claimants?: boolean | transactionclaim2$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | transactionclaim2$ClaimStatusArgs<ExtArgs>
+  }, ExtArgs["result"]["transactionclaim2"]>
+
+  export type transactionclaim2SelectScalar = {
+    id?: boolean
+    insurerid?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    furtherclaimid?: boolean
+    hn?: boolean
+    vn?: boolean
+    presentillness?: boolean
+    chiefcomplaint?: boolean
+    accidentplacecode?: boolean
+    causeofinjury?: boolean
+    commentofinjury?: boolean
+    woundtypecode?: boolean
+    injurysidecode?: boolean
+    injuryarea?: boolean
+    status_changed_at?: boolean
+    messageclaim?: boolean
+    messageth?: boolean
+    claimno?: boolean
+    statuscode?: boolean
+    occurrenceno?: boolean
+    totalapprovedamount?: boolean
+    totalexcessamount?: boolean
+    isreimbursement?: boolean
+    batchnumber?: boolean
+    invoicenumber?: boolean
+    accidentdate?: boolean
+    visitdate?: boolean
+  }
+
+  export type transactionclaim2Include<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Claimants?: boolean | transactionclaim2$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | transactionclaim2$ClaimStatusArgs<ExtArgs>
+  }
+  export type transactionclaim2IncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Claimants?: boolean | transactionclaim2$ClaimantsArgs<ExtArgs>
+    ClaimStatus?: boolean | transactionclaim2$ClaimStatusArgs<ExtArgs>
+  }
+
+  export type $transactionclaim2Payload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "transactionclaim2"
+    objects: {
+      Claimants: Prisma.$ClaimantsPayload<ExtArgs> | null
+      ClaimStatus: Prisma.$ClaimStatusPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      insurerid: number | null
+      refid: string | null
+      transactionno: string | null
+      furtherclaimid: string | null
+      hn: string | null
+      vn: string | null
+      presentillness: string | null
+      chiefcomplaint: string | null
+      accidentplacecode: string | null
+      causeofinjury: string | null
+      commentofinjury: string | null
+      woundtypecode: string | null
+      injurysidecode: string | null
+      injuryarea: string | null
+      status_changed_at: Date | null
+      messageclaim: string | null
+      messageth: string | null
+      claimno: string | null
+      statuscode: string | null
+      occurrenceno: string | null
+      totalapprovedamount: Prisma.Decimal | null
+      totalexcessamount: Prisma.Decimal | null
+      isreimbursement: boolean | null
+      batchnumber: string | null
+      invoicenumber: string | null
+      accidentdate: string | null
+      visitdate: string | null
+    }, ExtArgs["result"]["transactionclaim2"]>
+    composites: {}
+  }
+
+  type transactionclaim2GetPayload<S extends boolean | null | undefined | transactionclaim2DefaultArgs> = $Result.GetResult<Prisma.$transactionclaim2Payload, S>
+
+  type transactionclaim2CountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<transactionclaim2FindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: Transactionclaim2CountAggregateInputType | true
+    }
+
+  export interface transactionclaim2Delegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['transactionclaim2'], meta: { name: 'transactionclaim2' } }
+    /**
+     * Find zero or one Transactionclaim2 that matches the filter.
+     * @param {transactionclaim2FindUniqueArgs} args - Arguments to find a Transactionclaim2
+     * @example
+     * // Get one Transactionclaim2
+     * const transactionclaim2 = await prisma.transactionclaim2.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends transactionclaim2FindUniqueArgs>(args: SelectSubset<T, transactionclaim2FindUniqueArgs<ExtArgs>>): Prisma__transactionclaim2Client<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Transactionclaim2 that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {transactionclaim2FindUniqueOrThrowArgs} args - Arguments to find a Transactionclaim2
+     * @example
+     * // Get one Transactionclaim2
+     * const transactionclaim2 = await prisma.transactionclaim2.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends transactionclaim2FindUniqueOrThrowArgs>(args: SelectSubset<T, transactionclaim2FindUniqueOrThrowArgs<ExtArgs>>): Prisma__transactionclaim2Client<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Transactionclaim2 that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {transactionclaim2FindFirstArgs} args - Arguments to find a Transactionclaim2
+     * @example
+     * // Get one Transactionclaim2
+     * const transactionclaim2 = await prisma.transactionclaim2.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends transactionclaim2FindFirstArgs>(args?: SelectSubset<T, transactionclaim2FindFirstArgs<ExtArgs>>): Prisma__transactionclaim2Client<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Transactionclaim2 that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {transactionclaim2FindFirstOrThrowArgs} args - Arguments to find a Transactionclaim2
+     * @example
+     * // Get one Transactionclaim2
+     * const transactionclaim2 = await prisma.transactionclaim2.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends transactionclaim2FindFirstOrThrowArgs>(args?: SelectSubset<T, transactionclaim2FindFirstOrThrowArgs<ExtArgs>>): Prisma__transactionclaim2Client<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Transactionclaim2s that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {transactionclaim2FindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Transactionclaim2s
+     * const transactionclaim2s = await prisma.transactionclaim2.findMany()
+     * 
+     * // Get first 10 Transactionclaim2s
+     * const transactionclaim2s = await prisma.transactionclaim2.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const transactionclaim2WithIdOnly = await prisma.transactionclaim2.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends transactionclaim2FindManyArgs>(args?: SelectSubset<T, transactionclaim2FindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Transactionclaim2.
+     * @param {transactionclaim2CreateArgs} args - Arguments to create a Transactionclaim2.
+     * @example
+     * // Create one Transactionclaim2
+     * const Transactionclaim2 = await prisma.transactionclaim2.create({
+     *   data: {
+     *     // ... data to create a Transactionclaim2
+     *   }
+     * })
+     * 
+     */
+    create<T extends transactionclaim2CreateArgs>(args: SelectSubset<T, transactionclaim2CreateArgs<ExtArgs>>): Prisma__transactionclaim2Client<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Transactionclaim2s.
+     * @param {transactionclaim2CreateManyArgs} args - Arguments to create many Transactionclaim2s.
+     * @example
+     * // Create many Transactionclaim2s
+     * const transactionclaim2 = await prisma.transactionclaim2.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends transactionclaim2CreateManyArgs>(args?: SelectSubset<T, transactionclaim2CreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Transactionclaim2s and returns the data saved in the database.
+     * @param {transactionclaim2CreateManyAndReturnArgs} args - Arguments to create many Transactionclaim2s.
+     * @example
+     * // Create many Transactionclaim2s
+     * const transactionclaim2 = await prisma.transactionclaim2.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Transactionclaim2s and only return the `id`
+     * const transactionclaim2WithIdOnly = await prisma.transactionclaim2.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends transactionclaim2CreateManyAndReturnArgs>(args?: SelectSubset<T, transactionclaim2CreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Transactionclaim2.
+     * @param {transactionclaim2DeleteArgs} args - Arguments to delete one Transactionclaim2.
+     * @example
+     * // Delete one Transactionclaim2
+     * const Transactionclaim2 = await prisma.transactionclaim2.delete({
+     *   where: {
+     *     // ... filter to delete one Transactionclaim2
+     *   }
+     * })
+     * 
+     */
+    delete<T extends transactionclaim2DeleteArgs>(args: SelectSubset<T, transactionclaim2DeleteArgs<ExtArgs>>): Prisma__transactionclaim2Client<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Transactionclaim2.
+     * @param {transactionclaim2UpdateArgs} args - Arguments to update one Transactionclaim2.
+     * @example
+     * // Update one Transactionclaim2
+     * const transactionclaim2 = await prisma.transactionclaim2.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends transactionclaim2UpdateArgs>(args: SelectSubset<T, transactionclaim2UpdateArgs<ExtArgs>>): Prisma__transactionclaim2Client<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Transactionclaim2s.
+     * @param {transactionclaim2DeleteManyArgs} args - Arguments to filter Transactionclaim2s to delete.
+     * @example
+     * // Delete a few Transactionclaim2s
+     * const { count } = await prisma.transactionclaim2.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends transactionclaim2DeleteManyArgs>(args?: SelectSubset<T, transactionclaim2DeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Transactionclaim2s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {transactionclaim2UpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Transactionclaim2s
+     * const transactionclaim2 = await prisma.transactionclaim2.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends transactionclaim2UpdateManyArgs>(args: SelectSubset<T, transactionclaim2UpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Transactionclaim2.
+     * @param {transactionclaim2UpsertArgs} args - Arguments to update or create a Transactionclaim2.
+     * @example
+     * // Update or create a Transactionclaim2
+     * const transactionclaim2 = await prisma.transactionclaim2.upsert({
+     *   create: {
+     *     // ... data to create a Transactionclaim2
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Transactionclaim2 we want to update
+     *   }
+     * })
+     */
+    upsert<T extends transactionclaim2UpsertArgs>(args: SelectSubset<T, transactionclaim2UpsertArgs<ExtArgs>>): Prisma__transactionclaim2Client<$Result.GetResult<Prisma.$transactionclaim2Payload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Transactionclaim2s.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {transactionclaim2CountArgs} args - Arguments to filter Transactionclaim2s to count.
+     * @example
+     * // Count the number of Transactionclaim2s
+     * const count = await prisma.transactionclaim2.count({
+     *   where: {
+     *     // ... the filter for the Transactionclaim2s we want to count
+     *   }
+     * })
+    **/
+    count<T extends transactionclaim2CountArgs>(
+      args?: Subset<T, transactionclaim2CountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Transactionclaim2CountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Transactionclaim2.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Transactionclaim2AggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Transactionclaim2AggregateArgs>(args: Subset<T, Transactionclaim2AggregateArgs>): Prisma.PrismaPromise<GetTransactionclaim2AggregateType<T>>
+
+    /**
+     * Group by Transactionclaim2.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {transactionclaim2GroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends transactionclaim2GroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: transactionclaim2GroupByArgs['orderBy'] }
+        : { orderBy?: transactionclaim2GroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, transactionclaim2GroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTransactionclaim2GroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the transactionclaim2 model
+   */
+  readonly fields: transactionclaim2FieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for transactionclaim2.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__transactionclaim2Client<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Claimants<T extends transactionclaim2$ClaimantsArgs<ExtArgs> = {}>(args?: Subset<T, transactionclaim2$ClaimantsArgs<ExtArgs>>): Prisma__ClaimantsClient<$Result.GetResult<Prisma.$ClaimantsPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    ClaimStatus<T extends transactionclaim2$ClaimStatusArgs<ExtArgs> = {}>(args?: Subset<T, transactionclaim2$ClaimStatusArgs<ExtArgs>>): Prisma__ClaimStatusClient<$Result.GetResult<Prisma.$ClaimStatusPayload<ExtArgs>, T, "findUniqueOrThrow"> | null, null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the transactionclaim2 model
+   */ 
+  interface transactionclaim2FieldRefs {
+    readonly id: FieldRef<"transactionclaim2", 'Int'>
+    readonly insurerid: FieldRef<"transactionclaim2", 'Int'>
+    readonly refid: FieldRef<"transactionclaim2", 'String'>
+    readonly transactionno: FieldRef<"transactionclaim2", 'String'>
+    readonly furtherclaimid: FieldRef<"transactionclaim2", 'String'>
+    readonly hn: FieldRef<"transactionclaim2", 'String'>
+    readonly vn: FieldRef<"transactionclaim2", 'String'>
+    readonly presentillness: FieldRef<"transactionclaim2", 'String'>
+    readonly chiefcomplaint: FieldRef<"transactionclaim2", 'String'>
+    readonly accidentplacecode: FieldRef<"transactionclaim2", 'String'>
+    readonly causeofinjury: FieldRef<"transactionclaim2", 'String'>
+    readonly commentofinjury: FieldRef<"transactionclaim2", 'String'>
+    readonly woundtypecode: FieldRef<"transactionclaim2", 'String'>
+    readonly injurysidecode: FieldRef<"transactionclaim2", 'String'>
+    readonly injuryarea: FieldRef<"transactionclaim2", 'String'>
+    readonly status_changed_at: FieldRef<"transactionclaim2", 'DateTime'>
+    readonly messageclaim: FieldRef<"transactionclaim2", 'String'>
+    readonly messageth: FieldRef<"transactionclaim2", 'String'>
+    readonly claimno: FieldRef<"transactionclaim2", 'String'>
+    readonly statuscode: FieldRef<"transactionclaim2", 'String'>
+    readonly occurrenceno: FieldRef<"transactionclaim2", 'String'>
+    readonly totalapprovedamount: FieldRef<"transactionclaim2", 'Decimal'>
+    readonly totalexcessamount: FieldRef<"transactionclaim2", 'Decimal'>
+    readonly isreimbursement: FieldRef<"transactionclaim2", 'Boolean'>
+    readonly batchnumber: FieldRef<"transactionclaim2", 'String'>
+    readonly invoicenumber: FieldRef<"transactionclaim2", 'String'>
+    readonly accidentdate: FieldRef<"transactionclaim2", 'String'>
+    readonly visitdate: FieldRef<"transactionclaim2", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * transactionclaim2 findUnique
+   */
+  export type transactionclaim2FindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * Filter, which transactionclaim2 to fetch.
+     */
+    where: transactionclaim2WhereUniqueInput
+  }
+
+  /**
+   * transactionclaim2 findUniqueOrThrow
+   */
+  export type transactionclaim2FindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * Filter, which transactionclaim2 to fetch.
+     */
+    where: transactionclaim2WhereUniqueInput
+  }
+
+  /**
+   * transactionclaim2 findFirst
+   */
+  export type transactionclaim2FindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * Filter, which transactionclaim2 to fetch.
+     */
+    where?: transactionclaim2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of transactionclaim2s to fetch.
+     */
+    orderBy?: transactionclaim2OrderByWithRelationInput | transactionclaim2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for transactionclaim2s.
+     */
+    cursor?: transactionclaim2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` transactionclaim2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` transactionclaim2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of transactionclaim2s.
+     */
+    distinct?: Transactionclaim2ScalarFieldEnum | Transactionclaim2ScalarFieldEnum[]
+  }
+
+  /**
+   * transactionclaim2 findFirstOrThrow
+   */
+  export type transactionclaim2FindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * Filter, which transactionclaim2 to fetch.
+     */
+    where?: transactionclaim2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of transactionclaim2s to fetch.
+     */
+    orderBy?: transactionclaim2OrderByWithRelationInput | transactionclaim2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for transactionclaim2s.
+     */
+    cursor?: transactionclaim2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` transactionclaim2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` transactionclaim2s.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of transactionclaim2s.
+     */
+    distinct?: Transactionclaim2ScalarFieldEnum | Transactionclaim2ScalarFieldEnum[]
+  }
+
+  /**
+   * transactionclaim2 findMany
+   */
+  export type transactionclaim2FindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * Filter, which transactionclaim2s to fetch.
+     */
+    where?: transactionclaim2WhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of transactionclaim2s to fetch.
+     */
+    orderBy?: transactionclaim2OrderByWithRelationInput | transactionclaim2OrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing transactionclaim2s.
+     */
+    cursor?: transactionclaim2WhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` transactionclaim2s from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` transactionclaim2s.
+     */
+    skip?: number
+    distinct?: Transactionclaim2ScalarFieldEnum | Transactionclaim2ScalarFieldEnum[]
+  }
+
+  /**
+   * transactionclaim2 create
+   */
+  export type transactionclaim2CreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * The data needed to create a transactionclaim2.
+     */
+    data?: XOR<transactionclaim2CreateInput, transactionclaim2UncheckedCreateInput>
+  }
+
+  /**
+   * transactionclaim2 createMany
+   */
+  export type transactionclaim2CreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many transactionclaim2s.
+     */
+    data: transactionclaim2CreateManyInput | transactionclaim2CreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * transactionclaim2 createManyAndReturn
+   */
+  export type transactionclaim2CreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2SelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many transactionclaim2s.
+     */
+    data: transactionclaim2CreateManyInput | transactionclaim2CreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2IncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * transactionclaim2 update
+   */
+  export type transactionclaim2UpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * The data needed to update a transactionclaim2.
+     */
+    data: XOR<transactionclaim2UpdateInput, transactionclaim2UncheckedUpdateInput>
+    /**
+     * Choose, which transactionclaim2 to update.
+     */
+    where: transactionclaim2WhereUniqueInput
+  }
+
+  /**
+   * transactionclaim2 updateMany
+   */
+  export type transactionclaim2UpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update transactionclaim2s.
+     */
+    data: XOR<transactionclaim2UpdateManyMutationInput, transactionclaim2UncheckedUpdateManyInput>
+    /**
+     * Filter which transactionclaim2s to update
+     */
+    where?: transactionclaim2WhereInput
+  }
+
+  /**
+   * transactionclaim2 upsert
+   */
+  export type transactionclaim2UpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * The filter to search for the transactionclaim2 to update in case it exists.
+     */
+    where: transactionclaim2WhereUniqueInput
+    /**
+     * In case the transactionclaim2 found by the `where` argument doesn't exist, create a new transactionclaim2 with this data.
+     */
+    create: XOR<transactionclaim2CreateInput, transactionclaim2UncheckedCreateInput>
+    /**
+     * In case the transactionclaim2 was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<transactionclaim2UpdateInput, transactionclaim2UncheckedUpdateInput>
+  }
+
+  /**
+   * transactionclaim2 delete
+   */
+  export type transactionclaim2DeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+    /**
+     * Filter which transactionclaim2 to delete.
+     */
+    where: transactionclaim2WhereUniqueInput
+  }
+
+  /**
+   * transactionclaim2 deleteMany
+   */
+  export type transactionclaim2DeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which transactionclaim2s to delete
+     */
+    where?: transactionclaim2WhereInput
+  }
+
+  /**
+   * transactionclaim2.Claimants
+   */
+  export type transactionclaim2$ClaimantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Claimants
+     */
+    select?: ClaimantsSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClaimantsInclude<ExtArgs> | null
+    where?: ClaimantsWhereInput
+  }
+
+  /**
+   * transactionclaim2.ClaimStatus
+   */
+  export type transactionclaim2$ClaimStatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimStatus
+     */
+    select?: ClaimStatusSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClaimStatusInclude<ExtArgs> | null
+    where?: ClaimStatusWhereInput
+  }
+
+  /**
+   * transactionclaim2 without action
+   */
+  export type transactionclaim2DefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the transactionclaim2
+     */
+    select?: transactionclaim2Select<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: transactionclaim2Include<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -13964,6 +18102,94 @@ export namespace Prisma {
   export type CauseofinjurysideScalarFieldEnum = (typeof CauseofinjurysideScalarFieldEnum)[keyof typeof CauseofinjurysideScalarFieldEnum]
 
 
+  export const TransactionclaimstatusScalarFieldEnum: {
+    id: 'id',
+    refid: 'refid',
+    insurerid: 'insurerid',
+    hn: 'hn',
+    vn: 'vn',
+    statuscode: 'statuscode',
+    batchnumber: 'batchnumber',
+    claimno: 'claimno',
+    invoicenumber: 'invoicenumber',
+    status_changed_at: 'status_changed_at',
+    note: 'note',
+    totalApproveAmount: 'totalApproveAmount',
+    paymentDate: 'paymentDate',
+    transactionNo: 'transactionNo'
+  };
+
+  export type TransactionclaimstatusScalarFieldEnum = (typeof TransactionclaimstatusScalarFieldEnum)[keyof typeof TransactionclaimstatusScalarFieldEnum]
+
+
+  export const TransactionclaimScalarFieldEnum: {
+    id: 'id',
+    insurerid: 'insurerid',
+    refid: 'refid',
+    transactionno: 'transactionno',
+    furtherclaimid: 'furtherclaimid',
+    hn: 'hn',
+    vn: 'vn',
+    presentillness: 'presentillness',
+    chiefcomplaint: 'chiefcomplaint',
+    accidentplacecode: 'accidentplacecode',
+    causeofinjury: 'causeofinjury',
+    commentofinjury: 'commentofinjury',
+    woundtypecode: 'woundtypecode',
+    injurysidecode: 'injurysidecode',
+    injuryarea: 'injuryarea',
+    status_changed_at: 'status_changed_at',
+    messageclaim: 'messageclaim',
+    messageth: 'messageth',
+    claimno: 'claimno',
+    statuscode: 'statuscode',
+    occurrenceno: 'occurrenceno',
+    totalapprovedamount: 'totalapprovedamount',
+    totalexcessamount: 'totalexcessamount',
+    isreimbursement: 'isreimbursement',
+    batchnumber: 'batchnumber',
+    invoicenumber: 'invoicenumber',
+    accidentdate: 'accidentdate',
+    visitdate: 'visitdate'
+  };
+
+  export type TransactionclaimScalarFieldEnum = (typeof TransactionclaimScalarFieldEnum)[keyof typeof TransactionclaimScalarFieldEnum]
+
+
+  export const Transactionclaim2ScalarFieldEnum: {
+    id: 'id',
+    insurerid: 'insurerid',
+    refid: 'refid',
+    transactionno: 'transactionno',
+    furtherclaimid: 'furtherclaimid',
+    hn: 'hn',
+    vn: 'vn',
+    presentillness: 'presentillness',
+    chiefcomplaint: 'chiefcomplaint',
+    accidentplacecode: 'accidentplacecode',
+    causeofinjury: 'causeofinjury',
+    commentofinjury: 'commentofinjury',
+    woundtypecode: 'woundtypecode',
+    injurysidecode: 'injurysidecode',
+    injuryarea: 'injuryarea',
+    status_changed_at: 'status_changed_at',
+    messageclaim: 'messageclaim',
+    messageth: 'messageth',
+    claimno: 'claimno',
+    statuscode: 'statuscode',
+    occurrenceno: 'occurrenceno',
+    totalapprovedamount: 'totalapprovedamount',
+    totalexcessamount: 'totalexcessamount',
+    isreimbursement: 'isreimbursement',
+    batchnumber: 'batchnumber',
+    invoicenumber: 'invoicenumber',
+    accidentdate: 'accidentdate',
+    visitdate: 'visitdate'
+  };
+
+  export type Transactionclaim2ScalarFieldEnum = (typeof Transactionclaim2ScalarFieldEnum)[keyof typeof Transactionclaim2ScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -14043,6 +18269,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Decimal'
+   */
+  export type DecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal'>
+    
+
+
+  /**
+   * Reference to a field of type 'Decimal[]'
+   */
+  export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -14069,7 +18309,10 @@ export namespace Prisma {
     StatusDescEN?: StringNullableFilter<"ClaimStatus"> | string | null
     insurerid?: IntNullableFilter<"ClaimStatus"> | number | null
     insurers?: XOR<InsurersNullableRelationFilter, InsurersWhereInput> | null
+    Transactionclaim?: TransactionclaimListRelationFilter
+    Transactionclaimstatus?: TransactionclaimstatusListRelationFilter
     Transactions?: TransactionsListRelationFilter
+    transactionclaim2?: Transactionclaim2ListRelationFilter
   }
 
   export type ClaimStatusOrderByWithRelationInput = {
@@ -14079,11 +18322,15 @@ export namespace Prisma {
     StatusDescEN?: SortOrderInput | SortOrder
     insurerid?: SortOrderInput | SortOrder
     insurers?: InsurersOrderByWithRelationInput
+    Transactionclaim?: TransactionclaimOrderByRelationAggregateInput
+    Transactionclaimstatus?: TransactionclaimstatusOrderByRelationAggregateInput
     Transactions?: TransactionsOrderByRelationAggregateInput
+    transactionclaim2?: transactionclaim2OrderByRelationAggregateInput
   }
 
   export type ClaimStatusWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    StatusCode_insurerid?: ClaimStatusStatusCodeInsureridCompoundUniqueInput
     AND?: ClaimStatusWhereInput | ClaimStatusWhereInput[]
     OR?: ClaimStatusWhereInput[]
     NOT?: ClaimStatusWhereInput | ClaimStatusWhereInput[]
@@ -14092,8 +18339,11 @@ export namespace Prisma {
     StatusDescEN?: StringNullableFilter<"ClaimStatus"> | string | null
     insurerid?: IntNullableFilter<"ClaimStatus"> | number | null
     insurers?: XOR<InsurersNullableRelationFilter, InsurersWhereInput> | null
+    Transactionclaim?: TransactionclaimListRelationFilter
+    Transactionclaimstatus?: TransactionclaimstatusListRelationFilter
     Transactions?: TransactionsListRelationFilter
-  }, "id">
+    transactionclaim2?: Transactionclaim2ListRelationFilter
+  }, "id" | "StatusCode_insurerid">
 
   export type ClaimStatusOrderByWithAggregationInput = {
     id?: SortOrder
@@ -14349,7 +18599,10 @@ export namespace Prisma {
     gender?: StringNullableFilter<"Claimants"> | string | null
     patientid?: IntNullableFilter<"Claimants"> | number | null
     Insurers?: XOR<InsurersNullableRelationFilter, InsurersWhereInput> | null
+    Transactionclaim?: TransactionclaimListRelationFilter
+    Transactionclaimstatus?: TransactionclaimstatusListRelationFilter
     Transactions?: TransactionsListRelationFilter
+    transactionclaim2?: Transactionclaim2ListRelationFilter
   }
 
   export type ClaimantsOrderByWithRelationInput = {
@@ -14371,7 +18624,10 @@ export namespace Prisma {
     gender?: SortOrderInput | SortOrder
     patientid?: SortOrderInput | SortOrder
     Insurers?: InsurersOrderByWithRelationInput
+    Transactionclaim?: TransactionclaimOrderByRelationAggregateInput
+    Transactionclaimstatus?: TransactionclaimstatusOrderByRelationAggregateInput
     Transactions?: TransactionsOrderByRelationAggregateInput
+    transactionclaim2?: transactionclaim2OrderByRelationAggregateInput
   }
 
   export type ClaimantsWhereUniqueInput = Prisma.AtLeast<{
@@ -14397,7 +18653,10 @@ export namespace Prisma {
     gender?: StringNullableFilter<"Claimants"> | string | null
     patientid?: IntNullableFilter<"Claimants"> | number | null
     Insurers?: XOR<InsurersNullableRelationFilter, InsurersWhereInput> | null
+    Transactionclaim?: TransactionclaimListRelationFilter
+    Transactionclaimstatus?: TransactionclaimstatusListRelationFilter
     Transactions?: TransactionsListRelationFilter
+    transactionclaim2?: Transactionclaim2ListRelationFilter
   }, "claimantid" | "hn_insurerid">
 
   export type ClaimantsOrderByWithAggregationInput = {
@@ -14799,12 +19058,470 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"causeofinjuryside"> | number
   }
 
+  export type TransactionclaimstatusWhereInput = {
+    AND?: TransactionclaimstatusWhereInput | TransactionclaimstatusWhereInput[]
+    OR?: TransactionclaimstatusWhereInput[]
+    NOT?: TransactionclaimstatusWhereInput | TransactionclaimstatusWhereInput[]
+    id?: IntFilter<"Transactionclaimstatus"> | number
+    refid?: StringFilter<"Transactionclaimstatus"> | string
+    insurerid?: IntFilter<"Transactionclaimstatus"> | number
+    hn?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    vn?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    statuscode?: StringFilter<"Transactionclaimstatus"> | string
+    batchnumber?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    claimno?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    invoicenumber?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"Transactionclaimstatus"> | Date | string | null
+    note?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    totalApproveAmount?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    paymentDate?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    transactionNo?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    Claimants?: XOR<ClaimantsNullableRelationFilter, ClaimantsWhereInput> | null
+    ClaimStatus?: XOR<ClaimStatusRelationFilter, ClaimStatusWhereInput>
+  }
+
+  export type TransactionclaimstatusOrderByWithRelationInput = {
+    id?: SortOrder
+    refid?: SortOrder
+    insurerid?: SortOrder
+    hn?: SortOrderInput | SortOrder
+    vn?: SortOrderInput | SortOrder
+    statuscode?: SortOrder
+    batchnumber?: SortOrderInput | SortOrder
+    claimno?: SortOrderInput | SortOrder
+    invoicenumber?: SortOrderInput | SortOrder
+    status_changed_at?: SortOrderInput | SortOrder
+    note?: SortOrderInput | SortOrder
+    totalApproveAmount?: SortOrderInput | SortOrder
+    paymentDate?: SortOrderInput | SortOrder
+    transactionNo?: SortOrderInput | SortOrder
+    Claimants?: ClaimantsOrderByWithRelationInput
+    ClaimStatus?: ClaimStatusOrderByWithRelationInput
+  }
+
+  export type TransactionclaimstatusWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TransactionclaimstatusWhereInput | TransactionclaimstatusWhereInput[]
+    OR?: TransactionclaimstatusWhereInput[]
+    NOT?: TransactionclaimstatusWhereInput | TransactionclaimstatusWhereInput[]
+    refid?: StringFilter<"Transactionclaimstatus"> | string
+    insurerid?: IntFilter<"Transactionclaimstatus"> | number
+    hn?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    vn?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    statuscode?: StringFilter<"Transactionclaimstatus"> | string
+    batchnumber?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    claimno?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    invoicenumber?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"Transactionclaimstatus"> | Date | string | null
+    note?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    totalApproveAmount?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    paymentDate?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    transactionNo?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    Claimants?: XOR<ClaimantsNullableRelationFilter, ClaimantsWhereInput> | null
+    ClaimStatus?: XOR<ClaimStatusRelationFilter, ClaimStatusWhereInput>
+  }, "id">
+
+  export type TransactionclaimstatusOrderByWithAggregationInput = {
+    id?: SortOrder
+    refid?: SortOrder
+    insurerid?: SortOrder
+    hn?: SortOrderInput | SortOrder
+    vn?: SortOrderInput | SortOrder
+    statuscode?: SortOrder
+    batchnumber?: SortOrderInput | SortOrder
+    claimno?: SortOrderInput | SortOrder
+    invoicenumber?: SortOrderInput | SortOrder
+    status_changed_at?: SortOrderInput | SortOrder
+    note?: SortOrderInput | SortOrder
+    totalApproveAmount?: SortOrderInput | SortOrder
+    paymentDate?: SortOrderInput | SortOrder
+    transactionNo?: SortOrderInput | SortOrder
+    _count?: TransactionclaimstatusCountOrderByAggregateInput
+    _avg?: TransactionclaimstatusAvgOrderByAggregateInput
+    _max?: TransactionclaimstatusMaxOrderByAggregateInput
+    _min?: TransactionclaimstatusMinOrderByAggregateInput
+    _sum?: TransactionclaimstatusSumOrderByAggregateInput
+  }
+
+  export type TransactionclaimstatusScalarWhereWithAggregatesInput = {
+    AND?: TransactionclaimstatusScalarWhereWithAggregatesInput | TransactionclaimstatusScalarWhereWithAggregatesInput[]
+    OR?: TransactionclaimstatusScalarWhereWithAggregatesInput[]
+    NOT?: TransactionclaimstatusScalarWhereWithAggregatesInput | TransactionclaimstatusScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Transactionclaimstatus"> | number
+    refid?: StringWithAggregatesFilter<"Transactionclaimstatus"> | string
+    insurerid?: IntWithAggregatesFilter<"Transactionclaimstatus"> | number
+    hn?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+    vn?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+    statuscode?: StringWithAggregatesFilter<"Transactionclaimstatus"> | string
+    batchnumber?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+    claimno?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+    invoicenumber?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+    status_changed_at?: DateTimeNullableWithAggregatesFilter<"Transactionclaimstatus"> | Date | string | null
+    note?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+    totalApproveAmount?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+    paymentDate?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+    transactionNo?: StringNullableWithAggregatesFilter<"Transactionclaimstatus"> | string | null
+  }
+
+  export type TransactionclaimWhereInput = {
+    AND?: TransactionclaimWhereInput | TransactionclaimWhereInput[]
+    OR?: TransactionclaimWhereInput[]
+    NOT?: TransactionclaimWhereInput | TransactionclaimWhereInput[]
+    id?: IntFilter<"Transactionclaim"> | number
+    insurerid?: IntNullableFilter<"Transactionclaim"> | number | null
+    refid?: StringNullableFilter<"Transactionclaim"> | string | null
+    transactionno?: StringNullableFilter<"Transactionclaim"> | string | null
+    furtherclaimid?: StringNullableFilter<"Transactionclaim"> | string | null
+    hn?: StringNullableFilter<"Transactionclaim"> | string | null
+    vn?: StringNullableFilter<"Transactionclaim"> | string | null
+    presentillness?: StringNullableFilter<"Transactionclaim"> | string | null
+    chiefcomplaint?: StringNullableFilter<"Transactionclaim"> | string | null
+    accidentplacecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    causeofinjury?: StringNullableFilter<"Transactionclaim"> | string | null
+    commentofinjury?: StringNullableFilter<"Transactionclaim"> | string | null
+    woundtypecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    injurysidecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    injuryarea?: StringNullableFilter<"Transactionclaim"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"Transactionclaim"> | Date | string | null
+    messageclaim?: StringNullableFilter<"Transactionclaim"> | string | null
+    messageth?: StringNullableFilter<"Transactionclaim"> | string | null
+    claimno?: StringNullableFilter<"Transactionclaim"> | string | null
+    statuscode?: StringNullableFilter<"Transactionclaim"> | string | null
+    occurrenceno?: StringNullableFilter<"Transactionclaim"> | string | null
+    totalapprovedamount?: DecimalNullableFilter<"Transactionclaim"> | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: DecimalNullableFilter<"Transactionclaim"> | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: BoolNullableFilter<"Transactionclaim"> | boolean | null
+    batchnumber?: StringNullableFilter<"Transactionclaim"> | string | null
+    invoicenumber?: StringNullableFilter<"Transactionclaim"> | string | null
+    accidentdate?: StringNullableFilter<"Transactionclaim"> | string | null
+    visitdate?: StringNullableFilter<"Transactionclaim"> | string | null
+    Claimants?: XOR<ClaimantsNullableRelationFilter, ClaimantsWhereInput> | null
+    ClaimStatus?: XOR<ClaimStatusNullableRelationFilter, ClaimStatusWhereInput> | null
+  }
+
+  export type TransactionclaimOrderByWithRelationInput = {
+    id?: SortOrder
+    insurerid?: SortOrderInput | SortOrder
+    refid?: SortOrderInput | SortOrder
+    transactionno?: SortOrderInput | SortOrder
+    furtherclaimid?: SortOrderInput | SortOrder
+    hn?: SortOrderInput | SortOrder
+    vn?: SortOrderInput | SortOrder
+    presentillness?: SortOrderInput | SortOrder
+    chiefcomplaint?: SortOrderInput | SortOrder
+    accidentplacecode?: SortOrderInput | SortOrder
+    causeofinjury?: SortOrderInput | SortOrder
+    commentofinjury?: SortOrderInput | SortOrder
+    woundtypecode?: SortOrderInput | SortOrder
+    injurysidecode?: SortOrderInput | SortOrder
+    injuryarea?: SortOrderInput | SortOrder
+    status_changed_at?: SortOrderInput | SortOrder
+    messageclaim?: SortOrderInput | SortOrder
+    messageth?: SortOrderInput | SortOrder
+    claimno?: SortOrderInput | SortOrder
+    statuscode?: SortOrderInput | SortOrder
+    occurrenceno?: SortOrderInput | SortOrder
+    totalapprovedamount?: SortOrderInput | SortOrder
+    totalexcessamount?: SortOrderInput | SortOrder
+    isreimbursement?: SortOrderInput | SortOrder
+    batchnumber?: SortOrderInput | SortOrder
+    invoicenumber?: SortOrderInput | SortOrder
+    accidentdate?: SortOrderInput | SortOrder
+    visitdate?: SortOrderInput | SortOrder
+    Claimants?: ClaimantsOrderByWithRelationInput
+    ClaimStatus?: ClaimStatusOrderByWithRelationInput
+  }
+
+  export type TransactionclaimWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: TransactionclaimWhereInput | TransactionclaimWhereInput[]
+    OR?: TransactionclaimWhereInput[]
+    NOT?: TransactionclaimWhereInput | TransactionclaimWhereInput[]
+    insurerid?: IntNullableFilter<"Transactionclaim"> | number | null
+    refid?: StringNullableFilter<"Transactionclaim"> | string | null
+    transactionno?: StringNullableFilter<"Transactionclaim"> | string | null
+    furtherclaimid?: StringNullableFilter<"Transactionclaim"> | string | null
+    hn?: StringNullableFilter<"Transactionclaim"> | string | null
+    vn?: StringNullableFilter<"Transactionclaim"> | string | null
+    presentillness?: StringNullableFilter<"Transactionclaim"> | string | null
+    chiefcomplaint?: StringNullableFilter<"Transactionclaim"> | string | null
+    accidentplacecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    causeofinjury?: StringNullableFilter<"Transactionclaim"> | string | null
+    commentofinjury?: StringNullableFilter<"Transactionclaim"> | string | null
+    woundtypecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    injurysidecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    injuryarea?: StringNullableFilter<"Transactionclaim"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"Transactionclaim"> | Date | string | null
+    messageclaim?: StringNullableFilter<"Transactionclaim"> | string | null
+    messageth?: StringNullableFilter<"Transactionclaim"> | string | null
+    claimno?: StringNullableFilter<"Transactionclaim"> | string | null
+    statuscode?: StringNullableFilter<"Transactionclaim"> | string | null
+    occurrenceno?: StringNullableFilter<"Transactionclaim"> | string | null
+    totalapprovedamount?: DecimalNullableFilter<"Transactionclaim"> | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: DecimalNullableFilter<"Transactionclaim"> | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: BoolNullableFilter<"Transactionclaim"> | boolean | null
+    batchnumber?: StringNullableFilter<"Transactionclaim"> | string | null
+    invoicenumber?: StringNullableFilter<"Transactionclaim"> | string | null
+    accidentdate?: StringNullableFilter<"Transactionclaim"> | string | null
+    visitdate?: StringNullableFilter<"Transactionclaim"> | string | null
+    Claimants?: XOR<ClaimantsNullableRelationFilter, ClaimantsWhereInput> | null
+    ClaimStatus?: XOR<ClaimStatusNullableRelationFilter, ClaimStatusWhereInput> | null
+  }, "id">
+
+  export type TransactionclaimOrderByWithAggregationInput = {
+    id?: SortOrder
+    insurerid?: SortOrderInput | SortOrder
+    refid?: SortOrderInput | SortOrder
+    transactionno?: SortOrderInput | SortOrder
+    furtherclaimid?: SortOrderInput | SortOrder
+    hn?: SortOrderInput | SortOrder
+    vn?: SortOrderInput | SortOrder
+    presentillness?: SortOrderInput | SortOrder
+    chiefcomplaint?: SortOrderInput | SortOrder
+    accidentplacecode?: SortOrderInput | SortOrder
+    causeofinjury?: SortOrderInput | SortOrder
+    commentofinjury?: SortOrderInput | SortOrder
+    woundtypecode?: SortOrderInput | SortOrder
+    injurysidecode?: SortOrderInput | SortOrder
+    injuryarea?: SortOrderInput | SortOrder
+    status_changed_at?: SortOrderInput | SortOrder
+    messageclaim?: SortOrderInput | SortOrder
+    messageth?: SortOrderInput | SortOrder
+    claimno?: SortOrderInput | SortOrder
+    statuscode?: SortOrderInput | SortOrder
+    occurrenceno?: SortOrderInput | SortOrder
+    totalapprovedamount?: SortOrderInput | SortOrder
+    totalexcessamount?: SortOrderInput | SortOrder
+    isreimbursement?: SortOrderInput | SortOrder
+    batchnumber?: SortOrderInput | SortOrder
+    invoicenumber?: SortOrderInput | SortOrder
+    accidentdate?: SortOrderInput | SortOrder
+    visitdate?: SortOrderInput | SortOrder
+    _count?: TransactionclaimCountOrderByAggregateInput
+    _avg?: TransactionclaimAvgOrderByAggregateInput
+    _max?: TransactionclaimMaxOrderByAggregateInput
+    _min?: TransactionclaimMinOrderByAggregateInput
+    _sum?: TransactionclaimSumOrderByAggregateInput
+  }
+
+  export type TransactionclaimScalarWhereWithAggregatesInput = {
+    AND?: TransactionclaimScalarWhereWithAggregatesInput | TransactionclaimScalarWhereWithAggregatesInput[]
+    OR?: TransactionclaimScalarWhereWithAggregatesInput[]
+    NOT?: TransactionclaimScalarWhereWithAggregatesInput | TransactionclaimScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Transactionclaim"> | number
+    insurerid?: IntNullableWithAggregatesFilter<"Transactionclaim"> | number | null
+    refid?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    transactionno?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    furtherclaimid?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    hn?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    vn?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    presentillness?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    chiefcomplaint?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    accidentplacecode?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    causeofinjury?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    commentofinjury?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    woundtypecode?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    injurysidecode?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    injuryarea?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    status_changed_at?: DateTimeNullableWithAggregatesFilter<"Transactionclaim"> | Date | string | null
+    messageclaim?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    messageth?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    claimno?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    statuscode?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    occurrenceno?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    totalapprovedamount?: DecimalNullableWithAggregatesFilter<"Transactionclaim"> | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: DecimalNullableWithAggregatesFilter<"Transactionclaim"> | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: BoolNullableWithAggregatesFilter<"Transactionclaim"> | boolean | null
+    batchnumber?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    invoicenumber?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    accidentdate?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+    visitdate?: StringNullableWithAggregatesFilter<"Transactionclaim"> | string | null
+  }
+
+  export type transactionclaim2WhereInput = {
+    AND?: transactionclaim2WhereInput | transactionclaim2WhereInput[]
+    OR?: transactionclaim2WhereInput[]
+    NOT?: transactionclaim2WhereInput | transactionclaim2WhereInput[]
+    id?: IntFilter<"transactionclaim2"> | number
+    insurerid?: IntNullableFilter<"transactionclaim2"> | number | null
+    refid?: StringNullableFilter<"transactionclaim2"> | string | null
+    transactionno?: StringNullableFilter<"transactionclaim2"> | string | null
+    furtherclaimid?: StringNullableFilter<"transactionclaim2"> | string | null
+    hn?: StringNullableFilter<"transactionclaim2"> | string | null
+    vn?: StringNullableFilter<"transactionclaim2"> | string | null
+    presentillness?: StringNullableFilter<"transactionclaim2"> | string | null
+    chiefcomplaint?: StringNullableFilter<"transactionclaim2"> | string | null
+    accidentplacecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    causeofinjury?: StringNullableFilter<"transactionclaim2"> | string | null
+    commentofinjury?: StringNullableFilter<"transactionclaim2"> | string | null
+    woundtypecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    injurysidecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    injuryarea?: StringNullableFilter<"transactionclaim2"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"transactionclaim2"> | Date | string | null
+    messageclaim?: StringNullableFilter<"transactionclaim2"> | string | null
+    messageth?: StringNullableFilter<"transactionclaim2"> | string | null
+    claimno?: StringNullableFilter<"transactionclaim2"> | string | null
+    statuscode?: StringNullableFilter<"transactionclaim2"> | string | null
+    occurrenceno?: StringNullableFilter<"transactionclaim2"> | string | null
+    totalapprovedamount?: DecimalNullableFilter<"transactionclaim2"> | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: DecimalNullableFilter<"transactionclaim2"> | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: BoolNullableFilter<"transactionclaim2"> | boolean | null
+    batchnumber?: StringNullableFilter<"transactionclaim2"> | string | null
+    invoicenumber?: StringNullableFilter<"transactionclaim2"> | string | null
+    accidentdate?: StringNullableFilter<"transactionclaim2"> | string | null
+    visitdate?: StringNullableFilter<"transactionclaim2"> | string | null
+    Claimants?: XOR<ClaimantsNullableRelationFilter, ClaimantsWhereInput> | null
+    ClaimStatus?: XOR<ClaimStatusNullableRelationFilter, ClaimStatusWhereInput> | null
+  }
+
+  export type transactionclaim2OrderByWithRelationInput = {
+    id?: SortOrder
+    insurerid?: SortOrderInput | SortOrder
+    refid?: SortOrderInput | SortOrder
+    transactionno?: SortOrderInput | SortOrder
+    furtherclaimid?: SortOrderInput | SortOrder
+    hn?: SortOrderInput | SortOrder
+    vn?: SortOrderInput | SortOrder
+    presentillness?: SortOrderInput | SortOrder
+    chiefcomplaint?: SortOrderInput | SortOrder
+    accidentplacecode?: SortOrderInput | SortOrder
+    causeofinjury?: SortOrderInput | SortOrder
+    commentofinjury?: SortOrderInput | SortOrder
+    woundtypecode?: SortOrderInput | SortOrder
+    injurysidecode?: SortOrderInput | SortOrder
+    injuryarea?: SortOrderInput | SortOrder
+    status_changed_at?: SortOrderInput | SortOrder
+    messageclaim?: SortOrderInput | SortOrder
+    messageth?: SortOrderInput | SortOrder
+    claimno?: SortOrderInput | SortOrder
+    statuscode?: SortOrderInput | SortOrder
+    occurrenceno?: SortOrderInput | SortOrder
+    totalapprovedamount?: SortOrderInput | SortOrder
+    totalexcessamount?: SortOrderInput | SortOrder
+    isreimbursement?: SortOrderInput | SortOrder
+    batchnumber?: SortOrderInput | SortOrder
+    invoicenumber?: SortOrderInput | SortOrder
+    accidentdate?: SortOrderInput | SortOrder
+    visitdate?: SortOrderInput | SortOrder
+    Claimants?: ClaimantsOrderByWithRelationInput
+    ClaimStatus?: ClaimStatusOrderByWithRelationInput
+  }
+
+  export type transactionclaim2WhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: transactionclaim2WhereInput | transactionclaim2WhereInput[]
+    OR?: transactionclaim2WhereInput[]
+    NOT?: transactionclaim2WhereInput | transactionclaim2WhereInput[]
+    insurerid?: IntNullableFilter<"transactionclaim2"> | number | null
+    refid?: StringNullableFilter<"transactionclaim2"> | string | null
+    transactionno?: StringNullableFilter<"transactionclaim2"> | string | null
+    furtherclaimid?: StringNullableFilter<"transactionclaim2"> | string | null
+    hn?: StringNullableFilter<"transactionclaim2"> | string | null
+    vn?: StringNullableFilter<"transactionclaim2"> | string | null
+    presentillness?: StringNullableFilter<"transactionclaim2"> | string | null
+    chiefcomplaint?: StringNullableFilter<"transactionclaim2"> | string | null
+    accidentplacecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    causeofinjury?: StringNullableFilter<"transactionclaim2"> | string | null
+    commentofinjury?: StringNullableFilter<"transactionclaim2"> | string | null
+    woundtypecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    injurysidecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    injuryarea?: StringNullableFilter<"transactionclaim2"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"transactionclaim2"> | Date | string | null
+    messageclaim?: StringNullableFilter<"transactionclaim2"> | string | null
+    messageth?: StringNullableFilter<"transactionclaim2"> | string | null
+    claimno?: StringNullableFilter<"transactionclaim2"> | string | null
+    statuscode?: StringNullableFilter<"transactionclaim2"> | string | null
+    occurrenceno?: StringNullableFilter<"transactionclaim2"> | string | null
+    totalapprovedamount?: DecimalNullableFilter<"transactionclaim2"> | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: DecimalNullableFilter<"transactionclaim2"> | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: BoolNullableFilter<"transactionclaim2"> | boolean | null
+    batchnumber?: StringNullableFilter<"transactionclaim2"> | string | null
+    invoicenumber?: StringNullableFilter<"transactionclaim2"> | string | null
+    accidentdate?: StringNullableFilter<"transactionclaim2"> | string | null
+    visitdate?: StringNullableFilter<"transactionclaim2"> | string | null
+    Claimants?: XOR<ClaimantsNullableRelationFilter, ClaimantsWhereInput> | null
+    ClaimStatus?: XOR<ClaimStatusNullableRelationFilter, ClaimStatusWhereInput> | null
+  }, "id">
+
+  export type transactionclaim2OrderByWithAggregationInput = {
+    id?: SortOrder
+    insurerid?: SortOrderInput | SortOrder
+    refid?: SortOrderInput | SortOrder
+    transactionno?: SortOrderInput | SortOrder
+    furtherclaimid?: SortOrderInput | SortOrder
+    hn?: SortOrderInput | SortOrder
+    vn?: SortOrderInput | SortOrder
+    presentillness?: SortOrderInput | SortOrder
+    chiefcomplaint?: SortOrderInput | SortOrder
+    accidentplacecode?: SortOrderInput | SortOrder
+    causeofinjury?: SortOrderInput | SortOrder
+    commentofinjury?: SortOrderInput | SortOrder
+    woundtypecode?: SortOrderInput | SortOrder
+    injurysidecode?: SortOrderInput | SortOrder
+    injuryarea?: SortOrderInput | SortOrder
+    status_changed_at?: SortOrderInput | SortOrder
+    messageclaim?: SortOrderInput | SortOrder
+    messageth?: SortOrderInput | SortOrder
+    claimno?: SortOrderInput | SortOrder
+    statuscode?: SortOrderInput | SortOrder
+    occurrenceno?: SortOrderInput | SortOrder
+    totalapprovedamount?: SortOrderInput | SortOrder
+    totalexcessamount?: SortOrderInput | SortOrder
+    isreimbursement?: SortOrderInput | SortOrder
+    batchnumber?: SortOrderInput | SortOrder
+    invoicenumber?: SortOrderInput | SortOrder
+    accidentdate?: SortOrderInput | SortOrder
+    visitdate?: SortOrderInput | SortOrder
+    _count?: transactionclaim2CountOrderByAggregateInput
+    _avg?: transactionclaim2AvgOrderByAggregateInput
+    _max?: transactionclaim2MaxOrderByAggregateInput
+    _min?: transactionclaim2MinOrderByAggregateInput
+    _sum?: transactionclaim2SumOrderByAggregateInput
+  }
+
+  export type transactionclaim2ScalarWhereWithAggregatesInput = {
+    AND?: transactionclaim2ScalarWhereWithAggregatesInput | transactionclaim2ScalarWhereWithAggregatesInput[]
+    OR?: transactionclaim2ScalarWhereWithAggregatesInput[]
+    NOT?: transactionclaim2ScalarWhereWithAggregatesInput | transactionclaim2ScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"transactionclaim2"> | number
+    insurerid?: IntNullableWithAggregatesFilter<"transactionclaim2"> | number | null
+    refid?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    transactionno?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    furtherclaimid?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    hn?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    vn?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    presentillness?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    chiefcomplaint?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    accidentplacecode?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    causeofinjury?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    commentofinjury?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    woundtypecode?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    injurysidecode?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    injuryarea?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    status_changed_at?: DateTimeNullableWithAggregatesFilter<"transactionclaim2"> | Date | string | null
+    messageclaim?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    messageth?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    claimno?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    statuscode?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    occurrenceno?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    totalapprovedamount?: DecimalNullableWithAggregatesFilter<"transactionclaim2"> | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: DecimalNullableWithAggregatesFilter<"transactionclaim2"> | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: BoolNullableWithAggregatesFilter<"transactionclaim2"> | boolean | null
+    batchnumber?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    invoicenumber?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    accidentdate?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+    visitdate?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
+  }
+
   export type ClaimStatusCreateInput = {
     StatusCode: string
     StatusDescTH?: string | null
     StatusDescEN?: string | null
     insurers?: InsurersCreateNestedOneWithoutClaimStatusInput
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimStatusInput
     Transactions?: TransactionsCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimStatusInput
   }
 
   export type ClaimStatusUncheckedCreateInput = {
@@ -14813,7 +19530,10 @@ export namespace Prisma {
     StatusDescTH?: string | null
     StatusDescEN?: string | null
     insurerid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimStatusInput
     Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimStatusInput
   }
 
   export type ClaimStatusUpdateInput = {
@@ -14821,7 +19541,10 @@ export namespace Prisma {
     StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
     StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
     insurers?: InsurersUpdateOneWithoutClaimStatusNestedInput
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimStatusNestedInput
     Transactions?: TransactionsUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimStatusNestedInput
   }
 
   export type ClaimStatusUncheckedUpdateInput = {
@@ -14830,7 +19553,10 @@ export namespace Prisma {
     StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
     StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
     insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusNestedInput
     Transactions?: TransactionsUncheckedUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimStatusNestedInput
   }
 
   export type ClaimStatusCreateManyInput = {
@@ -15052,7 +19778,10 @@ export namespace Prisma {
     gender?: string | null
     patientid?: number | null
     Insurers?: InsurersCreateNestedOneWithoutClaimantsInput
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimantsInput
     Transactions?: TransactionsCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimantsInput
   }
 
   export type ClaimantsUncheckedCreateInput = {
@@ -15073,7 +19802,10 @@ export namespace Prisma {
     dateofbirth?: string | null
     gender?: string | null
     patientid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimantsInput
     Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimantsInput
   }
 
   export type ClaimantsUpdateInput = {
@@ -15093,7 +19825,10 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     patientid?: NullableIntFieldUpdateOperationsInput | number | null
     Insurers?: InsurersUpdateOneWithoutClaimantsNestedInput
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimantsNestedInput
     Transactions?: TransactionsUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimantsNestedInput
   }
 
   export type ClaimantsUncheckedUpdateInput = {
@@ -15114,7 +19849,10 @@ export namespace Prisma {
     dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimantsNestedInput
     Transactions?: TransactionsUncheckedUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimantsNestedInput
   }
 
   export type ClaimantsCreateManyInput = {
@@ -15520,6 +20258,535 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
   }
 
+  export type TransactionclaimstatusCreateInput = {
+    refid: string
+    vn?: string | null
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
+    Claimants?: ClaimantsCreateNestedOneWithoutTransactionclaimstatusInput
+    ClaimStatus: ClaimStatusCreateNestedOneWithoutTransactionclaimstatusInput
+  }
+
+  export type TransactionclaimstatusUncheckedCreateInput = {
+    id?: number
+    refid: string
+    insurerid: number
+    hn?: string | null
+    vn?: string | null
+    statuscode: string
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
+  }
+
+  export type TransactionclaimstatusUpdateInput = {
+    refid?: StringFieldUpdateOperationsInput | string
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
+    Claimants?: ClaimantsUpdateOneWithoutTransactionclaimstatusNestedInput
+    ClaimStatus?: ClaimStatusUpdateOneRequiredWithoutTransactionclaimstatusNestedInput
+  }
+
+  export type TransactionclaimstatusUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: StringFieldUpdateOperationsInput | string
+    insurerid?: IntFieldUpdateOperationsInput | number
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: StringFieldUpdateOperationsInput | string
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimstatusCreateManyInput = {
+    id?: number
+    refid: string
+    insurerid: number
+    hn?: string | null
+    vn?: string | null
+    statuscode: string
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
+  }
+
+  export type TransactionclaimstatusUpdateManyMutationInput = {
+    refid?: StringFieldUpdateOperationsInput | string
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimstatusUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: StringFieldUpdateOperationsInput | string
+    insurerid?: IntFieldUpdateOperationsInput | number
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: StringFieldUpdateOperationsInput | string
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimCreateInput = {
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+    Claimants?: ClaimantsCreateNestedOneWithoutTransactionclaimInput
+    ClaimStatus?: ClaimStatusCreateNestedOneWithoutTransactionclaimInput
+  }
+
+  export type TransactionclaimUncheckedCreateInput = {
+    id?: number
+    insurerid?: number | null
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    hn?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    statuscode?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type TransactionclaimUpdateInput = {
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+    Claimants?: ClaimantsUpdateOneWithoutTransactionclaimNestedInput
+    ClaimStatus?: ClaimStatusUpdateOneWithoutTransactionclaimNestedInput
+  }
+
+  export type TransactionclaimUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimCreateManyInput = {
+    id?: number
+    insurerid?: number | null
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    hn?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    statuscode?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type TransactionclaimUpdateManyMutationInput = {
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type transactionclaim2CreateInput = {
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+    Claimants?: ClaimantsCreateNestedOneWithoutTransactionclaim2Input
+    ClaimStatus?: ClaimStatusCreateNestedOneWithoutTransactionclaim2Input
+  }
+
+  export type transactionclaim2UncheckedCreateInput = {
+    id?: number
+    insurerid?: number | null
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    hn?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    statuscode?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type transactionclaim2UpdateInput = {
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+    Claimants?: ClaimantsUpdateOneWithoutTransactionclaim2NestedInput
+    ClaimStatus?: ClaimStatusUpdateOneWithoutTransactionclaim2NestedInput
+  }
+
+  export type transactionclaim2UncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type transactionclaim2CreateManyInput = {
+    id?: number
+    insurerid?: number | null
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    hn?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    statuscode?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type transactionclaim2UpdateManyMutationInput = {
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type transactionclaim2UncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -15577,10 +20844,28 @@ export namespace Prisma {
     isNot?: InsurersWhereInput | null
   }
 
+  export type TransactionclaimListRelationFilter = {
+    every?: TransactionclaimWhereInput
+    some?: TransactionclaimWhereInput
+    none?: TransactionclaimWhereInput
+  }
+
+  export type TransactionclaimstatusListRelationFilter = {
+    every?: TransactionclaimstatusWhereInput
+    some?: TransactionclaimstatusWhereInput
+    none?: TransactionclaimstatusWhereInput
+  }
+
   export type TransactionsListRelationFilter = {
     every?: TransactionsWhereInput
     some?: TransactionsWhereInput
     none?: TransactionsWhereInput
+  }
+
+  export type Transactionclaim2ListRelationFilter = {
+    every?: transactionclaim2WhereInput
+    some?: transactionclaim2WhereInput
+    none?: transactionclaim2WhereInput
   }
 
   export type SortOrderInput = {
@@ -15588,8 +20873,25 @@ export namespace Prisma {
     nulls?: NullsOrder
   }
 
+  export type TransactionclaimOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type TransactionclaimstatusOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type TransactionsOrderByRelationAggregateInput = {
     _count?: SortOrder
+  }
+
+  export type transactionclaim2OrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClaimStatusStatusCodeInsureridCompoundUniqueInput = {
+    StatusCode: string
+    insurerid: number
   }
 
   export type ClaimStatusCountOrderByAggregateInput = {
@@ -16214,10 +21516,331 @@ export namespace Prisma {
     id?: SortOrder
   }
 
+  export type ClaimStatusRelationFilter = {
+    is?: ClaimStatusWhereInput
+    isNot?: ClaimStatusWhereInput
+  }
+
+  export type TransactionclaimstatusCountOrderByAggregateInput = {
+    id?: SortOrder
+    refid?: SortOrder
+    insurerid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    statuscode?: SortOrder
+    batchnumber?: SortOrder
+    claimno?: SortOrder
+    invoicenumber?: SortOrder
+    status_changed_at?: SortOrder
+    note?: SortOrder
+    totalApproveAmount?: SortOrder
+    paymentDate?: SortOrder
+    transactionNo?: SortOrder
+  }
+
+  export type TransactionclaimstatusAvgOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+  }
+
+  export type TransactionclaimstatusMaxOrderByAggregateInput = {
+    id?: SortOrder
+    refid?: SortOrder
+    insurerid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    statuscode?: SortOrder
+    batchnumber?: SortOrder
+    claimno?: SortOrder
+    invoicenumber?: SortOrder
+    status_changed_at?: SortOrder
+    note?: SortOrder
+    totalApproveAmount?: SortOrder
+    paymentDate?: SortOrder
+    transactionNo?: SortOrder
+  }
+
+  export type TransactionclaimstatusMinOrderByAggregateInput = {
+    id?: SortOrder
+    refid?: SortOrder
+    insurerid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    statuscode?: SortOrder
+    batchnumber?: SortOrder
+    claimno?: SortOrder
+    invoicenumber?: SortOrder
+    status_changed_at?: SortOrder
+    note?: SortOrder
+    totalApproveAmount?: SortOrder
+    paymentDate?: SortOrder
+    transactionNo?: SortOrder
+  }
+
+  export type TransactionclaimstatusSumOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+  }
+
+  export type DecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type TransactionclaimCountOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    furtherclaimid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    presentillness?: SortOrder
+    chiefcomplaint?: SortOrder
+    accidentplacecode?: SortOrder
+    causeofinjury?: SortOrder
+    commentofinjury?: SortOrder
+    woundtypecode?: SortOrder
+    injurysidecode?: SortOrder
+    injuryarea?: SortOrder
+    status_changed_at?: SortOrder
+    messageclaim?: SortOrder
+    messageth?: SortOrder
+    claimno?: SortOrder
+    statuscode?: SortOrder
+    occurrenceno?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+    isreimbursement?: SortOrder
+    batchnumber?: SortOrder
+    invoicenumber?: SortOrder
+    accidentdate?: SortOrder
+    visitdate?: SortOrder
+  }
+
+  export type TransactionclaimAvgOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+  }
+
+  export type TransactionclaimMaxOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    furtherclaimid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    presentillness?: SortOrder
+    chiefcomplaint?: SortOrder
+    accidentplacecode?: SortOrder
+    causeofinjury?: SortOrder
+    commentofinjury?: SortOrder
+    woundtypecode?: SortOrder
+    injurysidecode?: SortOrder
+    injuryarea?: SortOrder
+    status_changed_at?: SortOrder
+    messageclaim?: SortOrder
+    messageth?: SortOrder
+    claimno?: SortOrder
+    statuscode?: SortOrder
+    occurrenceno?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+    isreimbursement?: SortOrder
+    batchnumber?: SortOrder
+    invoicenumber?: SortOrder
+    accidentdate?: SortOrder
+    visitdate?: SortOrder
+  }
+
+  export type TransactionclaimMinOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    furtherclaimid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    presentillness?: SortOrder
+    chiefcomplaint?: SortOrder
+    accidentplacecode?: SortOrder
+    causeofinjury?: SortOrder
+    commentofinjury?: SortOrder
+    woundtypecode?: SortOrder
+    injurysidecode?: SortOrder
+    injuryarea?: SortOrder
+    status_changed_at?: SortOrder
+    messageclaim?: SortOrder
+    messageth?: SortOrder
+    claimno?: SortOrder
+    statuscode?: SortOrder
+    occurrenceno?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+    isreimbursement?: SortOrder
+    batchnumber?: SortOrder
+    invoicenumber?: SortOrder
+    accidentdate?: SortOrder
+    visitdate?: SortOrder
+  }
+
+  export type TransactionclaimSumOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+  }
+
+  export type DecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
+  export type transactionclaim2CountOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    furtherclaimid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    presentillness?: SortOrder
+    chiefcomplaint?: SortOrder
+    accidentplacecode?: SortOrder
+    causeofinjury?: SortOrder
+    commentofinjury?: SortOrder
+    woundtypecode?: SortOrder
+    injurysidecode?: SortOrder
+    injuryarea?: SortOrder
+    status_changed_at?: SortOrder
+    messageclaim?: SortOrder
+    messageth?: SortOrder
+    claimno?: SortOrder
+    statuscode?: SortOrder
+    occurrenceno?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+    isreimbursement?: SortOrder
+    batchnumber?: SortOrder
+    invoicenumber?: SortOrder
+    accidentdate?: SortOrder
+    visitdate?: SortOrder
+  }
+
+  export type transactionclaim2AvgOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+  }
+
+  export type transactionclaim2MaxOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    furtherclaimid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    presentillness?: SortOrder
+    chiefcomplaint?: SortOrder
+    accidentplacecode?: SortOrder
+    causeofinjury?: SortOrder
+    commentofinjury?: SortOrder
+    woundtypecode?: SortOrder
+    injurysidecode?: SortOrder
+    injuryarea?: SortOrder
+    status_changed_at?: SortOrder
+    messageclaim?: SortOrder
+    messageth?: SortOrder
+    claimno?: SortOrder
+    statuscode?: SortOrder
+    occurrenceno?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+    isreimbursement?: SortOrder
+    batchnumber?: SortOrder
+    invoicenumber?: SortOrder
+    accidentdate?: SortOrder
+    visitdate?: SortOrder
+  }
+
+  export type transactionclaim2MinOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    furtherclaimid?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    presentillness?: SortOrder
+    chiefcomplaint?: SortOrder
+    accidentplacecode?: SortOrder
+    causeofinjury?: SortOrder
+    commentofinjury?: SortOrder
+    woundtypecode?: SortOrder
+    injurysidecode?: SortOrder
+    injuryarea?: SortOrder
+    status_changed_at?: SortOrder
+    messageclaim?: SortOrder
+    messageth?: SortOrder
+    claimno?: SortOrder
+    statuscode?: SortOrder
+    occurrenceno?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+    isreimbursement?: SortOrder
+    batchnumber?: SortOrder
+    invoicenumber?: SortOrder
+    accidentdate?: SortOrder
+    visitdate?: SortOrder
+  }
+
+  export type transactionclaim2SumOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+    totalapprovedamount?: SortOrder
+    totalexcessamount?: SortOrder
+  }
+
   export type InsurersCreateNestedOneWithoutClaimStatusInput = {
     create?: XOR<InsurersCreateWithoutClaimStatusInput, InsurersUncheckedCreateWithoutClaimStatusInput>
     connectOrCreate?: InsurersCreateOrConnectWithoutClaimStatusInput
     connect?: InsurersWhereUniqueInput
+  }
+
+  export type TransactionclaimCreateNestedManyWithoutClaimStatusInput = {
+    create?: XOR<TransactionclaimCreateWithoutClaimStatusInput, TransactionclaimUncheckedCreateWithoutClaimStatusInput> | TransactionclaimCreateWithoutClaimStatusInput[] | TransactionclaimUncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: TransactionclaimCreateOrConnectWithoutClaimStatusInput | TransactionclaimCreateOrConnectWithoutClaimStatusInput[]
+    createMany?: TransactionclaimCreateManyClaimStatusInputEnvelope
+    connect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+  }
+
+  export type TransactionclaimstatusCreateNestedManyWithoutClaimStatusInput = {
+    create?: XOR<TransactionclaimstatusCreateWithoutClaimStatusInput, TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput> | TransactionclaimstatusCreateWithoutClaimStatusInput[] | TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput | TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput[]
+    createMany?: TransactionclaimstatusCreateManyClaimStatusInputEnvelope
+    connect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
   }
 
   export type TransactionsCreateNestedManyWithoutClaimStatusInput = {
@@ -16227,11 +21850,39 @@ export namespace Prisma {
     connect?: TransactionsWhereUniqueInput | TransactionsWhereUniqueInput[]
   }
 
+  export type transactionclaim2CreateNestedManyWithoutClaimStatusInput = {
+    create?: XOR<transactionclaim2CreateWithoutClaimStatusInput, transactionclaim2UncheckedCreateWithoutClaimStatusInput> | transactionclaim2CreateWithoutClaimStatusInput[] | transactionclaim2UncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: transactionclaim2CreateOrConnectWithoutClaimStatusInput | transactionclaim2CreateOrConnectWithoutClaimStatusInput[]
+    createMany?: transactionclaim2CreateManyClaimStatusInputEnvelope
+    connect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+  }
+
+  export type TransactionclaimUncheckedCreateNestedManyWithoutClaimStatusInput = {
+    create?: XOR<TransactionclaimCreateWithoutClaimStatusInput, TransactionclaimUncheckedCreateWithoutClaimStatusInput> | TransactionclaimCreateWithoutClaimStatusInput[] | TransactionclaimUncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: TransactionclaimCreateOrConnectWithoutClaimStatusInput | TransactionclaimCreateOrConnectWithoutClaimStatusInput[]
+    createMany?: TransactionclaimCreateManyClaimStatusInputEnvelope
+    connect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+  }
+
+  export type TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimStatusInput = {
+    create?: XOR<TransactionclaimstatusCreateWithoutClaimStatusInput, TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput> | TransactionclaimstatusCreateWithoutClaimStatusInput[] | TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput | TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput[]
+    createMany?: TransactionclaimstatusCreateManyClaimStatusInputEnvelope
+    connect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+  }
+
   export type TransactionsUncheckedCreateNestedManyWithoutClaimStatusInput = {
     create?: XOR<TransactionsCreateWithoutClaimStatusInput, TransactionsUncheckedCreateWithoutClaimStatusInput> | TransactionsCreateWithoutClaimStatusInput[] | TransactionsUncheckedCreateWithoutClaimStatusInput[]
     connectOrCreate?: TransactionsCreateOrConnectWithoutClaimStatusInput | TransactionsCreateOrConnectWithoutClaimStatusInput[]
     createMany?: TransactionsCreateManyClaimStatusInputEnvelope
     connect?: TransactionsWhereUniqueInput | TransactionsWhereUniqueInput[]
+  }
+
+  export type transactionclaim2UncheckedCreateNestedManyWithoutClaimStatusInput = {
+    create?: XOR<transactionclaim2CreateWithoutClaimStatusInput, transactionclaim2UncheckedCreateWithoutClaimStatusInput> | transactionclaim2CreateWithoutClaimStatusInput[] | transactionclaim2UncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: transactionclaim2CreateOrConnectWithoutClaimStatusInput | transactionclaim2CreateOrConnectWithoutClaimStatusInput[]
+    createMany?: transactionclaim2CreateManyClaimStatusInputEnvelope
+    connect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -16252,6 +21903,34 @@ export namespace Prisma {
     update?: XOR<XOR<InsurersUpdateToOneWithWhereWithoutClaimStatusInput, InsurersUpdateWithoutClaimStatusInput>, InsurersUncheckedUpdateWithoutClaimStatusInput>
   }
 
+  export type TransactionclaimUpdateManyWithoutClaimStatusNestedInput = {
+    create?: XOR<TransactionclaimCreateWithoutClaimStatusInput, TransactionclaimUncheckedCreateWithoutClaimStatusInput> | TransactionclaimCreateWithoutClaimStatusInput[] | TransactionclaimUncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: TransactionclaimCreateOrConnectWithoutClaimStatusInput | TransactionclaimCreateOrConnectWithoutClaimStatusInput[]
+    upsert?: TransactionclaimUpsertWithWhereUniqueWithoutClaimStatusInput | TransactionclaimUpsertWithWhereUniqueWithoutClaimStatusInput[]
+    createMany?: TransactionclaimCreateManyClaimStatusInputEnvelope
+    set?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    disconnect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    delete?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    connect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    update?: TransactionclaimUpdateWithWhereUniqueWithoutClaimStatusInput | TransactionclaimUpdateWithWhereUniqueWithoutClaimStatusInput[]
+    updateMany?: TransactionclaimUpdateManyWithWhereWithoutClaimStatusInput | TransactionclaimUpdateManyWithWhereWithoutClaimStatusInput[]
+    deleteMany?: TransactionclaimScalarWhereInput | TransactionclaimScalarWhereInput[]
+  }
+
+  export type TransactionclaimstatusUpdateManyWithoutClaimStatusNestedInput = {
+    create?: XOR<TransactionclaimstatusCreateWithoutClaimStatusInput, TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput> | TransactionclaimstatusCreateWithoutClaimStatusInput[] | TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput | TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput[]
+    upsert?: TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimStatusInput | TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimStatusInput[]
+    createMany?: TransactionclaimstatusCreateManyClaimStatusInputEnvelope
+    set?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    disconnect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    delete?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    connect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    update?: TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimStatusInput | TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimStatusInput[]
+    updateMany?: TransactionclaimstatusUpdateManyWithWhereWithoutClaimStatusInput | TransactionclaimstatusUpdateManyWithWhereWithoutClaimStatusInput[]
+    deleteMany?: TransactionclaimstatusScalarWhereInput | TransactionclaimstatusScalarWhereInput[]
+  }
+
   export type TransactionsUpdateManyWithoutClaimStatusNestedInput = {
     create?: XOR<TransactionsCreateWithoutClaimStatusInput, TransactionsUncheckedCreateWithoutClaimStatusInput> | TransactionsCreateWithoutClaimStatusInput[] | TransactionsUncheckedCreateWithoutClaimStatusInput[]
     connectOrCreate?: TransactionsCreateOrConnectWithoutClaimStatusInput | TransactionsCreateOrConnectWithoutClaimStatusInput[]
@@ -16264,6 +21943,20 @@ export namespace Prisma {
     update?: TransactionsUpdateWithWhereUniqueWithoutClaimStatusInput | TransactionsUpdateWithWhereUniqueWithoutClaimStatusInput[]
     updateMany?: TransactionsUpdateManyWithWhereWithoutClaimStatusInput | TransactionsUpdateManyWithWhereWithoutClaimStatusInput[]
     deleteMany?: TransactionsScalarWhereInput | TransactionsScalarWhereInput[]
+  }
+
+  export type transactionclaim2UpdateManyWithoutClaimStatusNestedInput = {
+    create?: XOR<transactionclaim2CreateWithoutClaimStatusInput, transactionclaim2UncheckedCreateWithoutClaimStatusInput> | transactionclaim2CreateWithoutClaimStatusInput[] | transactionclaim2UncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: transactionclaim2CreateOrConnectWithoutClaimStatusInput | transactionclaim2CreateOrConnectWithoutClaimStatusInput[]
+    upsert?: transactionclaim2UpsertWithWhereUniqueWithoutClaimStatusInput | transactionclaim2UpsertWithWhereUniqueWithoutClaimStatusInput[]
+    createMany?: transactionclaim2CreateManyClaimStatusInputEnvelope
+    set?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    disconnect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    delete?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    connect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    update?: transactionclaim2UpdateWithWhereUniqueWithoutClaimStatusInput | transactionclaim2UpdateWithWhereUniqueWithoutClaimStatusInput[]
+    updateMany?: transactionclaim2UpdateManyWithWhereWithoutClaimStatusInput | transactionclaim2UpdateManyWithWhereWithoutClaimStatusInput[]
+    deleteMany?: transactionclaim2ScalarWhereInput | transactionclaim2ScalarWhereInput[]
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -16282,6 +21975,34 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type TransactionclaimUncheckedUpdateManyWithoutClaimStatusNestedInput = {
+    create?: XOR<TransactionclaimCreateWithoutClaimStatusInput, TransactionclaimUncheckedCreateWithoutClaimStatusInput> | TransactionclaimCreateWithoutClaimStatusInput[] | TransactionclaimUncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: TransactionclaimCreateOrConnectWithoutClaimStatusInput | TransactionclaimCreateOrConnectWithoutClaimStatusInput[]
+    upsert?: TransactionclaimUpsertWithWhereUniqueWithoutClaimStatusInput | TransactionclaimUpsertWithWhereUniqueWithoutClaimStatusInput[]
+    createMany?: TransactionclaimCreateManyClaimStatusInputEnvelope
+    set?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    disconnect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    delete?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    connect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    update?: TransactionclaimUpdateWithWhereUniqueWithoutClaimStatusInput | TransactionclaimUpdateWithWhereUniqueWithoutClaimStatusInput[]
+    updateMany?: TransactionclaimUpdateManyWithWhereWithoutClaimStatusInput | TransactionclaimUpdateManyWithWhereWithoutClaimStatusInput[]
+    deleteMany?: TransactionclaimScalarWhereInput | TransactionclaimScalarWhereInput[]
+  }
+
+  export type TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusNestedInput = {
+    create?: XOR<TransactionclaimstatusCreateWithoutClaimStatusInput, TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput> | TransactionclaimstatusCreateWithoutClaimStatusInput[] | TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput | TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput[]
+    upsert?: TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimStatusInput | TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimStatusInput[]
+    createMany?: TransactionclaimstatusCreateManyClaimStatusInputEnvelope
+    set?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    disconnect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    delete?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    connect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    update?: TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimStatusInput | TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimStatusInput[]
+    updateMany?: TransactionclaimstatusUpdateManyWithWhereWithoutClaimStatusInput | TransactionclaimstatusUpdateManyWithWhereWithoutClaimStatusInput[]
+    deleteMany?: TransactionclaimstatusScalarWhereInput | TransactionclaimstatusScalarWhereInput[]
+  }
+
   export type TransactionsUncheckedUpdateManyWithoutClaimStatusNestedInput = {
     create?: XOR<TransactionsCreateWithoutClaimStatusInput, TransactionsUncheckedCreateWithoutClaimStatusInput> | TransactionsCreateWithoutClaimStatusInput[] | TransactionsUncheckedCreateWithoutClaimStatusInput[]
     connectOrCreate?: TransactionsCreateOrConnectWithoutClaimStatusInput | TransactionsCreateOrConnectWithoutClaimStatusInput[]
@@ -16294,6 +22015,20 @@ export namespace Prisma {
     update?: TransactionsUpdateWithWhereUniqueWithoutClaimStatusInput | TransactionsUpdateWithWhereUniqueWithoutClaimStatusInput[]
     updateMany?: TransactionsUpdateManyWithWhereWithoutClaimStatusInput | TransactionsUpdateManyWithWhereWithoutClaimStatusInput[]
     deleteMany?: TransactionsScalarWhereInput | TransactionsScalarWhereInput[]
+  }
+
+  export type transactionclaim2UncheckedUpdateManyWithoutClaimStatusNestedInput = {
+    create?: XOR<transactionclaim2CreateWithoutClaimStatusInput, transactionclaim2UncheckedCreateWithoutClaimStatusInput> | transactionclaim2CreateWithoutClaimStatusInput[] | transactionclaim2UncheckedCreateWithoutClaimStatusInput[]
+    connectOrCreate?: transactionclaim2CreateOrConnectWithoutClaimStatusInput | transactionclaim2CreateOrConnectWithoutClaimStatusInput[]
+    upsert?: transactionclaim2UpsertWithWhereUniqueWithoutClaimStatusInput | transactionclaim2UpsertWithWhereUniqueWithoutClaimStatusInput[]
+    createMany?: transactionclaim2CreateManyClaimStatusInputEnvelope
+    set?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    disconnect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    delete?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    connect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    update?: transactionclaim2UpdateWithWhereUniqueWithoutClaimStatusInput | transactionclaim2UpdateWithWhereUniqueWithoutClaimStatusInput[]
+    updateMany?: transactionclaim2UpdateManyWithWhereWithoutClaimStatusInput | transactionclaim2UpdateManyWithWhereWithoutClaimStatusInput[]
+    deleteMany?: transactionclaim2ScalarWhereInput | transactionclaim2ScalarWhereInput[]
   }
 
   export type InsurersCreateNestedOneWithoutIllnessSurgeryInput = {
@@ -16366,6 +22101,20 @@ export namespace Prisma {
     connect?: InsurersWhereUniqueInput
   }
 
+  export type TransactionclaimCreateNestedManyWithoutClaimantsInput = {
+    create?: XOR<TransactionclaimCreateWithoutClaimantsInput, TransactionclaimUncheckedCreateWithoutClaimantsInput> | TransactionclaimCreateWithoutClaimantsInput[] | TransactionclaimUncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: TransactionclaimCreateOrConnectWithoutClaimantsInput | TransactionclaimCreateOrConnectWithoutClaimantsInput[]
+    createMany?: TransactionclaimCreateManyClaimantsInputEnvelope
+    connect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+  }
+
+  export type TransactionclaimstatusCreateNestedManyWithoutClaimantsInput = {
+    create?: XOR<TransactionclaimstatusCreateWithoutClaimantsInput, TransactionclaimstatusUncheckedCreateWithoutClaimantsInput> | TransactionclaimstatusCreateWithoutClaimantsInput[] | TransactionclaimstatusUncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: TransactionclaimstatusCreateOrConnectWithoutClaimantsInput | TransactionclaimstatusCreateOrConnectWithoutClaimantsInput[]
+    createMany?: TransactionclaimstatusCreateManyClaimantsInputEnvelope
+    connect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+  }
+
   export type TransactionsCreateNestedManyWithoutClaimantsInput = {
     create?: XOR<TransactionsCreateWithoutClaimantsInput, TransactionsUncheckedCreateWithoutClaimantsInput> | TransactionsCreateWithoutClaimantsInput[] | TransactionsUncheckedCreateWithoutClaimantsInput[]
     connectOrCreate?: TransactionsCreateOrConnectWithoutClaimantsInput | TransactionsCreateOrConnectWithoutClaimantsInput[]
@@ -16373,11 +22122,39 @@ export namespace Prisma {
     connect?: TransactionsWhereUniqueInput | TransactionsWhereUniqueInput[]
   }
 
+  export type transactionclaim2CreateNestedManyWithoutClaimantsInput = {
+    create?: XOR<transactionclaim2CreateWithoutClaimantsInput, transactionclaim2UncheckedCreateWithoutClaimantsInput> | transactionclaim2CreateWithoutClaimantsInput[] | transactionclaim2UncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: transactionclaim2CreateOrConnectWithoutClaimantsInput | transactionclaim2CreateOrConnectWithoutClaimantsInput[]
+    createMany?: transactionclaim2CreateManyClaimantsInputEnvelope
+    connect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+  }
+
+  export type TransactionclaimUncheckedCreateNestedManyWithoutClaimantsInput = {
+    create?: XOR<TransactionclaimCreateWithoutClaimantsInput, TransactionclaimUncheckedCreateWithoutClaimantsInput> | TransactionclaimCreateWithoutClaimantsInput[] | TransactionclaimUncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: TransactionclaimCreateOrConnectWithoutClaimantsInput | TransactionclaimCreateOrConnectWithoutClaimantsInput[]
+    createMany?: TransactionclaimCreateManyClaimantsInputEnvelope
+    connect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+  }
+
+  export type TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimantsInput = {
+    create?: XOR<TransactionclaimstatusCreateWithoutClaimantsInput, TransactionclaimstatusUncheckedCreateWithoutClaimantsInput> | TransactionclaimstatusCreateWithoutClaimantsInput[] | TransactionclaimstatusUncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: TransactionclaimstatusCreateOrConnectWithoutClaimantsInput | TransactionclaimstatusCreateOrConnectWithoutClaimantsInput[]
+    createMany?: TransactionclaimstatusCreateManyClaimantsInputEnvelope
+    connect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+  }
+
   export type TransactionsUncheckedCreateNestedManyWithoutClaimantsInput = {
     create?: XOR<TransactionsCreateWithoutClaimantsInput, TransactionsUncheckedCreateWithoutClaimantsInput> | TransactionsCreateWithoutClaimantsInput[] | TransactionsUncheckedCreateWithoutClaimantsInput[]
     connectOrCreate?: TransactionsCreateOrConnectWithoutClaimantsInput | TransactionsCreateOrConnectWithoutClaimantsInput[]
     createMany?: TransactionsCreateManyClaimantsInputEnvelope
     connect?: TransactionsWhereUniqueInput | TransactionsWhereUniqueInput[]
+  }
+
+  export type transactionclaim2UncheckedCreateNestedManyWithoutClaimantsInput = {
+    create?: XOR<transactionclaim2CreateWithoutClaimantsInput, transactionclaim2UncheckedCreateWithoutClaimantsInput> | transactionclaim2CreateWithoutClaimantsInput[] | transactionclaim2UncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: transactionclaim2CreateOrConnectWithoutClaimantsInput | transactionclaim2CreateOrConnectWithoutClaimantsInput[]
+    createMany?: transactionclaim2CreateManyClaimantsInputEnvelope
+    connect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
   }
 
   export type NullableBoolFieldUpdateOperationsInput = {
@@ -16398,6 +22175,34 @@ export namespace Prisma {
     update?: XOR<XOR<InsurersUpdateToOneWithWhereWithoutClaimantsInput, InsurersUpdateWithoutClaimantsInput>, InsurersUncheckedUpdateWithoutClaimantsInput>
   }
 
+  export type TransactionclaimUpdateManyWithoutClaimantsNestedInput = {
+    create?: XOR<TransactionclaimCreateWithoutClaimantsInput, TransactionclaimUncheckedCreateWithoutClaimantsInput> | TransactionclaimCreateWithoutClaimantsInput[] | TransactionclaimUncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: TransactionclaimCreateOrConnectWithoutClaimantsInput | TransactionclaimCreateOrConnectWithoutClaimantsInput[]
+    upsert?: TransactionclaimUpsertWithWhereUniqueWithoutClaimantsInput | TransactionclaimUpsertWithWhereUniqueWithoutClaimantsInput[]
+    createMany?: TransactionclaimCreateManyClaimantsInputEnvelope
+    set?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    disconnect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    delete?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    connect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    update?: TransactionclaimUpdateWithWhereUniqueWithoutClaimantsInput | TransactionclaimUpdateWithWhereUniqueWithoutClaimantsInput[]
+    updateMany?: TransactionclaimUpdateManyWithWhereWithoutClaimantsInput | TransactionclaimUpdateManyWithWhereWithoutClaimantsInput[]
+    deleteMany?: TransactionclaimScalarWhereInput | TransactionclaimScalarWhereInput[]
+  }
+
+  export type TransactionclaimstatusUpdateManyWithoutClaimantsNestedInput = {
+    create?: XOR<TransactionclaimstatusCreateWithoutClaimantsInput, TransactionclaimstatusUncheckedCreateWithoutClaimantsInput> | TransactionclaimstatusCreateWithoutClaimantsInput[] | TransactionclaimstatusUncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: TransactionclaimstatusCreateOrConnectWithoutClaimantsInput | TransactionclaimstatusCreateOrConnectWithoutClaimantsInput[]
+    upsert?: TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimantsInput | TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimantsInput[]
+    createMany?: TransactionclaimstatusCreateManyClaimantsInputEnvelope
+    set?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    disconnect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    delete?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    connect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    update?: TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimantsInput | TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimantsInput[]
+    updateMany?: TransactionclaimstatusUpdateManyWithWhereWithoutClaimantsInput | TransactionclaimstatusUpdateManyWithWhereWithoutClaimantsInput[]
+    deleteMany?: TransactionclaimstatusScalarWhereInput | TransactionclaimstatusScalarWhereInput[]
+  }
+
   export type TransactionsUpdateManyWithoutClaimantsNestedInput = {
     create?: XOR<TransactionsCreateWithoutClaimantsInput, TransactionsUncheckedCreateWithoutClaimantsInput> | TransactionsCreateWithoutClaimantsInput[] | TransactionsUncheckedCreateWithoutClaimantsInput[]
     connectOrCreate?: TransactionsCreateOrConnectWithoutClaimantsInput | TransactionsCreateOrConnectWithoutClaimantsInput[]
@@ -16412,6 +22217,48 @@ export namespace Prisma {
     deleteMany?: TransactionsScalarWhereInput | TransactionsScalarWhereInput[]
   }
 
+  export type transactionclaim2UpdateManyWithoutClaimantsNestedInput = {
+    create?: XOR<transactionclaim2CreateWithoutClaimantsInput, transactionclaim2UncheckedCreateWithoutClaimantsInput> | transactionclaim2CreateWithoutClaimantsInput[] | transactionclaim2UncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: transactionclaim2CreateOrConnectWithoutClaimantsInput | transactionclaim2CreateOrConnectWithoutClaimantsInput[]
+    upsert?: transactionclaim2UpsertWithWhereUniqueWithoutClaimantsInput | transactionclaim2UpsertWithWhereUniqueWithoutClaimantsInput[]
+    createMany?: transactionclaim2CreateManyClaimantsInputEnvelope
+    set?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    disconnect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    delete?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    connect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    update?: transactionclaim2UpdateWithWhereUniqueWithoutClaimantsInput | transactionclaim2UpdateWithWhereUniqueWithoutClaimantsInput[]
+    updateMany?: transactionclaim2UpdateManyWithWhereWithoutClaimantsInput | transactionclaim2UpdateManyWithWhereWithoutClaimantsInput[]
+    deleteMany?: transactionclaim2ScalarWhereInput | transactionclaim2ScalarWhereInput[]
+  }
+
+  export type TransactionclaimUncheckedUpdateManyWithoutClaimantsNestedInput = {
+    create?: XOR<TransactionclaimCreateWithoutClaimantsInput, TransactionclaimUncheckedCreateWithoutClaimantsInput> | TransactionclaimCreateWithoutClaimantsInput[] | TransactionclaimUncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: TransactionclaimCreateOrConnectWithoutClaimantsInput | TransactionclaimCreateOrConnectWithoutClaimantsInput[]
+    upsert?: TransactionclaimUpsertWithWhereUniqueWithoutClaimantsInput | TransactionclaimUpsertWithWhereUniqueWithoutClaimantsInput[]
+    createMany?: TransactionclaimCreateManyClaimantsInputEnvelope
+    set?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    disconnect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    delete?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    connect?: TransactionclaimWhereUniqueInput | TransactionclaimWhereUniqueInput[]
+    update?: TransactionclaimUpdateWithWhereUniqueWithoutClaimantsInput | TransactionclaimUpdateWithWhereUniqueWithoutClaimantsInput[]
+    updateMany?: TransactionclaimUpdateManyWithWhereWithoutClaimantsInput | TransactionclaimUpdateManyWithWhereWithoutClaimantsInput[]
+    deleteMany?: TransactionclaimScalarWhereInput | TransactionclaimScalarWhereInput[]
+  }
+
+  export type TransactionclaimstatusUncheckedUpdateManyWithoutClaimantsNestedInput = {
+    create?: XOR<TransactionclaimstatusCreateWithoutClaimantsInput, TransactionclaimstatusUncheckedCreateWithoutClaimantsInput> | TransactionclaimstatusCreateWithoutClaimantsInput[] | TransactionclaimstatusUncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: TransactionclaimstatusCreateOrConnectWithoutClaimantsInput | TransactionclaimstatusCreateOrConnectWithoutClaimantsInput[]
+    upsert?: TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimantsInput | TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimantsInput[]
+    createMany?: TransactionclaimstatusCreateManyClaimantsInputEnvelope
+    set?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    disconnect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    delete?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    connect?: TransactionclaimstatusWhereUniqueInput | TransactionclaimstatusWhereUniqueInput[]
+    update?: TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimantsInput | TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimantsInput[]
+    updateMany?: TransactionclaimstatusUpdateManyWithWhereWithoutClaimantsInput | TransactionclaimstatusUpdateManyWithWhereWithoutClaimantsInput[]
+    deleteMany?: TransactionclaimstatusScalarWhereInput | TransactionclaimstatusScalarWhereInput[]
+  }
+
   export type TransactionsUncheckedUpdateManyWithoutClaimantsNestedInput = {
     create?: XOR<TransactionsCreateWithoutClaimantsInput, TransactionsUncheckedCreateWithoutClaimantsInput> | TransactionsCreateWithoutClaimantsInput[] | TransactionsUncheckedCreateWithoutClaimantsInput[]
     connectOrCreate?: TransactionsCreateOrConnectWithoutClaimantsInput | TransactionsCreateOrConnectWithoutClaimantsInput[]
@@ -16424,6 +22271,20 @@ export namespace Prisma {
     update?: TransactionsUpdateWithWhereUniqueWithoutClaimantsInput | TransactionsUpdateWithWhereUniqueWithoutClaimantsInput[]
     updateMany?: TransactionsUpdateManyWithWhereWithoutClaimantsInput | TransactionsUpdateManyWithWhereWithoutClaimantsInput[]
     deleteMany?: TransactionsScalarWhereInput | TransactionsScalarWhereInput[]
+  }
+
+  export type transactionclaim2UncheckedUpdateManyWithoutClaimantsNestedInput = {
+    create?: XOR<transactionclaim2CreateWithoutClaimantsInput, transactionclaim2UncheckedCreateWithoutClaimantsInput> | transactionclaim2CreateWithoutClaimantsInput[] | transactionclaim2UncheckedCreateWithoutClaimantsInput[]
+    connectOrCreate?: transactionclaim2CreateOrConnectWithoutClaimantsInput | transactionclaim2CreateOrConnectWithoutClaimantsInput[]
+    upsert?: transactionclaim2UpsertWithWhereUniqueWithoutClaimantsInput | transactionclaim2UpsertWithWhereUniqueWithoutClaimantsInput[]
+    createMany?: transactionclaim2CreateManyClaimantsInputEnvelope
+    set?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    disconnect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    delete?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    connect?: transactionclaim2WhereUniqueInput | transactionclaim2WhereUniqueInput[]
+    update?: transactionclaim2UpdateWithWhereUniqueWithoutClaimantsInput | transactionclaim2UpdateWithWhereUniqueWithoutClaimantsInput[]
+    updateMany?: transactionclaim2UpdateManyWithWhereWithoutClaimantsInput | transactionclaim2UpdateManyWithWhereWithoutClaimantsInput[]
+    deleteMany?: transactionclaim2ScalarWhereInput | transactionclaim2ScalarWhereInput[]
   }
 
   export type ClaimStatusCreateNestedManyWithoutInsurersInput = {
@@ -16768,6 +22629,108 @@ export namespace Prisma {
     update?: XOR<XOR<ClaimStatusUpdateToOneWithWhereWithoutTransactionsInput, ClaimStatusUpdateWithoutTransactionsInput>, ClaimStatusUncheckedUpdateWithoutTransactionsInput>
   }
 
+  export type ClaimantsCreateNestedOneWithoutTransactionclaimstatusInput = {
+    create?: XOR<ClaimantsCreateWithoutTransactionclaimstatusInput, ClaimantsUncheckedCreateWithoutTransactionclaimstatusInput>
+    connectOrCreate?: ClaimantsCreateOrConnectWithoutTransactionclaimstatusInput
+    connect?: ClaimantsWhereUniqueInput
+  }
+
+  export type ClaimStatusCreateNestedOneWithoutTransactionclaimstatusInput = {
+    create?: XOR<ClaimStatusCreateWithoutTransactionclaimstatusInput, ClaimStatusUncheckedCreateWithoutTransactionclaimstatusInput>
+    connectOrCreate?: ClaimStatusCreateOrConnectWithoutTransactionclaimstatusInput
+    connect?: ClaimStatusWhereUniqueInput
+  }
+
+  export type ClaimantsUpdateOneWithoutTransactionclaimstatusNestedInput = {
+    create?: XOR<ClaimantsCreateWithoutTransactionclaimstatusInput, ClaimantsUncheckedCreateWithoutTransactionclaimstatusInput>
+    connectOrCreate?: ClaimantsCreateOrConnectWithoutTransactionclaimstatusInput
+    upsert?: ClaimantsUpsertWithoutTransactionclaimstatusInput
+    disconnect?: ClaimantsWhereInput | boolean
+    delete?: ClaimantsWhereInput | boolean
+    connect?: ClaimantsWhereUniqueInput
+    update?: XOR<XOR<ClaimantsUpdateToOneWithWhereWithoutTransactionclaimstatusInput, ClaimantsUpdateWithoutTransactionclaimstatusInput>, ClaimantsUncheckedUpdateWithoutTransactionclaimstatusInput>
+  }
+
+  export type ClaimStatusUpdateOneRequiredWithoutTransactionclaimstatusNestedInput = {
+    create?: XOR<ClaimStatusCreateWithoutTransactionclaimstatusInput, ClaimStatusUncheckedCreateWithoutTransactionclaimstatusInput>
+    connectOrCreate?: ClaimStatusCreateOrConnectWithoutTransactionclaimstatusInput
+    upsert?: ClaimStatusUpsertWithoutTransactionclaimstatusInput
+    connect?: ClaimStatusWhereUniqueInput
+    update?: XOR<XOR<ClaimStatusUpdateToOneWithWhereWithoutTransactionclaimstatusInput, ClaimStatusUpdateWithoutTransactionclaimstatusInput>, ClaimStatusUncheckedUpdateWithoutTransactionclaimstatusInput>
+  }
+
+  export type ClaimantsCreateNestedOneWithoutTransactionclaimInput = {
+    create?: XOR<ClaimantsCreateWithoutTransactionclaimInput, ClaimantsUncheckedCreateWithoutTransactionclaimInput>
+    connectOrCreate?: ClaimantsCreateOrConnectWithoutTransactionclaimInput
+    connect?: ClaimantsWhereUniqueInput
+  }
+
+  export type ClaimStatusCreateNestedOneWithoutTransactionclaimInput = {
+    create?: XOR<ClaimStatusCreateWithoutTransactionclaimInput, ClaimStatusUncheckedCreateWithoutTransactionclaimInput>
+    connectOrCreate?: ClaimStatusCreateOrConnectWithoutTransactionclaimInput
+    connect?: ClaimStatusWhereUniqueInput
+  }
+
+  export type NullableDecimalFieldUpdateOperationsInput = {
+    set?: Decimal | DecimalJsLike | number | string | null
+    increment?: Decimal | DecimalJsLike | number | string
+    decrement?: Decimal | DecimalJsLike | number | string
+    multiply?: Decimal | DecimalJsLike | number | string
+    divide?: Decimal | DecimalJsLike | number | string
+  }
+
+  export type ClaimantsUpdateOneWithoutTransactionclaimNestedInput = {
+    create?: XOR<ClaimantsCreateWithoutTransactionclaimInput, ClaimantsUncheckedCreateWithoutTransactionclaimInput>
+    connectOrCreate?: ClaimantsCreateOrConnectWithoutTransactionclaimInput
+    upsert?: ClaimantsUpsertWithoutTransactionclaimInput
+    disconnect?: ClaimantsWhereInput | boolean
+    delete?: ClaimantsWhereInput | boolean
+    connect?: ClaimantsWhereUniqueInput
+    update?: XOR<XOR<ClaimantsUpdateToOneWithWhereWithoutTransactionclaimInput, ClaimantsUpdateWithoutTransactionclaimInput>, ClaimantsUncheckedUpdateWithoutTransactionclaimInput>
+  }
+
+  export type ClaimStatusUpdateOneWithoutTransactionclaimNestedInput = {
+    create?: XOR<ClaimStatusCreateWithoutTransactionclaimInput, ClaimStatusUncheckedCreateWithoutTransactionclaimInput>
+    connectOrCreate?: ClaimStatusCreateOrConnectWithoutTransactionclaimInput
+    upsert?: ClaimStatusUpsertWithoutTransactionclaimInput
+    disconnect?: ClaimStatusWhereInput | boolean
+    delete?: ClaimStatusWhereInput | boolean
+    connect?: ClaimStatusWhereUniqueInput
+    update?: XOR<XOR<ClaimStatusUpdateToOneWithWhereWithoutTransactionclaimInput, ClaimStatusUpdateWithoutTransactionclaimInput>, ClaimStatusUncheckedUpdateWithoutTransactionclaimInput>
+  }
+
+  export type ClaimantsCreateNestedOneWithoutTransactionclaim2Input = {
+    create?: XOR<ClaimantsCreateWithoutTransactionclaim2Input, ClaimantsUncheckedCreateWithoutTransactionclaim2Input>
+    connectOrCreate?: ClaimantsCreateOrConnectWithoutTransactionclaim2Input
+    connect?: ClaimantsWhereUniqueInput
+  }
+
+  export type ClaimStatusCreateNestedOneWithoutTransactionclaim2Input = {
+    create?: XOR<ClaimStatusCreateWithoutTransactionclaim2Input, ClaimStatusUncheckedCreateWithoutTransactionclaim2Input>
+    connectOrCreate?: ClaimStatusCreateOrConnectWithoutTransactionclaim2Input
+    connect?: ClaimStatusWhereUniqueInput
+  }
+
+  export type ClaimantsUpdateOneWithoutTransactionclaim2NestedInput = {
+    create?: XOR<ClaimantsCreateWithoutTransactionclaim2Input, ClaimantsUncheckedCreateWithoutTransactionclaim2Input>
+    connectOrCreate?: ClaimantsCreateOrConnectWithoutTransactionclaim2Input
+    upsert?: ClaimantsUpsertWithoutTransactionclaim2Input
+    disconnect?: ClaimantsWhereInput | boolean
+    delete?: ClaimantsWhereInput | boolean
+    connect?: ClaimantsWhereUniqueInput
+    update?: XOR<XOR<ClaimantsUpdateToOneWithWhereWithoutTransactionclaim2Input, ClaimantsUpdateWithoutTransactionclaim2Input>, ClaimantsUncheckedUpdateWithoutTransactionclaim2Input>
+  }
+
+  export type ClaimStatusUpdateOneWithoutTransactionclaim2NestedInput = {
+    create?: XOR<ClaimStatusCreateWithoutTransactionclaim2Input, ClaimStatusUncheckedCreateWithoutTransactionclaim2Input>
+    connectOrCreate?: ClaimStatusCreateOrConnectWithoutTransactionclaim2Input
+    upsert?: ClaimStatusUpsertWithoutTransactionclaim2Input
+    disconnect?: ClaimStatusWhereInput | boolean
+    delete?: ClaimStatusWhereInput | boolean
+    connect?: ClaimStatusWhereUniqueInput
+    update?: XOR<XOR<ClaimStatusUpdateToOneWithWhereWithoutTransactionclaim2Input, ClaimStatusUpdateWithoutTransactionclaim2Input>, ClaimStatusUncheckedUpdateWithoutTransactionclaim2Input>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -16944,6 +22907,33 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type NestedDecimalNullableFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+  }
+
+  export type NestedDecimalNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel> | null
+    in?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    notIn?: Decimal[] | DecimalJsLike[] | number[] | string[] | ListDecimalFieldRefInput<$PrismaModel> | null
+    lt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    lte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gt?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    gte?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
+    not?: NestedDecimalNullableWithAggregatesFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedDecimalNullableFilter<$PrismaModel>
+    _sum?: NestedDecimalNullableFilter<$PrismaModel>
+    _min?: NestedDecimalNullableFilter<$PrismaModel>
+    _max?: NestedDecimalNullableFilter<$PrismaModel>
+  }
+
   export type InsurersCreateWithoutClaimStatusInput = {
     insurerid: number
     insurercode?: number | null
@@ -16975,6 +22965,112 @@ export namespace Prisma {
     create: XOR<InsurersCreateWithoutClaimStatusInput, InsurersUncheckedCreateWithoutClaimStatusInput>
   }
 
+  export type TransactionclaimCreateWithoutClaimStatusInput = {
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+    Claimants?: ClaimantsCreateNestedOneWithoutTransactionclaimInput
+  }
+
+  export type TransactionclaimUncheckedCreateWithoutClaimStatusInput = {
+    id?: number
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    hn?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type TransactionclaimCreateOrConnectWithoutClaimStatusInput = {
+    where: TransactionclaimWhereUniqueInput
+    create: XOR<TransactionclaimCreateWithoutClaimStatusInput, TransactionclaimUncheckedCreateWithoutClaimStatusInput>
+  }
+
+  export type TransactionclaimCreateManyClaimStatusInputEnvelope = {
+    data: TransactionclaimCreateManyClaimStatusInput | TransactionclaimCreateManyClaimStatusInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TransactionclaimstatusCreateWithoutClaimStatusInput = {
+    refid: string
+    vn?: string | null
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
+    Claimants?: ClaimantsCreateNestedOneWithoutTransactionclaimstatusInput
+  }
+
+  export type TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput = {
+    id?: number
+    refid: string
+    hn?: string | null
+    vn?: string | null
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
+  }
+
+  export type TransactionclaimstatusCreateOrConnectWithoutClaimStatusInput = {
+    where: TransactionclaimstatusWhereUniqueInput
+    create: XOR<TransactionclaimstatusCreateWithoutClaimStatusInput, TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput>
+  }
+
+  export type TransactionclaimstatusCreateManyClaimStatusInputEnvelope = {
+    data: TransactionclaimstatusCreateManyClaimStatusInput | TransactionclaimstatusCreateManyClaimStatusInput[]
+    skipDuplicates?: boolean
+  }
+
   export type TransactionsCreateWithoutClaimStatusInput = {
     refid?: string | null
     transactionid?: string | null
@@ -17003,6 +23099,73 @@ export namespace Prisma {
 
   export type TransactionsCreateManyClaimStatusInputEnvelope = {
     data: TransactionsCreateManyClaimStatusInput | TransactionsCreateManyClaimStatusInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type transactionclaim2CreateWithoutClaimStatusInput = {
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+    Claimants?: ClaimantsCreateNestedOneWithoutTransactionclaim2Input
+  }
+
+  export type transactionclaim2UncheckedCreateWithoutClaimStatusInput = {
+    id?: number
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    hn?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type transactionclaim2CreateOrConnectWithoutClaimStatusInput = {
+    where: transactionclaim2WhereUniqueInput
+    create: XOR<transactionclaim2CreateWithoutClaimStatusInput, transactionclaim2UncheckedCreateWithoutClaimStatusInput>
+  }
+
+  export type transactionclaim2CreateManyClaimStatusInputEnvelope = {
+    data: transactionclaim2CreateManyClaimStatusInput | transactionclaim2CreateManyClaimStatusInput[]
     skipDuplicates?: boolean
   }
 
@@ -17043,6 +23206,92 @@ export namespace Prisma {
     Transactions?: TransactionsUncheckedUpdateManyWithoutInsurersNestedInput
   }
 
+  export type TransactionclaimUpsertWithWhereUniqueWithoutClaimStatusInput = {
+    where: TransactionclaimWhereUniqueInput
+    update: XOR<TransactionclaimUpdateWithoutClaimStatusInput, TransactionclaimUncheckedUpdateWithoutClaimStatusInput>
+    create: XOR<TransactionclaimCreateWithoutClaimStatusInput, TransactionclaimUncheckedCreateWithoutClaimStatusInput>
+  }
+
+  export type TransactionclaimUpdateWithWhereUniqueWithoutClaimStatusInput = {
+    where: TransactionclaimWhereUniqueInput
+    data: XOR<TransactionclaimUpdateWithoutClaimStatusInput, TransactionclaimUncheckedUpdateWithoutClaimStatusInput>
+  }
+
+  export type TransactionclaimUpdateManyWithWhereWithoutClaimStatusInput = {
+    where: TransactionclaimScalarWhereInput
+    data: XOR<TransactionclaimUpdateManyMutationInput, TransactionclaimUncheckedUpdateManyWithoutClaimStatusInput>
+  }
+
+  export type TransactionclaimScalarWhereInput = {
+    AND?: TransactionclaimScalarWhereInput | TransactionclaimScalarWhereInput[]
+    OR?: TransactionclaimScalarWhereInput[]
+    NOT?: TransactionclaimScalarWhereInput | TransactionclaimScalarWhereInput[]
+    id?: IntFilter<"Transactionclaim"> | number
+    insurerid?: IntNullableFilter<"Transactionclaim"> | number | null
+    refid?: StringNullableFilter<"Transactionclaim"> | string | null
+    transactionno?: StringNullableFilter<"Transactionclaim"> | string | null
+    furtherclaimid?: StringNullableFilter<"Transactionclaim"> | string | null
+    hn?: StringNullableFilter<"Transactionclaim"> | string | null
+    vn?: StringNullableFilter<"Transactionclaim"> | string | null
+    presentillness?: StringNullableFilter<"Transactionclaim"> | string | null
+    chiefcomplaint?: StringNullableFilter<"Transactionclaim"> | string | null
+    accidentplacecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    causeofinjury?: StringNullableFilter<"Transactionclaim"> | string | null
+    commentofinjury?: StringNullableFilter<"Transactionclaim"> | string | null
+    woundtypecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    injurysidecode?: StringNullableFilter<"Transactionclaim"> | string | null
+    injuryarea?: StringNullableFilter<"Transactionclaim"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"Transactionclaim"> | Date | string | null
+    messageclaim?: StringNullableFilter<"Transactionclaim"> | string | null
+    messageth?: StringNullableFilter<"Transactionclaim"> | string | null
+    claimno?: StringNullableFilter<"Transactionclaim"> | string | null
+    statuscode?: StringNullableFilter<"Transactionclaim"> | string | null
+    occurrenceno?: StringNullableFilter<"Transactionclaim"> | string | null
+    totalapprovedamount?: DecimalNullableFilter<"Transactionclaim"> | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: DecimalNullableFilter<"Transactionclaim"> | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: BoolNullableFilter<"Transactionclaim"> | boolean | null
+    batchnumber?: StringNullableFilter<"Transactionclaim"> | string | null
+    invoicenumber?: StringNullableFilter<"Transactionclaim"> | string | null
+    accidentdate?: StringNullableFilter<"Transactionclaim"> | string | null
+    visitdate?: StringNullableFilter<"Transactionclaim"> | string | null
+  }
+
+  export type TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimStatusInput = {
+    where: TransactionclaimstatusWhereUniqueInput
+    update: XOR<TransactionclaimstatusUpdateWithoutClaimStatusInput, TransactionclaimstatusUncheckedUpdateWithoutClaimStatusInput>
+    create: XOR<TransactionclaimstatusCreateWithoutClaimStatusInput, TransactionclaimstatusUncheckedCreateWithoutClaimStatusInput>
+  }
+
+  export type TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimStatusInput = {
+    where: TransactionclaimstatusWhereUniqueInput
+    data: XOR<TransactionclaimstatusUpdateWithoutClaimStatusInput, TransactionclaimstatusUncheckedUpdateWithoutClaimStatusInput>
+  }
+
+  export type TransactionclaimstatusUpdateManyWithWhereWithoutClaimStatusInput = {
+    where: TransactionclaimstatusScalarWhereInput
+    data: XOR<TransactionclaimstatusUpdateManyMutationInput, TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusInput>
+  }
+
+  export type TransactionclaimstatusScalarWhereInput = {
+    AND?: TransactionclaimstatusScalarWhereInput | TransactionclaimstatusScalarWhereInput[]
+    OR?: TransactionclaimstatusScalarWhereInput[]
+    NOT?: TransactionclaimstatusScalarWhereInput | TransactionclaimstatusScalarWhereInput[]
+    id?: IntFilter<"Transactionclaimstatus"> | number
+    refid?: StringFilter<"Transactionclaimstatus"> | string
+    insurerid?: IntFilter<"Transactionclaimstatus"> | number
+    hn?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    vn?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    statuscode?: StringFilter<"Transactionclaimstatus"> | string
+    batchnumber?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    claimno?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    invoicenumber?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"Transactionclaimstatus"> | Date | string | null
+    note?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    totalApproveAmount?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    paymentDate?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+    transactionNo?: StringNullableFilter<"Transactionclaimstatus"> | string | null
+  }
+
   export type TransactionsUpsertWithWhereUniqueWithoutClaimStatusInput = {
     where: TransactionsWhereUniqueInput
     update: XOR<TransactionsUpdateWithoutClaimStatusInput, TransactionsUncheckedUpdateWithoutClaimStatusInput>
@@ -17072,6 +23321,56 @@ export namespace Prisma {
     vn?: StringNullableFilter<"Transactions"> | string | null
     insurerid?: IntNullableFilter<"Transactions"> | number | null
     accidentdate?: StringNullableFilter<"Transactions"> | string | null
+  }
+
+  export type transactionclaim2UpsertWithWhereUniqueWithoutClaimStatusInput = {
+    where: transactionclaim2WhereUniqueInput
+    update: XOR<transactionclaim2UpdateWithoutClaimStatusInput, transactionclaim2UncheckedUpdateWithoutClaimStatusInput>
+    create: XOR<transactionclaim2CreateWithoutClaimStatusInput, transactionclaim2UncheckedCreateWithoutClaimStatusInput>
+  }
+
+  export type transactionclaim2UpdateWithWhereUniqueWithoutClaimStatusInput = {
+    where: transactionclaim2WhereUniqueInput
+    data: XOR<transactionclaim2UpdateWithoutClaimStatusInput, transactionclaim2UncheckedUpdateWithoutClaimStatusInput>
+  }
+
+  export type transactionclaim2UpdateManyWithWhereWithoutClaimStatusInput = {
+    where: transactionclaim2ScalarWhereInput
+    data: XOR<transactionclaim2UpdateManyMutationInput, transactionclaim2UncheckedUpdateManyWithoutClaimStatusInput>
+  }
+
+  export type transactionclaim2ScalarWhereInput = {
+    AND?: transactionclaim2ScalarWhereInput | transactionclaim2ScalarWhereInput[]
+    OR?: transactionclaim2ScalarWhereInput[]
+    NOT?: transactionclaim2ScalarWhereInput | transactionclaim2ScalarWhereInput[]
+    id?: IntFilter<"transactionclaim2"> | number
+    insurerid?: IntNullableFilter<"transactionclaim2"> | number | null
+    refid?: StringNullableFilter<"transactionclaim2"> | string | null
+    transactionno?: StringNullableFilter<"transactionclaim2"> | string | null
+    furtherclaimid?: StringNullableFilter<"transactionclaim2"> | string | null
+    hn?: StringNullableFilter<"transactionclaim2"> | string | null
+    vn?: StringNullableFilter<"transactionclaim2"> | string | null
+    presentillness?: StringNullableFilter<"transactionclaim2"> | string | null
+    chiefcomplaint?: StringNullableFilter<"transactionclaim2"> | string | null
+    accidentplacecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    causeofinjury?: StringNullableFilter<"transactionclaim2"> | string | null
+    commentofinjury?: StringNullableFilter<"transactionclaim2"> | string | null
+    woundtypecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    injurysidecode?: StringNullableFilter<"transactionclaim2"> | string | null
+    injuryarea?: StringNullableFilter<"transactionclaim2"> | string | null
+    status_changed_at?: DateTimeNullableFilter<"transactionclaim2"> | Date | string | null
+    messageclaim?: StringNullableFilter<"transactionclaim2"> | string | null
+    messageth?: StringNullableFilter<"transactionclaim2"> | string | null
+    claimno?: StringNullableFilter<"transactionclaim2"> | string | null
+    statuscode?: StringNullableFilter<"transactionclaim2"> | string | null
+    occurrenceno?: StringNullableFilter<"transactionclaim2"> | string | null
+    totalapprovedamount?: DecimalNullableFilter<"transactionclaim2"> | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: DecimalNullableFilter<"transactionclaim2"> | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: BoolNullableFilter<"transactionclaim2"> | boolean | null
+    batchnumber?: StringNullableFilter<"transactionclaim2"> | string | null
+    invoicenumber?: StringNullableFilter<"transactionclaim2"> | string | null
+    accidentdate?: StringNullableFilter<"transactionclaim2"> | string | null
+    visitdate?: StringNullableFilter<"transactionclaim2"> | string | null
   }
 
   export type InsurersCreateWithoutIllnessSurgeryInput = {
@@ -17377,6 +23676,112 @@ export namespace Prisma {
     create: XOR<InsurersCreateWithoutClaimantsInput, InsurersUncheckedCreateWithoutClaimantsInput>
   }
 
+  export type TransactionclaimCreateWithoutClaimantsInput = {
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+    ClaimStatus?: ClaimStatusCreateNestedOneWithoutTransactionclaimInput
+  }
+
+  export type TransactionclaimUncheckedCreateWithoutClaimantsInput = {
+    id?: number
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    statuscode?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type TransactionclaimCreateOrConnectWithoutClaimantsInput = {
+    where: TransactionclaimWhereUniqueInput
+    create: XOR<TransactionclaimCreateWithoutClaimantsInput, TransactionclaimUncheckedCreateWithoutClaimantsInput>
+  }
+
+  export type TransactionclaimCreateManyClaimantsInputEnvelope = {
+    data: TransactionclaimCreateManyClaimantsInput | TransactionclaimCreateManyClaimantsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type TransactionclaimstatusCreateWithoutClaimantsInput = {
+    refid: string
+    vn?: string | null
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
+    ClaimStatus: ClaimStatusCreateNestedOneWithoutTransactionclaimstatusInput
+  }
+
+  export type TransactionclaimstatusUncheckedCreateWithoutClaimantsInput = {
+    id?: number
+    refid: string
+    vn?: string | null
+    statuscode: string
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
+  }
+
+  export type TransactionclaimstatusCreateOrConnectWithoutClaimantsInput = {
+    where: TransactionclaimstatusWhereUniqueInput
+    create: XOR<TransactionclaimstatusCreateWithoutClaimantsInput, TransactionclaimstatusUncheckedCreateWithoutClaimantsInput>
+  }
+
+  export type TransactionclaimstatusCreateManyClaimantsInputEnvelope = {
+    data: TransactionclaimstatusCreateManyClaimantsInput | TransactionclaimstatusCreateManyClaimantsInput[]
+    skipDuplicates?: boolean
+  }
+
   export type TransactionsCreateWithoutClaimantsInput = {
     refid?: string | null
     transactionid?: string | null
@@ -17404,6 +23809,73 @@ export namespace Prisma {
 
   export type TransactionsCreateManyClaimantsInputEnvelope = {
     data: TransactionsCreateManyClaimantsInput | TransactionsCreateManyClaimantsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type transactionclaim2CreateWithoutClaimantsInput = {
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+    ClaimStatus?: ClaimStatusCreateNestedOneWithoutTransactionclaim2Input
+  }
+
+  export type transactionclaim2UncheckedCreateWithoutClaimantsInput = {
+    id?: number
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    statuscode?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type transactionclaim2CreateOrConnectWithoutClaimantsInput = {
+    where: transactionclaim2WhereUniqueInput
+    create: XOR<transactionclaim2CreateWithoutClaimantsInput, transactionclaim2UncheckedCreateWithoutClaimantsInput>
+  }
+
+  export type transactionclaim2CreateManyClaimantsInputEnvelope = {
+    data: transactionclaim2CreateManyClaimantsInput | transactionclaim2CreateManyClaimantsInput[]
     skipDuplicates?: boolean
   }
 
@@ -17444,6 +23916,38 @@ export namespace Prisma {
     Transactions?: TransactionsUncheckedUpdateManyWithoutInsurersNestedInput
   }
 
+  export type TransactionclaimUpsertWithWhereUniqueWithoutClaimantsInput = {
+    where: TransactionclaimWhereUniqueInput
+    update: XOR<TransactionclaimUpdateWithoutClaimantsInput, TransactionclaimUncheckedUpdateWithoutClaimantsInput>
+    create: XOR<TransactionclaimCreateWithoutClaimantsInput, TransactionclaimUncheckedCreateWithoutClaimantsInput>
+  }
+
+  export type TransactionclaimUpdateWithWhereUniqueWithoutClaimantsInput = {
+    where: TransactionclaimWhereUniqueInput
+    data: XOR<TransactionclaimUpdateWithoutClaimantsInput, TransactionclaimUncheckedUpdateWithoutClaimantsInput>
+  }
+
+  export type TransactionclaimUpdateManyWithWhereWithoutClaimantsInput = {
+    where: TransactionclaimScalarWhereInput
+    data: XOR<TransactionclaimUpdateManyMutationInput, TransactionclaimUncheckedUpdateManyWithoutClaimantsInput>
+  }
+
+  export type TransactionclaimstatusUpsertWithWhereUniqueWithoutClaimantsInput = {
+    where: TransactionclaimstatusWhereUniqueInput
+    update: XOR<TransactionclaimstatusUpdateWithoutClaimantsInput, TransactionclaimstatusUncheckedUpdateWithoutClaimantsInput>
+    create: XOR<TransactionclaimstatusCreateWithoutClaimantsInput, TransactionclaimstatusUncheckedCreateWithoutClaimantsInput>
+  }
+
+  export type TransactionclaimstatusUpdateWithWhereUniqueWithoutClaimantsInput = {
+    where: TransactionclaimstatusWhereUniqueInput
+    data: XOR<TransactionclaimstatusUpdateWithoutClaimantsInput, TransactionclaimstatusUncheckedUpdateWithoutClaimantsInput>
+  }
+
+  export type TransactionclaimstatusUpdateManyWithWhereWithoutClaimantsInput = {
+    where: TransactionclaimstatusScalarWhereInput
+    data: XOR<TransactionclaimstatusUpdateManyMutationInput, TransactionclaimstatusUncheckedUpdateManyWithoutClaimantsInput>
+  }
+
   export type TransactionsUpsertWithWhereUniqueWithoutClaimantsInput = {
     where: TransactionsWhereUniqueInput
     update: XOR<TransactionsUpdateWithoutClaimantsInput, TransactionsUncheckedUpdateWithoutClaimantsInput>
@@ -17460,11 +23964,30 @@ export namespace Prisma {
     data: XOR<TransactionsUpdateManyMutationInput, TransactionsUncheckedUpdateManyWithoutClaimantsInput>
   }
 
+  export type transactionclaim2UpsertWithWhereUniqueWithoutClaimantsInput = {
+    where: transactionclaim2WhereUniqueInput
+    update: XOR<transactionclaim2UpdateWithoutClaimantsInput, transactionclaim2UncheckedUpdateWithoutClaimantsInput>
+    create: XOR<transactionclaim2CreateWithoutClaimantsInput, transactionclaim2UncheckedCreateWithoutClaimantsInput>
+  }
+
+  export type transactionclaim2UpdateWithWhereUniqueWithoutClaimantsInput = {
+    where: transactionclaim2WhereUniqueInput
+    data: XOR<transactionclaim2UpdateWithoutClaimantsInput, transactionclaim2UncheckedUpdateWithoutClaimantsInput>
+  }
+
+  export type transactionclaim2UpdateManyWithWhereWithoutClaimantsInput = {
+    where: transactionclaim2ScalarWhereInput
+    data: XOR<transactionclaim2UpdateManyMutationInput, transactionclaim2UncheckedUpdateManyWithoutClaimantsInput>
+  }
+
   export type ClaimStatusCreateWithoutInsurersInput = {
     StatusCode: string
     StatusDescTH?: string | null
     StatusDescEN?: string | null
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimStatusInput
     Transactions?: TransactionsCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimStatusInput
   }
 
   export type ClaimStatusUncheckedCreateWithoutInsurersInput = {
@@ -17472,7 +23995,10 @@ export namespace Prisma {
     StatusCode: string
     StatusDescTH?: string | null
     StatusDescEN?: string | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimStatusInput
     Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimStatusInput
   }
 
   export type ClaimStatusCreateOrConnectWithoutInsurersInput = {
@@ -17501,7 +24027,10 @@ export namespace Prisma {
     dateofbirth?: string | null
     gender?: string | null
     patientid?: number | null
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimantsInput
     Transactions?: TransactionsCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimantsInput
   }
 
   export type ClaimantsUncheckedCreateWithoutInsurersInput = {
@@ -17521,7 +24050,10 @@ export namespace Prisma {
     dateofbirth?: string | null
     gender?: string | null
     patientid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimantsInput
     Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimantsInput
   }
 
   export type ClaimantsCreateOrConnectWithoutInsurersInput = {
@@ -17852,6 +24384,9 @@ export namespace Prisma {
     gender?: string | null
     patientid?: number | null
     Insurers?: InsurersCreateNestedOneWithoutClaimantsInput
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimantsInput
   }
 
   export type ClaimantsUncheckedCreateWithoutTransactionsInput = {
@@ -17872,6 +24407,9 @@ export namespace Prisma {
     dateofbirth?: string | null
     gender?: string | null
     patientid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimantsInput
   }
 
   export type ClaimantsCreateOrConnectWithoutTransactionsInput = {
@@ -17915,6 +24453,9 @@ export namespace Prisma {
     StatusDescTH?: string | null
     StatusDescEN?: string | null
     insurers?: InsurersCreateNestedOneWithoutClaimStatusInput
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimStatusInput
   }
 
   export type ClaimStatusUncheckedCreateWithoutTransactionsInput = {
@@ -17923,6 +24464,9 @@ export namespace Prisma {
     StatusDescTH?: string | null
     StatusDescEN?: string | null
     insurerid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimStatusInput
   }
 
   export type ClaimStatusCreateOrConnectWithoutTransactionsInput = {
@@ -17958,6 +24502,9 @@ export namespace Prisma {
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     patientid?: NullableIntFieldUpdateOperationsInput | number | null
     Insurers?: InsurersUpdateOneWithoutClaimantsNestedInput
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimantsNestedInput
   }
 
   export type ClaimantsUncheckedUpdateWithoutTransactionsInput = {
@@ -17978,6 +24525,9 @@ export namespace Prisma {
     dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimantsNestedInput
   }
 
   export type InsurersUpsertWithoutTransactionsInput = {
@@ -18033,6 +24583,9 @@ export namespace Prisma {
     StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
     StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
     insurers?: InsurersUpdateOneWithoutClaimStatusNestedInput
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimStatusNestedInput
   }
 
   export type ClaimStatusUncheckedUpdateWithoutTransactionsInput = {
@@ -18041,6 +24594,545 @@ export namespace Prisma {
     StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
     StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
     insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimStatusNestedInput
+  }
+
+  export type ClaimantsCreateWithoutTransactionclaimstatusInput = {
+    pid?: string | null
+    passportnumber?: string | null
+    hn?: string | null
+    title_th?: string | null
+    givenname_th?: string | null
+    surname_th?: string | null
+    title_en?: string | null
+    givenname_en?: string | null
+    surname_en?: string | null
+    mobilephone?: string | null
+    statusactive?: boolean | null
+    registrationdate?: Date | string | null
+    dateofbirth?: string | null
+    gender?: string | null
+    patientid?: number | null
+    Insurers?: InsurersCreateNestedOneWithoutClaimantsInput
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimantsInput
+    Transactions?: TransactionsCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimantsInput
+  }
+
+  export type ClaimantsUncheckedCreateWithoutTransactionclaimstatusInput = {
+    claimantid?: number
+    pid?: string | null
+    passportnumber?: string | null
+    hn?: string | null
+    title_th?: string | null
+    givenname_th?: string | null
+    surname_th?: string | null
+    title_en?: string | null
+    givenname_en?: string | null
+    surname_en?: string | null
+    mobilephone?: string | null
+    insurerid?: number | null
+    statusactive?: boolean | null
+    registrationdate?: Date | string | null
+    dateofbirth?: string | null
+    gender?: string | null
+    patientid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimantsInput
+    Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimantsInput
+  }
+
+  export type ClaimantsCreateOrConnectWithoutTransactionclaimstatusInput = {
+    where: ClaimantsWhereUniqueInput
+    create: XOR<ClaimantsCreateWithoutTransactionclaimstatusInput, ClaimantsUncheckedCreateWithoutTransactionclaimstatusInput>
+  }
+
+  export type ClaimStatusCreateWithoutTransactionclaimstatusInput = {
+    StatusCode: string
+    StatusDescTH?: string | null
+    StatusDescEN?: string | null
+    insurers?: InsurersCreateNestedOneWithoutClaimStatusInput
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimStatusInput
+    Transactions?: TransactionsCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimStatusInput
+  }
+
+  export type ClaimStatusUncheckedCreateWithoutTransactionclaimstatusInput = {
+    id?: number
+    StatusCode: string
+    StatusDescTH?: string | null
+    StatusDescEN?: string | null
+    insurerid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimStatusInput
+    Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimStatusInput
+  }
+
+  export type ClaimStatusCreateOrConnectWithoutTransactionclaimstatusInput = {
+    where: ClaimStatusWhereUniqueInput
+    create: XOR<ClaimStatusCreateWithoutTransactionclaimstatusInput, ClaimStatusUncheckedCreateWithoutTransactionclaimstatusInput>
+  }
+
+  export type ClaimantsUpsertWithoutTransactionclaimstatusInput = {
+    update: XOR<ClaimantsUpdateWithoutTransactionclaimstatusInput, ClaimantsUncheckedUpdateWithoutTransactionclaimstatusInput>
+    create: XOR<ClaimantsCreateWithoutTransactionclaimstatusInput, ClaimantsUncheckedCreateWithoutTransactionclaimstatusInput>
+    where?: ClaimantsWhereInput
+  }
+
+  export type ClaimantsUpdateToOneWithWhereWithoutTransactionclaimstatusInput = {
+    where?: ClaimantsWhereInput
+    data: XOR<ClaimantsUpdateWithoutTransactionclaimstatusInput, ClaimantsUncheckedUpdateWithoutTransactionclaimstatusInput>
+  }
+
+  export type ClaimantsUpdateWithoutTransactionclaimstatusInput = {
+    pid?: NullableStringFieldUpdateOperationsInput | string | null
+    passportnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    title_th?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    title_en?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    mobilephone?: NullableStringFieldUpdateOperationsInput | string | null
+    statusactive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Insurers?: InsurersUpdateOneWithoutClaimantsNestedInput
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimantsNestedInput
+    Transactions?: TransactionsUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimantsNestedInput
+  }
+
+  export type ClaimantsUncheckedUpdateWithoutTransactionclaimstatusInput = {
+    claimantid?: IntFieldUpdateOperationsInput | number
+    pid?: NullableStringFieldUpdateOperationsInput | string | null
+    passportnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    title_th?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    title_en?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    mobilephone?: NullableStringFieldUpdateOperationsInput | string | null
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    statusactive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimantsNestedInput
+    Transactions?: TransactionsUncheckedUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimantsNestedInput
+  }
+
+  export type ClaimStatusUpsertWithoutTransactionclaimstatusInput = {
+    update: XOR<ClaimStatusUpdateWithoutTransactionclaimstatusInput, ClaimStatusUncheckedUpdateWithoutTransactionclaimstatusInput>
+    create: XOR<ClaimStatusCreateWithoutTransactionclaimstatusInput, ClaimStatusUncheckedCreateWithoutTransactionclaimstatusInput>
+    where?: ClaimStatusWhereInput
+  }
+
+  export type ClaimStatusUpdateToOneWithWhereWithoutTransactionclaimstatusInput = {
+    where?: ClaimStatusWhereInput
+    data: XOR<ClaimStatusUpdateWithoutTransactionclaimstatusInput, ClaimStatusUncheckedUpdateWithoutTransactionclaimstatusInput>
+  }
+
+  export type ClaimStatusUpdateWithoutTransactionclaimstatusInput = {
+    StatusCode?: StringFieldUpdateOperationsInput | string
+    StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
+    StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
+    insurers?: InsurersUpdateOneWithoutClaimStatusNestedInput
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimStatusNestedInput
+    Transactions?: TransactionsUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimStatusNestedInput
+  }
+
+  export type ClaimStatusUncheckedUpdateWithoutTransactionclaimstatusInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    StatusCode?: StringFieldUpdateOperationsInput | string
+    StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
+    StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimStatusNestedInput
+    Transactions?: TransactionsUncheckedUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimStatusNestedInput
+  }
+
+  export type ClaimantsCreateWithoutTransactionclaimInput = {
+    pid?: string | null
+    passportnumber?: string | null
+    hn?: string | null
+    title_th?: string | null
+    givenname_th?: string | null
+    surname_th?: string | null
+    title_en?: string | null
+    givenname_en?: string | null
+    surname_en?: string | null
+    mobilephone?: string | null
+    statusactive?: boolean | null
+    registrationdate?: Date | string | null
+    dateofbirth?: string | null
+    gender?: string | null
+    patientid?: number | null
+    Insurers?: InsurersCreateNestedOneWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimantsInput
+    Transactions?: TransactionsCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimantsInput
+  }
+
+  export type ClaimantsUncheckedCreateWithoutTransactionclaimInput = {
+    claimantid?: number
+    pid?: string | null
+    passportnumber?: string | null
+    hn?: string | null
+    title_th?: string | null
+    givenname_th?: string | null
+    surname_th?: string | null
+    title_en?: string | null
+    givenname_en?: string | null
+    surname_en?: string | null
+    mobilephone?: string | null
+    insurerid?: number | null
+    statusactive?: boolean | null
+    registrationdate?: Date | string | null
+    dateofbirth?: string | null
+    gender?: string | null
+    patientid?: number | null
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimantsInput
+    Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimantsInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimantsInput
+  }
+
+  export type ClaimantsCreateOrConnectWithoutTransactionclaimInput = {
+    where: ClaimantsWhereUniqueInput
+    create: XOR<ClaimantsCreateWithoutTransactionclaimInput, ClaimantsUncheckedCreateWithoutTransactionclaimInput>
+  }
+
+  export type ClaimStatusCreateWithoutTransactionclaimInput = {
+    StatusCode: string
+    StatusDescTH?: string | null
+    StatusDescEN?: string | null
+    insurers?: InsurersCreateNestedOneWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimStatusInput
+    Transactions?: TransactionsCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2CreateNestedManyWithoutClaimStatusInput
+  }
+
+  export type ClaimStatusUncheckedCreateWithoutTransactionclaimInput = {
+    id?: number
+    StatusCode: string
+    StatusDescTH?: string | null
+    StatusDescEN?: string | null
+    insurerid?: number | null
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimStatusInput
+    Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimStatusInput
+    transactionclaim2?: transactionclaim2UncheckedCreateNestedManyWithoutClaimStatusInput
+  }
+
+  export type ClaimStatusCreateOrConnectWithoutTransactionclaimInput = {
+    where: ClaimStatusWhereUniqueInput
+    create: XOR<ClaimStatusCreateWithoutTransactionclaimInput, ClaimStatusUncheckedCreateWithoutTransactionclaimInput>
+  }
+
+  export type ClaimantsUpsertWithoutTransactionclaimInput = {
+    update: XOR<ClaimantsUpdateWithoutTransactionclaimInput, ClaimantsUncheckedUpdateWithoutTransactionclaimInput>
+    create: XOR<ClaimantsCreateWithoutTransactionclaimInput, ClaimantsUncheckedCreateWithoutTransactionclaimInput>
+    where?: ClaimantsWhereInput
+  }
+
+  export type ClaimantsUpdateToOneWithWhereWithoutTransactionclaimInput = {
+    where?: ClaimantsWhereInput
+    data: XOR<ClaimantsUpdateWithoutTransactionclaimInput, ClaimantsUncheckedUpdateWithoutTransactionclaimInput>
+  }
+
+  export type ClaimantsUpdateWithoutTransactionclaimInput = {
+    pid?: NullableStringFieldUpdateOperationsInput | string | null
+    passportnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    title_th?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    title_en?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    mobilephone?: NullableStringFieldUpdateOperationsInput | string | null
+    statusactive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Insurers?: InsurersUpdateOneWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimantsNestedInput
+    Transactions?: TransactionsUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimantsNestedInput
+  }
+
+  export type ClaimantsUncheckedUpdateWithoutTransactionclaimInput = {
+    claimantid?: IntFieldUpdateOperationsInput | number
+    pid?: NullableStringFieldUpdateOperationsInput | string | null
+    passportnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    title_th?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    title_en?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    mobilephone?: NullableStringFieldUpdateOperationsInput | string | null
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    statusactive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimantsNestedInput
+    Transactions?: TransactionsUncheckedUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimantsNestedInput
+  }
+
+  export type ClaimStatusUpsertWithoutTransactionclaimInput = {
+    update: XOR<ClaimStatusUpdateWithoutTransactionclaimInput, ClaimStatusUncheckedUpdateWithoutTransactionclaimInput>
+    create: XOR<ClaimStatusCreateWithoutTransactionclaimInput, ClaimStatusUncheckedCreateWithoutTransactionclaimInput>
+    where?: ClaimStatusWhereInput
+  }
+
+  export type ClaimStatusUpdateToOneWithWhereWithoutTransactionclaimInput = {
+    where?: ClaimStatusWhereInput
+    data: XOR<ClaimStatusUpdateWithoutTransactionclaimInput, ClaimStatusUncheckedUpdateWithoutTransactionclaimInput>
+  }
+
+  export type ClaimStatusUpdateWithoutTransactionclaimInput = {
+    StatusCode?: StringFieldUpdateOperationsInput | string
+    StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
+    StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
+    insurers?: InsurersUpdateOneWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimStatusNestedInput
+    Transactions?: TransactionsUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimStatusNestedInput
+  }
+
+  export type ClaimStatusUncheckedUpdateWithoutTransactionclaimInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    StatusCode?: StringFieldUpdateOperationsInput | string
+    StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
+    StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusNestedInput
+    Transactions?: TransactionsUncheckedUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimStatusNestedInput
+  }
+
+  export type ClaimantsCreateWithoutTransactionclaim2Input = {
+    pid?: string | null
+    passportnumber?: string | null
+    hn?: string | null
+    title_th?: string | null
+    givenname_th?: string | null
+    surname_th?: string | null
+    title_en?: string | null
+    givenname_en?: string | null
+    surname_en?: string | null
+    mobilephone?: string | null
+    statusactive?: boolean | null
+    registrationdate?: Date | string | null
+    dateofbirth?: string | null
+    gender?: string | null
+    patientid?: number | null
+    Insurers?: InsurersCreateNestedOneWithoutClaimantsInput
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimantsInput
+    Transactions?: TransactionsCreateNestedManyWithoutClaimantsInput
+  }
+
+  export type ClaimantsUncheckedCreateWithoutTransactionclaim2Input = {
+    claimantid?: number
+    pid?: string | null
+    passportnumber?: string | null
+    hn?: string | null
+    title_th?: string | null
+    givenname_th?: string | null
+    surname_th?: string | null
+    title_en?: string | null
+    givenname_en?: string | null
+    surname_en?: string | null
+    mobilephone?: string | null
+    insurerid?: number | null
+    statusactive?: boolean | null
+    registrationdate?: Date | string | null
+    dateofbirth?: string | null
+    gender?: string | null
+    patientid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimantsInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimantsInput
+    Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimantsInput
+  }
+
+  export type ClaimantsCreateOrConnectWithoutTransactionclaim2Input = {
+    where: ClaimantsWhereUniqueInput
+    create: XOR<ClaimantsCreateWithoutTransactionclaim2Input, ClaimantsUncheckedCreateWithoutTransactionclaim2Input>
+  }
+
+  export type ClaimStatusCreateWithoutTransactionclaim2Input = {
+    StatusCode: string
+    StatusDescTH?: string | null
+    StatusDescEN?: string | null
+    insurers?: InsurersCreateNestedOneWithoutClaimStatusInput
+    Transactionclaim?: TransactionclaimCreateNestedManyWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusCreateNestedManyWithoutClaimStatusInput
+    Transactions?: TransactionsCreateNestedManyWithoutClaimStatusInput
+  }
+
+  export type ClaimStatusUncheckedCreateWithoutTransactionclaim2Input = {
+    id?: number
+    StatusCode: string
+    StatusDescTH?: string | null
+    StatusDescEN?: string | null
+    insurerid?: number | null
+    Transactionclaim?: TransactionclaimUncheckedCreateNestedManyWithoutClaimStatusInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedCreateNestedManyWithoutClaimStatusInput
+    Transactions?: TransactionsUncheckedCreateNestedManyWithoutClaimStatusInput
+  }
+
+  export type ClaimStatusCreateOrConnectWithoutTransactionclaim2Input = {
+    where: ClaimStatusWhereUniqueInput
+    create: XOR<ClaimStatusCreateWithoutTransactionclaim2Input, ClaimStatusUncheckedCreateWithoutTransactionclaim2Input>
+  }
+
+  export type ClaimantsUpsertWithoutTransactionclaim2Input = {
+    update: XOR<ClaimantsUpdateWithoutTransactionclaim2Input, ClaimantsUncheckedUpdateWithoutTransactionclaim2Input>
+    create: XOR<ClaimantsCreateWithoutTransactionclaim2Input, ClaimantsUncheckedCreateWithoutTransactionclaim2Input>
+    where?: ClaimantsWhereInput
+  }
+
+  export type ClaimantsUpdateToOneWithWhereWithoutTransactionclaim2Input = {
+    where?: ClaimantsWhereInput
+    data: XOR<ClaimantsUpdateWithoutTransactionclaim2Input, ClaimantsUncheckedUpdateWithoutTransactionclaim2Input>
+  }
+
+  export type ClaimantsUpdateWithoutTransactionclaim2Input = {
+    pid?: NullableStringFieldUpdateOperationsInput | string | null
+    passportnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    title_th?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    title_en?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    mobilephone?: NullableStringFieldUpdateOperationsInput | string | null
+    statusactive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Insurers?: InsurersUpdateOneWithoutClaimantsNestedInput
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimantsNestedInput
+    Transactions?: TransactionsUpdateManyWithoutClaimantsNestedInput
+  }
+
+  export type ClaimantsUncheckedUpdateWithoutTransactionclaim2Input = {
+    claimantid?: IntFieldUpdateOperationsInput | number
+    pid?: NullableStringFieldUpdateOperationsInput | string | null
+    passportnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    title_th?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_th?: NullableStringFieldUpdateOperationsInput | string | null
+    title_en?: NullableStringFieldUpdateOperationsInput | string | null
+    givenname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    surname_en?: NullableStringFieldUpdateOperationsInput | string | null
+    mobilephone?: NullableStringFieldUpdateOperationsInput | string | null
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    statusactive?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
+    gender?: NullableStringFieldUpdateOperationsInput | string | null
+    patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimantsNestedInput
+    Transactions?: TransactionsUncheckedUpdateManyWithoutClaimantsNestedInput
+  }
+
+  export type ClaimStatusUpsertWithoutTransactionclaim2Input = {
+    update: XOR<ClaimStatusUpdateWithoutTransactionclaim2Input, ClaimStatusUncheckedUpdateWithoutTransactionclaim2Input>
+    create: XOR<ClaimStatusCreateWithoutTransactionclaim2Input, ClaimStatusUncheckedCreateWithoutTransactionclaim2Input>
+    where?: ClaimStatusWhereInput
+  }
+
+  export type ClaimStatusUpdateToOneWithWhereWithoutTransactionclaim2Input = {
+    where?: ClaimStatusWhereInput
+    data: XOR<ClaimStatusUpdateWithoutTransactionclaim2Input, ClaimStatusUncheckedUpdateWithoutTransactionclaim2Input>
+  }
+
+  export type ClaimStatusUpdateWithoutTransactionclaim2Input = {
+    StatusCode?: StringFieldUpdateOperationsInput | string
+    StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
+    StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
+    insurers?: InsurersUpdateOneWithoutClaimStatusNestedInput
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimStatusNestedInput
+    Transactions?: TransactionsUpdateManyWithoutClaimStatusNestedInput
+  }
+
+  export type ClaimStatusUncheckedUpdateWithoutTransactionclaim2Input = {
+    id?: IntFieldUpdateOperationsInput | number
+    StatusCode?: StringFieldUpdateOperationsInput | string
+    StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
+    StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
+    insurerid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusNestedInput
+    Transactions?: TransactionsUncheckedUpdateManyWithoutClaimStatusNestedInput
+  }
+
+  export type TransactionclaimCreateManyClaimStatusInput = {
+    id?: number
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    hn?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type TransactionclaimstatusCreateManyClaimStatusInput = {
+    id?: number
+    refid: string
+    hn?: string | null
+    vn?: string | null
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
   }
 
   export type TransactionsCreateManyClaimStatusInput = {
@@ -18052,6 +25144,165 @@ export namespace Prisma {
     vn?: string | null
     insurerid?: number | null
     accidentdate?: string | null
+  }
+
+  export type transactionclaim2CreateManyClaimStatusInput = {
+    id?: number
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    hn?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type TransactionclaimUpdateWithoutClaimStatusInput = {
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+    Claimants?: ClaimantsUpdateOneWithoutTransactionclaimNestedInput
+  }
+
+  export type TransactionclaimUncheckedUpdateWithoutClaimStatusInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimUncheckedUpdateManyWithoutClaimStatusInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimstatusUpdateWithoutClaimStatusInput = {
+    refid?: StringFieldUpdateOperationsInput | string
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
+    Claimants?: ClaimantsUpdateOneWithoutTransactionclaimstatusNestedInput
+  }
+
+  export type TransactionclaimstatusUncheckedUpdateWithoutClaimStatusInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: StringFieldUpdateOperationsInput | string
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: StringFieldUpdateOperationsInput | string
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TransactionsUpdateWithoutClaimStatusInput = {
@@ -18086,6 +25337,136 @@ export namespace Prisma {
     accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type transactionclaim2UpdateWithoutClaimStatusInput = {
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+    Claimants?: ClaimantsUpdateOneWithoutTransactionclaim2NestedInput
+  }
+
+  export type transactionclaim2UncheckedUpdateWithoutClaimStatusInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type transactionclaim2UncheckedUpdateManyWithoutClaimStatusInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    hn?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimCreateManyClaimantsInput = {
+    id?: number
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    statuscode?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type TransactionclaimstatusCreateManyClaimantsInput = {
+    id?: number
+    refid: string
+    vn?: string | null
+    statuscode: string
+    batchnumber?: string | null
+    claimno?: string | null
+    invoicenumber?: string | null
+    status_changed_at?: Date | string | null
+    note?: string | null
+    totalApproveAmount?: string | null
+    paymentDate?: string | null
+    transactionNo?: string | null
+  }
+
   export type TransactionsCreateManyClaimantsInput = {
     id?: number
     refid?: string | null
@@ -18094,6 +25475,165 @@ export namespace Prisma {
     updatedate?: Date | string | null
     vn?: string | null
     accidentdate?: string | null
+  }
+
+  export type transactionclaim2CreateManyClaimantsInput = {
+    id?: number
+    refid?: string | null
+    transactionno?: string | null
+    furtherclaimid?: string | null
+    vn?: string | null
+    presentillness?: string | null
+    chiefcomplaint?: string | null
+    accidentplacecode?: string | null
+    causeofinjury?: string | null
+    commentofinjury?: string | null
+    woundtypecode?: string | null
+    injurysidecode?: string | null
+    injuryarea?: string | null
+    status_changed_at?: Date | string | null
+    messageclaim?: string | null
+    messageth?: string | null
+    claimno?: string | null
+    statuscode?: string | null
+    occurrenceno?: string | null
+    totalapprovedamount?: Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: boolean | null
+    batchnumber?: string | null
+    invoicenumber?: string | null
+    accidentdate?: string | null
+    visitdate?: string | null
+  }
+
+  export type TransactionclaimUpdateWithoutClaimantsInput = {
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+    ClaimStatus?: ClaimStatusUpdateOneWithoutTransactionclaimNestedInput
+  }
+
+  export type TransactionclaimUncheckedUpdateWithoutClaimantsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimUncheckedUpdateManyWithoutClaimantsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimstatusUpdateWithoutClaimantsInput = {
+    refid?: StringFieldUpdateOperationsInput | string
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
+    ClaimStatus?: ClaimStatusUpdateOneRequiredWithoutTransactionclaimstatusNestedInput
+  }
+
+  export type TransactionclaimstatusUncheckedUpdateWithoutClaimantsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: StringFieldUpdateOperationsInput | string
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: StringFieldUpdateOperationsInput | string
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type TransactionclaimstatusUncheckedUpdateManyWithoutClaimantsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: StringFieldUpdateOperationsInput | string
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: StringFieldUpdateOperationsInput | string
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalApproveAmount?: NullableStringFieldUpdateOperationsInput | string | null
+    paymentDate?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionNo?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type TransactionsUpdateWithoutClaimantsInput = {
@@ -18124,6 +25664,92 @@ export namespace Prisma {
     updatedate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     vn?: NullableStringFieldUpdateOperationsInput | string | null
     accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type transactionclaim2UpdateWithoutClaimantsInput = {
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+    ClaimStatus?: ClaimStatusUpdateOneWithoutTransactionclaim2NestedInput
+  }
+
+  export type transactionclaim2UncheckedUpdateWithoutClaimantsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type transactionclaim2UncheckedUpdateManyWithoutClaimantsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    refid?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionno?: NullableStringFieldUpdateOperationsInput | string | null
+    furtherclaimid?: NullableStringFieldUpdateOperationsInput | string | null
+    vn?: NullableStringFieldUpdateOperationsInput | string | null
+    presentillness?: NullableStringFieldUpdateOperationsInput | string | null
+    chiefcomplaint?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentplacecode?: NullableStringFieldUpdateOperationsInput | string | null
+    causeofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    commentofinjury?: NullableStringFieldUpdateOperationsInput | string | null
+    woundtypecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injurysidecode?: NullableStringFieldUpdateOperationsInput | string | null
+    injuryarea?: NullableStringFieldUpdateOperationsInput | string | null
+    status_changed_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    messageclaim?: NullableStringFieldUpdateOperationsInput | string | null
+    messageth?: NullableStringFieldUpdateOperationsInput | string | null
+    claimno?: NullableStringFieldUpdateOperationsInput | string | null
+    statuscode?: NullableStringFieldUpdateOperationsInput | string | null
+    occurrenceno?: NullableStringFieldUpdateOperationsInput | string | null
+    totalapprovedamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    totalexcessamount?: NullableDecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string | null
+    isreimbursement?: NullableBoolFieldUpdateOperationsInput | boolean | null
+    batchnumber?: NullableStringFieldUpdateOperationsInput | string | null
+    invoicenumber?: NullableStringFieldUpdateOperationsInput | string | null
+    accidentdate?: NullableStringFieldUpdateOperationsInput | string | null
+    visitdate?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClaimStatusCreateManyInsurersInput = {
@@ -18191,7 +25817,10 @@ export namespace Prisma {
     StatusCode?: StringFieldUpdateOperationsInput | string
     StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
     StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimStatusNestedInput
     Transactions?: TransactionsUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimStatusNestedInput
   }
 
   export type ClaimStatusUncheckedUpdateWithoutInsurersInput = {
@@ -18199,7 +25828,10 @@ export namespace Prisma {
     StatusCode?: StringFieldUpdateOperationsInput | string
     StatusDescTH?: NullableStringFieldUpdateOperationsInput | string | null
     StatusDescEN?: NullableStringFieldUpdateOperationsInput | string | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimStatusNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusNestedInput
     Transactions?: TransactionsUncheckedUpdateManyWithoutClaimStatusNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimStatusNestedInput
   }
 
   export type ClaimStatusUncheckedUpdateManyWithoutInsurersInput = {
@@ -18225,7 +25857,10 @@ export namespace Prisma {
     dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUpdateManyWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUpdateManyWithoutClaimantsNestedInput
     Transactions?: TransactionsUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UpdateManyWithoutClaimantsNestedInput
   }
 
   export type ClaimantsUncheckedUpdateWithoutInsurersInput = {
@@ -18245,7 +25880,10 @@ export namespace Prisma {
     dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     patientid?: NullableIntFieldUpdateOperationsInput | number | null
+    Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimantsNestedInput
+    Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimantsNestedInput
     Transactions?: TransactionsUncheckedUpdateManyWithoutClaimantsNestedInput
+    transactionclaim2?: transactionclaim2UncheckedUpdateManyWithoutClaimantsNestedInput
   }
 
   export type ClaimantsUncheckedUpdateManyWithoutInsurersInput = {
@@ -18432,6 +26070,18 @@ export namespace Prisma {
      * @deprecated Use causeofinjurysideDefaultArgs instead
      */
     export type causeofinjurysideArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = causeofinjurysideDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TransactionclaimstatusDefaultArgs instead
+     */
+    export type TransactionclaimstatusArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TransactionclaimstatusDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use TransactionclaimDefaultArgs instead
+     */
+    export type TransactionclaimArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = TransactionclaimDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use transactionclaim2DefaultArgs instead
+     */
+    export type transactionclaim2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = transactionclaim2DefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

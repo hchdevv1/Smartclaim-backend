@@ -222,6 +222,85 @@ exports.Prisma.CauseofinjurysideScalarFieldEnum = {
   id: 'id'
 };
 
+exports.Prisma.TransactionclaimstatusScalarFieldEnum = {
+  id: 'id',
+  refid: 'refid',
+  insurerid: 'insurerid',
+  hn: 'hn',
+  vn: 'vn',
+  statuscode: 'statuscode',
+  batchnumber: 'batchnumber',
+  claimno: 'claimno',
+  invoicenumber: 'invoicenumber',
+  status_changed_at: 'status_changed_at',
+  note: 'note',
+  totalApproveAmount: 'totalApproveAmount',
+  paymentDate: 'paymentDate',
+  transactionNo: 'transactionNo'
+};
+
+exports.Prisma.TransactionclaimScalarFieldEnum = {
+  id: 'id',
+  insurerid: 'insurerid',
+  refid: 'refid',
+  transactionno: 'transactionno',
+  furtherclaimid: 'furtherclaimid',
+  hn: 'hn',
+  vn: 'vn',
+  presentillness: 'presentillness',
+  chiefcomplaint: 'chiefcomplaint',
+  accidentplacecode: 'accidentplacecode',
+  causeofinjury: 'causeofinjury',
+  commentofinjury: 'commentofinjury',
+  woundtypecode: 'woundtypecode',
+  injurysidecode: 'injurysidecode',
+  injuryarea: 'injuryarea',
+  status_changed_at: 'status_changed_at',
+  messageclaim: 'messageclaim',
+  messageth: 'messageth',
+  claimno: 'claimno',
+  statuscode: 'statuscode',
+  occurrenceno: 'occurrenceno',
+  totalapprovedamount: 'totalapprovedamount',
+  totalexcessamount: 'totalexcessamount',
+  isreimbursement: 'isreimbursement',
+  batchnumber: 'batchnumber',
+  invoicenumber: 'invoicenumber',
+  accidentdate: 'accidentdate',
+  visitdate: 'visitdate'
+};
+
+exports.Prisma.Transactionclaim2ScalarFieldEnum = {
+  id: 'id',
+  insurerid: 'insurerid',
+  refid: 'refid',
+  transactionno: 'transactionno',
+  furtherclaimid: 'furtherclaimid',
+  hn: 'hn',
+  vn: 'vn',
+  presentillness: 'presentillness',
+  chiefcomplaint: 'chiefcomplaint',
+  accidentplacecode: 'accidentplacecode',
+  causeofinjury: 'causeofinjury',
+  commentofinjury: 'commentofinjury',
+  woundtypecode: 'woundtypecode',
+  injurysidecode: 'injurysidecode',
+  injuryarea: 'injuryarea',
+  status_changed_at: 'status_changed_at',
+  messageclaim: 'messageclaim',
+  messageth: 'messageth',
+  claimno: 'claimno',
+  statuscode: 'statuscode',
+  occurrenceno: 'occurrenceno',
+  totalapprovedamount: 'totalapprovedamount',
+  totalexcessamount: 'totalexcessamount',
+  isreimbursement: 'isreimbursement',
+  batchnumber: 'batchnumber',
+  invoicenumber: 'invoicenumber',
+  accidentdate: 'accidentdate',
+  visitdate: 'visitdate'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -250,7 +329,10 @@ exports.Prisma.ModelName = {
   DiagnosisTypeMapping: 'DiagnosisTypeMapping',
   accidentplace: 'accidentplace',
   causeofinjurywoundtype: 'causeofinjurywoundtype',
-  causeofinjuryside: 'causeofinjuryside'
+  causeofinjuryside: 'causeofinjuryside',
+  Transactionclaimstatus: 'Transactionclaimstatus',
+  Transactionclaim: 'Transactionclaim',
+  transactionclaim2: 'transactionclaim2'
 };
 
 /**
