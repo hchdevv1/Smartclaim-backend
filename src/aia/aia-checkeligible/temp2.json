@@ -1,28 +1,19 @@
-
-
-
-
+error เกิกจากข้อมูลชุดนี้
 {
-    "HTTPStatus": {
-        "statusCode": 404,
-        "message": "Patient not found",
-        "error": ""
-    },
-    "TransactionQuery": {
-        "RefID": "O61-028993-ppp-ooo-o1",
-        "TransactionNo": "XXXXX",
-        "PID": "1160100078831",
-        "PassportNumber": "ABC12345",
-        "IdType": "PASSPORT_NO",
-        "StatusClaimCode": "01",
-        "InsurerCode": null,
-        "HN": "61-024057",
-        "VN": "O61-028993",
-        "VisitDatefrom": "2024-08-15",
-        "VisitDateto": "2024-08-06"
-    },
-    "Result": {
-      "Visit": {
+    "RefId": "O422113-67-13-OPD-004",
+    "TransactionNo": "b26435f7-daf0-4fa0-bbbb-819acf75623d",
+    "Username": "bhcsi025",
+    "HospitalCode": "7IUZR+KTdDTIyiUHvvvAUQ==",
+    "InsurerCode": 13,
+    "ElectronicSignature": "",
+    "DataJsonType": "3",
+    "DataJson": {
+        "Patient": {
+            "Dob": "anMOLMp/fBAvx23IfTvSzw==",
+            "Hn": "y7a01t4Hmx0cyK2PKBlbsw==",
+            "Gender": "F"
+        },
+        "Visit": {
             "FurtherClaimId": "",
             "AccidentCauseOver45Days": "",
             "AdditionalNote": "",
@@ -40,11 +31,215 @@
             "PreviousTreatmentDetail": "",
             "PrivateCase": true,
             "ProcedureFreeText": "",
-            "SignSymptomsDate": "2024-08-01",
+            "SignSymptomsDate": "2024-09-12",
             "UnderlyingCondition": "DM",
-            "VisitDateTime": "2024-08-01 00:00",
+            "VisitDateTime": "2024-09-12 00:00",
             "Vn": "1+a6om4ORKZPwVBlU50sSg==",
             "Weight": "60"
+        },
+        "VitalSign": [
+            {
+                "DiastolicBp": 86,
+                "HeartRate": 78,
+                "OxygenSaturation": 100,
+                "PainScore": 0,
+                "RespiratoryRate": 20,
+                "SystolicBp": 130,
+                "Temperature": 36,
+                "VitalSignEntryDateTime": "2021-12-21 16:05"
+            },
+            {
+                "DiastolicBp": 83,
+                "HeartRate": 80,
+                "OxygenSaturation": 98,
+                "PainScore": 0,
+                "RespiratoryRate": 20,
+                "SystolicBp": 127,
+                "Temperature": 36.6,
+                "VitalSignEntryDateTime": "2021-12-21 16:55"
+            }
+        ],
+        "Diagnosis": [
+            {
+                "DxName": "General medical examination",
+                "DxType": "PP",
+                "Icd10": "Z000"
+            },
+            {
+                "DxName": "Impaired fasting glucose (TM)",
+                "DxType": "PP",
+                "Icd10": "R731"
+            },
+            {
+                "DxName": "Hyperlipidaemia, unspecified",
+                "DxType": "PP",
+                "Icd10": "E785"
+            }
+        ],
+        "AccidentDetail": {
+            "AccidentPlace": "3",
+            "AccidentDate": "2024-08-01",
+            "CauseOfInjuryDetail": [
+                {
+                    "CauseOfInjury": "W1099",
+                    "CommentOfInjury": "Fall"
+                }
+            ],
+            "InjuryDetail": [
+                {
+                    "WoundType": "Contusion",
+                    "InjurySide": "Left",
+                    "InjuryArea": "S099"
+                }
+            ]
+        },
+        "Procedure": [
+            {
+                "Icd9": "5719",
+                "ProcedureName": "Other cystotomy",
+                "ProcedureDate": "2024-08-03"
+            }
+        ],
+        "Investigation": [
+            {
+                "InvestigationCode": "U0061",
+                "InvestigationGroup": "U115",
+                "InvestigationName": "Color",
+                "InvestigationResult": "Yellow",
+                "ResultDateTime": "2023-07-26 08:52"
+            },
+            {
+                "InvestigationCode": "U0062",
+                "InvestigationGroup": "U115",
+                "InvestigationName": "Transparency",
+                "InvestigationResult": "Clear",
+                "ResultDateTime": "2023-07-26 08:52"
+            },
+            {
+                "InvestigationCode": "U0064",
+                "InvestigationGroup": "U115",
+                "InvestigationName": "pH",
+                "InvestigationResult": "7",
+                "ResultDateTime": "2023-07-26 08:52"
+            }
+        ],
+        "OrderItem": [
+            {
+                "ItemId": "999999900044",
+                "ItemName": "นัดเจาะเลือดไม่งดอาหาร",
+                "ItemAmount": "1",
+                "Discount": "0",
+                "Initial": "0",
+                "LocalBillingCode": "9999999",
+                "LocalBillingName": "9.1 บริการนัดหมาย",
+                "Location": "OPD",
+                "NetAmount": 0,
+                "SimbVersion": "1",
+                "Terminology": "SIMB"
+            },
+            {
+                "ItemId": "999999900000",
+                "ItemName": "Patient Walk-in",
+                "ItemAmount": "1",
+                "Discount": "0",
+                "Initial": "0",
+                "LocalBillingCode": "9999999",
+                "LocalBillingName": "9.1 บริการนัดหมาย",
+                "Location": "OPD",
+                "NetAmount": 0,
+                "SimbVersion": "1",
+                "Terminology": "SIMB"
+            },
+            
+        ],
+        "Doctor": [
+            {
+                "DoctorLicense": "0000028066",
+                "DoctorRole": "OWNER",
+                "DoctorFirstName": "ERnJA/9/cj2Qhkft3kNfbWPBgetZzhd5PvSdpoDEjhon88QJjdAGPEvHa8mxSjPJ819pQkYhl2cClhOZGfnS0vbiG8zFr8gBvKG4VHD2Lwk=",
+                "DoctorLastName": ""
+            }
+        ],
+        "Billing": [
+            {
+                "LocalBillingCode": "9999999",
+                "LocalBillingName": "9.1 บริการนัดหมาย",
+                "SimbBillingCode": "9.1",
+                "PayorBillingCode": "9.1",
+                "BillingInitial": "0",
+                "BillingDiscount": "0",
+                "BillingNetAmount": "0"
+            },
+            {
+                "LocalBillingCode": "0101001",
+                "LocalBillingName": "1.1.1(1) ค่ายาบัญชี ก",
+                "SimbBillingCode": "1.1.1(1)",
+                "PayorBillingCode": "1.1.1(1)",
+                "BillingInitial": "336",
+                "BillingDiscount": "0",
+                "BillingNetAmount": "336"
+            },
+           
+        ],
+        "TotalBillAmount": 2000,
+        "Pss": {
+            "Exclusion": "0",
+            "FinalScore": "0",
+            "Findings": [
+                {
+                    "Description": "0",
+                    "Exclusion": "0",
+                    "Medical": "0",
+                    "Reference": "0"
+                }
+            ],
+            "Id": "0",
+            "Medical": "0"
         }
-    }
+    },
+    "AttachDocList": []
+}
+
+ต้องการส่งเป้น  Body  สำหรับ Post api
+const apiURL= `${AIA_APIURL}/SmartClaim/opdDischarge`;
+
+const body ={ewOPDDischargeResponseDto}
+const headers = {
+  'Content-Type': 'application/json',
+  'Ocp-Apim-Subscription-Key': AIA_APISubscription,
+  'Apim-Auth-Secure-Token': ObjAccessTokenKey
+};
+
+const responsefromAIA = await lastValueFrom(
+  this.httpService.post(apiURL, Body, { headers })
+);
+
+ส่วนนี้คือ ข้อมุลที่ใส่dto  
+let newResultDataJsonDto =new ResultDataJsonDto();
+ newResultDataJsonDto ={
+  Patient :newResultPatientInfoDto,
+  Visit: newVisit,
+  VitalSign :newResultVitalSignInfoDto,
+  Diagnosis :newQueryDiagnosisInfoDto,
+  AccidentDetail:newAccidentDetail,
+  Procedure :newResultProcedureInfoDto,
+  Investigation :newResultInvestigationInfoDto,
+  OrderItem :newResultOrderItemInfoDto,
+  Doctor : newResultDoctorInfoDto,
+  Billing :newResultBillingInfoDto,
+  TotalBillAmount:newTotalBillAmount,
+  Pss: newResultPSSInfoDto
+}
+newOPDDischargeResponseDto ={
+
+  RefId: RequesetBody.xRefId,
+  TransactionNo:RequesetBody.xTransactionNo,
+  Username:AIA_APIHopitalUsername,
+  HospitalCode:await this.utilsService.EncryptAESECB(AIA_APIHospitalCode,AIA_APISecretkey),
+  InsurerCode: RequesetBody.xInsurerCode,
+  ElectronicSignature: '',
+  DataJsonType: "3",
+  DataJson: newResultDataJsonDto,
+  AttachDocList: []
+
 }

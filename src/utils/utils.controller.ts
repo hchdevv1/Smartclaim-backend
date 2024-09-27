@@ -1,7 +1,10 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get ,Param ,Post ,Body,UploadedFile ,UseInterceptors,} from '@nestjs/common';
 import { UtilsService } from './utils.service';
 
-
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { extname } from 'path';
+import { QueryCreateClaimDocumentDtoBodyDto }from './dto/claim-documents.dto';
 @Controller('utils')
 export class UtilsController {
   constructor(private readonly utilsService: UtilsService) {}
@@ -57,7 +60,10 @@ getAccidentPlace(@Param('InsuranceCode') InsuranceCode: string ) {
 }
 
 
-
+@Get('/DocumentType/:InsuranceCode')
+getDocumentType(@Param('InsuranceCode') InsuranceCode: string ) {
+  return  this.utilsService.getDocumentType(InsuranceCode)
+}
 
 
 @Get('/InjuryWoundtype/:InsuranceCode')
@@ -73,11 +79,63 @@ getDiagnosisTypeMapping(@Param('InsuranceCode') InsuranceCode: string ,@Param('D
   return  this.utilsService.getDiagnosisTypeMapping(InsuranceCode,DxtypecodeTrakcare)
 }
 
+  @Get('/getfile/:id')
+  async getFile(@Param('id') id: string) {
+    const fileData = await this.utilsService.getFileAsBase64(+id);
+    return fileData;
+  }
+  @Get('/getFilemany/:id')
+  async getFilemany(@Param('id') id: string) {
+    const fileData = await this.utilsService.getFilesAsBase64findMany(id);
+    return fileData;
+  }
+  @Post('/uploadDocuments') //prod
+  @UseInterceptors(FileInterceptor('file', {
+    storage: diskStorage({
+      destination: './uploads/pdf', // กำหนดโฟลเดอร์ที่เก็บไฟล์
+      filename: (req, file, cb) => {
+        // กำหนดชื่อไฟล์ใหม่ตาม timestamp และนามสกุลเดิม
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+        const ext = extname(file.originalname); // ดึงนามสกุลจากไฟล์เดิม
+        const newFilename = `${uniqueSuffix}${ext}`;
+        cb(null, newFilename); // ส่งชื่อไฟล์ใหม่กลับไปยัง callback
+      },
+    }),
+  }))
+  async uploadFile(@UploadedFile()  file: Express.Multer.File ,@Body() body: QueryCreateClaimDocumentDtoBodyDto) {
 
-// @Get('/test')
-// setDTOHTS(){
-//   return this.utilsService.setDTOHTS();
-// }
+    const result = await this.utilsService.saveFile(file,body)
+    return {
+      message: 'File uploaded successfully!',
+     filename: result.documentname,
+    };
+  }
+  @Post('/getlistDocumentName') //prod
+  async getlistDocumentName(@Body() queryCreateClaimDocumentDtoBodyDto:QueryCreateClaimDocumentDtoBodyDto){
+       const result = await this.utilsService.getlistDocumentName(queryCreateClaimDocumentDtoBodyDto);
+       return result
+  }
+  @Post('/getDocumentByDocname') //prod
+  async getDocumentByDocname(@Body() queryCreateClaimDocumentDtoBodyDto:QueryCreateClaimDocumentDtoBodyDto){
+   
+    const fileData = await this.utilsService.getDocumentByDocname(queryCreateClaimDocumentDtoBodyDto);
+    return fileData;
+  }
 
+  @Post('/getListDocumentByRefId') //prod
+  async getListDocumentByRefId(@Body() queryCreateClaimDocumentDtoBodyDto:QueryCreateClaimDocumentDtoBodyDto){
+   
+    const fileData = await this.utilsService.getListDocumentByRefId(queryCreateClaimDocumentDtoBodyDto);
+    return fileData;
+  }
 
+  // @Post('/uploadDocuments')
+  // async uploadDocuments(@Body() queryCreateClaimDocumentDtoBodyDto:QueryCreateClaimDocumentDtoBodyDto){
+  //      // const result = this.aiaRetrieveFurtherClaimListService.RetrieveFurtherClaim(queryRetrieveFurtherClaimdtoBodyDto);
+  //      const result = await this.utilsService.uploadDocuments(queryCreateClaimDocumentDtoBodyDto);
+
+  //      return result
+  // }
+  
+  //QueryCreateClaimDocumentDtoBodyDto
 }

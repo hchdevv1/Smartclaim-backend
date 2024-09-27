@@ -21,6 +21,10 @@ export class TrakcarePatientInfoController {
   getEpisodeByHN(@Param('xHN') xHN: string,@Param('xEpiDate') xEpiDate: string,@Param('xEpiType') xEpiType: string) {
      return this.trakcarePatientInfoService.getEpisodeByHN(xHN,xEpiDate,xEpiType);
   }
+  @Get('/getOPDDischargeVisit/:xVN')
+  getOPDDischargeVisit(@Param('xVN') xVN: string) {
+     return this.trakcarePatientInfoService.getOPDDischargeVisit(xVN);
+  }
 
   @Get('/getOPDDischargeDiagnosis/:xVN')
   getOPDDischargeDiagnosis(@Param('xVN') xVN: string) {
@@ -51,6 +55,18 @@ export class TrakcarePatientInfoController {
      return this.trakcarePatientInfoService.getOPDDischargeAccident(xVN);
   }
   
- 
+  
+  @Get('/getOPDDischargePatient/:xHN')
+  getOPDDischargePatient(@Param('xHN') xHN: string) {
+     return this.trakcarePatientInfoService.getOPDDischargePatient(xHN);
+  }
+  @Get('/getOPDDischargeOrderItem/:xVN')
+  getOPDDischargeOrderItem(@Param('xVN') xVN: string) {
+   return this.trakcarePatientInfoService.getOPDDischargeOrderItem(xVN);
+}
+@Get('/getOPDDischargeBilling/:xVN')
+getOPDDischargeBilling(@Param('xVN') xVN: string) {
+ return this.trakcarePatientInfoService.getOPDDischargeBilling(xVN);
+}
   
 }

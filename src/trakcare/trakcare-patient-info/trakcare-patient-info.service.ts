@@ -119,7 +119,7 @@ async getOPDDischargeVisit( xVN: string ) {
   try{
 
      response = await firstValueFrom(
-      this.httpService.get(`${TRAKCARE_APIURL}/getOPDDischargeDiagnosis/${xVN}`)
+      this.httpService.get(`${TRAKCARE_APIURL}/getOPDDischargeVisit/${xVN}`)
     );
     PatientInfo = response.data
   } catch(error)
@@ -246,6 +246,68 @@ async getOPDDischargeAccident( xVN: string ) {
   try{
      response = await firstValueFrom(
       this.httpService.get(`${TRAKCARE_APIURL}/getOPDDischargeAccident/${xVN}`)
+    );
+    PatientInfo = response.data
+  } catch(error)
+    {
+        if (error instanceof HttpException) {
+          throw error;
+       }  throw new HttpException(
+         {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+            message: httpStatusMessageService.getHttpStatusMessageTrakcare(HttpStatus.INTERNAL_SERVER_ERROR)
+         },HttpStatus.INTERNAL_SERVER_ERROR );
+        
+    }
+ return PatientInfo
+}
+
+async getOPDDischargeOrderItem( xVN: string ) {
+  let response:any ;
+  let PatientInfo ;
+  try{
+     response = await firstValueFrom(
+      this.httpService.get(`${TRAKCARE_APIURL}/getOPDDischargeOrderItem/${xVN}`)
+    );
+    PatientInfo = response.data
+  } catch(error)
+    {
+        if (error instanceof HttpException) {
+          throw error;
+       }  throw new HttpException(
+         {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+            message: httpStatusMessageService.getHttpStatusMessageTrakcare(HttpStatus.INTERNAL_SERVER_ERROR)
+         },HttpStatus.INTERNAL_SERVER_ERROR );
+        
+    }
+ return PatientInfo
+}
+async getOPDDischargeBilling( xVN: string ) {
+  let response:any ;
+  let PatientInfo ;
+  try{
+     response = await firstValueFrom(
+      this.httpService.get(`${TRAKCARE_APIURL}/getOPDDischargeBilling/${xVN}`)
+    );
+    PatientInfo = response.data
+  } catch(error)
+    {
+        if (error instanceof HttpException) {
+          throw error;
+       }  throw new HttpException(
+         {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+            message: httpStatusMessageService.getHttpStatusMessageTrakcare(HttpStatus.INTERNAL_SERVER_ERROR)
+         },HttpStatus.INTERNAL_SERVER_ERROR );
+        
+    }
+ return PatientInfo
+}
+
+async getOPDDischargePatient( xHN: string ) {
+  let response:any ;
+  let PatientInfo ;
+  try{
+     response = await firstValueFrom(
+      this.httpService.get(`${TRAKCARE_APIURL}/getOPDDischargePatient/${xHN}`)
     );
     PatientInfo = response.data
   } catch(error)

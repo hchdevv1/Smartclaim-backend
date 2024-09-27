@@ -1,4 +1,4 @@
-import { IsInt, IsOptional, IsString } from 'class-validator';
+import { IsArray ,IsInt, IsOptional, IsString } from 'class-validator';
 
 export class QueryBillingSubmissionBodyDto {
     PatientInfo?: QueryPatientBodyDto
@@ -46,4 +46,14 @@ export class QueryBillingSubmissionBodyDto {
     @IsOptional()
     invoicenumber?: string;
 
+    @IsArray()
+    @IsOptional()
+    AttachDocList?:AttachDocList[]
+  }
+  class AttachDocList{
+
+    @IsString()
+    @IsOptional()
+    DocName?: string;
+  
   }

@@ -301,6 +301,30 @@ exports.Prisma.Transactionclaim2ScalarFieldEnum = {
   visitdate: 'visitdate'
 };
 
+exports.Prisma.ClaimDocumentsScalarFieldEnum = {
+  id: 'id',
+  hn: 'hn',
+  vn: 'vn',
+  refid: 'refid',
+  transactionno: 'transactionno',
+  documenttypecode: 'documenttypecode',
+  documenttypename: 'documenttypename',
+  filepath: 'filepath',
+  filesize: 'filesize',
+  filemimetype: 'filemimetype',
+  serverpath: 'serverpath',
+  uploaddate: 'uploaddate',
+  uploadedby: 'uploadedby',
+  documentname: 'documentname'
+};
+
+exports.Prisma.DocumentTypeScalarFieldEnum = {
+  id: 'id',
+  documenttypecode: 'documenttypecode',
+  documenttypename: 'documenttypename',
+  insurerid: 'insurerid'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -332,7 +356,9 @@ exports.Prisma.ModelName = {
   causeofinjuryside: 'causeofinjuryside',
   Transactionclaimstatus: 'Transactionclaimstatus',
   Transactionclaim: 'Transactionclaim',
-  transactionclaim2: 'transactionclaim2'
+  transactionclaim2: 'transactionclaim2',
+  ClaimDocuments: 'ClaimDocuments',
+  DocumentType: 'DocumentType'
 };
 
 /**

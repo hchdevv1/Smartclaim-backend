@@ -88,6 +88,16 @@ export type Transactionclaim = $Result.DefaultSelection<Prisma.$Transactionclaim
  * 
  */
 export type transactionclaim2 = $Result.DefaultSelection<Prisma.$transactionclaim2Payload>
+/**
+ * Model ClaimDocuments
+ * 
+ */
+export type ClaimDocuments = $Result.DefaultSelection<Prisma.$ClaimDocumentsPayload>
+/**
+ * Model DocumentType
+ * 
+ */
+export type DocumentType = $Result.DefaultSelection<Prisma.$DocumentTypePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -361,6 +371,26 @@ export class PrismaClient<
     * ```
     */
   get transactionclaim2(): Prisma.transactionclaim2Delegate<ExtArgs>;
+
+  /**
+   * `prisma.claimDocuments`: Exposes CRUD operations for the **ClaimDocuments** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClaimDocuments
+    * const claimDocuments = await prisma.claimDocuments.findMany()
+    * ```
+    */
+  get claimDocuments(): Prisma.ClaimDocumentsDelegate<ExtArgs>;
+
+  /**
+   * `prisma.documentType`: Exposes CRUD operations for the **DocumentType** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DocumentTypes
+    * const documentTypes = await prisma.documentType.findMany()
+    * ```
+    */
+  get documentType(): Prisma.DocumentTypeDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -814,7 +844,9 @@ export namespace Prisma {
     causeofinjuryside: 'causeofinjuryside',
     Transactionclaimstatus: 'Transactionclaimstatus',
     Transactionclaim: 'Transactionclaim',
-    transactionclaim2: 'transactionclaim2'
+    transactionclaim2: 'transactionclaim2',
+    ClaimDocuments: 'ClaimDocuments',
+    DocumentType: 'DocumentType'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -830,7 +862,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "claimStatus" | "illnessSurgery" | "illnessType" | "policyType" | "serviceSetting" | "claimants" | "insurers" | "transactions" | "diagnosisTypeMapping" | "accidentplace" | "causeofinjurywoundtype" | "causeofinjuryside" | "transactionclaimstatus" | "transactionclaim" | "transactionclaim2"
+      modelProps: "claimStatus" | "illnessSurgery" | "illnessType" | "policyType" | "serviceSetting" | "claimants" | "insurers" | "transactions" | "diagnosisTypeMapping" | "accidentplace" | "causeofinjurywoundtype" | "causeofinjuryside" | "transactionclaimstatus" | "transactionclaim" | "transactionclaim2" | "claimDocuments" | "documentType"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1884,6 +1916,146 @@ export namespace Prisma {
           }
         }
       }
+      ClaimDocuments: {
+        payload: Prisma.$ClaimDocumentsPayload<ExtArgs>
+        fields: Prisma.ClaimDocumentsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClaimDocumentsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClaimDocumentsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload>
+          }
+          findFirst: {
+            args: Prisma.ClaimDocumentsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClaimDocumentsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload>
+          }
+          findMany: {
+            args: Prisma.ClaimDocumentsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload>[]
+          }
+          create: {
+            args: Prisma.ClaimDocumentsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload>
+          }
+          createMany: {
+            args: Prisma.ClaimDocumentsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClaimDocumentsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload>[]
+          }
+          delete: {
+            args: Prisma.ClaimDocumentsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload>
+          }
+          update: {
+            args: Prisma.ClaimDocumentsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClaimDocumentsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClaimDocumentsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.ClaimDocumentsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClaimDocumentsPayload>
+          }
+          aggregate: {
+            args: Prisma.ClaimDocumentsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClaimDocuments>
+          }
+          groupBy: {
+            args: Prisma.ClaimDocumentsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClaimDocumentsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClaimDocumentsCountArgs<ExtArgs>
+            result: $Utils.Optional<ClaimDocumentsCountAggregateOutputType> | number
+          }
+        }
+      }
+      DocumentType: {
+        payload: Prisma.$DocumentTypePayload<ExtArgs>
+        fields: Prisma.DocumentTypeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DocumentTypeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DocumentTypeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          findFirst: {
+            args: Prisma.DocumentTypeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DocumentTypeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          findMany: {
+            args: Prisma.DocumentTypeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>[]
+          }
+          create: {
+            args: Prisma.DocumentTypeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          createMany: {
+            args: Prisma.DocumentTypeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DocumentTypeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>[]
+          }
+          delete: {
+            args: Prisma.DocumentTypeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          update: {
+            args: Prisma.DocumentTypeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          deleteMany: {
+            args: Prisma.DocumentTypeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DocumentTypeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DocumentTypeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          aggregate: {
+            args: Prisma.DocumentTypeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDocumentType>
+          }
+          groupBy: {
+            args: Prisma.DocumentTypeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DocumentTypeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DocumentTypeCountArgs<ExtArgs>
+            result: $Utils.Optional<DocumentTypeCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2163,6 +2335,7 @@ export namespace Prisma {
   export type InsurersCountOutputType = {
     ClaimStatus: number
     Claimants: number
+    DocumentType: number
     IllnessSurgery: number
     IllnessType: number
     PolicyType: number
@@ -2173,6 +2346,7 @@ export namespace Prisma {
   export type InsurersCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ClaimStatus?: boolean | InsurersCountOutputTypeCountClaimStatusArgs
     Claimants?: boolean | InsurersCountOutputTypeCountClaimantsArgs
+    DocumentType?: boolean | InsurersCountOutputTypeCountDocumentTypeArgs
     IllnessSurgery?: boolean | InsurersCountOutputTypeCountIllnessSurgeryArgs
     IllnessType?: boolean | InsurersCountOutputTypeCountIllnessTypeArgs
     PolicyType?: boolean | InsurersCountOutputTypeCountPolicyTypeArgs
@@ -2203,6 +2377,13 @@ export namespace Prisma {
    */
   export type InsurersCountOutputTypeCountClaimantsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ClaimantsWhereInput
+  }
+
+  /**
+   * InsurersCountOutputType without action
+   */
+  export type InsurersCountOutputTypeCountDocumentTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentTypeWhereInput
   }
 
   /**
@@ -8653,6 +8834,7 @@ export namespace Prisma {
     registrationdate?: boolean
     ClaimStatus?: boolean | Insurers$ClaimStatusArgs<ExtArgs>
     Claimants?: boolean | Insurers$ClaimantsArgs<ExtArgs>
+    DocumentType?: boolean | Insurers$DocumentTypeArgs<ExtArgs>
     IllnessSurgery?: boolean | Insurers$IllnessSurgeryArgs<ExtArgs>
     IllnessType?: boolean | Insurers$IllnessTypeArgs<ExtArgs>
     PolicyType?: boolean | Insurers$PolicyTypeArgs<ExtArgs>
@@ -8678,6 +8860,7 @@ export namespace Prisma {
   export type InsurersInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     ClaimStatus?: boolean | Insurers$ClaimStatusArgs<ExtArgs>
     Claimants?: boolean | Insurers$ClaimantsArgs<ExtArgs>
+    DocumentType?: boolean | Insurers$DocumentTypeArgs<ExtArgs>
     IllnessSurgery?: boolean | Insurers$IllnessSurgeryArgs<ExtArgs>
     IllnessType?: boolean | Insurers$IllnessTypeArgs<ExtArgs>
     PolicyType?: boolean | Insurers$PolicyTypeArgs<ExtArgs>
@@ -8692,6 +8875,7 @@ export namespace Prisma {
     objects: {
       ClaimStatus: Prisma.$ClaimStatusPayload<ExtArgs>[]
       Claimants: Prisma.$ClaimantsPayload<ExtArgs>[]
+      DocumentType: Prisma.$DocumentTypePayload<ExtArgs>[]
       IllnessSurgery: Prisma.$IllnessSurgeryPayload<ExtArgs>[]
       IllnessType: Prisma.$IllnessTypePayload<ExtArgs>[]
       PolicyType: Prisma.$PolicyTypePayload<ExtArgs>[]
@@ -9069,6 +9253,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     ClaimStatus<T extends Insurers$ClaimStatusArgs<ExtArgs> = {}>(args?: Subset<T, Insurers$ClaimStatusArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClaimStatusPayload<ExtArgs>, T, "findMany"> | Null>
     Claimants<T extends Insurers$ClaimantsArgs<ExtArgs> = {}>(args?: Subset<T, Insurers$ClaimantsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClaimantsPayload<ExtArgs>, T, "findMany"> | Null>
+    DocumentType<T extends Insurers$DocumentTypeArgs<ExtArgs> = {}>(args?: Subset<T, Insurers$DocumentTypeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findMany"> | Null>
     IllnessSurgery<T extends Insurers$IllnessSurgeryArgs<ExtArgs> = {}>(args?: Subset<T, Insurers$IllnessSurgeryArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IllnessSurgeryPayload<ExtArgs>, T, "findMany"> | Null>
     IllnessType<T extends Insurers$IllnessTypeArgs<ExtArgs> = {}>(args?: Subset<T, Insurers$IllnessTypeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$IllnessTypePayload<ExtArgs>, T, "findMany"> | Null>
     PolicyType<T extends Insurers$PolicyTypeArgs<ExtArgs> = {}>(args?: Subset<T, Insurers$PolicyTypeArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PolicyTypePayload<ExtArgs>, T, "findMany"> | Null>
@@ -9458,6 +9643,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ClaimantsScalarFieldEnum | ClaimantsScalarFieldEnum[]
+  }
+
+  /**
+   * Insurers.DocumentType
+   */
+  export type Insurers$DocumentTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    where?: DocumentTypeWhereInput
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    cursor?: DocumentTypeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DocumentTypeScalarFieldEnum | DocumentTypeScalarFieldEnum[]
   }
 
   /**
@@ -17950,6 +18155,1989 @@ export namespace Prisma {
 
 
   /**
+   * Model ClaimDocuments
+   */
+
+  export type AggregateClaimDocuments = {
+    _count: ClaimDocumentsCountAggregateOutputType | null
+    _avg: ClaimDocumentsAvgAggregateOutputType | null
+    _sum: ClaimDocumentsSumAggregateOutputType | null
+    _min: ClaimDocumentsMinAggregateOutputType | null
+    _max: ClaimDocumentsMaxAggregateOutputType | null
+  }
+
+  export type ClaimDocumentsAvgAggregateOutputType = {
+    id: number | null
+    filesize: number | null
+  }
+
+  export type ClaimDocumentsSumAggregateOutputType = {
+    id: number | null
+    filesize: bigint | null
+  }
+
+  export type ClaimDocumentsMinAggregateOutputType = {
+    id: number | null
+    hn: string | null
+    vn: string | null
+    refid: string | null
+    transactionno: string | null
+    documenttypecode: string | null
+    documenttypename: string | null
+    filepath: string | null
+    filesize: bigint | null
+    filemimetype: string | null
+    serverpath: string | null
+    uploaddate: Date | null
+    uploadedby: string | null
+    documentname: string | null
+  }
+
+  export type ClaimDocumentsMaxAggregateOutputType = {
+    id: number | null
+    hn: string | null
+    vn: string | null
+    refid: string | null
+    transactionno: string | null
+    documenttypecode: string | null
+    documenttypename: string | null
+    filepath: string | null
+    filesize: bigint | null
+    filemimetype: string | null
+    serverpath: string | null
+    uploaddate: Date | null
+    uploadedby: string | null
+    documentname: string | null
+  }
+
+  export type ClaimDocumentsCountAggregateOutputType = {
+    id: number
+    hn: number
+    vn: number
+    refid: number
+    transactionno: number
+    documenttypecode: number
+    documenttypename: number
+    filepath: number
+    filesize: number
+    filemimetype: number
+    serverpath: number
+    uploaddate: number
+    uploadedby: number
+    documentname: number
+    _all: number
+  }
+
+
+  export type ClaimDocumentsAvgAggregateInputType = {
+    id?: true
+    filesize?: true
+  }
+
+  export type ClaimDocumentsSumAggregateInputType = {
+    id?: true
+    filesize?: true
+  }
+
+  export type ClaimDocumentsMinAggregateInputType = {
+    id?: true
+    hn?: true
+    vn?: true
+    refid?: true
+    transactionno?: true
+    documenttypecode?: true
+    documenttypename?: true
+    filepath?: true
+    filesize?: true
+    filemimetype?: true
+    serverpath?: true
+    uploaddate?: true
+    uploadedby?: true
+    documentname?: true
+  }
+
+  export type ClaimDocumentsMaxAggregateInputType = {
+    id?: true
+    hn?: true
+    vn?: true
+    refid?: true
+    transactionno?: true
+    documenttypecode?: true
+    documenttypename?: true
+    filepath?: true
+    filesize?: true
+    filemimetype?: true
+    serverpath?: true
+    uploaddate?: true
+    uploadedby?: true
+    documentname?: true
+  }
+
+  export type ClaimDocumentsCountAggregateInputType = {
+    id?: true
+    hn?: true
+    vn?: true
+    refid?: true
+    transactionno?: true
+    documenttypecode?: true
+    documenttypename?: true
+    filepath?: true
+    filesize?: true
+    filemimetype?: true
+    serverpath?: true
+    uploaddate?: true
+    uploadedby?: true
+    documentname?: true
+    _all?: true
+  }
+
+  export type ClaimDocumentsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClaimDocuments to aggregate.
+     */
+    where?: ClaimDocumentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClaimDocuments to fetch.
+     */
+    orderBy?: ClaimDocumentsOrderByWithRelationInput | ClaimDocumentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClaimDocumentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClaimDocuments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClaimDocuments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClaimDocuments
+    **/
+    _count?: true | ClaimDocumentsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ClaimDocumentsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ClaimDocumentsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClaimDocumentsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClaimDocumentsMaxAggregateInputType
+  }
+
+  export type GetClaimDocumentsAggregateType<T extends ClaimDocumentsAggregateArgs> = {
+        [P in keyof T & keyof AggregateClaimDocuments]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClaimDocuments[P]>
+      : GetScalarType<T[P], AggregateClaimDocuments[P]>
+  }
+
+
+
+
+  export type ClaimDocumentsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClaimDocumentsWhereInput
+    orderBy?: ClaimDocumentsOrderByWithAggregationInput | ClaimDocumentsOrderByWithAggregationInput[]
+    by: ClaimDocumentsScalarFieldEnum[] | ClaimDocumentsScalarFieldEnum
+    having?: ClaimDocumentsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClaimDocumentsCountAggregateInputType | true
+    _avg?: ClaimDocumentsAvgAggregateInputType
+    _sum?: ClaimDocumentsSumAggregateInputType
+    _min?: ClaimDocumentsMinAggregateInputType
+    _max?: ClaimDocumentsMaxAggregateInputType
+  }
+
+  export type ClaimDocumentsGroupByOutputType = {
+    id: number
+    hn: string
+    vn: string
+    refid: string
+    transactionno: string
+    documenttypecode: string
+    documenttypename: string
+    filepath: string
+    filesize: bigint | null
+    filemimetype: string | null
+    serverpath: string | null
+    uploaddate: Date | null
+    uploadedby: string | null
+    documentname: string
+    _count: ClaimDocumentsCountAggregateOutputType | null
+    _avg: ClaimDocumentsAvgAggregateOutputType | null
+    _sum: ClaimDocumentsSumAggregateOutputType | null
+    _min: ClaimDocumentsMinAggregateOutputType | null
+    _max: ClaimDocumentsMaxAggregateOutputType | null
+  }
+
+  type GetClaimDocumentsGroupByPayload<T extends ClaimDocumentsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClaimDocumentsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClaimDocumentsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClaimDocumentsGroupByOutputType[P]>
+            : GetScalarType<T[P], ClaimDocumentsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClaimDocumentsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hn?: boolean
+    vn?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    documenttypecode?: boolean
+    documenttypename?: boolean
+    filepath?: boolean
+    filesize?: boolean
+    filemimetype?: boolean
+    serverpath?: boolean
+    uploaddate?: boolean
+    uploadedby?: boolean
+    documentname?: boolean
+  }, ExtArgs["result"]["claimDocuments"]>
+
+  export type ClaimDocumentsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    hn?: boolean
+    vn?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    documenttypecode?: boolean
+    documenttypename?: boolean
+    filepath?: boolean
+    filesize?: boolean
+    filemimetype?: boolean
+    serverpath?: boolean
+    uploaddate?: boolean
+    uploadedby?: boolean
+    documentname?: boolean
+  }, ExtArgs["result"]["claimDocuments"]>
+
+  export type ClaimDocumentsSelectScalar = {
+    id?: boolean
+    hn?: boolean
+    vn?: boolean
+    refid?: boolean
+    transactionno?: boolean
+    documenttypecode?: boolean
+    documenttypename?: boolean
+    filepath?: boolean
+    filesize?: boolean
+    filemimetype?: boolean
+    serverpath?: boolean
+    uploaddate?: boolean
+    uploadedby?: boolean
+    documentname?: boolean
+  }
+
+
+  export type $ClaimDocumentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClaimDocuments"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      hn: string
+      vn: string
+      refid: string
+      transactionno: string
+      documenttypecode: string
+      documenttypename: string
+      filepath: string
+      filesize: bigint | null
+      filemimetype: string | null
+      serverpath: string | null
+      uploaddate: Date | null
+      uploadedby: string | null
+      documentname: string
+    }, ExtArgs["result"]["claimDocuments"]>
+    composites: {}
+  }
+
+  type ClaimDocumentsGetPayload<S extends boolean | null | undefined | ClaimDocumentsDefaultArgs> = $Result.GetResult<Prisma.$ClaimDocumentsPayload, S>
+
+  type ClaimDocumentsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<ClaimDocumentsFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: ClaimDocumentsCountAggregateInputType | true
+    }
+
+  export interface ClaimDocumentsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClaimDocuments'], meta: { name: 'ClaimDocuments' } }
+    /**
+     * Find zero or one ClaimDocuments that matches the filter.
+     * @param {ClaimDocumentsFindUniqueArgs} args - Arguments to find a ClaimDocuments
+     * @example
+     * // Get one ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClaimDocumentsFindUniqueArgs>(args: SelectSubset<T, ClaimDocumentsFindUniqueArgs<ExtArgs>>): Prisma__ClaimDocumentsClient<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one ClaimDocuments that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {ClaimDocumentsFindUniqueOrThrowArgs} args - Arguments to find a ClaimDocuments
+     * @example
+     * // Get one ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClaimDocumentsFindUniqueOrThrowArgs>(args: SelectSubset<T, ClaimDocumentsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClaimDocumentsClient<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first ClaimDocuments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClaimDocumentsFindFirstArgs} args - Arguments to find a ClaimDocuments
+     * @example
+     * // Get one ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClaimDocumentsFindFirstArgs>(args?: SelectSubset<T, ClaimDocumentsFindFirstArgs<ExtArgs>>): Prisma__ClaimDocumentsClient<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first ClaimDocuments that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClaimDocumentsFindFirstOrThrowArgs} args - Arguments to find a ClaimDocuments
+     * @example
+     * // Get one ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClaimDocumentsFindFirstOrThrowArgs>(args?: SelectSubset<T, ClaimDocumentsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClaimDocumentsClient<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more ClaimDocuments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClaimDocumentsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.findMany()
+     * 
+     * // Get first 10 ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const claimDocumentsWithIdOnly = await prisma.claimDocuments.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClaimDocumentsFindManyArgs>(args?: SelectSubset<T, ClaimDocumentsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a ClaimDocuments.
+     * @param {ClaimDocumentsCreateArgs} args - Arguments to create a ClaimDocuments.
+     * @example
+     * // Create one ClaimDocuments
+     * const ClaimDocuments = await prisma.claimDocuments.create({
+     *   data: {
+     *     // ... data to create a ClaimDocuments
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClaimDocumentsCreateArgs>(args: SelectSubset<T, ClaimDocumentsCreateArgs<ExtArgs>>): Prisma__ClaimDocumentsClient<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many ClaimDocuments.
+     * @param {ClaimDocumentsCreateManyArgs} args - Arguments to create many ClaimDocuments.
+     * @example
+     * // Create many ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClaimDocumentsCreateManyArgs>(args?: SelectSubset<T, ClaimDocumentsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClaimDocuments and returns the data saved in the database.
+     * @param {ClaimDocumentsCreateManyAndReturnArgs} args - Arguments to create many ClaimDocuments.
+     * @example
+     * // Create many ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClaimDocuments and only return the `id`
+     * const claimDocumentsWithIdOnly = await prisma.claimDocuments.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClaimDocumentsCreateManyAndReturnArgs>(args?: SelectSubset<T, ClaimDocumentsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a ClaimDocuments.
+     * @param {ClaimDocumentsDeleteArgs} args - Arguments to delete one ClaimDocuments.
+     * @example
+     * // Delete one ClaimDocuments
+     * const ClaimDocuments = await prisma.claimDocuments.delete({
+     *   where: {
+     *     // ... filter to delete one ClaimDocuments
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClaimDocumentsDeleteArgs>(args: SelectSubset<T, ClaimDocumentsDeleteArgs<ExtArgs>>): Prisma__ClaimDocumentsClient<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one ClaimDocuments.
+     * @param {ClaimDocumentsUpdateArgs} args - Arguments to update one ClaimDocuments.
+     * @example
+     * // Update one ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClaimDocumentsUpdateArgs>(args: SelectSubset<T, ClaimDocumentsUpdateArgs<ExtArgs>>): Prisma__ClaimDocumentsClient<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more ClaimDocuments.
+     * @param {ClaimDocumentsDeleteManyArgs} args - Arguments to filter ClaimDocuments to delete.
+     * @example
+     * // Delete a few ClaimDocuments
+     * const { count } = await prisma.claimDocuments.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClaimDocumentsDeleteManyArgs>(args?: SelectSubset<T, ClaimDocumentsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClaimDocuments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClaimDocumentsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClaimDocumentsUpdateManyArgs>(args: SelectSubset<T, ClaimDocumentsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one ClaimDocuments.
+     * @param {ClaimDocumentsUpsertArgs} args - Arguments to update or create a ClaimDocuments.
+     * @example
+     * // Update or create a ClaimDocuments
+     * const claimDocuments = await prisma.claimDocuments.upsert({
+     *   create: {
+     *     // ... data to create a ClaimDocuments
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClaimDocuments we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClaimDocumentsUpsertArgs>(args: SelectSubset<T, ClaimDocumentsUpsertArgs<ExtArgs>>): Prisma__ClaimDocumentsClient<$Result.GetResult<Prisma.$ClaimDocumentsPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of ClaimDocuments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClaimDocumentsCountArgs} args - Arguments to filter ClaimDocuments to count.
+     * @example
+     * // Count the number of ClaimDocuments
+     * const count = await prisma.claimDocuments.count({
+     *   where: {
+     *     // ... the filter for the ClaimDocuments we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClaimDocumentsCountArgs>(
+      args?: Subset<T, ClaimDocumentsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClaimDocumentsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClaimDocuments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClaimDocumentsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClaimDocumentsAggregateArgs>(args: Subset<T, ClaimDocumentsAggregateArgs>): Prisma.PrismaPromise<GetClaimDocumentsAggregateType<T>>
+
+    /**
+     * Group by ClaimDocuments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClaimDocumentsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClaimDocumentsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClaimDocumentsGroupByArgs['orderBy'] }
+        : { orderBy?: ClaimDocumentsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClaimDocumentsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClaimDocumentsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClaimDocuments model
+   */
+  readonly fields: ClaimDocumentsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClaimDocuments.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClaimDocumentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClaimDocuments model
+   */ 
+  interface ClaimDocumentsFieldRefs {
+    readonly id: FieldRef<"ClaimDocuments", 'Int'>
+    readonly hn: FieldRef<"ClaimDocuments", 'String'>
+    readonly vn: FieldRef<"ClaimDocuments", 'String'>
+    readonly refid: FieldRef<"ClaimDocuments", 'String'>
+    readonly transactionno: FieldRef<"ClaimDocuments", 'String'>
+    readonly documenttypecode: FieldRef<"ClaimDocuments", 'String'>
+    readonly documenttypename: FieldRef<"ClaimDocuments", 'String'>
+    readonly filepath: FieldRef<"ClaimDocuments", 'String'>
+    readonly filesize: FieldRef<"ClaimDocuments", 'BigInt'>
+    readonly filemimetype: FieldRef<"ClaimDocuments", 'String'>
+    readonly serverpath: FieldRef<"ClaimDocuments", 'String'>
+    readonly uploaddate: FieldRef<"ClaimDocuments", 'DateTime'>
+    readonly uploadedby: FieldRef<"ClaimDocuments", 'String'>
+    readonly documentname: FieldRef<"ClaimDocuments", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClaimDocuments findUnique
+   */
+  export type ClaimDocumentsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * Filter, which ClaimDocuments to fetch.
+     */
+    where: ClaimDocumentsWhereUniqueInput
+  }
+
+  /**
+   * ClaimDocuments findUniqueOrThrow
+   */
+  export type ClaimDocumentsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * Filter, which ClaimDocuments to fetch.
+     */
+    where: ClaimDocumentsWhereUniqueInput
+  }
+
+  /**
+   * ClaimDocuments findFirst
+   */
+  export type ClaimDocumentsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * Filter, which ClaimDocuments to fetch.
+     */
+    where?: ClaimDocumentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClaimDocuments to fetch.
+     */
+    orderBy?: ClaimDocumentsOrderByWithRelationInput | ClaimDocumentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClaimDocuments.
+     */
+    cursor?: ClaimDocumentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClaimDocuments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClaimDocuments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClaimDocuments.
+     */
+    distinct?: ClaimDocumentsScalarFieldEnum | ClaimDocumentsScalarFieldEnum[]
+  }
+
+  /**
+   * ClaimDocuments findFirstOrThrow
+   */
+  export type ClaimDocumentsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * Filter, which ClaimDocuments to fetch.
+     */
+    where?: ClaimDocumentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClaimDocuments to fetch.
+     */
+    orderBy?: ClaimDocumentsOrderByWithRelationInput | ClaimDocumentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClaimDocuments.
+     */
+    cursor?: ClaimDocumentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClaimDocuments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClaimDocuments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClaimDocuments.
+     */
+    distinct?: ClaimDocumentsScalarFieldEnum | ClaimDocumentsScalarFieldEnum[]
+  }
+
+  /**
+   * ClaimDocuments findMany
+   */
+  export type ClaimDocumentsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * Filter, which ClaimDocuments to fetch.
+     */
+    where?: ClaimDocumentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClaimDocuments to fetch.
+     */
+    orderBy?: ClaimDocumentsOrderByWithRelationInput | ClaimDocumentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClaimDocuments.
+     */
+    cursor?: ClaimDocumentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClaimDocuments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClaimDocuments.
+     */
+    skip?: number
+    distinct?: ClaimDocumentsScalarFieldEnum | ClaimDocumentsScalarFieldEnum[]
+  }
+
+  /**
+   * ClaimDocuments create
+   */
+  export type ClaimDocumentsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * The data needed to create a ClaimDocuments.
+     */
+    data: XOR<ClaimDocumentsCreateInput, ClaimDocumentsUncheckedCreateInput>
+  }
+
+  /**
+   * ClaimDocuments createMany
+   */
+  export type ClaimDocumentsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClaimDocuments.
+     */
+    data: ClaimDocumentsCreateManyInput | ClaimDocumentsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClaimDocuments createManyAndReturn
+   */
+  export type ClaimDocumentsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many ClaimDocuments.
+     */
+    data: ClaimDocumentsCreateManyInput | ClaimDocumentsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClaimDocuments update
+   */
+  export type ClaimDocumentsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * The data needed to update a ClaimDocuments.
+     */
+    data: XOR<ClaimDocumentsUpdateInput, ClaimDocumentsUncheckedUpdateInput>
+    /**
+     * Choose, which ClaimDocuments to update.
+     */
+    where: ClaimDocumentsWhereUniqueInput
+  }
+
+  /**
+   * ClaimDocuments updateMany
+   */
+  export type ClaimDocumentsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClaimDocuments.
+     */
+    data: XOR<ClaimDocumentsUpdateManyMutationInput, ClaimDocumentsUncheckedUpdateManyInput>
+    /**
+     * Filter which ClaimDocuments to update
+     */
+    where?: ClaimDocumentsWhereInput
+  }
+
+  /**
+   * ClaimDocuments upsert
+   */
+  export type ClaimDocumentsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * The filter to search for the ClaimDocuments to update in case it exists.
+     */
+    where: ClaimDocumentsWhereUniqueInput
+    /**
+     * In case the ClaimDocuments found by the `where` argument doesn't exist, create a new ClaimDocuments with this data.
+     */
+    create: XOR<ClaimDocumentsCreateInput, ClaimDocumentsUncheckedCreateInput>
+    /**
+     * In case the ClaimDocuments was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClaimDocumentsUpdateInput, ClaimDocumentsUncheckedUpdateInput>
+  }
+
+  /**
+   * ClaimDocuments delete
+   */
+  export type ClaimDocumentsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+    /**
+     * Filter which ClaimDocuments to delete.
+     */
+    where: ClaimDocumentsWhereUniqueInput
+  }
+
+  /**
+   * ClaimDocuments deleteMany
+   */
+  export type ClaimDocumentsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClaimDocuments to delete
+     */
+    where?: ClaimDocumentsWhereInput
+  }
+
+  /**
+   * ClaimDocuments without action
+   */
+  export type ClaimDocumentsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClaimDocuments
+     */
+    select?: ClaimDocumentsSelect<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DocumentType
+   */
+
+  export type AggregateDocumentType = {
+    _count: DocumentTypeCountAggregateOutputType | null
+    _avg: DocumentTypeAvgAggregateOutputType | null
+    _sum: DocumentTypeSumAggregateOutputType | null
+    _min: DocumentTypeMinAggregateOutputType | null
+    _max: DocumentTypeMaxAggregateOutputType | null
+  }
+
+  export type DocumentTypeAvgAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+  }
+
+  export type DocumentTypeSumAggregateOutputType = {
+    id: number | null
+    insurerid: number | null
+  }
+
+  export type DocumentTypeMinAggregateOutputType = {
+    id: number | null
+    documenttypecode: string | null
+    documenttypename: string | null
+    insurerid: number | null
+  }
+
+  export type DocumentTypeMaxAggregateOutputType = {
+    id: number | null
+    documenttypecode: string | null
+    documenttypename: string | null
+    insurerid: number | null
+  }
+
+  export type DocumentTypeCountAggregateOutputType = {
+    id: number
+    documenttypecode: number
+    documenttypename: number
+    insurerid: number
+    _all: number
+  }
+
+
+  export type DocumentTypeAvgAggregateInputType = {
+    id?: true
+    insurerid?: true
+  }
+
+  export type DocumentTypeSumAggregateInputType = {
+    id?: true
+    insurerid?: true
+  }
+
+  export type DocumentTypeMinAggregateInputType = {
+    id?: true
+    documenttypecode?: true
+    documenttypename?: true
+    insurerid?: true
+  }
+
+  export type DocumentTypeMaxAggregateInputType = {
+    id?: true
+    documenttypecode?: true
+    documenttypename?: true
+    insurerid?: true
+  }
+
+  export type DocumentTypeCountAggregateInputType = {
+    id?: true
+    documenttypecode?: true
+    documenttypename?: true
+    insurerid?: true
+    _all?: true
+  }
+
+  export type DocumentTypeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DocumentType to aggregate.
+     */
+    where?: DocumentTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DocumentTypes to fetch.
+     */
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DocumentTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DocumentTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DocumentTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DocumentTypes
+    **/
+    _count?: true | DocumentTypeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DocumentTypeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DocumentTypeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DocumentTypeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DocumentTypeMaxAggregateInputType
+  }
+
+  export type GetDocumentTypeAggregateType<T extends DocumentTypeAggregateArgs> = {
+        [P in keyof T & keyof AggregateDocumentType]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDocumentType[P]>
+      : GetScalarType<T[P], AggregateDocumentType[P]>
+  }
+
+
+
+
+  export type DocumentTypeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentTypeWhereInput
+    orderBy?: DocumentTypeOrderByWithAggregationInput | DocumentTypeOrderByWithAggregationInput[]
+    by: DocumentTypeScalarFieldEnum[] | DocumentTypeScalarFieldEnum
+    having?: DocumentTypeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DocumentTypeCountAggregateInputType | true
+    _avg?: DocumentTypeAvgAggregateInputType
+    _sum?: DocumentTypeSumAggregateInputType
+    _min?: DocumentTypeMinAggregateInputType
+    _max?: DocumentTypeMaxAggregateInputType
+  }
+
+  export type DocumentTypeGroupByOutputType = {
+    id: number
+    documenttypecode: string
+    documenttypename: string
+    insurerid: number
+    _count: DocumentTypeCountAggregateOutputType | null
+    _avg: DocumentTypeAvgAggregateOutputType | null
+    _sum: DocumentTypeSumAggregateOutputType | null
+    _min: DocumentTypeMinAggregateOutputType | null
+    _max: DocumentTypeMaxAggregateOutputType | null
+  }
+
+  type GetDocumentTypeGroupByPayload<T extends DocumentTypeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DocumentTypeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DocumentTypeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DocumentTypeGroupByOutputType[P]>
+            : GetScalarType<T[P], DocumentTypeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DocumentTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    documenttypecode?: boolean
+    documenttypename?: boolean
+    insurerid?: boolean
+    Insurers?: boolean | InsurersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["documentType"]>
+
+  export type DocumentTypeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    documenttypecode?: boolean
+    documenttypename?: boolean
+    insurerid?: boolean
+    Insurers?: boolean | InsurersDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["documentType"]>
+
+  export type DocumentTypeSelectScalar = {
+    id?: boolean
+    documenttypecode?: boolean
+    documenttypename?: boolean
+    insurerid?: boolean
+  }
+
+  export type DocumentTypeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Insurers?: boolean | InsurersDefaultArgs<ExtArgs>
+  }
+  export type DocumentTypeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Insurers?: boolean | InsurersDefaultArgs<ExtArgs>
+  }
+
+  export type $DocumentTypePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DocumentType"
+    objects: {
+      Insurers: Prisma.$InsurersPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      documenttypecode: string
+      documenttypename: string
+      insurerid: number
+    }, ExtArgs["result"]["documentType"]>
+    composites: {}
+  }
+
+  type DocumentTypeGetPayload<S extends boolean | null | undefined | DocumentTypeDefaultArgs> = $Result.GetResult<Prisma.$DocumentTypePayload, S>
+
+  type DocumentTypeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<DocumentTypeFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: DocumentTypeCountAggregateInputType | true
+    }
+
+  export interface DocumentTypeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DocumentType'], meta: { name: 'DocumentType' } }
+    /**
+     * Find zero or one DocumentType that matches the filter.
+     * @param {DocumentTypeFindUniqueArgs} args - Arguments to find a DocumentType
+     * @example
+     * // Get one DocumentType
+     * const documentType = await prisma.documentType.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DocumentTypeFindUniqueArgs>(args: SelectSubset<T, DocumentTypeFindUniqueArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one DocumentType that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {DocumentTypeFindUniqueOrThrowArgs} args - Arguments to find a DocumentType
+     * @example
+     * // Get one DocumentType
+     * const documentType = await prisma.documentType.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DocumentTypeFindUniqueOrThrowArgs>(args: SelectSubset<T, DocumentTypeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first DocumentType that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeFindFirstArgs} args - Arguments to find a DocumentType
+     * @example
+     * // Get one DocumentType
+     * const documentType = await prisma.documentType.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DocumentTypeFindFirstArgs>(args?: SelectSubset<T, DocumentTypeFindFirstArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first DocumentType that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeFindFirstOrThrowArgs} args - Arguments to find a DocumentType
+     * @example
+     * // Get one DocumentType
+     * const documentType = await prisma.documentType.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DocumentTypeFindFirstOrThrowArgs>(args?: SelectSubset<T, DocumentTypeFindFirstOrThrowArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more DocumentTypes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DocumentTypes
+     * const documentTypes = await prisma.documentType.findMany()
+     * 
+     * // Get first 10 DocumentTypes
+     * const documentTypes = await prisma.documentType.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const documentTypeWithIdOnly = await prisma.documentType.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DocumentTypeFindManyArgs>(args?: SelectSubset<T, DocumentTypeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a DocumentType.
+     * @param {DocumentTypeCreateArgs} args - Arguments to create a DocumentType.
+     * @example
+     * // Create one DocumentType
+     * const DocumentType = await prisma.documentType.create({
+     *   data: {
+     *     // ... data to create a DocumentType
+     *   }
+     * })
+     * 
+     */
+    create<T extends DocumentTypeCreateArgs>(args: SelectSubset<T, DocumentTypeCreateArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many DocumentTypes.
+     * @param {DocumentTypeCreateManyArgs} args - Arguments to create many DocumentTypes.
+     * @example
+     * // Create many DocumentTypes
+     * const documentType = await prisma.documentType.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DocumentTypeCreateManyArgs>(args?: SelectSubset<T, DocumentTypeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DocumentTypes and returns the data saved in the database.
+     * @param {DocumentTypeCreateManyAndReturnArgs} args - Arguments to create many DocumentTypes.
+     * @example
+     * // Create many DocumentTypes
+     * const documentType = await prisma.documentType.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DocumentTypes and only return the `id`
+     * const documentTypeWithIdOnly = await prisma.documentType.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DocumentTypeCreateManyAndReturnArgs>(args?: SelectSubset<T, DocumentTypeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a DocumentType.
+     * @param {DocumentTypeDeleteArgs} args - Arguments to delete one DocumentType.
+     * @example
+     * // Delete one DocumentType
+     * const DocumentType = await prisma.documentType.delete({
+     *   where: {
+     *     // ... filter to delete one DocumentType
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DocumentTypeDeleteArgs>(args: SelectSubset<T, DocumentTypeDeleteArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one DocumentType.
+     * @param {DocumentTypeUpdateArgs} args - Arguments to update one DocumentType.
+     * @example
+     * // Update one DocumentType
+     * const documentType = await prisma.documentType.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DocumentTypeUpdateArgs>(args: SelectSubset<T, DocumentTypeUpdateArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more DocumentTypes.
+     * @param {DocumentTypeDeleteManyArgs} args - Arguments to filter DocumentTypes to delete.
+     * @example
+     * // Delete a few DocumentTypes
+     * const { count } = await prisma.documentType.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DocumentTypeDeleteManyArgs>(args?: SelectSubset<T, DocumentTypeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DocumentTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DocumentTypes
+     * const documentType = await prisma.documentType.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DocumentTypeUpdateManyArgs>(args: SelectSubset<T, DocumentTypeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DocumentType.
+     * @param {DocumentTypeUpsertArgs} args - Arguments to update or create a DocumentType.
+     * @example
+     * // Update or create a DocumentType
+     * const documentType = await prisma.documentType.upsert({
+     *   create: {
+     *     // ... data to create a DocumentType
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DocumentType we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DocumentTypeUpsertArgs>(args: SelectSubset<T, DocumentTypeUpsertArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of DocumentTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeCountArgs} args - Arguments to filter DocumentTypes to count.
+     * @example
+     * // Count the number of DocumentTypes
+     * const count = await prisma.documentType.count({
+     *   where: {
+     *     // ... the filter for the DocumentTypes we want to count
+     *   }
+     * })
+    **/
+    count<T extends DocumentTypeCountArgs>(
+      args?: Subset<T, DocumentTypeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DocumentTypeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DocumentType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DocumentTypeAggregateArgs>(args: Subset<T, DocumentTypeAggregateArgs>): Prisma.PrismaPromise<GetDocumentTypeAggregateType<T>>
+
+    /**
+     * Group by DocumentType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DocumentTypeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DocumentTypeGroupByArgs['orderBy'] }
+        : { orderBy?: DocumentTypeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DocumentTypeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentTypeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DocumentType model
+   */
+  readonly fields: DocumentTypeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DocumentType.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DocumentTypeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    Insurers<T extends InsurersDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InsurersDefaultArgs<ExtArgs>>): Prisma__InsurersClient<$Result.GetResult<Prisma.$InsurersPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DocumentType model
+   */ 
+  interface DocumentTypeFieldRefs {
+    readonly id: FieldRef<"DocumentType", 'Int'>
+    readonly documenttypecode: FieldRef<"DocumentType", 'String'>
+    readonly documenttypename: FieldRef<"DocumentType", 'String'>
+    readonly insurerid: FieldRef<"DocumentType", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DocumentType findUnique
+   */
+  export type DocumentTypeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which DocumentType to fetch.
+     */
+    where: DocumentTypeWhereUniqueInput
+  }
+
+  /**
+   * DocumentType findUniqueOrThrow
+   */
+  export type DocumentTypeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which DocumentType to fetch.
+     */
+    where: DocumentTypeWhereUniqueInput
+  }
+
+  /**
+   * DocumentType findFirst
+   */
+  export type DocumentTypeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which DocumentType to fetch.
+     */
+    where?: DocumentTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DocumentTypes to fetch.
+     */
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DocumentTypes.
+     */
+    cursor?: DocumentTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DocumentTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DocumentTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DocumentTypes.
+     */
+    distinct?: DocumentTypeScalarFieldEnum | DocumentTypeScalarFieldEnum[]
+  }
+
+  /**
+   * DocumentType findFirstOrThrow
+   */
+  export type DocumentTypeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which DocumentType to fetch.
+     */
+    where?: DocumentTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DocumentTypes to fetch.
+     */
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DocumentTypes.
+     */
+    cursor?: DocumentTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DocumentTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DocumentTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DocumentTypes.
+     */
+    distinct?: DocumentTypeScalarFieldEnum | DocumentTypeScalarFieldEnum[]
+  }
+
+  /**
+   * DocumentType findMany
+   */
+  export type DocumentTypeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * Filter, which DocumentTypes to fetch.
+     */
+    where?: DocumentTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DocumentTypes to fetch.
+     */
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DocumentTypes.
+     */
+    cursor?: DocumentTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DocumentTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DocumentTypes.
+     */
+    skip?: number
+    distinct?: DocumentTypeScalarFieldEnum | DocumentTypeScalarFieldEnum[]
+  }
+
+  /**
+   * DocumentType create
+   */
+  export type DocumentTypeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to create a DocumentType.
+     */
+    data: XOR<DocumentTypeCreateInput, DocumentTypeUncheckedCreateInput>
+  }
+
+  /**
+   * DocumentType createMany
+   */
+  export type DocumentTypeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DocumentTypes.
+     */
+    data: DocumentTypeCreateManyInput | DocumentTypeCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * DocumentType createManyAndReturn
+   */
+  export type DocumentTypeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many DocumentTypes.
+     */
+    data: DocumentTypeCreateManyInput | DocumentTypeCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * DocumentType update
+   */
+  export type DocumentTypeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * The data needed to update a DocumentType.
+     */
+    data: XOR<DocumentTypeUpdateInput, DocumentTypeUncheckedUpdateInput>
+    /**
+     * Choose, which DocumentType to update.
+     */
+    where: DocumentTypeWhereUniqueInput
+  }
+
+  /**
+   * DocumentType updateMany
+   */
+  export type DocumentTypeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DocumentTypes.
+     */
+    data: XOR<DocumentTypeUpdateManyMutationInput, DocumentTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which DocumentTypes to update
+     */
+    where?: DocumentTypeWhereInput
+  }
+
+  /**
+   * DocumentType upsert
+   */
+  export type DocumentTypeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * The filter to search for the DocumentType to update in case it exists.
+     */
+    where: DocumentTypeWhereUniqueInput
+    /**
+     * In case the DocumentType found by the `where` argument doesn't exist, create a new DocumentType with this data.
+     */
+    create: XOR<DocumentTypeCreateInput, DocumentTypeUncheckedCreateInput>
+    /**
+     * In case the DocumentType was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DocumentTypeUpdateInput, DocumentTypeUncheckedUpdateInput>
+  }
+
+  /**
+   * DocumentType delete
+   */
+  export type DocumentTypeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+    /**
+     * Filter which DocumentType to delete.
+     */
+    where: DocumentTypeWhereUniqueInput
+  }
+
+  /**
+   * DocumentType deleteMany
+   */
+  export type DocumentTypeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DocumentTypes to delete
+     */
+    where?: DocumentTypeWhereInput
+  }
+
+  /**
+   * DocumentType without action
+   */
+  export type DocumentTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DocumentTypeInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -18190,6 +20378,36 @@ export namespace Prisma {
   export type Transactionclaim2ScalarFieldEnum = (typeof Transactionclaim2ScalarFieldEnum)[keyof typeof Transactionclaim2ScalarFieldEnum]
 
 
+  export const ClaimDocumentsScalarFieldEnum: {
+    id: 'id',
+    hn: 'hn',
+    vn: 'vn',
+    refid: 'refid',
+    transactionno: 'transactionno',
+    documenttypecode: 'documenttypecode',
+    documenttypename: 'documenttypename',
+    filepath: 'filepath',
+    filesize: 'filesize',
+    filemimetype: 'filemimetype',
+    serverpath: 'serverpath',
+    uploaddate: 'uploaddate',
+    uploadedby: 'uploadedby',
+    documentname: 'documentname'
+  };
+
+  export type ClaimDocumentsScalarFieldEnum = (typeof ClaimDocumentsScalarFieldEnum)[keyof typeof ClaimDocumentsScalarFieldEnum]
+
+
+  export const DocumentTypeScalarFieldEnum: {
+    id: 'id',
+    documenttypecode: 'documenttypecode',
+    documenttypename: 'documenttypename',
+    insurerid: 'insurerid'
+  };
+
+  export type DocumentTypeScalarFieldEnum = (typeof DocumentTypeScalarFieldEnum)[keyof typeof DocumentTypeScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -18279,6 +20497,20 @@ export namespace Prisma {
    * Reference to a field of type 'Decimal[]'
    */
   export type ListDecimalFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Decimal[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt'
+   */
+  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
+    
+
+
+  /**
+   * Reference to a field of type 'BigInt[]'
+   */
+  export type ListBigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt[]'>
     
 
 
@@ -18717,6 +20949,7 @@ export namespace Prisma {
     registrationdate?: DateTimeNullableFilter<"Insurers"> | Date | string | null
     ClaimStatus?: ClaimStatusListRelationFilter
     Claimants?: ClaimantsListRelationFilter
+    DocumentType?: DocumentTypeListRelationFilter
     IllnessSurgery?: IllnessSurgeryListRelationFilter
     IllnessType?: IllnessTypeListRelationFilter
     PolicyType?: PolicyTypeListRelationFilter
@@ -18731,6 +20964,7 @@ export namespace Prisma {
     registrationdate?: SortOrderInput | SortOrder
     ClaimStatus?: ClaimStatusOrderByRelationAggregateInput
     Claimants?: ClaimantsOrderByRelationAggregateInput
+    DocumentType?: DocumentTypeOrderByRelationAggregateInput
     IllnessSurgery?: IllnessSurgeryOrderByRelationAggregateInput
     IllnessType?: IllnessTypeOrderByRelationAggregateInput
     PolicyType?: PolicyTypeOrderByRelationAggregateInput
@@ -18748,6 +20982,7 @@ export namespace Prisma {
     registrationdate?: DateTimeNullableFilter<"Insurers"> | Date | string | null
     ClaimStatus?: ClaimStatusListRelationFilter
     Claimants?: ClaimantsListRelationFilter
+    DocumentType?: DocumentTypeListRelationFilter
     IllnessSurgery?: IllnessSurgeryListRelationFilter
     IllnessType?: IllnessTypeListRelationFilter
     PolicyType?: PolicyTypeListRelationFilter
@@ -19513,6 +21748,157 @@ export namespace Prisma {
     visitdate?: StringNullableWithAggregatesFilter<"transactionclaim2"> | string | null
   }
 
+  export type ClaimDocumentsWhereInput = {
+    AND?: ClaimDocumentsWhereInput | ClaimDocumentsWhereInput[]
+    OR?: ClaimDocumentsWhereInput[]
+    NOT?: ClaimDocumentsWhereInput | ClaimDocumentsWhereInput[]
+    id?: IntFilter<"ClaimDocuments"> | number
+    hn?: StringFilter<"ClaimDocuments"> | string
+    vn?: StringFilter<"ClaimDocuments"> | string
+    refid?: StringFilter<"ClaimDocuments"> | string
+    transactionno?: StringFilter<"ClaimDocuments"> | string
+    documenttypecode?: StringFilter<"ClaimDocuments"> | string
+    documenttypename?: StringFilter<"ClaimDocuments"> | string
+    filepath?: StringFilter<"ClaimDocuments"> | string
+    filesize?: BigIntNullableFilter<"ClaimDocuments"> | bigint | number | null
+    filemimetype?: StringNullableFilter<"ClaimDocuments"> | string | null
+    serverpath?: StringNullableFilter<"ClaimDocuments"> | string | null
+    uploaddate?: DateTimeNullableFilter<"ClaimDocuments"> | Date | string | null
+    uploadedby?: StringNullableFilter<"ClaimDocuments"> | string | null
+    documentname?: StringFilter<"ClaimDocuments"> | string
+  }
+
+  export type ClaimDocumentsOrderByWithRelationInput = {
+    id?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    filepath?: SortOrder
+    filesize?: SortOrderInput | SortOrder
+    filemimetype?: SortOrderInput | SortOrder
+    serverpath?: SortOrderInput | SortOrder
+    uploaddate?: SortOrderInput | SortOrder
+    uploadedby?: SortOrderInput | SortOrder
+    documentname?: SortOrder
+  }
+
+  export type ClaimDocumentsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ClaimDocumentsWhereInput | ClaimDocumentsWhereInput[]
+    OR?: ClaimDocumentsWhereInput[]
+    NOT?: ClaimDocumentsWhereInput | ClaimDocumentsWhereInput[]
+    hn?: StringFilter<"ClaimDocuments"> | string
+    vn?: StringFilter<"ClaimDocuments"> | string
+    refid?: StringFilter<"ClaimDocuments"> | string
+    transactionno?: StringFilter<"ClaimDocuments"> | string
+    documenttypecode?: StringFilter<"ClaimDocuments"> | string
+    documenttypename?: StringFilter<"ClaimDocuments"> | string
+    filepath?: StringFilter<"ClaimDocuments"> | string
+    filesize?: BigIntNullableFilter<"ClaimDocuments"> | bigint | number | null
+    filemimetype?: StringNullableFilter<"ClaimDocuments"> | string | null
+    serverpath?: StringNullableFilter<"ClaimDocuments"> | string | null
+    uploaddate?: DateTimeNullableFilter<"ClaimDocuments"> | Date | string | null
+    uploadedby?: StringNullableFilter<"ClaimDocuments"> | string | null
+    documentname?: StringFilter<"ClaimDocuments"> | string
+  }, "id">
+
+  export type ClaimDocumentsOrderByWithAggregationInput = {
+    id?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    filepath?: SortOrder
+    filesize?: SortOrderInput | SortOrder
+    filemimetype?: SortOrderInput | SortOrder
+    serverpath?: SortOrderInput | SortOrder
+    uploaddate?: SortOrderInput | SortOrder
+    uploadedby?: SortOrderInput | SortOrder
+    documentname?: SortOrder
+    _count?: ClaimDocumentsCountOrderByAggregateInput
+    _avg?: ClaimDocumentsAvgOrderByAggregateInput
+    _max?: ClaimDocumentsMaxOrderByAggregateInput
+    _min?: ClaimDocumentsMinOrderByAggregateInput
+    _sum?: ClaimDocumentsSumOrderByAggregateInput
+  }
+
+  export type ClaimDocumentsScalarWhereWithAggregatesInput = {
+    AND?: ClaimDocumentsScalarWhereWithAggregatesInput | ClaimDocumentsScalarWhereWithAggregatesInput[]
+    OR?: ClaimDocumentsScalarWhereWithAggregatesInput[]
+    NOT?: ClaimDocumentsScalarWhereWithAggregatesInput | ClaimDocumentsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ClaimDocuments"> | number
+    hn?: StringWithAggregatesFilter<"ClaimDocuments"> | string
+    vn?: StringWithAggregatesFilter<"ClaimDocuments"> | string
+    refid?: StringWithAggregatesFilter<"ClaimDocuments"> | string
+    transactionno?: StringWithAggregatesFilter<"ClaimDocuments"> | string
+    documenttypecode?: StringWithAggregatesFilter<"ClaimDocuments"> | string
+    documenttypename?: StringWithAggregatesFilter<"ClaimDocuments"> | string
+    filepath?: StringWithAggregatesFilter<"ClaimDocuments"> | string
+    filesize?: BigIntNullableWithAggregatesFilter<"ClaimDocuments"> | bigint | number | null
+    filemimetype?: StringNullableWithAggregatesFilter<"ClaimDocuments"> | string | null
+    serverpath?: StringNullableWithAggregatesFilter<"ClaimDocuments"> | string | null
+    uploaddate?: DateTimeNullableWithAggregatesFilter<"ClaimDocuments"> | Date | string | null
+    uploadedby?: StringNullableWithAggregatesFilter<"ClaimDocuments"> | string | null
+    documentname?: StringWithAggregatesFilter<"ClaimDocuments"> | string
+  }
+
+  export type DocumentTypeWhereInput = {
+    AND?: DocumentTypeWhereInput | DocumentTypeWhereInput[]
+    OR?: DocumentTypeWhereInput[]
+    NOT?: DocumentTypeWhereInput | DocumentTypeWhereInput[]
+    id?: IntFilter<"DocumentType"> | number
+    documenttypecode?: StringFilter<"DocumentType"> | string
+    documenttypename?: StringFilter<"DocumentType"> | string
+    insurerid?: IntFilter<"DocumentType"> | number
+    Insurers?: XOR<InsurersRelationFilter, InsurersWhereInput>
+  }
+
+  export type DocumentTypeOrderByWithRelationInput = {
+    id?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    insurerid?: SortOrder
+    Insurers?: InsurersOrderByWithRelationInput
+  }
+
+  export type DocumentTypeWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: DocumentTypeWhereInput | DocumentTypeWhereInput[]
+    OR?: DocumentTypeWhereInput[]
+    NOT?: DocumentTypeWhereInput | DocumentTypeWhereInput[]
+    documenttypecode?: StringFilter<"DocumentType"> | string
+    documenttypename?: StringFilter<"DocumentType"> | string
+    insurerid?: IntFilter<"DocumentType"> | number
+    Insurers?: XOR<InsurersRelationFilter, InsurersWhereInput>
+  }, "id">
+
+  export type DocumentTypeOrderByWithAggregationInput = {
+    id?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    insurerid?: SortOrder
+    _count?: DocumentTypeCountOrderByAggregateInput
+    _avg?: DocumentTypeAvgOrderByAggregateInput
+    _max?: DocumentTypeMaxOrderByAggregateInput
+    _min?: DocumentTypeMinOrderByAggregateInput
+    _sum?: DocumentTypeSumOrderByAggregateInput
+  }
+
+  export type DocumentTypeScalarWhereWithAggregatesInput = {
+    AND?: DocumentTypeScalarWhereWithAggregatesInput | DocumentTypeScalarWhereWithAggregatesInput[]
+    OR?: DocumentTypeScalarWhereWithAggregatesInput[]
+    NOT?: DocumentTypeScalarWhereWithAggregatesInput | DocumentTypeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DocumentType"> | number
+    documenttypecode?: StringWithAggregatesFilter<"DocumentType"> | string
+    documenttypename?: StringWithAggregatesFilter<"DocumentType"> | string
+    insurerid?: IntWithAggregatesFilter<"DocumentType"> | number
+  }
+
   export type ClaimStatusCreateInput = {
     StatusCode: string
     StatusDescTH?: string | null
@@ -19920,6 +22306,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeCreateNestedManyWithoutInsurersInput
@@ -19934,6 +22321,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusUncheckedCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsUncheckedCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeUncheckedCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeUncheckedCreateNestedManyWithoutInsurersInput
@@ -19948,6 +22336,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUpdateManyWithoutInsurersNestedInput
@@ -19962,6 +22351,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUncheckedUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUncheckedUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUncheckedUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUncheckedUpdateManyWithoutInsurersNestedInput
@@ -20787,6 +23177,167 @@ export namespace Prisma {
     visitdate?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type ClaimDocumentsCreateInput = {
+    hn: string
+    vn: string
+    refid: string
+    transactionno: string
+    documenttypecode: string
+    documenttypename: string
+    filepath: string
+    filesize?: bigint | number | null
+    filemimetype?: string | null
+    serverpath?: string | null
+    uploaddate?: Date | string | null
+    uploadedby?: string | null
+    documentname: string
+  }
+
+  export type ClaimDocumentsUncheckedCreateInput = {
+    id?: number
+    hn: string
+    vn: string
+    refid: string
+    transactionno: string
+    documenttypecode: string
+    documenttypename: string
+    filepath: string
+    filesize?: bigint | number | null
+    filemimetype?: string | null
+    serverpath?: string | null
+    uploaddate?: Date | string | null
+    uploadedby?: string | null
+    documentname: string
+  }
+
+  export type ClaimDocumentsUpdateInput = {
+    hn?: StringFieldUpdateOperationsInput | string
+    vn?: StringFieldUpdateOperationsInput | string
+    refid?: StringFieldUpdateOperationsInput | string
+    transactionno?: StringFieldUpdateOperationsInput | string
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+    filepath?: StringFieldUpdateOperationsInput | string
+    filesize?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    filemimetype?: NullableStringFieldUpdateOperationsInput | string | null
+    serverpath?: NullableStringFieldUpdateOperationsInput | string | null
+    uploaddate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    uploadedby?: NullableStringFieldUpdateOperationsInput | string | null
+    documentname?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ClaimDocumentsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hn?: StringFieldUpdateOperationsInput | string
+    vn?: StringFieldUpdateOperationsInput | string
+    refid?: StringFieldUpdateOperationsInput | string
+    transactionno?: StringFieldUpdateOperationsInput | string
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+    filepath?: StringFieldUpdateOperationsInput | string
+    filesize?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    filemimetype?: NullableStringFieldUpdateOperationsInput | string | null
+    serverpath?: NullableStringFieldUpdateOperationsInput | string | null
+    uploaddate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    uploadedby?: NullableStringFieldUpdateOperationsInput | string | null
+    documentname?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ClaimDocumentsCreateManyInput = {
+    id?: number
+    hn: string
+    vn: string
+    refid: string
+    transactionno: string
+    documenttypecode: string
+    documenttypename: string
+    filepath: string
+    filesize?: bigint | number | null
+    filemimetype?: string | null
+    serverpath?: string | null
+    uploaddate?: Date | string | null
+    uploadedby?: string | null
+    documentname: string
+  }
+
+  export type ClaimDocumentsUpdateManyMutationInput = {
+    hn?: StringFieldUpdateOperationsInput | string
+    vn?: StringFieldUpdateOperationsInput | string
+    refid?: StringFieldUpdateOperationsInput | string
+    transactionno?: StringFieldUpdateOperationsInput | string
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+    filepath?: StringFieldUpdateOperationsInput | string
+    filesize?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    filemimetype?: NullableStringFieldUpdateOperationsInput | string | null
+    serverpath?: NullableStringFieldUpdateOperationsInput | string | null
+    uploaddate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    uploadedby?: NullableStringFieldUpdateOperationsInput | string | null
+    documentname?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ClaimDocumentsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    hn?: StringFieldUpdateOperationsInput | string
+    vn?: StringFieldUpdateOperationsInput | string
+    refid?: StringFieldUpdateOperationsInput | string
+    transactionno?: StringFieldUpdateOperationsInput | string
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+    filepath?: StringFieldUpdateOperationsInput | string
+    filesize?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
+    filemimetype?: NullableStringFieldUpdateOperationsInput | string | null
+    serverpath?: NullableStringFieldUpdateOperationsInput | string | null
+    uploaddate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    uploadedby?: NullableStringFieldUpdateOperationsInput | string | null
+    documentname?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DocumentTypeCreateInput = {
+    documenttypecode: string
+    documenttypename: string
+    Insurers: InsurersCreateNestedOneWithoutDocumentTypeInput
+  }
+
+  export type DocumentTypeUncheckedCreateInput = {
+    id?: number
+    documenttypecode: string
+    documenttypename: string
+    insurerid: number
+  }
+
+  export type DocumentTypeUpdateInput = {
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+    Insurers?: InsurersUpdateOneRequiredWithoutDocumentTypeNestedInput
+  }
+
+  export type DocumentTypeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+    insurerid?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type DocumentTypeCreateManyInput = {
+    id?: number
+    documenttypecode: string
+    documenttypename: string
+    insurerid: number
+  }
+
+  export type DocumentTypeUpdateManyMutationInput = {
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DocumentTypeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+    insurerid?: IntFieldUpdateOperationsInput | number
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -21247,6 +23798,12 @@ export namespace Prisma {
     none?: ClaimantsWhereInput
   }
 
+  export type DocumentTypeListRelationFilter = {
+    every?: DocumentTypeWhereInput
+    some?: DocumentTypeWhereInput
+    none?: DocumentTypeWhereInput
+  }
+
   export type IllnessSurgeryListRelationFilter = {
     every?: IllnessSurgeryWhereInput
     some?: IllnessSurgeryWhereInput
@@ -21276,6 +23833,10 @@ export namespace Prisma {
   }
 
   export type ClaimantsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type DocumentTypeOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -21823,6 +24384,130 @@ export namespace Prisma {
     totalexcessamount?: SortOrder
   }
 
+  export type BigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
+  export type ClaimDocumentsCountOrderByAggregateInput = {
+    id?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    filepath?: SortOrder
+    filesize?: SortOrder
+    filemimetype?: SortOrder
+    serverpath?: SortOrder
+    uploaddate?: SortOrder
+    uploadedby?: SortOrder
+    documentname?: SortOrder
+  }
+
+  export type ClaimDocumentsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    filesize?: SortOrder
+  }
+
+  export type ClaimDocumentsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    filepath?: SortOrder
+    filesize?: SortOrder
+    filemimetype?: SortOrder
+    serverpath?: SortOrder
+    uploaddate?: SortOrder
+    uploadedby?: SortOrder
+    documentname?: SortOrder
+  }
+
+  export type ClaimDocumentsMinOrderByAggregateInput = {
+    id?: SortOrder
+    hn?: SortOrder
+    vn?: SortOrder
+    refid?: SortOrder
+    transactionno?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    filepath?: SortOrder
+    filesize?: SortOrder
+    filemimetype?: SortOrder
+    serverpath?: SortOrder
+    uploaddate?: SortOrder
+    uploadedby?: SortOrder
+    documentname?: SortOrder
+  }
+
+  export type ClaimDocumentsSumOrderByAggregateInput = {
+    id?: SortOrder
+    filesize?: SortOrder
+  }
+
+  export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
+  export type InsurersRelationFilter = {
+    is?: InsurersWhereInput
+    isNot?: InsurersWhereInput
+  }
+
+  export type DocumentTypeCountOrderByAggregateInput = {
+    id?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    insurerid?: SortOrder
+  }
+
+  export type DocumentTypeAvgOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+  }
+
+  export type DocumentTypeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    insurerid?: SortOrder
+  }
+
+  export type DocumentTypeMinOrderByAggregateInput = {
+    id?: SortOrder
+    documenttypecode?: SortOrder
+    documenttypename?: SortOrder
+    insurerid?: SortOrder
+  }
+
+  export type DocumentTypeSumOrderByAggregateInput = {
+    id?: SortOrder
+    insurerid?: SortOrder
+  }
+
   export type InsurersCreateNestedOneWithoutClaimStatusInput = {
     create?: XOR<InsurersCreateWithoutClaimStatusInput, InsurersUncheckedCreateWithoutClaimStatusInput>
     connectOrCreate?: InsurersCreateOrConnectWithoutClaimStatusInput
@@ -22301,6 +24986,13 @@ export namespace Prisma {
     connect?: ClaimantsWhereUniqueInput | ClaimantsWhereUniqueInput[]
   }
 
+  export type DocumentTypeCreateNestedManyWithoutInsurersInput = {
+    create?: XOR<DocumentTypeCreateWithoutInsurersInput, DocumentTypeUncheckedCreateWithoutInsurersInput> | DocumentTypeCreateWithoutInsurersInput[] | DocumentTypeUncheckedCreateWithoutInsurersInput[]
+    connectOrCreate?: DocumentTypeCreateOrConnectWithoutInsurersInput | DocumentTypeCreateOrConnectWithoutInsurersInput[]
+    createMany?: DocumentTypeCreateManyInsurersInputEnvelope
+    connect?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+  }
+
   export type IllnessSurgeryCreateNestedManyWithoutInsurersInput = {
     create?: XOR<IllnessSurgeryCreateWithoutInsurersInput, IllnessSurgeryUncheckedCreateWithoutInsurersInput> | IllnessSurgeryCreateWithoutInsurersInput[] | IllnessSurgeryUncheckedCreateWithoutInsurersInput[]
     connectOrCreate?: IllnessSurgeryCreateOrConnectWithoutInsurersInput | IllnessSurgeryCreateOrConnectWithoutInsurersInput[]
@@ -22348,6 +25040,13 @@ export namespace Prisma {
     connectOrCreate?: ClaimantsCreateOrConnectWithoutInsurersInput | ClaimantsCreateOrConnectWithoutInsurersInput[]
     createMany?: ClaimantsCreateManyInsurersInputEnvelope
     connect?: ClaimantsWhereUniqueInput | ClaimantsWhereUniqueInput[]
+  }
+
+  export type DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput = {
+    create?: XOR<DocumentTypeCreateWithoutInsurersInput, DocumentTypeUncheckedCreateWithoutInsurersInput> | DocumentTypeCreateWithoutInsurersInput[] | DocumentTypeUncheckedCreateWithoutInsurersInput[]
+    connectOrCreate?: DocumentTypeCreateOrConnectWithoutInsurersInput | DocumentTypeCreateOrConnectWithoutInsurersInput[]
+    createMany?: DocumentTypeCreateManyInsurersInputEnvelope
+    connect?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
   }
 
   export type IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput = {
@@ -22411,6 +25110,20 @@ export namespace Prisma {
     update?: ClaimantsUpdateWithWhereUniqueWithoutInsurersInput | ClaimantsUpdateWithWhereUniqueWithoutInsurersInput[]
     updateMany?: ClaimantsUpdateManyWithWhereWithoutInsurersInput | ClaimantsUpdateManyWithWhereWithoutInsurersInput[]
     deleteMany?: ClaimantsScalarWhereInput | ClaimantsScalarWhereInput[]
+  }
+
+  export type DocumentTypeUpdateManyWithoutInsurersNestedInput = {
+    create?: XOR<DocumentTypeCreateWithoutInsurersInput, DocumentTypeUncheckedCreateWithoutInsurersInput> | DocumentTypeCreateWithoutInsurersInput[] | DocumentTypeUncheckedCreateWithoutInsurersInput[]
+    connectOrCreate?: DocumentTypeCreateOrConnectWithoutInsurersInput | DocumentTypeCreateOrConnectWithoutInsurersInput[]
+    upsert?: DocumentTypeUpsertWithWhereUniqueWithoutInsurersInput | DocumentTypeUpsertWithWhereUniqueWithoutInsurersInput[]
+    createMany?: DocumentTypeCreateManyInsurersInputEnvelope
+    set?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+    disconnect?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+    delete?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+    connect?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+    update?: DocumentTypeUpdateWithWhereUniqueWithoutInsurersInput | DocumentTypeUpdateWithWhereUniqueWithoutInsurersInput[]
+    updateMany?: DocumentTypeUpdateManyWithWhereWithoutInsurersInput | DocumentTypeUpdateManyWithWhereWithoutInsurersInput[]
+    deleteMany?: DocumentTypeScalarWhereInput | DocumentTypeScalarWhereInput[]
   }
 
   export type IllnessSurgeryUpdateManyWithoutInsurersNestedInput = {
@@ -22509,6 +25222,20 @@ export namespace Prisma {
     update?: ClaimantsUpdateWithWhereUniqueWithoutInsurersInput | ClaimantsUpdateWithWhereUniqueWithoutInsurersInput[]
     updateMany?: ClaimantsUpdateManyWithWhereWithoutInsurersInput | ClaimantsUpdateManyWithWhereWithoutInsurersInput[]
     deleteMany?: ClaimantsScalarWhereInput | ClaimantsScalarWhereInput[]
+  }
+
+  export type DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput = {
+    create?: XOR<DocumentTypeCreateWithoutInsurersInput, DocumentTypeUncheckedCreateWithoutInsurersInput> | DocumentTypeCreateWithoutInsurersInput[] | DocumentTypeUncheckedCreateWithoutInsurersInput[]
+    connectOrCreate?: DocumentTypeCreateOrConnectWithoutInsurersInput | DocumentTypeCreateOrConnectWithoutInsurersInput[]
+    upsert?: DocumentTypeUpsertWithWhereUniqueWithoutInsurersInput | DocumentTypeUpsertWithWhereUniqueWithoutInsurersInput[]
+    createMany?: DocumentTypeCreateManyInsurersInputEnvelope
+    set?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+    disconnect?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+    delete?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+    connect?: DocumentTypeWhereUniqueInput | DocumentTypeWhereUniqueInput[]
+    update?: DocumentTypeUpdateWithWhereUniqueWithoutInsurersInput | DocumentTypeUpdateWithWhereUniqueWithoutInsurersInput[]
+    updateMany?: DocumentTypeUpdateManyWithWhereWithoutInsurersInput | DocumentTypeUpdateManyWithWhereWithoutInsurersInput[]
+    deleteMany?: DocumentTypeScalarWhereInput | DocumentTypeScalarWhereInput[]
   }
 
   export type IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput = {
@@ -22731,6 +25458,28 @@ export namespace Prisma {
     update?: XOR<XOR<ClaimStatusUpdateToOneWithWhereWithoutTransactionclaim2Input, ClaimStatusUpdateWithoutTransactionclaim2Input>, ClaimStatusUncheckedUpdateWithoutTransactionclaim2Input>
   }
 
+  export type NullableBigIntFieldUpdateOperationsInput = {
+    set?: bigint | number | null
+    increment?: bigint | number
+    decrement?: bigint | number
+    multiply?: bigint | number
+    divide?: bigint | number
+  }
+
+  export type InsurersCreateNestedOneWithoutDocumentTypeInput = {
+    create?: XOR<InsurersCreateWithoutDocumentTypeInput, InsurersUncheckedCreateWithoutDocumentTypeInput>
+    connectOrCreate?: InsurersCreateOrConnectWithoutDocumentTypeInput
+    connect?: InsurersWhereUniqueInput
+  }
+
+  export type InsurersUpdateOneRequiredWithoutDocumentTypeNestedInput = {
+    create?: XOR<InsurersCreateWithoutDocumentTypeInput, InsurersUncheckedCreateWithoutDocumentTypeInput>
+    connectOrCreate?: InsurersCreateOrConnectWithoutDocumentTypeInput
+    upsert?: InsurersUpsertWithoutDocumentTypeInput
+    connect?: InsurersWhereUniqueInput
+    update?: XOR<XOR<InsurersUpdateToOneWithWhereWithoutDocumentTypeInput, InsurersUpdateWithoutDocumentTypeInput>, InsurersUncheckedUpdateWithoutDocumentTypeInput>
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -22934,12 +25683,40 @@ export namespace Prisma {
     _max?: NestedDecimalNullableFilter<$PrismaModel>
   }
 
+  export type NestedBigIntNullableFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
+  }
+
+  export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
+    in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    notIn?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
+    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
+    not?: NestedBigIntNullableWithAggregatesFilter<$PrismaModel> | bigint | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedBigIntNullableFilter<$PrismaModel>
+    _min?: NestedBigIntNullableFilter<$PrismaModel>
+    _max?: NestedBigIntNullableFilter<$PrismaModel>
+  }
+
   export type InsurersCreateWithoutClaimStatusInput = {
     insurerid: number
     insurercode?: number | null
     insurername?: string | null
     registrationdate?: Date | string | null
     Claimants?: ClaimantsCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeCreateNestedManyWithoutInsurersInput
@@ -22953,6 +25730,7 @@ export namespace Prisma {
     insurername?: string | null
     registrationdate?: Date | string | null
     Claimants?: ClaimantsUncheckedCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeUncheckedCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeUncheckedCreateNestedManyWithoutInsurersInput
@@ -23186,6 +25964,7 @@ export namespace Prisma {
     insurername?: NullableStringFieldUpdateOperationsInput | string | null
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Claimants?: ClaimantsUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUpdateManyWithoutInsurersNestedInput
@@ -23199,6 +25978,7 @@ export namespace Prisma {
     insurername?: NullableStringFieldUpdateOperationsInput | string | null
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     Claimants?: ClaimantsUncheckedUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUncheckedUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUncheckedUpdateManyWithoutInsurersNestedInput
@@ -23380,6 +26160,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeCreateNestedManyWithoutInsurersInput
     ServiceSetting?: ServiceSettingCreateNestedManyWithoutInsurersInput
@@ -23393,6 +26174,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusUncheckedCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsUncheckedCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeUncheckedCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeUncheckedCreateNestedManyWithoutInsurersInput
     ServiceSetting?: ServiceSettingUncheckedCreateNestedManyWithoutInsurersInput
@@ -23422,6 +26204,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUpdateManyWithoutInsurersNestedInput
     ServiceSetting?: ServiceSettingUpdateManyWithoutInsurersNestedInput
@@ -23435,6 +26218,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUncheckedUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUncheckedUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUncheckedUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUncheckedUpdateManyWithoutInsurersNestedInput
     ServiceSetting?: ServiceSettingUncheckedUpdateManyWithoutInsurersNestedInput
@@ -23448,6 +26232,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeCreateNestedManyWithoutInsurersInput
     ServiceSetting?: ServiceSettingCreateNestedManyWithoutInsurersInput
@@ -23461,6 +26246,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusUncheckedCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsUncheckedCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeUncheckedCreateNestedManyWithoutInsurersInput
     ServiceSetting?: ServiceSettingUncheckedCreateNestedManyWithoutInsurersInput
@@ -23490,6 +26276,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUpdateManyWithoutInsurersNestedInput
     ServiceSetting?: ServiceSettingUpdateManyWithoutInsurersNestedInput
@@ -23503,6 +26290,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUncheckedUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUncheckedUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUncheckedUpdateManyWithoutInsurersNestedInput
     ServiceSetting?: ServiceSettingUncheckedUpdateManyWithoutInsurersNestedInput
@@ -23516,6 +26304,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeCreateNestedManyWithoutInsurersInput
     ServiceSetting?: ServiceSettingCreateNestedManyWithoutInsurersInput
@@ -23529,6 +26318,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusUncheckedCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsUncheckedCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeUncheckedCreateNestedManyWithoutInsurersInput
     ServiceSetting?: ServiceSettingUncheckedCreateNestedManyWithoutInsurersInput
@@ -23558,6 +26348,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUpdateManyWithoutInsurersNestedInput
     ServiceSetting?: ServiceSettingUpdateManyWithoutInsurersNestedInput
@@ -23571,6 +26362,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUncheckedUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUncheckedUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUncheckedUpdateManyWithoutInsurersNestedInput
     ServiceSetting?: ServiceSettingUncheckedUpdateManyWithoutInsurersNestedInput
@@ -23584,6 +26376,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeCreateNestedManyWithoutInsurersInput
@@ -23597,6 +26390,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusUncheckedCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsUncheckedCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeUncheckedCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeUncheckedCreateNestedManyWithoutInsurersInput
@@ -23626,6 +26420,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUpdateManyWithoutInsurersNestedInput
@@ -23639,6 +26434,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUncheckedUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUncheckedUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUncheckedUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUncheckedUpdateManyWithoutInsurersNestedInput
@@ -23651,6 +26447,7 @@ export namespace Prisma {
     insurername?: string | null
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeCreateNestedManyWithoutInsurersInput
@@ -23664,6 +26461,7 @@ export namespace Prisma {
     insurername?: string | null
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusUncheckedCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeUncheckedCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeUncheckedCreateNestedManyWithoutInsurersInput
@@ -23896,6 +26694,7 @@ export namespace Prisma {
     insurername?: NullableStringFieldUpdateOperationsInput | string | null
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUpdateManyWithoutInsurersNestedInput
@@ -23909,6 +26708,7 @@ export namespace Prisma {
     insurername?: NullableStringFieldUpdateOperationsInput | string | null
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUncheckedUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUncheckedUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUncheckedUpdateManyWithoutInsurersNestedInput
@@ -24063,6 +26863,27 @@ export namespace Prisma {
 
   export type ClaimantsCreateManyInsurersInputEnvelope = {
     data: ClaimantsCreateManyInsurersInput | ClaimantsCreateManyInsurersInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type DocumentTypeCreateWithoutInsurersInput = {
+    documenttypecode: string
+    documenttypename: string
+  }
+
+  export type DocumentTypeUncheckedCreateWithoutInsurersInput = {
+    id?: number
+    documenttypecode: string
+    documenttypename: string
+  }
+
+  export type DocumentTypeCreateOrConnectWithoutInsurersInput = {
+    where: DocumentTypeWhereUniqueInput
+    create: XOR<DocumentTypeCreateWithoutInsurersInput, DocumentTypeUncheckedCreateWithoutInsurersInput>
+  }
+
+  export type DocumentTypeCreateManyInsurersInputEnvelope = {
+    data: DocumentTypeCreateManyInsurersInput | DocumentTypeCreateManyInsurersInput[]
     skipDuplicates?: boolean
   }
 
@@ -24247,6 +27068,32 @@ export namespace Prisma {
     patientid?: IntNullableFilter<"Claimants"> | number | null
   }
 
+  export type DocumentTypeUpsertWithWhereUniqueWithoutInsurersInput = {
+    where: DocumentTypeWhereUniqueInput
+    update: XOR<DocumentTypeUpdateWithoutInsurersInput, DocumentTypeUncheckedUpdateWithoutInsurersInput>
+    create: XOR<DocumentTypeCreateWithoutInsurersInput, DocumentTypeUncheckedCreateWithoutInsurersInput>
+  }
+
+  export type DocumentTypeUpdateWithWhereUniqueWithoutInsurersInput = {
+    where: DocumentTypeWhereUniqueInput
+    data: XOR<DocumentTypeUpdateWithoutInsurersInput, DocumentTypeUncheckedUpdateWithoutInsurersInput>
+  }
+
+  export type DocumentTypeUpdateManyWithWhereWithoutInsurersInput = {
+    where: DocumentTypeScalarWhereInput
+    data: XOR<DocumentTypeUpdateManyMutationInput, DocumentTypeUncheckedUpdateManyWithoutInsurersInput>
+  }
+
+  export type DocumentTypeScalarWhereInput = {
+    AND?: DocumentTypeScalarWhereInput | DocumentTypeScalarWhereInput[]
+    OR?: DocumentTypeScalarWhereInput[]
+    NOT?: DocumentTypeScalarWhereInput | DocumentTypeScalarWhereInput[]
+    id?: IntFilter<"DocumentType"> | number
+    documenttypecode?: StringFilter<"DocumentType"> | string
+    documenttypename?: StringFilter<"DocumentType"> | string
+    insurerid?: IntFilter<"DocumentType"> | number
+  }
+
   export type IllnessSurgeryUpsertWithWhereUniqueWithoutInsurersInput = {
     where: IllnessSurgeryWhereUniqueInput
     update: XOR<IllnessSurgeryUpdateWithoutInsurersInput, IllnessSurgeryUncheckedUpdateWithoutInsurersInput>
@@ -24424,6 +27271,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeCreateNestedManyWithoutInsurersInput
@@ -24437,6 +27285,7 @@ export namespace Prisma {
     registrationdate?: Date | string | null
     ClaimStatus?: ClaimStatusUncheckedCreateNestedManyWithoutInsurersInput
     Claimants?: ClaimantsUncheckedCreateNestedManyWithoutInsurersInput
+    DocumentType?: DocumentTypeUncheckedCreateNestedManyWithoutInsurersInput
     IllnessSurgery?: IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput
     IllnessType?: IllnessTypeUncheckedCreateNestedManyWithoutInsurersInput
     PolicyType?: PolicyTypeUncheckedCreateNestedManyWithoutInsurersInput
@@ -24548,6 +27397,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUpdateManyWithoutInsurersNestedInput
@@ -24561,6 +27411,7 @@ export namespace Prisma {
     registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     ClaimStatus?: ClaimStatusUncheckedUpdateManyWithoutInsurersNestedInput
     Claimants?: ClaimantsUncheckedUpdateManyWithoutInsurersNestedInput
+    DocumentType?: DocumentTypeUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessSurgery?: IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput
     IllnessType?: IllnessTypeUncheckedUpdateManyWithoutInsurersNestedInput
     PolicyType?: PolicyTypeUncheckedUpdateManyWithoutInsurersNestedInput
@@ -25089,6 +27940,78 @@ export namespace Prisma {
     Transactionclaim?: TransactionclaimUncheckedUpdateManyWithoutClaimStatusNestedInput
     Transactionclaimstatus?: TransactionclaimstatusUncheckedUpdateManyWithoutClaimStatusNestedInput
     Transactions?: TransactionsUncheckedUpdateManyWithoutClaimStatusNestedInput
+  }
+
+  export type InsurersCreateWithoutDocumentTypeInput = {
+    insurerid: number
+    insurercode?: number | null
+    insurername?: string | null
+    registrationdate?: Date | string | null
+    ClaimStatus?: ClaimStatusCreateNestedManyWithoutInsurersInput
+    Claimants?: ClaimantsCreateNestedManyWithoutInsurersInput
+    IllnessSurgery?: IllnessSurgeryCreateNestedManyWithoutInsurersInput
+    IllnessType?: IllnessTypeCreateNestedManyWithoutInsurersInput
+    PolicyType?: PolicyTypeCreateNestedManyWithoutInsurersInput
+    ServiceSetting?: ServiceSettingCreateNestedManyWithoutInsurersInput
+    Transactions?: TransactionsCreateNestedManyWithoutInsurersInput
+  }
+
+  export type InsurersUncheckedCreateWithoutDocumentTypeInput = {
+    insurerid: number
+    insurercode?: number | null
+    insurername?: string | null
+    registrationdate?: Date | string | null
+    ClaimStatus?: ClaimStatusUncheckedCreateNestedManyWithoutInsurersInput
+    Claimants?: ClaimantsUncheckedCreateNestedManyWithoutInsurersInput
+    IllnessSurgery?: IllnessSurgeryUncheckedCreateNestedManyWithoutInsurersInput
+    IllnessType?: IllnessTypeUncheckedCreateNestedManyWithoutInsurersInput
+    PolicyType?: PolicyTypeUncheckedCreateNestedManyWithoutInsurersInput
+    ServiceSetting?: ServiceSettingUncheckedCreateNestedManyWithoutInsurersInput
+    Transactions?: TransactionsUncheckedCreateNestedManyWithoutInsurersInput
+  }
+
+  export type InsurersCreateOrConnectWithoutDocumentTypeInput = {
+    where: InsurersWhereUniqueInput
+    create: XOR<InsurersCreateWithoutDocumentTypeInput, InsurersUncheckedCreateWithoutDocumentTypeInput>
+  }
+
+  export type InsurersUpsertWithoutDocumentTypeInput = {
+    update: XOR<InsurersUpdateWithoutDocumentTypeInput, InsurersUncheckedUpdateWithoutDocumentTypeInput>
+    create: XOR<InsurersCreateWithoutDocumentTypeInput, InsurersUncheckedCreateWithoutDocumentTypeInput>
+    where?: InsurersWhereInput
+  }
+
+  export type InsurersUpdateToOneWithWhereWithoutDocumentTypeInput = {
+    where?: InsurersWhereInput
+    data: XOR<InsurersUpdateWithoutDocumentTypeInput, InsurersUncheckedUpdateWithoutDocumentTypeInput>
+  }
+
+  export type InsurersUpdateWithoutDocumentTypeInput = {
+    insurerid?: IntFieldUpdateOperationsInput | number
+    insurercode?: NullableIntFieldUpdateOperationsInput | number | null
+    insurername?: NullableStringFieldUpdateOperationsInput | string | null
+    registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ClaimStatus?: ClaimStatusUpdateManyWithoutInsurersNestedInput
+    Claimants?: ClaimantsUpdateManyWithoutInsurersNestedInput
+    IllnessSurgery?: IllnessSurgeryUpdateManyWithoutInsurersNestedInput
+    IllnessType?: IllnessTypeUpdateManyWithoutInsurersNestedInput
+    PolicyType?: PolicyTypeUpdateManyWithoutInsurersNestedInput
+    ServiceSetting?: ServiceSettingUpdateManyWithoutInsurersNestedInput
+    Transactions?: TransactionsUpdateManyWithoutInsurersNestedInput
+  }
+
+  export type InsurersUncheckedUpdateWithoutDocumentTypeInput = {
+    insurerid?: IntFieldUpdateOperationsInput | number
+    insurercode?: NullableIntFieldUpdateOperationsInput | number | null
+    insurername?: NullableStringFieldUpdateOperationsInput | string | null
+    registrationdate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    ClaimStatus?: ClaimStatusUncheckedUpdateManyWithoutInsurersNestedInput
+    Claimants?: ClaimantsUncheckedUpdateManyWithoutInsurersNestedInput
+    IllnessSurgery?: IllnessSurgeryUncheckedUpdateManyWithoutInsurersNestedInput
+    IllnessType?: IllnessTypeUncheckedUpdateManyWithoutInsurersNestedInput
+    PolicyType?: PolicyTypeUncheckedUpdateManyWithoutInsurersNestedInput
+    ServiceSetting?: ServiceSettingUncheckedUpdateManyWithoutInsurersNestedInput
+    Transactions?: TransactionsUncheckedUpdateManyWithoutInsurersNestedInput
   }
 
   export type TransactionclaimCreateManyClaimStatusInput = {
@@ -25778,6 +28701,12 @@ export namespace Prisma {
     patientid?: number | null
   }
 
+  export type DocumentTypeCreateManyInsurersInput = {
+    id?: number
+    documenttypecode: string
+    documenttypename: string
+  }
+
   export type IllnessSurgeryCreateManyInsurersInput = {
     id?: number
     ISCode: string
@@ -25903,6 +28832,23 @@ export namespace Prisma {
     dateofbirth?: NullableStringFieldUpdateOperationsInput | string | null
     gender?: NullableStringFieldUpdateOperationsInput | string | null
     patientid?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type DocumentTypeUpdateWithoutInsurersInput = {
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DocumentTypeUncheckedUpdateWithoutInsurersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DocumentTypeUncheckedUpdateManyWithoutInsurersInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    documenttypecode?: StringFieldUpdateOperationsInput | string
+    documenttypename?: StringFieldUpdateOperationsInput | string
   }
 
   export type IllnessSurgeryUpdateWithoutInsurersInput = {
@@ -26082,6 +29028,14 @@ export namespace Prisma {
      * @deprecated Use transactionclaim2DefaultArgs instead
      */
     export type transactionclaim2Args<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = transactionclaim2DefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use ClaimDocumentsDefaultArgs instead
+     */
+    export type ClaimDocumentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = ClaimDocumentsDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DocumentTypeDefaultArgs instead
+     */
+    export type DocumentTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DocumentTypeDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

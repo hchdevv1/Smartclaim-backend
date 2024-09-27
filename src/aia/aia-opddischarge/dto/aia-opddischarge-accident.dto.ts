@@ -107,6 +107,15 @@ class QueryPatientBodyDto{
     @IsString()
     @IsOptional()
     ChiefComplaint?: string;
+
+    @IsString()
+    @IsOptional()
+    FurtherClaimId?: string;
+    
+    @IsString()
+    @IsOptional()
+    FurtherClaimNo?: string;
+
   }
 
   export class QueryAccidentInfoDto {

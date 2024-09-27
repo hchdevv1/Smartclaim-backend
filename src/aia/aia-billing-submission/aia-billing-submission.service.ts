@@ -11,7 +11,7 @@ export class AiaBillingSubmissionService {
     
     try{
    
-     
+     console.log(queryBillingSubmissionBodyDto)
        return queryBillingSubmissionBodyDto
       }catch(error)
       {

@@ -1,12 +1,16 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import { Injectable , HttpException, HttpStatus} from '@nestjs/common';
+import { Injectable , NotFoundException, HttpException, HttpStatus} from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
+import { readFileSync } from 'fs';
+import { join } from 'path';
 
 import { prismaProgest } from '../database/database';
 import { Prisma } from '../../prisma/generate-client-db';
 import { HttpStatusMessageService } from './http-status-message.service';
 import { aia_accessTokenDTO } from './dto/aia-accessToken.dto';
+//import { CreateClaimDocumentDto } from './dto/claim-documents.dto';
+import { QueryCreateClaimDocumentDtoBodyDto ,ResultAttachDocListInfoDto}from './dto/claim-documents.dto';
 
 
 const aesEcb = require('aes-ecb');
@@ -455,6 +459,42 @@ export class UtilsService {
    return diagnosisTypeMapping  
   }
   
+  async getDocumentType( xInsurercode: string) {
+    let documentType:any ;
+    try{
+      documentType = await prismaProgest.documentType.findMany({ 
+       
+      where:{
+        insurerid: +xInsurercode 
+       },  
+      select:{
+        documenttypecode :true,
+        documenttypename:true
+      },
+       })   
+        if (!documentType || documentType.length === 0) {
+          throw new HttpException('DocumentType not found', HttpStatus.NOT_FOUND);
+        }
+    } catch(error)
+      {
+         if (error instanceof Prisma.PrismaClientInitializationError) {
+            throw new HttpException(
+             {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+                message: httpStatusMessageService.getHttpStatusMessage( (HttpStatus.INTERNAL_SERVER_ERROR))
+              },HttpStatus.INTERNAL_SERVER_ERROR );
+          }else { 
+             if (error instanceof HttpException) {
+          // กรณีที่ error เป็น HttpException จะถูกโยนขึ้นไปยัง controller
+            throw error;
+         }  throw new HttpException(
+           {  statusCode: HttpStatus.INTERNAL_SERVER_ERROR,
+              message: httpStatusMessageService.getHttpStatusMessage((HttpStatus.INTERNAL_SERVER_ERROR))
+           },HttpStatus.INTERNAL_SERVER_ERROR );
+          }
+      }
+   return documentType  
+  }
+  
 // setDTOHTS(){
 
 //   let newaiaaccessTokenDTO = new aia_accessTokenDTO();
@@ -467,28 +507,252 @@ export class UtilsService {
 //   */
 
 
-//     newaiaaccessTokenDTO={ 
-//       accessTokenKey:'ttt',
-//       tokenStatus:'hhh',
-//       tokenType:'nnnn',
-//       expireIn:555,
-//       tokenIssueTime:'1234'
-//     }
-//     let HTTPStatus = new HttpMessageDto();
+async saveFile(file: Express.Multer.File ,body: QueryCreateClaimDocumentDtoBodyDto) {
+  console.log('22222')
+  console.log(file)
+  console.log('3333333')
+  const fileRecord = await prismaProgest.claimDocuments.create({
+    data: {
+      hn: body.HN, // ปรับข้อมูลตามที่ต้องการ
+      vn: body.VN,
+      refid: body.RefId,
+      transactionno: body.TransactionNo,
+      documenttypecode: body.DocumenttypeCode,
+      documenttypename: 'example-doc-type-name',
+      documentname: body.VN+'-'+body.DocumenttypeCode+'-'+Math.round(Math.random() * 186).toString(3)+'.'+file.mimetype.split('/')[1],
+      filesize: file.size,
+      filemimetype: file.mimetype,
+      serverpath: 'path-to-server', 
+      filepath: `./uploads/pdf/${file.filename}`, // เส้นทางที่เก็บไฟล์
+      uploaddate: new Date(),
+      uploadedby: body.UploadedBy
+    },
+  });
+  console.log('XXXXXX')
+console.log(fileRecord)
+  return fileRecord; // ส่งคืนข้อมูลที่บันทึกไว้
+}
 
-//     HTTPStatus ={
-//       statusCode:999,
-//       message:'',
-//       error:'',
+  // ฟังก์ชันดึงไฟล์เป็น Base64
+  async getFileAsBase64(id: number) {
+    const fileRecord = await prismaProgest.claimDocuments.findFirst({
+      where: { id },
+    });
+
+    if (!fileRecord) {
+      throw new NotFoundException('File not found');
+    }
+console.log('kkkkk')
+console.log(fileRecord)
+const filePath = join(__dirname, '..', '..', fileRecord.filepath);
+    const fileBuffer = readFileSync(filePath);
+    const base64File = fileBuffer.toString('base64');
+
+    return {
+      filename: fileRecord.filepath.split('/').pop(), // ชื่อไฟล์
+      base64: base64File, // ข้อมูลไฟล์เป็น Base64
+    };
+  
+}
+
+async getFilesAsBase64findMany(ids: string) {
+  console.log(ids)
+  const fileRecords = await prismaProgest.claimDocuments.findMany({
+    where: {
+     // id: { in: ids }, // ดึงไฟล์ตามอาเรย์ของ ID
+      hn: ids
+    },
+  });
+
+  if (fileRecords.length === 0) {
+    throw new NotFoundException('Files not found');
+  }
+
+  const filesAsBase64 = await Promise.all(
+    fileRecords.map(async (fileRecord) => {
+      const filePath = join(__dirname, '..', '..', fileRecord.filepath);
+      const fileBuffer = readFileSync(filePath);
+      const base64File = fileBuffer.toString('base64');
+      return {
+        filename: fileRecord.filepath.split('/').pop(), // ชื่อไฟล์
+        base64: base64File, // ข้อมูลไฟล์เป็น Base64
+      };
+    }),
+  );
+
+  return filesAsBase64;
+}
+async getlistDocumentName(queryCreateClaimDocumentDtoBodyDto: QueryCreateClaimDocumentDtoBodyDto) {
+  
+  const HN =queryCreateClaimDocumentDtoBodyDto.HN;
+  const VN = queryCreateClaimDocumentDtoBodyDto.VN;
+  const RefId = queryCreateClaimDocumentDtoBodyDto.RefId;
+  const TransactionNo = queryCreateClaimDocumentDtoBodyDto.TransactionNo;
+  const fileRecords = await prismaProgest.claimDocuments.findMany({
+    where: {
+      hn: HN,
+      refid:RefId,
+      transactionno:TransactionNo,
+      vn:VN
+    },
+  });
+  const filesAsBase64 = await Promise.all(
+    fileRecords.map(async (fileRecord) => {
+      const filePath = join(__dirname, '..', '..', fileRecord.filepath);
+      const fileBuffer = readFileSync(filePath);
+      const base64File = fileBuffer.toString('base64');
+      return {
+        
+        filename: fileRecord.documentname //fileRecord.filepath.split('/').pop(), // ชื่อไฟล์
+        //base64: base64File, // ข้อมูลไฟล์เป็น Base64
+      };
+    }),
+  );
+ // console.log(filename)
+return filesAsBase64
+}
+//getDocumentByDocname
+async getDocumentByDocname(queryCreateClaimDocumentDtoBodyDto: QueryCreateClaimDocumentDtoBodyDto) {
+  
+  const HN =queryCreateClaimDocumentDtoBodyDto.HN;
+  const VN = queryCreateClaimDocumentDtoBodyDto.VN;
+  const RefId = queryCreateClaimDocumentDtoBodyDto.RefId;
+  const TransactionNo = queryCreateClaimDocumentDtoBodyDto.TransactionNo;
+  const DocumentName = queryCreateClaimDocumentDtoBodyDto.DocumentName;
+  const DocumenttypeCode = queryCreateClaimDocumentDtoBodyDto.DocumenttypeCode||'';
+ 
+  //   filepath: './uploads/pdf/1727412324104-129258465.pdf',
+ const fileRecord = await prismaProgest.claimDocuments.findFirst({
+       where: {
+     vn:VN,
+     documentname: DocumentName //queryCreateClaimDocumentDtoBodyDto.DocumentName
+    }
+    });
+
+    if (!fileRecord) {
+      throw new NotFoundException('File not found');
+    }
+console.log(fileRecord)
+    const filePath = join(__dirname, '..', '..', fileRecord.filepath);
+    const fileBuffer = readFileSync(filePath);
+    const base64File = fileBuffer.toString('base64');
+    console.log('-------')
+console.log(filePath)
+console.log('-------')
+    return {
+      filename: fileRecord.filepath.split('/').pop(), // ชื่อไฟล์
+      base64: base64File, // ข้อมูลไฟล์เป็น Base64
+    };
+  }
+async getListDocumentByRefId(queryCreateClaimDocumentDtoBodyDto: QueryCreateClaimDocumentDtoBodyDto) {
+  
+    // const HN =queryCreateClaimDocumentDtoBodyDto.HN;
+     const VN = queryCreateClaimDocumentDtoBodyDto.VN;
+     const RefId = queryCreateClaimDocumentDtoBodyDto.RefId;
+     const TransactionNo = queryCreateClaimDocumentDtoBodyDto.TransactionNo;
+     //const DocumentName = queryCreateClaimDocumentDtoBodyDto.DocumentName;
+     //const DocumenttypeCode = queryCreateClaimDocumentDtoBodyDto.DocumenttypeCode||'';
+       const fileRecords = await prismaProgest.claimDocuments.findMany({
+        where: {
+           vn:VN,
+           refid:RefId,
+           transactionno:TransactionNo
+       }
+       });
+       if (fileRecords.length === 0) {
+         throw new NotFoundException('Files not found');
+       }
+       let newResultAttachDocListInfoDto: ResultAttachDocListInfoDto[] = [];
       
-//     }
+       const filesAsBase64 = await Promise.all(
+         fileRecords.map(async (fileRecord) => {
+           const filePath = join(__dirname, '..', '..', fileRecord.filepath);
+           const fileBuffer = readFileSync(filePath);
+           const base64File = fileBuffer.toString('base64');
+          
+           newResultAttachDocListInfoDto = [
+             {
+               DocName: fileRecord.filepath.split('/').pop(), // ชื่อไฟล์
+               Base64Data: base64File, // ข้อมูลไฟล์เป็น Base64
+             
+           }
+           ];
+         }),
+       );
+       
+      
+       return newResultAttachDocListInfoDto;
+     }
 
-// const yyy ={
-//   FFF:newaiaaccessTokenDTO,
-//   HTTPStatus
-// }
+async getListDocumentByRefId2(inputVN:string ,inputRefId:string,inputTransectionNo:string) {
+  
+       const AIA_APISecretkey = process.env.AIA_APISecretkey;
+       const VN = inputVN;
+       const RefId = inputRefId;
+       const TransactionNo = inputTransectionNo;
+       //const DocumentName = queryCreateClaimDocumentDtoBodyDto.DocumentName;
+       //const DocumenttypeCode = queryCreateClaimDocumentDtoBodyDto.DocumenttypeCode||'';
+         const fileRecords = await prismaProgest.claimDocuments.findMany({
+          where: {
+             vn:VN,
+             refid:RefId,
+             transactionno:TransactionNo
+         }
+         });
+         if (fileRecords.length === 0) {
+           throw new NotFoundException('Files not found');
+         }
+         let newResultAttachDocListInfoDto: ResultAttachDocListInfoDto[] = [];
+        
+         const filesAsBase64 = await Promise.all(
+           fileRecords.map(async (fileRecord) => {
+             const filePath = join(__dirname, '..', '..', fileRecord.filepath);
+             const fileBuffer = readFileSync(filePath);
+             const base64File = fileBuffer.toString('base64');
+            
+             newResultAttachDocListInfoDto = [
+               {
+                 DocName: fileRecord.filepath.split('/').pop(), // ชื่อไฟล์
+                 Base64Data: await this.EncryptAESECB( base64File,AIA_APISecretkey) , // ข้อมูลไฟล์เป็น Base64
+                  
+             }
+             ];
+           }),
+         );
+         
+        
+         return newResultAttachDocListInfoDto;
+       }
+  // 
+// async uploadDocuments(queryCreateClaimDocumentDtoBodyDto: QueryCreateClaimDocumentDtoBodyDto) {
+//   const RefId = queryCreateClaimDocumentDtoBodyDto.RefId;
+//   const TransactionNo = queryCreateClaimDocumentDtoBodyDto.TransactionNo;
+//   const HN =queryCreateClaimDocumentDtoBodyDto.HN;
+//   const VN = queryCreateClaimDocumentDtoBodyDto.VN;
+//   const DocumentName = queryCreateClaimDocumentDtoBodyDto.DocumentName;
 
+//   console.log(HN);
+//   const fileRecords = await prismaProgest.claimDocuments.findMany({
+//     where: {
+//      // id: { in: ids }, // ดึงไฟล์ตามอาเรย์ของ ID
+//       hn: '437536-45'
+//     },
+//   });
 
-//     return yyy
+//   const filesAsBase64 = await Promise.all(
+//     fileRecords.map(async (fileRecord) => {
+//       const filePath = join(__dirname, '..', '..', fileRecord.filepath);
+//       const fileBuffer = readFileSync(filePath);
+//       const base64File = fileBuffer.toString('base64');
+//       return {
+        
+//         filename: fileRecord.documentname //fileRecord.filepath.split('/').pop(), // ชื่อไฟล์
+//         //base64: base64File, // ข้อมูลไฟล์เป็น Base64
+//       };
+//     }),
+//   );
+//  // console.log(filename)
+//   console.log('XXoooooXX')
+// return filesAsBase64
 // }
 }
