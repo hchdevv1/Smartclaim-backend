@@ -139,6 +139,12 @@ async getListDocumentByRefId(@Body() queryCreateClaimDocumentDtoBodyDto:QueryCre
   return fileData;
 }
 
+@Post('/UpdateDocumentTypeCode') //prod
+async UpdateDocumentTypeCode(@Body() querylistDocumentNameDtoBodyDto:QuerylistDocumentNameDtoBodyDto){
+ 
+  const fileData = await this.utilsService.UpdateDocumentTypeCode(querylistDocumentNameDtoBodyDto);
+  return fileData;
+}
 // QueryDeleteDocumentByDocNameDto
 @Post('/DeleteDocumentByDocName') //prod
 async DeleteDocumentByDocName(@Body() queryDeleteDocumentByDocNameDto:QueryDeleteDocumentByDocNameDto){
